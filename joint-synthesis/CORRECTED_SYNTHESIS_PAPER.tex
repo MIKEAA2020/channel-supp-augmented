@@ -477,6 +477,11 @@ For any nonempty metric space $(K,d)$ define
 with the instrument diamond metric when $K\subseteq\Inst_n(A,B)$.
 \end{definition}
 
+\begin{remark}[Terminology for the three radius notions]
+\label{rem:radius-terminology}
+Three distinct radius-like quantities are used throughout this paper, always written with their qualifiers: (i) the \emph{centred relative in-radius} $\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)$, the largest relative ball about a fixed centre that is contained in the body; (ii) the \emph{worst-case covering radius} $R_{\mathrm{inst}}(\Psi)$, the maximal distance from a centre to the body; and (iii) the \emph{antipodal profile} $\alpha_r$, a width-like sequence of sphere index $r$, which is not the radius of any ball. The word ``radius'' without a qualifier is avoided.
+\end{remark}
+
 \begin{proposition}[Monotonicity of profiles, widths, and envelopes]
 \label{prop:monotonicity}
 For every nonempty metric space $K$,
@@ -775,6 +780,19 @@ Throughout the compression-width results, an encoder is required to be continuou
 For compact metric $K\subseteq L$ we also use $\delta_r^{\mathrm c}(K;L)$, the analogous width with arbitrary decoder into $L$.
 \end{definition}
 
+\begin{remark}[Decoder codomain does not weaken the lower bounds]
+\label{rem:decoder-codomain}
+Since $\RepInst_n(A,B)\subset\Inst_n(A,B)\subset\mathfrak A_{A,B}^{(n)}$, and the triangle inequality $\|h(u)-\Psi\|_{\diamond,\mathrm{inst}}+\|h(-u)-\Psi\|_{\diamond,\mathrm{inst}}\ge\|h(u)-h(-u)\|_{\diamond,\mathrm{inst}}$ holds for every $\Psi$ in the ambient vector space $\bigoplus_k\Lin(A,B)$, the lower bounds of Corollaries~\ref{cor:intrinsic} and \ref{cor:euclidean} are proved for decoders with values in the full affine space $\mathfrak A_{A,B}^{(n)}$ --- a strictly stronger statement than for instrument-valued decoders. Hence
+\[
+\beta_r^{\mathrm{best},(n)}(A,B)
+\le\delta_r^{\mathrm c}(\Inst_n(A,B);\mathfrak A_{A,B}^{(n)})
+\le\delta_r^{\mathrm c}(\Inst_n(A,B);\Inst_n(A,B))
+=\delta_{r,\mathrm{inst}}^{\diamond}(A,B)
+\le U_r^{(n)}(A,B).
+\]
+Allowing unphysical affine decoders cannot circumvent the certified lower envelope; and because the optimal constant-code centre $\mathcal I_*$ is itself an instrument (Theorem~\ref{thm:covering}), the constant-code width coincides over both codomains (Corollary~\ref{cor:constant-code}), so every upper bound of this paper is admissible with a physical instrument decoder.
+\end{remark}
+
 \begin{corollary}[Certified width bracket]
 \label{cor:bracket}
 Assume $nd_B>1$. For $0\le r<D_{A,B}^{(n)}$,
@@ -787,7 +805,7 @@ where $U_r^{(n)}$ is defined in Definition~\ref{def:upper}. For $r\ge D_{A,B}^{(
 \end{corollary}
 
 \begin{proof}
-For $0\le r\le L_{A,B}^{(n)}$ the replacement sphere, observable sphere, or observable--replacement join supplies a continuous map $h:S^r\to\Inst_n(A,B)$ with antipodal distance $2$; composing with any continuous encoder $f$ gives $f\circ h:S^r\to\mathbb R^r$, and Borsuk--Ulam produces $u$ with $f(h(u))=f(h(-u))$. The decoder returns one reconstruction for the pair, and the triangle inequality forces error at least $1=\beta_r^{\mathrm{best},(n)}$. For $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$, the centred ball gives antipodal separation $2\rho_n$ (via the radial map of Corollary~\ref{cor:intrinsic}, which needs only $r+1\le D_n$) while Theorem~\ref{thm:full-direction} gives separation $2/d_A$; taking the stronger yields separation $2\gamma_{A,B}^{(n)}$, hence error at least $\gamma_{A,B}^{(n)}$. The upper terms are Theorems~\ref{thm:covering} and \ref{thm:pinching} and Proposition~\ref{prop:convex}; exact reconstruction for $r\ge D_{A,B}^{(n)}$ is Theorem~\ref{thm:zero-error}.
+For $0\le r\le L_{A,B}^{(n)}$ the replacement sphere, observable sphere, or observable--replacement join supplies a continuous map $h:S^r\to\Inst_n(A,B)$ with antipodal distance $2$; composing with any continuous encoder $f$ gives $f\circ h:S^r\to\mathbb R^r$, and Borsuk--Ulam produces $u$ with $f(h(u))=f(h(-u))$. The decoder returns one reconstruction for the pair, and the triangle inequality forces error at least $1=\beta_r^{\mathrm{best},(n)}$. The argument applies verbatim to decoders valued in the ambient affine space $\mathfrak A_{A,B}^{(n)}$ (Remark~\ref{rem:decoder-codomain}), which only strengthens the lower bound. For $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$, the centred ball gives antipodal separation $2\rho_n$ (via the radial map of Corollary~\ref{cor:intrinsic}, which needs only $r+1\le D_n$) while Theorem~\ref{thm:full-direction} gives separation $2/d_A$; taking the stronger yields separation $2\gamma_{A,B}^{(n)}$, hence error at least $\gamma_{A,B}^{(n)}$. The upper terms are Theorems~\ref{thm:covering} and \ref{thm:pinching} and Proposition~\ref{prop:convex}; exact reconstruction for $r\ge D_{A,B}^{(n)}$ is Theorem~\ref{thm:zero-error}.
 \end{proof}
 
 For a Hausdorff latent space $Y$, recall the deleted product
@@ -1051,6 +1069,8 @@ as $n\to\infty$. Thus the product has a finite large-$n$ limit despite the linea
 \begin{remark}[Error-one barrier, scoped]
 \label{rem:barrier}
 For $r<D_{A,B}^{(n)}$ every admissible term of the upper envelope presented in this paper is at least $1$ (Proposition~\ref{prop:floor}). Consequently the three constructions of this paper --- constant codes, linear/convex projection with Helly selection, and balanced block pinching --- cannot achieve error $\varepsilon<1$ in the intermediate regime $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$. This is a statement about the specific constructions presented here, not a universal impossibility; nonlinear manifold encodings or other families of decoders are not excluded.
+
+Two candidate tools, however, do \emph{not} break the barrier, and it is worth recording why. (i) \emph{Covering-number encodings.} An $\varepsilon$-net of a $D$-dimensional convex body has size $N(\varepsilon)\ge(r_0/\varepsilon)^{D}$ up to constants, where $r_0$ is the radius of any ball inscribed in the body (which exists by full affine dimension, and transfers between equivalent norms), so a net-based code needs $\Theta(D\log_2(1/\varepsilon))$ bits --- more than $D$ bits for every $\varepsilon<r_0/2$. The affine encoding already achieves error $0$ with exactly $D$ coordinates (Theorem~\ref{thm:zero-error}); nets are therefore strictly dominated by affine coordinates and cannot certify sub-one error below the affine threshold. (ii) \emph{Orthogonal joins of full-body spheres.} These are precisely the constructions already absorbed into $\beta_r^{\mathrm{best},(n)}$ in Section~\ref{sec:lower}; they certify the value $1$ up to $L_{A,B}^{(n)}$ and cannot extend the separation-two regime beyond it.
 \end{remark}
 
 \section{Specialisations, examples, and explicit trade-off}

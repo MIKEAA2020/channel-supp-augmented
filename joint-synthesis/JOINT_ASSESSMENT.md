@@ -204,7 +204,6 @@ summary* — γ is in the abstract and in β^best.**
 
 All accepted findings are implemented in **`CORRECTED_SYNTHESIS_PAPER.tex`** in this
 folder: a complete, self-contained, compilable manuscript with
-
 - corrected title and abstract (exact vs certified; degenerate case; γ; bracket;
   zero-error threshold; operational factor 1/4);
 - full proofs of: affine dimension; spectral bound (max{0,·}); instrument ball
@@ -226,3 +225,56 @@ Numbering map (synthesis → ledger): Theorem 3.1 (B2), 3.2 (B3/B4), 3.3 (B14), 
 (B5), 3.5 (B13), 3.6 (B6/B7/B8), 3.8 (A7), 3.9 (B9), 4.2 (A1/A8), 4.4 (A4), 4.5
 (A2/A3), 4.6/4.7/4.10/4.11 (E9/E10/E11), 5.1–5.6 (C1–C4, C7), 5.11–5.15 (C8–C12),
 6.3 (D5), Appendix A (D6/D7), Figure 1 (C12/C13), Table 1 (E4).
+
+---
+
+## 6. Residual sweep — final three points, implemented after the first synthesis
+
+A second pass over every audit point (all 50 chatgpt items, both deepseek batches
+plus its "still to be applied" list, qwen's 20 sections, qwen 2b's 7 items,
+qwen2a's 6 items, all 11 qwen3 batches, and the four independent audits) found
+exactly three items not yet implemented. They are now in the paper:
+
+1. **Radius terminology remark** (chatgpt #36; deepseek list item 10;
+   AUDIT_RESPONSE "radius senses"). Implemented as Remark "Terminology for the
+   three radius notions" (after Definition of α_r): centred relative in-radius,
+   worst-case covering radius, and antipodal profile are explicitly distinguished,
+   and unqualified "radius" is avoided. **As-is.**
+
+2. **Decoder-codomain hierarchy** (augmented manuscript Remark "Decoder codomain
+   hierarchy"; AUDIT_RESPONSE P2-7). Implemented as Remark "Decoder codomain does
+   not weaken the lower bounds" after the width definition: since the triangle
+   inequality holds for every point of the ambient affine space, the certified
+   lower bounds hold even for unphysical affine-valued decoders, giving the chain
+   β^best ≤ δ^c(Inst;𝔄) ≤ δ^c(Inst;Inst) = δ^⋄ ≤ U, with constant-code
+   admissibility (I_* ∈ Inst) making the upper bounds physical. **As-is.**
+
+3. **Covering-number "barrier-breaking" parenthetical, corrected** (augmented
+   manuscript Error-1 remark; my AUDIT-1 P3-4). The original suggestion that
+   "covering-number bounds log N(ε) ≤ r log(1/ε) with ε<1" could break the
+   error-one barrier is **mathematically wrong as stated**: an ε-net of a
+   D-dimensional convex body needs Θ(D log₂(1/ε)) bits, which exceeds D for every
+   ε < r₀/2, so nets are strictly dominated by the affine encoding (error 0 at
+   exactly D coordinates). Implemented **in corrected form** in the barrier
+   remark: two paragraphs proving why (i) net encodings and (ii) orthogonal
+   joins (already absorbed into β^best) cannot break the barrier. **Modified.**
+
+### Deliberately not implemented (with reasons)
+
+- deepseek's retraction of 1/d_A to a conjecture — superseded by the full-direction
+  theorem (adjudication §2.1).
+- chatgpt's "Option A: delete the observable sphere" — superseded by the formal
+  observable/join package (§2.3).
+- The tensor-identity orientation point (chatgpt #38, deepseek list 11) — moot:
+  the corrected paper never uses ‖Φ⊗id‖; composition submultiplicativity is used
+  where it is valid (pinching).
+- The "β^dir" symbol (AUDIT_RESPONSE) — dropped in favour of the single γ-based
+  envelope.
+- qwen3's "optional: shorten the appendix by deleting the unequal-output
+  corollary" — the corollary is retained (valid, one paragraph, completes the
+  appendix's physical picture).
+- chatgpt #22 (attribute the replacement distance in the abstract to the isometry
+  lemma) — cosmetic; the attribution is present in the body (Theorem 4.4).
+
+With this sweep, **every audit point is either implemented, adjudicated as
+superseded, or explicitly rejected with a documented reason.**
