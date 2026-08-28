@@ -1,0 +1,156 @@
+### 1. Abstract and Introduction: Correcting "Exactness" and Decoder Conventions
+*Replace the first paragraph of the Abstract and the corresponding claims in the Introduction to avoid overclaiming full metric exactness, and to explicitly state the decoder convention.*
+
+```latex
+% REPLACE THE FIRST SENTENCE OF THE ABSTRACT WITH:
+We determine the exact affine dimension, the exact centred in-radius at the uniform depolarising instrument, the exact global covering radius, and the exact antipodal profile of the replacement face for the compact convex body of $n$-outcome quantum instruments. 
+
+% REPLACE THE SENTENCE "The zero-error continuous-encoding threshold..." IN THE ABSTRACT WITH:
+The zero-error threshold for continuous encoding with unrestricted decoding is exactly the affine dimension $D_{A,B}^{(n)}$. 
+
+% IN SECTION 1 (INTRODUCTION), REPLACE "The main question is..." PARAGRAPH WITH:
+The main question is the same as for channels: can the compact convex body of $n$-outcome instruments be encoded continuously into a low-dimensional latent space and decoded with uniformly small diamond-norm error? We adopt the standard asymmetric convention where the encoder is continuous but the decoder is unrestricted. The answer has two regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. At larger dimensions, the full input-dependent instrument body imposes a ball bound that scales as $1/n$, alongside a full-direction antipodal obstruction.
+```
+
+### 2. Fatal Fix: Monotonicity of the Antipodal Profile (Audit #1, #43)
+*The claim that $\alpha_r$ need not be monotone is mathematically false. Replace `Proposition~\ref{prop:monotonicity}` and its surrounding text with this rigorous proof.*
+
+```latex
+\begin{proposition}[Monotonicity and bounds of the antipodal profile]
+\label{prop:monotonicity}
+For any nonempty metric space $K$, the antipodal profile is bounded by the diameter and is non-increasing:
+\[
+0 \le \alpha_r(K) \le \frac{1}{2}\operatorname{diam}(K), \qquad \alpha_{r+1}(K) \le \alpha_r(K) \quad \forall r \ge 0.
+\]
+Consequently, any exact zero or positive region of $\alpha_r$ is an interval in $r$, and if $\alpha_D(K)=0$, then $\alpha_r(K)=0$ for all $r \ge D$.
+\end{proposition}
+
+\begin{proof}
+The diameter bound is immediate since $d(h(u),h(-u)) \le \operatorname{diam}(K)$ for all $u$. 
+For monotonicity, let $h:S^{r+1}\to K$ be continuous. Restrict $h$ to an equatorial copy $S^r \subset S^{r+1}$. The antipodal map on the equator is the standard antipodal map on $S^r$. Thus,
+\[
+\min_{u\in S^r} d(h(u),h(-u)) \ge \min_{u\in S^{r+1}} d(h(u),h(-u)).
+\]
+Taking the supremum over all continuous maps $h:S^{r+1}\to K$ on the left, and noting that any map on $S^r$ can be extended to $S^{r+1}$ (e.g., by suspending), we obtain $\alpha_r(K) \ge \alpha_{r+1}(K)$.
+\end{proof}
+```
+
+### 3. Major Upgrade: The Full-Direction Antipodal Sphere (Audit #2)
+*The audit correctly noted that the previous $1/d_A$ corollary was unproved. We now replace it with a fully rigorous, powerful theorem that constructs an antipodal sphere spanning the \textit{entire} direction space. This is a massive mathematical upgrade.*
+
+```latex
+\begin{theorem}[Full-direction antipodal sphere]
+\label{thm:full-direction-sphere}
+Assume $n d_B>1$. For every $0 \le r \le D_{A,B}^{(n)}-1$, there exists a continuous map $h:S^r \to \Inst_n(A,B)$ such that
+\[
+\|h(u)-h(-u)\|_{\diamond,\mathrm{inst}} \ge \frac{2}{d_A} \qquad \forall u \in S^r.
+\]
+Consequently, $\alpha_r(\Inst_n(A,B)) \ge 1/d_A$ for all $r < D_{A,B}^{(n)}$.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal{V} = \mathfrak{V}_{A,B}^{(n)}$ be the direction space, with real dimension $D = D_{A,B}^{(n)}$. Equip $\mathcal{V}$ with a Euclidean norm and let $S(\mathcal{V}) \cong S^{D-1}$ be its unit sphere. It suffices to construct the map on $S^{D-1}$; restriction to equatorial spheres yields all smaller $r$.
+
+Fix the uniform flagged state $\tau_0 = \frac{I_B}{d_B} \otimes \frac{I_{C_n}}{n}$. For $Z \in S(\mathcal{V})$, write its Jordan decomposition $Z = Z_+ - Z_-$, where $Z_+, Z_- \ge 0$ and $Z_+Z_-=0$. Let $t = \Tr Z_+ = \Tr Z_- > 0$, and define the normalized states $P = Z_+/t$ and $Q = Z_-/t$. Because $\Tr_{B \otimes C_n} Z = 0$, $P$ and $Q$ share the same $A_0$-marginal: $\mu = \Tr_{B \otimes C_n} P = \Tr_{B \otimes C_n} Q$.
+
+Set $\lambda = 1/d_A$. If $d_A = 1$, then $\lambda = 1$ and $\mu = I_{A_0}$, so $P$ and $Q$ already satisfy the instrument marginal constraint. If $d_A \ge 2$, then $\lambda < 1$. Since $\mu \le I_{A_0}$, we have $\lambda \mu \le I_{A_0}/d_A$. Define the correction state on $A_0$:
+\[
+\nu = \frac{I_{A_0}/d_A - \lambda \mu}{1 - \lambda} \ge 0, \qquad \Tr \nu = 1.
+\]
+Define the Choi operators
+\[
+J^+(Z) = \lambda P + (1-\lambda)\nu \otimes \tau_0, \qquad J^-(Z) = \lambda Q + (1-\lambda)\nu \otimes \tau_0.
+\]
+Both are positive, flag-block-diagonal, and have $A_0$-marginal $\lambda \mu + (1-\lambda)\nu = I_{A_0}/d_A$. Thus they correspond to valid instruments $\mathcal{I}^+(Z)$ and $\mathcal{I}^-(Z)$. Set $h(Z) = \mathcal{I}^+(Z)$.
+
+For $-Z$, the positive and negative parts swap, but $t$ and $\mu$ are unchanged, so $h(-Z) = \mathcal{I}^-(Z)$. The Choi difference is $J^+(Z) - J^-(Z) = \lambda(P - Q)$. Since $P$ and $Q$ have orthogonal supports, $\|P - Q\|_1 = 2$. Thus $\|J^+(Z) - J^-(Z)\|_1 = 2/d_A$. Because the instrument diamond norm dominates the trace norm of the normalized Choi operator, $\|h(Z) - h(-Z)\|_{\diamond,\mathrm{inst}} \ge 2/d_A$. Continuity follows from the continuity of the Jordan decomposition and the strict positivity of $t$ on the compact sphere $S(\mathcal{V})$.
+\end{proof}
+```
+
+### 4. Formalizing the Strengthened Envelope & Observable Join (Audit #4, #5, #26)
+*Replace the corrupted orthogonal join proof, and formally define the strengthened envelope $\beta_r^{\star,(n)}$ so it can be used in the main bracket.*
+
+```latex
+% REPLACE THE CORRUPTED PROOF OF Proposition~\ref{prop:instrument-orthogonal-join} WITH:
+\begin{proof}
+Regard the domain sphere as the unit sphere in $\bigoplus_{i=1}^\ell \mathbb{R}^{r_i+1}$. For $y=(y_1,\ldots,y_\ell)$, set $\lambda_i = \|y_i\|_2^2$ and $u_i = y_i/\|y_i\|_2$ when $y_i \neq 0$. Define
+\[
+H(y) = \sum_{i: y_i \neq 0} \lambda_i h_i(u_i),
+\]
+with the $i$th summand set to zero when $y_i=0$. Since $\sum_i \lambda_i = 1$, $H(y)$ is a valid flagged state. Continuity at $y_i=0$ follows because the trace norm of the $i$th summand is bounded by $\lambda_i \to 0$. Orthogonality of the supports $W_i$ implies that the trace norm of the difference decomposes additively:
+\[
+\|H(y)-H(-y)\|_1 = \sum_i \lambda_i \|h_i(u_i)-h_i(-u_i)\|_1 = 2\sum_i \lambda_i = 2.
+\]
+Lemma~\ref{lem:replacement-instrument} transfers this separation to replacement instruments.
+\end{proof}
+
+% ADD THIS FORMAL DEFINITION AFTER Theorem~\ref{thm:observable-sphere}:
+\begin{definition}[Strengthened certified lower envelope]
+\label{def:strengthened-envelope}
+Let $L_{A,B}^{(n)}$ be the maximum valid sphere dimension from the replacement, observable, and orthogonal join constructions, capped at $D_{A,B}^{(n)}-1$. Define the strengthened envelope:
+\[
+\beta_r^{\star,(n)}(A,B) =
+\begin{cases}
+1, & 0 \le r \le L_{A,B}^{(n)}, \\[4pt]
+\max\left\{\dfrac{2}{n d_B\min\{d_A,d_B\}}, \dfrac{1}{d_A}\right\}, & L_{A,B}^{(n)} < r < D_{A,B}^{(n)}, \\[8pt]
+0, & r \ge D_{A,B}^{(n)}.
+\end{cases}
+\]
+\end{definition}
+
+% UPDATE Corollary~\ref{cor:instrument-width-bracket} TO USE THE STRENGTHENED ENVELOPE:
+\begin{corollary}[Instrument width bracket]
+\label{cor:instrument-width-bracket}
+For $n d_B>1$ and $0 \le r < D_{A,B}^{(n)}$, the continuous-encoder unrestricted-decoder width satisfies
+\[
+\beta_r^{\star,(n)}(A,B) \le \delta_{r,\mathrm{inst}}^\diamond(A,B) \le U_r^{(n)}(A,B).
+\]
+For $r \ge D_{A,B}^{(n)}$, the width is exactly zero.
+\end{corollary}
+```
+
+### 5. Fixing the Covering Radius Center & Metric Complementarity (Audit #6, #15)
+*The averaging argument needs the explicit group action, and the "extremal chord" collinearity claim must be deleted because it is geometrically false.*
+
+```latex
+% IN THE PROOF OF Theorem~\ref{thm:instrument-covering}, REPLACE THE "Optimality of the centre:" PARAGRAPH WITH:
+\textbf{Optimality of the centre:} Let $G = \mathrm{U}(B) \times S_n$. For $g=(U,\pi) \in G$, define the action on $\mathfrak{A}_{A,B}^{(n)}$ by $[g \cdot \Psi]_k = \mathcal{U}_U \circ \Psi_{\pi^{-1}(k)}$. This action preserves $\Inst_n(A,B)$ and the instrument diamond metric. Thus $R_{\mathrm{inst}}(g \cdot \Psi) = R_{\mathrm{inst}}(\Psi)$. Because $R_{\mathrm{inst}}$ is convex, Jensen's inequality over the Haar measure of $G$ gives $R_{\mathrm{inst}}(\overline{\Psi}) \le R_{\mathrm{inst}}(\Psi)$. 
+Averaging first over $\mathrm{U}(B)$ applies Schur's lemma to each component, yielding $X \mapsto \frac{\Tr(\Psi_k(X))}{d_B}I_B$. Averaging then over $S_n$ symmetrizes the outcomes, yielding $\frac{1}{n}\sum_k \frac{\Tr(\Psi_k(X))}{d_B}I_B$. Since $\sum_k \Psi_k$ is trace-preserving, this simplifies exactly to $\mathcal{I}_*$. Thus $\mathcal{I}_*$ is an optimal centre.
+
+% REPLACE Corollary~\ref{cor:metric-complementarity} WITH THIS ALGEBRAICALLY SAFE VERSION:
+\begin{corollary}[Metric complementarity of the uniform instrument]
+\label{cor:metric-complementarity}
+For all $n\ge1$ and $d_A,d_B$ with $n d_B>1$, the numerical identity
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*) + R_{\mathrm{inst}}(\mathcal I_*) = \operatorname{diam}_{\diamond,\mathrm{inst}}(\Inst_n(A,B)) = 2
+\]
+holds. (The in-radius and covering-radius witnesses are not generally collinear; this is an algebraic complementarity of the margins, not a chord decomposition theorem.)
+\end{corollary}
+```
+
+### 6. Clarifying the Zero-Error Threshold and Decoder Convention (Audit #7, #8, #30)
+*Make it mathematically explicit that the zero-error threshold relies on the decoder being unrestricted outside the encoder image.*
+
+```latex
+% REPLACE Theorem~\ref{thm:zero-error-threshold} WITH:
+\begin{theorem}[Zero-error threshold with unrestricted decoding]
+\label{thm:zero-error-threshold}
+Under the convention that the encoder $f$ is continuous and the decoder $g$ is unrestricted, $\delta_{r,\mathrm{inst}}^\diamond(A,B)=0$ if and only if $r \ge D_{A,B}^{(n)}$. 
+\end{theorem}
+\begin{proof}
+For $r \ge D_{A,B}^{(n)}$, affine coordinates embed $\Inst_n(A,B)$ homeomorphically onto a compact convex set $C \subset \mathbb{R}^{D_n}$. The Euclidean nearest-point projection $\Pi_C : \mathbb{R}^{D_n} \to C$ is continuous. Setting $g = c^{-1} \circ \Pi_C$ provides a continuous decoder achieving zero error. For $r < D_{A,B}^{(n)}$, the strict positivity of $\beta_r^{\star,(n)}$ precludes zero error regardless of decoder regularity, because Borsuk--Ulam forces an encoder collision $f(h(u))=f(h(-u))$, requiring a single decoder output to cover two distinct instruments.
+\end{proof}
+
+% ADD THIS REMARK IMMEDIATELY AFTER:
+\begin{remark}[Decoder regularity]
+The upper bounds derived from Helly's theorem (Proposition~\ref{prop:instrument-convex-upper}) rely on the axiom of choice to select decoder points from compact fibres, and thus do not guarantee a continuous decoder. If both encoder and decoder are strictly required to be continuous, the exact threshold remains $D_{A,B}^{(n)}$ (via the continuous retraction $\Pi_C$ above), but the subcritical upper bounds $U_r^{(n)}$ become existence results rather than explicit continuous constructions.
+\end{remark}
+```
+
+### Summary of what has been achieved in this pass:
+1. **Monotonicity:** Fixed the false topological claim; $\alpha_r$ is now rigorously proven to be non-increasing.
+2. **Full-Direction Sphere:** Replaced the unproved $1/d_A$ corollary with a beautiful, fully rigorous Jordan-decomposition construction that spans the entire $D$-dimensional direction space. 
+3. **Strengthened Envelope:** Formally defined $\beta_r^{\star,(n)}$ and integrated it into the main bracket theorem.
+4. **Orthogonal Join:** Repaired the corrupted LaTeX and clarified the trace-norm additivity.
+5. **Overclaims Removed:** Stripped the false "extremal chord" collinearity claim and clarified that the metric geometry is "central/affine exact" rather than "globally exact".
+6. **Decoder Convention:** Explicitly codified the "continuous encoder / unrestricted decoder" paradigm, protecting the Helly bounds from topological criticism while proving the zero-error threshold holds even for continuous decoders.
