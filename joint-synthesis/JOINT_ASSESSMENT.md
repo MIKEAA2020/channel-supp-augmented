@@ -278,3 +278,76 @@ exactly three items not yet implemented. They are now in the paper:
 
 With this sweep, **every audit point is either implemented, adjudicated as
 superseded, or explicitly rejected with a documented reason.**
+
+---
+
+## 7. Systematic content-recovery and proof-completeness scan (third pass)
+
+A deep, systematic scan compared the synthesis against **every earlier manuscript version**
+(`final.txt`, `FINAL_JOINT_COMPLETE_AUGMENTED.txt`, the four byte-identical `FINAL_*.tex`,
+`AUDIT_RESPONSE_AND_CORRECTED_VERSION.tex`), item by item. Results per question:
+
+### Q1 — Content from earlier drafts worth implementing: found and implemented
+
+1. **Scaling-with-n regime analysis** (final.txt §"Scaling with n") — recovered **with
+   correction**: the original's middle-regime statement "certified lower ρ_n=O(1/n)"
+   is upgraded to the strengthened envelope: γ→1/d_A, a constant. New Corollary
+   "Scaling with the number of outcomes" gives the three regimes c<d_B², d_B²<c<d_A²d_B²,
+   c>d_A²d_B², including the O(1) bound L_{A,B}^{(n)}=nd_B²+O(1) and the note that the
+   certified bracket has asymptotic length at least 1−1/d_A.
+2. **Resource interpretation of the two breakpoints** (final.txt) — recovered as-is
+   (Remark after Definition of β^best), extended with the observable construction's role.
+3. **In-radius versus antipodal profile remark** (augmented .txt) — recovered as-is:
+   no contradiction between ρ_n<1 and α_r=1 for r≤nd_B²−2 (different mechanisms).
+4. **Tunable mixing parameter λ(Z)=1/(d_A‖μ(Z)‖_∞)** (compact .tex, "Improved λ")
+   — recovered **with correction**: implemented as a remark, with the exact condition
+   λ≤1/(d_A‖μ‖_∞), the λ=1 endpoint (μ=I/d_A needs no filler), and an explicit
+   continuity caveat (why the proof fixes λ=1/d_A).
+5. **"If both encoder and decoder must be continuous" caveat** (compact .tex) —
+   recovered as-is into the nonconstructive-decoder remark: threshold unchanged via Π_C,
+   subcritical U_r become existence statements.
+6. **d_A=1 "centred in-radius irrelevant for the antipodal profile"** (final.txt) —
+   recovered as-is into the input-independent specialisation.
+
+### Q2 — Accidental content loss / condensation: none remaining
+
+Every remaining paragraph of every earlier version was accounted for: either present
+verbatim in the synthesis, present in strengthened form (tracked in §1–§4), or
+deliberately removed as false/unproven (chord claim, ‖Φ⊗id‖≤‖Φ‖, "α_r need not be
+monotone", unproven 1/d_A corollary, undefined β^⋆/β^dir, schematic figure). The only
+condensations were the six items above, now restored. Two deliberately dropped items
+are documented with reasons: final.txt's summary Table 2 (regime/guarantee/status) —
+its content is fully carried by the theorems and Table 1; and the "flagged-state
+picture" prose remark — its content is absorbed in the replacement-isometry lemma
+and its proof.
+
+### Q3 — Proof completeness: full proofs throughout, with the literature exception
+
+The synthesis presents **every** proof in full. The only results replaced by citation
+are standard textbook material, per the stated rule:
+- **Schur's lemma** for U(d)-averaging (used once in the covering theorem) — cited
+  to Watrous 2018 rather than re-proved.
+- **Composition submultiplicativity of the diamond norm** (used in pinching) — cited
+  to Watrous 2018.
+- **Borsuk–Ulam** — cited to Matoušek at first proof use; the equatorial-restriction
+  reductions are still written out at every use.
+- **Helly's theorem** — cited to Barvinok; the Helly–barycentre verification (m≤k+1
+  bookkeeping, 2(m−1)/m≤2k/(k+1)) is proved in full.
+- **Pure-program no-programming theorem** — cited to Nielsen–Chuang; the pure→mixed
+  extension and the compactness corollary are proved in full (the non-standard part).
+- The metric-projection properties (single-valued, 1-Lipschitz) used in the zero-error
+  theorem are stated self-containedly in one sentence (they are two lines of convex
+  analysis and are kept rather than cited for readability).
+
+Two further proof-completeness upgrades applied in this pass:
+- Corollary "Metric complementarity" and Corollary "Asymptotic positivity–dimension
+  product" now carry explicit (one-line, algebraic) proof environments.
+- The balanced-block minimisation of Q_ℓ now includes the termination argument
+  (finite set of partitions + strictly decreasing exchange ⇒ balanced fixed point).
+
+### Q3-adjacent: notation collisions completed
+
+The remaining collisions listed in the audits were eliminated: subspaces are now
+denoted W (killing s vs S), the reference system in the covering arguments is now E
+(killing R-radius vs R-reference), joining the earlier r_R/k_in/ℓ_out renames.
+The notation remark records the full convention.

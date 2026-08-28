@@ -208,7 +208,7 @@ The following statements are exact: (i) the affine dimension $D_{A,B}^{(n)}$; (i
 
 \begin{remark}[Notation]
 \label{rem:notation}
-To avoid collisions, ranks are denoted $r_R$, the number of input pinching blocks by $k_{\mathrm{in}}$, the number of output pinching blocks by $\ell_{\mathrm{out}}$, the latent dimension by $r$ (or $q$ for general latent spaces), and the covering radius by $R$.
+To avoid collisions, ranks are denoted $r_R$, the number of input pinching blocks by $k_{\mathrm{in}}$, the number of output pinching blocks by $\ell_{\mathrm{out}}$, the latent dimension by $r$ (or $q$ for general latent spaces), the covering radius by $R$, input or support subspaces by $W$, and the reference system in the covering arguments by $E$.
 \end{remark}
 
 \section{Exact affine and metric parameters}
@@ -245,20 +245,20 @@ be the normalised Choi operator of the flagged map $\widehat{\vD}:A\to B\otimes 
 \end{lemma}
 
 \begin{proof}
-If $\lambda_{\max}(-X)\le0$ there is nothing to prove. Otherwise, since $X$ is block diagonal, $\lambda_{\max}(-X)=\max_k\lambda_{\max}(-X_k)$. Choose $k_0$ attaining the maximum and a unit vector $|v\rangle\in A_0\otimes B$ with $X_{k_0}|v\rangle=-\lambda|v\rangle$, $\lambda=\lambda_{\max}(-X)$. Let $S\subseteq A_0$ be the support of $\Tr_B|v\rangle\langle v|$ and put $b=\dim S\le s$. If $|e_1\rangle,\dots,|e_b\rangle$ is an orthonormal basis of $S$ and $|\overline e_j\rangle\in A$ its coordinatewise conjugate under the fixed Choi bases, define
+If $\lambda_{\max}(-X)\le0$ there is nothing to prove. Otherwise, since $X$ is block diagonal, $\lambda_{\max}(-X)=\max_k\lambda_{\max}(-X_k)$. Choose $k_0$ attaining the maximum and a unit vector $|v\rangle\in A_0\otimes B$ with $X_{k_0}|v\rangle=-\lambda|v\rangle$, $\lambda=\lambda_{\max}(-X)$. Let $W\subseteq A_0$ be the support of $\Tr_B|v\rangle\langle v|$ and put $b=\dim W\le s$. If $|e_1\rangle,\dots,|e_b\rangle$ is an orthonormal basis of $W$ and $|\overline e_j\rangle\in A$ its coordinatewise conjugate under the fixed Choi bases, define
 \[
-|\omega_S\rangle=\frac1{\sqrt b}\sum_{j=1}^b|e_j\rangle_{A_0}|\overline e_j\rangle_A.
+|\omega_W\rangle=\frac1{\sqrt b}\sum_{j=1}^b|e_j\rangle_{A_0}|\overline e_j\rangle_A.
 \]
-With $P_S$ the projection onto $S$, the normalised-Choi convention gives
+With $P_W$ the projection onto $W$, the normalised-Choi convention gives
 \[
-Y:=(\id_{A_0}\otimes\widehat{\vD})(|\omega_S\rangle\langle\omega_S|)
-=\frac{d_A}{b}(P_S\otimes I_{B\otimes C_n})X(P_S\otimes I_{B\otimes C_n}).
+Y:=(\id_{A_0}\otimes\widehat{\vD})(|\omega_W\rangle\langle\omega_W|)
+=\frac{d_A}{b}(P_W\otimes I_{B\otimes C_n})X(P_W\otimes I_{B\otimes C_n}).
 \]
 The direction constraint implies
 \[
-\Tr Y=\frac{d_A}{b}\Tr\Big[P_S\sum_{k=1}^n\Tr_BX_k\Big]=0,
+\Tr Y=\frac{d_A}{b}\Tr\Big[P_W\sum_{k=1}^n\Tr_BX_k\Big]=0,
 \]
-so $Y$ is Hermitian and traceless. Since $|v\rangle\in S\otimes B$, testing on $|v,k_0\rangle:=|v\rangle\otimes|k_0\rangle$ gives
+so $Y$ is Hermitian and traceless. Since $|v\rangle\in W\otimes B$, testing on $|v,k_0\rangle:=|v\rangle\otimes|k_0\rangle$ gives
 \[
 \langle v,k_0|Y|v,k_0\rangle=-\frac{d_A}{b}\lambda.
 \]
@@ -267,7 +267,7 @@ For a traceless Hermitian operator $Y=Y_+-Y_-$ one has $\Tr Y_+=\Tr Y_-=\tfrac12
 \|Y\|_1\ge-2\langle v,k_0|Y|v,k_0\rangle
 =\frac{2d_A}{b}\lambda\ge\frac{2d_A}{s}\lambda.
 \]
-The state $|\omega_S\rangle\langle\omega_S|$ is admissible in the instrument diamond-norm optimisation, so $\|\vD\|_{\diamond,\mathrm{inst}}\ge\|Y\|_1$, and rearranging proves the claim.
+The state $|\omega_W\rangle\langle\omega_W|$ is admissible in the instrument diamond-norm optimisation, so $\|\vD\|_{\diamond,\mathrm{inst}}\ge\|Y\|_1$, and rearranging proves the claim.
 \end{proof}
 
 \begin{theorem}[Instrument diamond ball]
@@ -298,19 +298,19 @@ Assume $nd_B>1$, and let $s=\min\{d_A,d_B\}$. Then
 \begin{proof}
 Theorem~\ref{thm:ball} gives the lower bound. For the reverse inequality it suffices to exhibit a unit-norm direction reaching the boundary at the stated distance. The condition $nd_B>1$ yields exactly two cases.
 
-\emph{Case $d_B>1$.} Choose an $s$-dimensional input subspace $S_A\subseteq A$ and two isometries $V_0,V_1:S_A\to B$ with $\Tr(V_0^\dagger V_1)=0$ (if $s=1$, two orthogonal output unit vectors; if $s\ge2$, fix $V_0$, take a trace-zero unitary $U$ on $S_A$, e.g.\ diagonal with roots of unity, and set $V_1=V_0U$). With $P_{S_A}$ the input projection define the completely positive, trace-nonincreasing maps
+\emph{Case $d_B>1$.} Choose an $s$-dimensional input subspace $W_A\subseteq A$ and two isometries $V_0,V_1:W_A\to B$ with $\Tr(V_0^\dagger V_1)=0$ (if $s=1$, two orthogonal output unit vectors; if $s\ge2$, fix $V_0$, take a trace-zero unitary $U$ on $W_A$, e.g.\ diagonal with roots of unity, and set $V_1=V_0U$). With $P_{W_A}$ the input projection define the completely positive, trace-nonincreasing maps
 \[
-\mathcal E_j(Z)=V_jP_{S_A}ZP_{S_A}V_j^\dagger,\qquad j=0,1.
+\mathcal E_j(Z)=V_jP_{W_A}ZP_{W_A}V_j^\dagger,\qquad j=0,1.
 \]
-Choose an orthonormal basis $|e_1\rangle,\dots,|e_s\rangle$ of $S_A$ and set
+Choose an orthonormal basis $|e_1\rangle,\dots,|e_s\rangle$ of $W_A$ and set
 \[
-|\omega_{S_A}\rangle=\frac1{\sqrt s}\sum_{a=1}^s|\overline e_a\rangle_{A_0}|e_a\rangle_A,
+|\omega_{W_A}\rangle=\frac1{\sqrt s}\sum_{a=1}^s|\overline e_a\rangle_{A_0}|e_a\rangle_A,
 \qquad
-P_j=(\id\otimes\mathcal E_j)(|\omega_{S_A}\rangle\langle\omega_{S_A}|).
+P_j=(\id\otimes\mathcal E_j)(|\omega_{W_A}\rangle\langle\omega_{W_A}|).
 \]
 The $P_j$ are rank-one projectors with
 \[
-\Tr_BP_0=\Tr_BP_1=\frac{P_{\overline S_A}}s,
+\Tr_BP_0=\Tr_BP_1=\frac{P_{\overline W_A}}s,
 \qquad
 \Tr(P_0P_1)=\Big|\frac1s\Tr(V_0^\dagger V_1)\Big|^2=0,
 \]
@@ -318,7 +318,7 @@ so the maximally entangled input produces orthogonal pure outputs and $\|\mathca
 \[
 \Delta_1=\tfrac12(\mathcal E_1-\mathcal E_0),\qquad \Delta_k=0\ (k\ge2).
 \]
-Since $\Tr\mathcal E_1(Z)=\Tr(P_{S_A}Z)=\Tr\mathcal E_0(Z)$, the summed direction is trace-annihilating, so $\vD\in\mathfrak V_{A,B}^{(n)}$; its flagged diamond norm is $1$ and its first normalised Choi block is $\Jhat_{\Delta_1}=\tfrac{s}{2d_A}(P_1-P_0)$. At $t=2/(nd_Bs)$ the first block of $\mathcal I_*+t\vD$ equals
+Since $\Tr\mathcal E_1(Z)=\Tr(P_{W_A}Z)=\Tr\mathcal E_0(Z)$, the summed direction is trace-annihilating, so $\vD\in\mathfrak V_{A,B}^{(n)}$; its flagged diamond norm is $1$ and its first normalised Choi block is $\Jhat_{\Delta_1}=\tfrac{s}{2d_A}(P_1-P_0)$. At $t=2/(nd_Bs)$ the first block of $\mathcal I_*+t\vD$ equals
 \[
 \frac1{nd_Ad_B}\big(I_{A_0\otimes B}+P_1-P_0\big),
 \]
@@ -330,14 +330,14 @@ which is positive, with the unit vector supporting $P_0$ a zero eigenvector beca
 \]
 so that $\Delta_1+\Delta_2=0$ as linear functionals and the summed direction vanishes. For every reference-assisted input state $\xi$, set
 \[
-\zeta_R=\Tr_A[(I_R\otimes P)\xi(I_R\otimes P)]=\Tr_A[(I_R\otimes P)\xi]\ge0.
+\zeta_E=\Tr_A[(I_E\otimes P)\xi(I_E\otimes P)]=\Tr_A[(I_E\otimes P)\xi]\ge0.
 \]
 Then
 \[
-(\id_R\otimes\widehat{\vD})(\xi)
-=\frac12\,\zeta_R\otimes\big(|2\rangle\langle2|-|1\rangle\langle1|\big),
+(\id_E\otimes\widehat{\vD})(\xi)
+=\frac12\,\zeta_E\otimes\big(|2\rangle\langle2|-|1\rangle\langle1|\big),
 \]
-whose trace norm is $\Tr\zeta_R\le1$, with equality attained by an input supported on $P$; hence $\|\vD\|_{\diamond,\mathrm{inst}}=1$. In the fixed Choi basis, $\Jhat_{\mathcal F}=P^{\mathsf T}/d_A$. At $t=2/n$ the first two Choi blocks of $\mathcal I_*+t\vD$ are
+whose trace norm is $\Tr\zeta_E\le1$, with equality attained by an input supported on $P$; hence $\|\vD\|_{\diamond,\mathrm{inst}}=1$. In the fixed Choi basis, $\Jhat_{\mathcal F}=P^{\mathsf T}/d_A$. At $t=2/n$ the first two Choi blocks of $\mathcal I_*+t\vD$ are
 \[
 \frac{I_{A_0}-P^{\mathsf T}}{nd_A},\qquad
 \frac{I_{A_0}+P^{\mathsf T}}{nd_A},
@@ -361,24 +361,24 @@ could exceed $\rho_n=2/(nd_Bs)$; any larger ball would improve the intermediate 
 
 \begin{lemma}[Bipartite domination for instrument blocks]
 \label{lem:domination}
-Let $\sigma_{RB}\ge0$ be subnormalised, with $\rho_R=\Tr_B\sigma_{RB}$ and $r_R=\rank\rho_R$. Then
+Let $\sigma_{EB}\ge0$ be subnormalised, with $\rho_E=\Tr_B\sigma_{EB}$ and $r_R=\rank\rho_E$. Then
 \[
-\sigma_{RB}\le\min\{r_R,d_B\}\,\rho_R\otimes I_B.
+\sigma_{EB}\le\min\{r_R,d_B\}\,\rho_E\otimes I_B.
 \]
 \end{lemma}
 
 \begin{proof}
-If $\rho_R=0$ there is nothing to prove. Otherwise let $R_0=\supp\rho_R$, so that $\rho_R^{-1/2}$ is defined on $R_0$ (extended by zero on the orthocomplement), and set
+If $\rho_E=0$ there is nothing to prove. Otherwise let $E_0=\supp\rho_E$, so that $\rho_E^{-1/2}$ is defined on $E_0$ (extended by zero on the orthocomplement), and set
 \[
-Z=(\rho_R^{-1/2}\otimes I_B)\sigma_{RB}(\rho_R^{-1/2}\otimes I_B).
+Z=(\rho_E^{-1/2}\otimes I_B)\sigma_{EB}(\rho_E^{-1/2}\otimes I_B).
 \]
-Then $Z\ge0$ and $\Tr_BZ=I_{R_0}$. Write $Z=\sum_\alpha|K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|$ with $\sum_\alpha K_\alpha^\dagger K_\alpha=I_{R_0}$ in the vectorisation convention $|K\rangle\!\rangle=\sum_i|\overline i\rangle\otimes K|i\rangle$. For a unit vector $|v\rangle\in R_0\otimes B$ let $V:R_0\to B$ be the corresponding matrix of rank $b\le\min\{r_R,d_B\}$. Using $|\Tr M|^2\le\rank(M)\|M\|_2^2$ with $M=K_\alpha V^\dagger$ of rank at most $b$,
+Then $Z\ge0$ and $\Tr_BZ=I_{E_0}$. Write $Z=\sum_\alpha|K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|$ with $\sum_\alpha K_\alpha^\dagger K_\alpha=I_{E_0}$ in the vectorisation convention $|K\rangle\!\rangle=\sum_i|\overline i\rangle\otimes K|i\rangle$. For a unit vector $|v\rangle\in E_0\otimes B$ let $V:E_0\to B$ be the corresponding matrix of rank $b\le\min\{r_R,d_B\}$. Using $|\Tr M|^2\le\rank(M)\|M\|_2^2$ with $M=K_\alpha V^\dagger$ of rank at most $b$,
 \[
 \langle v|Z|v\rangle
 =\sum_\alpha|\Tr(V^\dagger K_\alpha)|^2
 \le b\sum_\alpha\Tr(VK_\alpha^\dagger K_\alpha V^\dagger)=b.
 \]
-Thus $Z\le\min\{r_R,d_B\}I_{R_0\otimes B}$, and conjugation by $\rho_R^{1/2}\otimes I_B$ proves the claim.
+Thus $Z\le\min\{r_R,d_B\}I_{E_0\otimes B}$, and conjugation by $\rho_E^{1/2}\otimes I_B$ proves the claim.
 \end{proof}
 
 \begin{theorem}[Exact instrument covering radius]
@@ -397,16 +397,16 @@ Consequently the exact constant-code instrument width equals this value.
 \begin{proof}
 Fix a reference-assisted input state and write the flagged output of an instrument as
 \[
-\sigma_{RBC_n}=\sum_{k=1}^n\sigma_{k,RB}\otimes|k\rangle\langle k|,\qquad
-\sum_k\Tr_B\sigma_{k,RB}=\rho_R.
+\sigma_{EBC_n}=\sum_{k=1}^n\sigma_{k,EB}\otimes|k\rangle\langle k|,\qquad
+\sum_k\Tr_B\sigma_{k,EB}=\rho_E.
 \]
-Put $\rho_{k,R}=\Tr_B\sigma_{k,RB}$. Since $\rank\rho_{k,R}\le d_A$, Lemma~\ref{lem:domination} gives
+Put $\rho_{k,E}=\Tr_B\sigma_{k,EB}$. Since $\rank\rho_{k,E}\le d_A$, Lemma~\ref{lem:domination} gives
 \[
-\sigma_{k,RB}\le s\,\rho_{k,R}\otimes I_B\le s\,\rho_R\otimes I_B.
+\sigma_{k,EB}\le s\,\rho_{k,E}\otimes I_B\le s\,\rho_E\otimes I_B.
 \]
 Therefore
 \[
-\sigma_{RBC_n}\le nd_Bs\,\Big(\rho_R\otimes\frac{I_B}{d_B}\otimes\frac{I_{C_n}}n\Big),
+\sigma_{EBC_n}\le nd_Bs\,\Big(\rho_E\otimes\frac{I_B}{d_B}\otimes\frac{I_{C_n}}n\Big),
 \]
 and the state in parentheses is the output of $\mathcal I_*$. If states satisfy $\sigma\le K\tau$, let $P$ be the positive spectral projection of $\sigma-\tau$ and put $a=\Tr(P\sigma)$, $b=\Tr(P\tau)$. Then $a\le Kb$ and $a\le1$, so
 \[
@@ -414,18 +414,18 @@ and the state in parentheses is the output of $\mathcal I_*$. If states satisfy 
 \]
 Taking the supremum over inputs yields $R_{\mathrm{inst}}(\mathcal I_*)\le2(1-1/(nd_Bs))$.
 
-For equality, choose an $s$-dimensional input subspace $S\subseteq A$, an isometry $V:S\to B$, and a state $\omega$ on $B$. With $P_S$ the subspace projection define the channel
+For equality, choose an $s$-dimensional input subspace $W\subseteq A$, an isometry $V:W\to B$, and a state $\omega$ on $B$. With $P_W$ the subspace projection define the channel
 \[
-\Phi(X)=VP_SXP_SV^\dagger+\Tr[(I_A-P_S)X]\,\omega,
+\Phi(X)=VP_WXP_WV^\dagger+\Tr[(I_A-P_W)X]\,\omega,
 \]
-whose action on the selected Schmidt-rank-$s$ subspace is a pure isometry while its action outside $S$ is a fixed replacement (in particular, no claim of extremality is made or needed). Set $\mathcal I_1=\Phi$ and $\mathcal I_k=0$ for $k\ge2$. A maximally entangled input of Schmidt rank $s$ on $S$ gives a pure output in the first flag, whereas $\mathcal I_*$ gives the maximally mixed state on the corresponding $nd_Bs$-dimensional support; the trace norm of their difference is $2(1-1/(nd_Bs))$ (equivalently, the trace distance is $1-1/(nd_Bs)$). Hence $R_{\mathrm{inst}}(\mathcal I_*)\ge2(1-1/(nd_Bs))$, and equality holds.
+whose action on the selected Schmidt-rank-$s$ subspace is a pure isometry while its action outside $W$ is a fixed replacement (in particular, no claim of extremality is made or needed). Set $\mathcal I_1=\Phi$ and $\mathcal I_k=0$ for $k\ge2$. A maximally entangled input of Schmidt rank $s$ on $W$ gives a pure output in the first flag, whereas $\mathcal I_*$ gives the maximally mixed state on the corresponding $nd_Bs$-dimensional support; the trace norm of their difference is $2(1-1/(nd_Bs))$ (equivalently, the trace distance is $1-1/(nd_Bs)$). Hence $R_{\mathrm{inst}}(\mathcal I_*)\ge2(1-1/(nd_Bs))$, and equality holds.
 
 \emph{Optimality of the centre.} Let $G=\mathrm U(B)\times S_n$ act on $\mathfrak A_{A,B}^{(n)}$ by
 \[
 [(U,\pi)\cdot\Psi]_k=\mathcal U_U\circ\Psi_{\pi^{-1}(k)},
 \qquad \mathcal U_U(X)=UXU^\dagger.
 \]
-This action preserves $\Inst_n(A,B)$ and the instrument diamond metric, hence $R_{\mathrm{inst}}(g\cdot\Psi)=R_{\mathrm{inst}}(\Psi)$. The functional $R_{\mathrm{inst}}$ is convex, being a supremum of norms. Let $\overline\Psi$ be the average of $\Psi$ over $G$ with respect to Haar measure on $\mathrm U(B)$ and the uniform measure on $S_n$. Jensen's inequality gives $R_{\mathrm{inst}}(\overline\Psi)\le R_{\mathrm{inst}}(\Psi)$. Averaging first over $\mathrm U(B)$, Schur's lemma gives for each component
+This action preserves $\Inst_n(A,B)$ and the instrument diamond metric, hence $R_{\mathrm{inst}}(g\cdot\Psi)=R_{\mathrm{inst}}(\Psi)$. The functional $R_{\mathrm{inst}}$ is convex, being a supremum of norms. Let $\overline\Psi$ be the average of $\Psi$ over $G$ with respect to Haar measure on $\mathrm U(B)$ and the uniform measure on $S_n$. Jensen's inequality gives $R_{\mathrm{inst}}(\overline\Psi)\le R_{\mathrm{inst}}(\Psi)$. Averaging first over $\mathrm U(B)$, Schur's lemma~\cite{Watrous2018} gives for each component
 \[
 \int_{\mathrm U(B)}U\Psi_k(X)U^\dagger dU=\frac{\Tr(\Psi_k(X))}{d_B}I_B;
 \]
@@ -464,6 +464,15 @@ Assume $nd_B>1$. Then
 \]
 This is a numerical complementarity identity for the centred in-radius and the covering radius about $\mathcal I_*$. It does \emph{not} assert that the in-radius witness and the covering-radius witness lie on a common extremal chord through $\mathcal I_*$; the two witnesses are constructed independently and their collinearity is not claimed.
 \end{corollary}
+
+\begin{proof}
+By Theorems~\ref{thm:exact-radius} and \ref{thm:covering},
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)+R_{\mathrm{inst}}(\mathcal I_*)
+=\frac{2}{nd_Bs}+2\Big(1-\frac1{nd_Bs}\Big)=2,
+\]
+and $\diam_{\diamond,\mathrm{inst}}(\Inst_n(A,B))=2$ by Proposition~\ref{prop:diameter}. The identity is purely algebraic: the two summands are witnessed by different, independently constructed points of the body.
+\end{proof}
 
 \section{Antipodal certificates and the lower envelope}
 \label{sec:lower}
@@ -558,8 +567,13 @@ X_k\in\Herm(B),\ \sum_k\Tr X_k=0\Big\}
 \]
 has dimension $m:=nd_B^2-1$. Choose any Euclidean norm and let $S(\mathfrak H_{\mathrm{flag},0})\cong S^{m-1}=S^{nd_B^2-2}$ be its unit sphere. For $X$ on the sphere write the Jordan decomposition $X=X_+-X_-$; functional calculus preserves block diagonality and makes $X\mapsto X_+$ continuous. Since $X$ is nonzero and traceless, $t_X:=\Tr X_+=\Tr X_->0$. The map $h(X)=X_+/t_X$ is a continuous map into $\Sstate_{\mathrm{flag}}(B\otimes C_n)$ --- a continuous image of the sphere, \emph{not claimed to be an embedding}, which suffices for antipodal-width arguments --- and $h(-X)=X_-/t_X$ has orthogonal support, so $\|h(X)-h(-X)\|_1=2$. Composing with the replacement embedding of Lemma~\ref{lem:replacement-isometry} gives the claimed sphere of instruments; equatorial restriction supplies every smaller index, and the reverse inequality follows from the diameter bound (Proposition~\ref{prop:diameter}).
 
-For the replacement family above this range, compose any map $S^r\to\RepInst_n(A,B)$ with the inverse isometry and affine coordinates in $\mathbb R^{m}$. For $r=m$ Borsuk--Ulam applied to $S^{m}\to\RepInst_n(A,B)\to\mathbb R^{m}$ produces an antipodal collision; for $r>m$, restrict the map to an equatorial $S^m\subset S^r$ first. Every such map therefore has minimum antipodal distance zero, proving the second part of the formula.
+For the replacement family above this range, compose any map $S^r\to\RepInst_n(A,B)$ with the inverse isometry and affine coordinates in $\mathbb R^{m}$. For $r=m$ Borsuk--Ulam~\cite{Matousek2003} applied to $S^{m}\to\RepInst_n(A,B)\to\mathbb R^{m}$ produces an antipodal collision; for $r>m$, restrict the map to an equatorial $S^m\subset S^r$ first. Every such map therefore has minimum antipodal distance zero, proving the second part of the formula.
 \end{proof}
+
+\begin{remark}[In-radius versus antipodal profile]
+\label{rem:inradius-vs-alpha}
+$\rho_n=2/(nd_Bs)$ certifies a centrally symmetric norm ball in the full direction space $\mathfrak V_{A,B}^{(n)}$, while the sphere $S^{nd_B^2-2}$ via $X\mapsto X_+/\Tr X_+$ certifies a non-linear, antipodally $2$-separated sphere in the flagged replacement face. There is no contradiction between $\rho_n<1$ and $\alpha_r=1$ for $r\le nd_B^2-2$: these are different geometric mechanisms (a ball radius versus an antipodal profile) acting on different subsets of the body. The ball bound governs the intermediate regime, while the replacement sphere governs the small-index regime.
+\end{remark}
 
 \begin{theorem}[Full-direction antipodal sphere]
 \label{thm:full-direction}
@@ -626,6 +640,15 @@ For any Hermiticity-preserving tuple $\vD$ the instrument diamond norm dominates
 \]
 Finally, $Z\mapsto Z_+$ is continuous on Hermitian operators and $t=\Tr Z_+$ is continuous and strictly positive on the compact unit sphere $S(\mathcal V)$, hence bounded away from zero there; so $Z\mapsto J^+(Z)$ is continuous. Equatorial restriction proves the theorem for all $0\le r\le D-1$.
 \end{proof}
+
+\begin{remark}[Tunable mixing parameter]
+\label{rem:tunable-lambda}
+In the proof of Theorem~\ref{thm:full-direction}, the mixing parameter may be chosen as a function of $Z$: since $\mu=\mu(Z)$ is a state on $A_0$ we have $\|\mu\|_\infty\in[1/d_A,1]$, and $I_{A_0}/d_A-\lambda\mu\ge0$ holds if and only if $\lambda\le1/(d_A\|\mu\|_\infty)$. Taking $\lambda(Z)=1/(d_A\|\mu(Z)\|_\infty)\in[1/d_A,1]$ therefore increases the pointwise separation to
+\[
+\|J^+(Z)-J^-(Z)\|_1=\frac{2}{d_A\|\mu(Z)\|_\infty}\ge\frac2{d_A},
+\]
+with $\lambda=1$ (no filler needed at all) exactly when $\mu(Z)=I_{A_0}/d_A$. The uniform certificate $\alpha_r\ge1/d_A$ is unchanged; we fixed $\lambda=1/d_A$ in the proof to keep continuity of the construction transparent, since near points with $\mu(Z)=I_{A_0}/d_A$ the variable quotient $\nu(Z)$ would require a separate gluing discussion.
+\end{remark}
 
 \begin{corollary}[Antipodal cutoff at affine dimension]
 \label{cor:cutoff}
@@ -761,6 +784,11 @@ Define
 When $L_{A,B}^{(n)}=D_{A,B}^{(n)}-1$ the middle range is empty (this is always the case for $d_A=1$). This single symbol replaces the older base envelope and all informal ``$\beta^{\star}$'' variants; every component is rigorously certified by Theorems~\ref{thm:replacement-profile}, \ref{thm:full-direction}, \ref{thm:observable}, Corollary~\ref{cor:join-dimension}, and Theorem~\ref{thm:ball}.
 \end{definition}
 
+\begin{remark}[Resource interpretation of the two breakpoints]
+\label{rem:breakpoints}
+The two breakpoints of the envelope have a direct resource interpretation. A flagged output state has $nd_B^2-1$ affine parameters, while an input-dependent instrument has $d_A^2(nd_B^2-1)$. The first regime ($r\le L_{A,B}^{(n)}$) is already obstructed by preparing and recording one classical--quantum output state --- augmented by the observable constructions, which obstruct input-dependent effect readout even when the output state is fixed. The second regime concerns the additional dependence of all outcome branches on the input operator. Increasing the number of outcomes therefore has two opposite effects: it linearly enlarges the global representation space, while dividing the local positivity margin of the uniform instrument by $n$.
+\end{remark}
+
 \section{Compression widths: upper bounds and exact thresholds}
 \label{sec:widths}
 
@@ -893,7 +921,7 @@ For $r=D_{A,B}^{(n)}$ affine coordinates give exact reconstruction. Otherwise pr
 
 \begin{remark}[Nonconstructive Helly decoder]
 \label{rem:nonconstructive}
-The decoder in Proposition~\ref{prop:convex} is selected via Helly's theorem and compactness for each fibre; it is guaranteed to take values in the fibre and to achieve error $\le2k/(k+1)$, but its continuity is not claimed and is not required by Definition~\ref{def:width}. The word ``certified'' refers to proved upper bounds, not to continuous or algorithmic decoders.
+The decoder in Proposition~\ref{prop:convex} is selected via Helly's theorem and compactness for each fibre; it is guaranteed to take values in the fibre and to achieve error $\le2k/(k+1)$, but its continuity is not claimed and is not required by Definition~\ref{def:width}. The word ``certified'' refers to proved upper bounds, not to continuous or algorithmic decoders. If both encoder and decoder were required to be continuous, the zero-error threshold $r\ge D_{A,B}^{(n)}$ remains valid (Theorem~\ref{thm:zero-error} supplies a continuous decoder), while the subcritical upper bounds become existence statements whose Helly-selected decoders may fail continuity.
 \end{remark}
 
 \begin{lemma}[Exact pinching norm]
@@ -938,7 +966,7 @@ then, for $r\ge r_{\mathrm{in}}^{(n)}$,
 \end{theorem}
 
 \begin{proof}
-For output pinching, the flagged Choi operators have one Hermitian block on $A_0\otimes B_j$ for every outcome and output block, of ambient real dimension $nd_A^2\sum_jb_j^2$. The summed marginal map onto $\Herm(A_0)$ is surjective: for prescribed $H\in\Herm(A_0)$ place $H\otimes I_{B_1}/b_1$ in one outcome block and set the others to zero, since $\Tr_{B_1}(H\otimes I_{B_1}/b_1)=H$. Thus the marginal rank is $d_A^2$, and the uniform depolarising instrument is positive definite in the relative affine space, so the output-pinched body has affine dimension $r_{\mathrm{out}}^{(n)}$. Encode the output-pinched instrument by affine coordinates and invert on the image; the reconstruction of $\mathcal I$ is $(\mathcal P_B\otimes\id_{C_n})\circ\mathcal I$, and by composition submultiplicativity and Lemma~\ref{lem:pinching-norm},
+For output pinching, the flagged Choi operators have one Hermitian block on $A_0\otimes B_j$ for every outcome and output block, of ambient real dimension $nd_A^2\sum_jb_j^2$. The summed marginal map onto $\Herm(A_0)$ is surjective: for prescribed $H\in\Herm(A_0)$ place $H\otimes I_{B_1}/b_1$ in one outcome block and set the others to zero, since $\Tr_{B_1}(H\otimes I_{B_1}/b_1)=H$. Thus the marginal rank is $d_A^2$, and the uniform depolarising instrument is positive definite in the relative affine space, so the output-pinched body has affine dimension $r_{\mathrm{out}}^{(n)}$. Encode the output-pinched instrument by affine coordinates and invert on the image; the reconstruction of $\mathcal I$ is $(\mathcal P_B\otimes\id_{C_n})\circ\mathcal I$, and by composition submultiplicativity of the diamond norm~\cite{Watrous2018} and Lemma~\ref{lem:pinching-norm},
 \[
 \|\mathcal I-(\mathcal P_B\otimes\id_{C_n})\circ\mathcal I\|_{\diamond,\mathrm{inst}}
 \le\|\id_B-\mathcal P_B\|_\diamond\cdot\|\widehat{\mathcal I}\|_\diamond
@@ -962,7 +990,7 @@ For $1\le\ell\le d$ write $d=m\ell+t$, $0\le t<\ell$, and set
 \[
 Q_\ell(d)=(\ell-t)m^2+t(m+1)^2.
 \]
-If two block sizes satisfy $a\ge b+2$, replacing them by $a-1$ and $b+1$ changes their squared sum by $-2(a-b-1)<0$; iteration shows that balanced blocks minimise $\sum_jb_j^2$ at fixed $\ell$.
+If two block sizes satisfy $a\ge b+2$, replacing them by $a-1$ and $b+1$ changes their squared sum by $-2(a-b-1)<0$; since each exchange strictly decreases the sum and there are only finitely many partitions of $d$ into $\ell$ positive parts, iteration must terminate at a partition with no two blocks differing by more than $1$, i.e.\ the balanced partition with $\ell-t$ blocks of size $m$ and $t$ blocks of size $m+1$, where $d=m\ell+t$, $0\le t<\ell$. Hence balanced blocks minimise $\sum_jb_j^2$ at fixed $\ell$, and $Q_\ell(d)=(\ell-t)m^2+t(m+1)^2$.
 
 \begin{definition}[Certified instrument upper envelope]
 \label{def:upper}
@@ -1066,6 +1094,27 @@ because $D_n+1=d_A^2(nd_B^2-1)+1\ge nd_B^2\ge nd_Bs$; hence $U_0=R_n$, and with 
 as $n\to\infty$. Thus the product has a finite large-$n$ limit despite the linear growth of the affine dimension and the $1/n$ decay of the centred radius; it is not claimed to be exactly invariant under outcome branching at finite $n$.
 \end{corollary}
 
+\begin{proof}
+The limit follows from the displayed explicit formula:
+\[
+\Pi_n=\frac{2d_A^2(nd_B^2-1)}{nd_B\min\{d_A,d_B\}}
+=\frac{2d_A^2d_B}{\min\{d_A,d_B\}}-\frac{2d_A^2}{nd_B\min\{d_A,d_B\}}
+\xrightarrow[n\to\infty]{}\frac{2d_A^2d_B}{\min\{d_A,d_B\}}
+=2d_A\max\{d_A,d_B\}.
+\]
+\end{proof}
+
+\begin{corollary}[Scaling with the number of outcomes]
+\label{cor:scaling}
+Fix $d_A,d_B$ and consider latent dimensions $r_n$ with $r_n/n\to c$.
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item If $c<d_B^2$, then $r_n\le nd_B^2-2\le L_{A,B}^{(n)}$ eventually, so $\beta_{r_n}^{\mathrm{best},(n)}=1$ for all large $n$: the certified lower bound saturates at its maximal value $1$ already through flagged output preparation (in particular, for every fixed $r$ one has $\delta_{r,\mathrm{inst}}^{\diamond}\ge1$ for all large $n$).
+\item If $d_B^2<c<d_A^2d_B^2$, then eventually $L_{A,B}^{(n)}<r_n<D_{A,B}^{(n)}$ (since $L_{A,B}^{(n)}=nd_B^2+O(1)$ and $D_{A,B}^{(n)}=nd_A^2d_B^2+O(1)$), so the certified lower bound is $\beta_{r_n}^{\mathrm{best},(n)}=\gamma_{A,B}^{(n)}\to1/d_A$ --- a constant independent of $n$, strictly better than the naive $1/n$-decaying ball bound --- while every admissible upper bound remains at least $1$; the certified bracket therefore has asymptotic length at least $1-1/d_A$ in this regime.
+\item If $c>d_A^2d_B^2$, then $r_n\ge D_{A,B}^{(n)}$ eventually and $\delta_{r_n,\mathrm{inst}}^{\diamond}=0$ exactly.
+\end{enumerate}
+Thus the number of outcomes linearly enlarges the parameter count needed for exact reconstruction while dividing the centred positivity margin by $n$, and the intermediate obstruction carries a constant, $n$-independent component $1/d_A$.
+\end{corollary}
+
 \begin{remark}[Error-one barrier, scoped]
 \label{rem:barrier}
 For $r<D_{A,B}^{(n)}$ every admissible term of the upper envelope presented in this paper is at least $1$ (Proposition~\ref{prop:floor}). Consequently the three constructions of this paper --- constant codes, linear/convex projection with Helly selection, and balanced block pinching --- cannot achieve error $\varepsilon<1$ in the intermediate regime $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$. This is a statement about the specific constructions presented here, not a universal impossibility; nonlinear manifold encodings or other families of decoders are not excluded.
@@ -1102,6 +1151,7 @@ because the input is one-dimensional. Hence all state-space results transfer, an
 0,&r\ge nd_B^2-1.
 \end{cases}
 \]
+The centred in-radius is still $2/(nd_B)$ (since $s=\min\{1,d_B\}=1$) as a radius of the body inside its affine hull, but it plays no role in the antipodal profile, which is governed by the lower-dimensional replacement structure of the body.
 
 \item \textbf{$1/n$ suppression versus $n$-fold growth.} The centred in-radius at the uniform centre scales as $1/n$ for fixed $d_B$, while the affine dimension $D_{A,B}^{(n)}=d_A^2(nd_B^2-1)$ grows linearly in $n$. Thus more outcomes increase the number of parameters needed for exact reconstruction but reduce the local robustness of the uniform instrument; the full-direction bound $\alpha_r\ge1/d_A$ shows that a part of the intermediate obstruction is independent of $n$.
 \end{itemize}
@@ -1163,7 +1213,7 @@ Quantity & Channel $n=1$ & Instrument $n\ge1$ & Origin \\
 \midrule
 Affine dimension & $d_A^2(d_B^2-1)$ & $d_A^2(nd_B^2-1)$ & $nd_A^2d_B^2-d_A^2$ via surjectivity of the marginal map $(X_1,\dots,X_n)\mapsto\sum_k\Tr_BX_k=H$, e.g.\ $X_1=H\otimes I_B/d_B$\\
 Centred in-radius & $2/d_Bs$ & $2/nd_Bs$ & $\max\{0,\lambda_{\max}(-X)\}\le s\|\vD\|_{\diamond,\mathrm{inst}}/2d_A$, $s=\min\{d_A,d_B\}$\\
-Covering radius $R(\mathcal I_*)$ & $2(1-1/d_Bs)$ & $2(1-1/nd_Bs)$ & $\sigma_{RBC_n}\le nd_Bs\,(\rho_R\otimes I_B/d_B\otimes I_{C_n}/n)$ plus $a\le Kb$\\
+Covering radius $R(\mathcal I_*)$ & $2(1-1/d_Bs)$ & $2(1-1/nd_Bs)$ & $\sigma_{EBC_n}\le nd_Bs\,(\rho_E\otimes I_B/d_B\otimes I_{C_n}/n)$ plus $a\le Kb$\\
 Replacement sphere & $S^{d_B^2-2}$ & $S^{nd_B^2-2}$ & $X\mapsto X_+/t_X$, orthogonal Jordan supports\\
 Full-direction sphere & $S^{d_A^2(d_B^2-1)-1}$ & $S^{D^{(n)}-1}$ & Jordan decomposition plus correction state $\nu=(I_{A_0}-\mu)/(d_A-1)$\\
 Diamond diameter & $2$ & $2$ & flagged channels have diamond norm $1$; orthogonal flagged states attain $2$\\
