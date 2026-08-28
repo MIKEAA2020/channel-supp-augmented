@@ -1,0 +1,1289 @@
+The manuscript contains several genuine mathematical errors, unsupported claims, notation failures, and a few results that are stronger than the proofs supplied. The core affine-dimension theorem, centred-radius theorem, replacement-sphere construction, covering-radius formula, and zero-error Euclidean threshold are largely salvageable. The paper is not presently publishable as an “exact geometry” paper, however, because some later claims contradict basic topology or are stated without enough hypotheses.
+
+I would divide the issues into **fatal**, **substantial**, and **editorial/compilation** problems.
+
+---
+
+# 1. Fatal mathematical error: monotonicity of \(\alpha_r\)
+
+The proposition
+
+> “\(\alpha_r\) need not be monotone in general”
+
+is false for the definition given.
+
+You define
+\[
+\alpha_r(K)
+=\frac12\sup_{h\in C(S^r,K)}
+\min_{u\in S^r}d(h(u),h(-u)).
+\]
+
+For every \(r\ge 1\), restrict any \(h:S^r\to K\) to an equatorial copy of \(S^{r-1}\subset S^r\). The antipodal map on the equator is the ordinary antipodal map on \(S^{r-1}\), hence
+\[
+\min_{u\in S^{r-1}}d(h(u),h(-u))
+\ge
+\min_{u\in S^r}d(h(u),h(-u)).
+\]
+Taking suprema gives
+\[
+\boxed{\alpha_{r-1}(K)\ge \alpha_r(K).}
+\]
+
+Thus \(\alpha_r\) is non-increasing for every metric space \(K\), not merely for the certified lower bounds.
+
+## Required replacement
+
+Replace Proposition~\ref{prop:monotonicity} by:
+
+\[
+\begin{proposition}[Monotonicity of the antipodal profile]
+For every metric space \(K\), the sequence \(r\mapsto\alpha_r(K)\) is non-increasing:
+\[
+\alpha_{r+1}(K)\le \alpha_r(K),\qquad r\ge0.
+\]
+Consequently, every exact zero or positive region of \(\alpha_r\) is an interval in \(r\).
+\end{proposition}
+\]
+
+This also strengthens the logic around the Borsuk--Ulam cutoff: once \(\alpha_D=0\), all \(\alpha_r\) with \(r\ge D\) vanish automatically by monotonicity.
+
+---
+
+# 2. The “general direction-space lower bound \(1/d_A\)” is not proved and is probably not valid as stated
+
+The corollary claims:
+
+> “For \(n d_B>1\) and every \(r<D_{A,B}^{(n)}\), the full direction-space Jordan construction gives a continuous \(S^r\to\Inst_n\) with antipodal distance at least \(2/d_A\), hence \(\alpha_r\ge1/d_A\).”
+
+No construction is actually supplied. More importantly, the obvious Jordan construction does **not** immediately produce instruments.
+
+The direction-space Choi operator has the form
+\[
+X=\widehat J_{\vec\Delta}
+=\sum_k X_k\otimes |k\rangle\langle k|
+\]
+on
+\[
+A_0\otimes B\otimes C_n,
+\]
+with
+\[
+\sum_k\Tr_B X_k=0.
+\]
+Its positive and negative parts \(X_+\) and \(X_-\) are positive operators on
+\[
+A_0\otimes B\otimes C_n,
+\]
+not on \(B\otimes C_n\). Therefore
+\[
+X\mapsto \frac{X_+}{\Tr X_+}
+\]
+produces a state involving the reference/input Choi space \(A_0\); it does not directly produce a replacement instrument.
+
+The replacement embedding only accepts states on \(B\otimes C_n\). There is no stated map
+\[
+\Herm_0(\mathfrak V_{A,B}^{(n)})
+\longrightarrow
+\Herm_0(B\otimes C_n)
+\]
+that preserves the required antipodal separation and has the claimed dimension \(D_{A,B}^{(n)}-1\).
+
+The bound may be true under a different construction, but it is not established here.
+
+## Required action
+
+Either:
+
+1. delete Corollary~\ref{cor:general-1dA}; or
+2. provide an explicit construction and prove:
+   - instrument-valuedness,
+   - continuity,
+   - the claimed dimension,
+   - the claimed lower bound in the instrument diamond norm.
+
+The corollary is not used in the definition of \(\beta_r^{(n)}\), so deleting it does not damage the main bracket.
+
+---
+
+# 3. The theorem “full exact metric parameters” overclaims what is actually determined
+
+The abstract says:
+
+> “We determine the exact affine and metric parameters of the compact convex body…”
+
+But the manuscript does **not** determine the full metric geometry. It determines:
+
+- affine dimension;
+- centred in-radius at one specific centre \(\mathcal I_*\);
+- covering radius about \(\mathcal I_*\), and apparently globally, if the centre argument is accepted;
+- a replacement-family antipodal profile;
+- lower and upper bounds for the full continuous compression width.
+
+It does **not** determine:
+
+- the global in-radius;
+- the exact \(\alpha_r(\Inst_n(A,B))\) in the intermediate range;
+- the exact \(\delta_{r,\mathrm{inst}}^\diamond\) for most \(0<r<D\);
+- the exact geometry of the full instrument body under the instrument diamond norm.
+
+The manuscript itself admits that the global in-radius is open:
+
+> “The global in-radius … could be larger…”
+
+That directly conflicts with “exact metric parameters of the compact convex body.”
+
+## Required replacement
+
+Use:
+
+> “We determine the affine dimension, the centred in-radius at the uniform depolarising instrument, the global covering radius, and certified lower and upper bounds for continuous compression.”
+
+Do not call the full metric geometry exact.
+
+---
+
+# 4. The observable-sphere theorem contains an undefined object and an unproved improvement
+
+The theorem states:
+
+> “Hence strengthened lower envelope \(\beta_r^{\star,(n)}\) with \(1\) for \(r\le L\) and \(\rho_n\) for \(L<r<D_n\).”
+
+But \(\beta_r^{\star,(n)}\) is never formally defined. The preceding definition only defines
+\[
+\beta_r^{(n)}.
+\]
+
+The theorem also says the orthogonal join “improves” the lower envelope, but no exact piecewise formula is given and no comparison is made between the join dimension and \(n d_B^2-2\) in all parameter regimes.
+
+There are further edge cases:
+
+- \(n=1\);
+- \(d_B=1\);
+- \(d_B=2\), where the claimed complement may have zero dimension;
+- \(d_A=1\), where the input-observable construction is unavailable;
+- \(N_{\mathrm{rep}}^{\mathrm{obs}}\le 1\), where a sphere of the claimed dimension does not exist.
+
+## Required replacement
+
+Define explicitly:
+\[
+\beta_r^{\star,(n)}(A,B)
+=
+\begin{cases}
+1,&0\le r\le L_{A,B}^{(n)},\\
+\rho_n,&L_{A,B}^{(n)}<r<D_n,\\
+0,&r\ge D_n,
+\end{cases}
+\]
+provided \(L_{A,B}^{(n)}<D_n\), and otherwise set the middle interval empty.
+
+Then state and prove all dimension conditions required for the join. In particular, a sphere \(S^{q}\) exists only for \(q\ge0\), so every component used in the join must satisfy
+\[
+n_i b_i^2\ge2
+\]
+and the observable component must have the stated dimension.
+
+---
+
+# 5. The orthogonal-join proof is literally corrupted and will not compile
+
+The proof contains the following malformed repeated text:
+
+```latex
+For $y=(y_1,\ldots,y_\ell)$, put
+For $y=(y_1,\ldots,y_\ell)$, set ...
+...
+Define|
+...
+```
+
+This is not merely a typographical issue: the document will not compile correctly.
+
+The intended proof should be:
+
+```latex
+For \(y=(y_1,\ldots,y_\ell)\), set
+\[
+\lambda_i=\|y_i\|_2^2,
+\qquad
+u_i=\frac{y_i}{\|y_i\|_2}
+\quad\text{when }y_i\ne0.
+\]
+Define
+\[
+H(y)=\sum_{i:y_i\ne0}\lambda_i h_i(u_i).
+\]
+```
+
+The continuity argument is correct in spirit, but should explicitly use
+\[
+\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0
+\]
+as \(y_i\to0\).
+
+---
+
+# 6. The exact covering-radius theorem needs a more careful centre argument
+
+The theorem claims that \(\mathcal I_*\) is an optimal centre even over the full affine space. The averaging idea is plausible, but the proof is too compressed.
+
+You need to define the group action precisely. For \(U\in\mathrm U(B)\) and a permutation \(\pi\in S_n\), define
+\[
+[(U,\pi)\cdot\Psi]_k
+=
+\mathcal U_U\circ \Psi_{\pi^{-1}(k)}.
+\]
+Then prove:
+
+1. the action preserves \(\Inst_n(A,B)\);
+2. it preserves the instrument diamond metric;
+3. \(R_{\mathrm{inst}}\) is invariant under the action;
+4. \(R_{\mathrm{inst}}\) is convex in the centre \(\Psi\);
+5. averaging over \(\mathrm U(B)\times S_n\) yields \(\mathcal I_*\).
+
+The current phrase
+
+> “Averaging any \(\Psi\) first over output unitaries and then over outcome permutations…”
+
+is not enough for an exact theorem.
+
+There is also a subtle issue: the output-unitary average of an arbitrary affine map \(\Psi_k\) is determined by its input effect
+\[
+E_k=\Tr_B \widehat J_{\Psi_k}.
+\]
+Only after permutation averaging do you obtain
+\[
+\frac1n\sum_k E_k=\frac{I_A}{n}.
+\]
+This should be shown explicitly.
+
+---
+
+# 7. “Exact constant-code width” is correct only under the paper’s asymmetric decoder convention
+
+You define
+\[
+\delta_{r,\mathrm{inst}}^\diamond
+=
+\inf_{f\ \mathrm{continuous},\,g\ \mathrm{arbitrary}}
+\sup_{\mathcal I}
+d(g(f(\mathcal I)),\mathcal I).
+\]
+
+Thus the decoder is not required to be continuous. The Helly construction exploits this.
+
+The manuscript repeatedly calls the result a “continuous compression” result. That is potentially misleading. Only the encoder is continuous. The decoder is arbitrary in the main width definition.
+
+This distinction matters substantially:
+
+- If both encoder and decoder must be continuous, the Helly selection argument is insufficient.
+- A continuous selection from the fibres is not automatic.
+- The exact zero-error threshold for continuous encoder **and continuous decoder** is not established by the present proof, although an affine embedding plus a continuous retraction onto the compact convex image may be possible if constructed carefully.
+
+## Required clarification
+
+Change the terminology to:
+
+> “continuous encoding with unrestricted decoding”
+
+throughout the width sections, or impose continuity on \(g\) and prove the needed selection/retraction result.
+
+---
+
+# 8. The zero-error converse is valid only for the stated decoder codomain, and the statement should make this explicit
+
+The Borsuk--Ulam collision argument works because when two encoded points coincide, the decoder returns the same object. No continuity of the decoder is needed.
+
+That is fine. But the text should explicitly say:
+
+\[
+g(f(h(u)))=g(f(h(-u)))
+\]
+because the code values coincide, not because \(g\) is continuous.
+
+This is a useful strength of the theorem, but it should be stated instead of leaving readers to infer it.
+
+---
+
+# 9. The replacement-instrument profile is essentially correct, but the \(r\ge m\) Borsuk--Ulam argument should be stated correctly
+
+For a convex body of affine dimension \(m=n d_B^2-1\), the proof says:
+
+> “For \(r\ge n d_B^2-1\), Borsuk--Ulam produces an antipodal collision.”
+
+Strictly, Borsuk--Ulam gives the collision directly for maps
+\[
+S^m\to\mathbb R^m.
+\]
+For \(r>m\), restrict the map to an equatorial \(S^m\subset S^r\).
+
+This is a minor proof correction, but it should be made systematically wherever “\(r\ge m\)” is used.
+
+---
+
+# 10. The instrument spectral lemma is sound in outline but has dimension and notation ambiguities
+
+The lemma says:
+
+> “If \(X\) is the normalised Choi operator of its flagged map…”
+
+The map is
+\[
+A\to B\otimes C_n,
+\]
+so the Choi operator acts on
+\[
+A_0\otimes B\otimes C_n.
+\]
+This should be stated every time.
+
+Also, in the proof:
+
+```latex
+Let S\subseteq A_0 be the support of
+\Tr_B|v\rangle\langle v|
+```
+
+Since \(v\in A_0\otimes B\), this is fine for the selected block, but the flag factor should be included in the ambient operator when \(X\) is used. Write explicitly:
+\[
+|v,k_0\rangle=|v\rangle\otimes|k_0\rangle.
+\]
+
+The inequality
+\[
+\langle w|Y|w\rangle\ge-\Tr Y_-
+\]
+is correct but weak. Explain that this follows from
+\[
+Y\ge -Y_-
+\]
+and
+\[
+\langle w|Y_-|w\rangle\le\Tr Y_-.
+\]
+
+The proof is recoverable, but currently more opaque than necessary.
+
+---
+
+# 11. The centred-radius theorem requires a special treatment of \(d_B=1\), which is supplied, but the notation \(\mathcal F\) is not a map of the same type
+
+In the POVM case, \(\mathcal F(Z)=\Tr(PZ)\) is a scalar functional. This is correct, but the relation between its Choi operator and the tuple direction should be written as a map
+\[
+\Delta_1:A\to\mathbb C,\qquad \Delta_1=-\frac12\mathcal F,
+\]
+rather than treating \(\mathcal F\) informally as if it were already an instrument component.
+
+Also, the statement
+
+> “The summed direction vanishes.”
+
+means
+\[
+\Delta_1+\Delta_2=0
+\]
+as scalar maps. State this explicitly.
+
+---
+
+# 12. The “physical origin” paragraph overinterprets the \(1/n\) factor
+
+The text says:
+
+> “The factor \(1/n\) reflects the distribution of the uniform trace budget among \(n\) outcomes…”
+
+That is true for the chosen uniform centre and the particular positivity witness, but it is not a universal property of the instrument body. The manuscript itself acknowledges that the global in-radius may behave differently.
+
+Use:
+
+> “For the uniform centre and the relative instrument-diamond norm, the exact centred radius decreases as \(1/n\). This should not be interpreted as a universal \(1/n\) law for arbitrary centres or arbitrary local robustness notions.”
+
+---
+
+# 13. The covering-radius domination proof should distinguish the reference rank from the output dimension more cleanly
+
+The lemma proves
+\[
+\sigma_{RB}\le \min\{r,d_B\}\rho_R\otimes I_B.
+\]
+
+The proof uses a decomposition
+\[
+Z=\sum_\alpha |K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|
+\]
+with
+\[
+\sum_\alpha K_\alpha^\dagger K_\alpha=I_R.
+\]
+
+This is fine, but the statement “\(r=\rank\rho_R\)” and then the use of \(\rank(V)\le\min\{r,d_B\}\) should be made explicit after restricting \(R\) to \(\supp\rho_R\). Otherwise \(V\) appears to act on the full reference space while its rank bound uses the restricted space.
+
+A cleaner proof is:
+\[
+\rho_R^{-1/2}\sigma_{RB}\rho_R^{-1/2}=Z,\qquad \Tr_B Z=I_{\supp\rho_R},
+\]
+then for every unit vector \(v\in\supp\rho_R\otimes B\), Schmidt rank\((v)\le\min\{r,d_B\}\), and the quadratic-form bound follows.
+
+---
+
+# 14. The “diameter \(=2\)” statements need to distinguish \(\le2\) from \(=2\)
+
+The table says:
+
+> “Diamond diameter \(\le2\)”
+
+but several corollaries use diameter exactly \(2\). For \(n d_B>1\), diameter \(2\) is indeed achieved:
+
+- for \(d_B>1\), by channels/instruments producing orthogonal output states;
+- for \(d_B=1,n\ge2\), by distinct deterministic outcomes.
+
+State this once as a proposition:
+\[
+\operatorname{diam}_{\diamond,\mathrm{inst}}\Inst_n(A,B)=2
+\qquad(nd_B>1).
+\]
+
+The current text alternates between “at most two” and exact diameter without making the equality theorem explicit.
+
+---
+
+# 15. The “metric complementarity” corollary is phrased geometrically more strongly than proved
+
+The corollary says:
+
+> “The uniform depolarising instrument divides the extremal chord joining the boundary point \(\mathcal I_*+\rho_n\vec\Delta\) and the extreme pure instrument at distance \(R_n\) in ratio \(\rho_n:(2-\rho_n)\).”
+
+The two points are not shown to lie on the same chord through \(\mathcal I_*\). The radius witness and covering-radius witness are constructed independently. There is no reason the direction \(\vec\Delta\) that attains the in-radius and the pure instrument that attains the covering radius are collinear.
+
+The equality
+\[
+\rho_n+R_n=2
+\]
+is algebraic. It does not imply the existence of one extremal chord realizing both quantities.
+
+## Required deletion
+
+Delete the “extremal chord” sentence, or prove collinearity explicitly. The safe statement is:
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
++
+R_{\mathrm{inst}}(\mathcal I_*)=2,
+\]
+which is a numerical identity, not a chord decomposition theorem.
+
+---
+
+# 16. The convex-projection bound is valid in spirit but the use of “constructive” is inaccurate
+
+The proof uses:
+
+- Helly’s theorem;
+- compactness;
+- a choice of one point from every fibre.
+
+This is existence, not an explicit algorithm. The manuscript later calls it “nonconstructive,” which is correct. The title and abstract, however, claim “constructive compression bounds.”
+
+The pinching bounds are constructive. The convex-projection bound is not, unless you provide a measurable/algorithmic selection procedure.
+
+Use:
+
+> “explicit upper bounds”
+
+instead of “constructive upper bounds” for the full envelope, or separate:
+- constructive pinching bounds;
+- nonconstructive convex-fibre bound.
+
+---
+
+# 17. The exact pinching norm proof should not call \(\mathcal P_H\) a channel unless the decomposition covers all of \(H\)
+
+You state an orthogonal decomposition
+\[
+H=\bigoplus_{j=1}^\ell H_j
+\]
+into nonzero blocks, so it does cover all of \(H\). Fine. But the proof should explicitly note:
+\[
+\mathcal P_H
+=
+\frac1\ell\sum_{m=0}^{\ell-1}\mathcal U_{U_m}
+\]
+because
+\[
+\frac1\ell\sum_{m=0}^{\ell-1}\omega^{m(j-k)}
+=\delta_{jk}.
+\]
+
+The lower-bound input \(|e\rangle\) must be normalized and the output restriction to \(\mathrm{span}\{e_j\}\) should be stated. This is not a substantive error, just a proof-completeness issue.
+
+---
+
+# 18. The input-pinching affine dimension needs an explicit conjugation convention
+
+The proof says:
+
+> “For input pinching, use the basis-conjugate decomposition \(A_0=\bigoplus_i\overline A_i\).”
+
+This is correct for the normalized Choi convention, but the paper should define
+\[
+\overline{A_i}
+\]
+as the conjugate subspace in the fixed Choi basis. Otherwise the input pinching
+\[
+\mathcal P_A(X)=\sum_i P_iXP_i
+\]
+produces Choi blocks on \(\overline{A_i}\), not \(A_i\) itself.
+
+The current proof assumes a fact that should be written explicitly:
+\[
+\widehat J_{\Phi\circ\mathcal P_A}
+=
+(\mathcal P_{\overline A_0}\otimes\id_B)(\widehat J_\Phi).
+\]
+
+---
+
+# 19. The affine dimension proof should distinguish positivity from complete positivity more consistently
+
+The proof says:
+
+> “Since every Choi block of \(\mathcal I_*\) is positive definite, sufficiently small perturbations … remain block-positive…”
+
+Use “positive definite,” not “block-positive.” “Block-positive” has a different technical meaning in quantum information: positivity on product vectors, not positive semidefiniteness.
+
+The exact statement is:
+\[
+\widehat J_{(\mathcal I_*)_k}\succ0,
+\]
+so every sufficiently small Hermitian perturbation remains positive semidefinite.
+
+---
+
+# 20. The no-programming appendix is mostly valid, but the mixed-program argument should explicitly invoke purity of every output summand
+
+The proof writes
+\[
+U|\psi\rangle\langle\psi|U^\dagger
+=
+\sum_j q_j\Gamma(|p_j\rangle\langle p_j|\otimes|\psi\rangle\langle\psi|).
+\]
+
+Each summand has trace one because \(\Gamma\) is CPTP. Since the convex combination is rank one, every positive-weight summand equals the same pure state. This is correct.
+
+However, the sentence
+
+> “This holds for every pure input \(|\psi\rangle\). Density operators are convex combinations…”
+
+should explicitly explain that the induced channel from each \(|p_j\rangle\) agrees with \(\mathcal U_U\) on all pure-state projectors, hence on all operators by linearity.
+
+The theorem is salvageable without major alteration.
+
+---
+
+# 21. The approximate-program-dimension proof is valid in broad outline but its quantifiers should be tightened
+
+The corollary assumes
+\[
+\sup_U\min_\pi
+\|\Gamma_{j,\pi}-\mathcal U_U\|_\diamond\le\varepsilon_j.
+\]
+
+The proof chooses, for each fixed \(U\), a subsequence of program states. That is sufficient to produce one limiting program state \(\pi_U\) for each \(U\), because the limiting processor \(\Gamma\) is common.
+
+However, make clear that:
+
+- the processor subsequence is selected before fixing \(U\);
+- the \(U\)-dependent subsubsequence is used only to obtain \(\pi_U\);
+- compactness of the program state space is applied separately for each \(U\).
+
+The present proof does say this, but the quantifier structure is buried.
+
+Also, the map
+\[
+\Lambda_j(\eta)
+=
+W_j^\dagger P_j\eta P_jW_j
++
+\Tr[(I-P_j)\eta]\tau_j
+\]
+should use \(\Tr[(I-P_j)\eta]\tau_j\) only for Hermitian \(\eta\); to establish complete positivity, write the second term as a measure-and-prepare map:
+\[
+\eta\mapsto \Tr[(I-P_j)\eta]\tau_j.
+\]
+This is CP because \(I-P_j\ge0\).
+
+---
+
+# 22. The abstract’s “antipodal instrument-diamond distance two” is correct only after using the replacement isometry
+
+The replacement sphere is initially a sphere of flagged states with trace distance two. The theorem then composes with the replacement embedding. The abstract should say that the instruments are distance two **because of Lemma~\ref{lem:replacement-instrument}**, not imply that this is immediate from orthogonal Choi supports.
+
+This is a clarity issue, not a mathematical defect.
+
+---
+
+# 23. The statement about “finite-outcome measurements” is underspecified
+
+For \(d_B=1\), an instrument is a POVM with effects \(E_k\), because each map has the form
+\[
+\mathcal I_k(X)=\Tr(E_kX),
+\qquad E_k\ge0,\quad \sum_kE_k=I_A.
+\]
+
+The manuscript should state this explicitly. In the current text, “one-dimensional output gives finite-outcome measurements” is correct but underdeveloped.
+
+---
+
+# 24. The POVM centred-radius formula is right, but the wording “output branch contributes to the same positivity budget” is misleading
+
+For \(d_B=1\), the positivity margin is split among outcomes, but there is no quantum output support. The witness transfers a rank-one effect from one outcome to another.
+
+Do not suggest that classical branching and output Schmidt rank are literally the same geometric mechanism. They enter the final formula similarly, but the witnesses live in different faces of the positive cone.
+
+Use:
+> “The same numerical positivity-budget calculation is realized by two different witnesses: an orthogonal-output isometry witness when \(d_B>1\), and an effect-transfer witness when \(d_B=1\).”
+
+---
+
+# 25. The endpoint theorem is correct, but its scope should say “all widths under the paper’s definition”
+
+The theorem
+\[
+\delta_{r,\mathrm{inst}}^\diamond=
+1
+\quad(r<D_n)
+\]
+when \(n d_Bs=2\) follows because:
+
+- \(\rho_n=1\);
+- \(R_n=1\);
+- convex projection upper bound is \(\ge1\);
+- the lower bound is \(1\).
+
+This is a good result. But the proof should explicitly say the lower bound is \(1\) throughout all \(r<D_n\), including the range where the replacement sphere no longer applies, because the centred ball supplies \(\alpha_r\ge1\).
+
+At present the reader must reconstruct this.
+
+---
+
+# 26. The lower-envelope definition silently omits the stronger observable construction
+
+The paper introduces a stronger construction but defines
+\[
+\beta_r^{(n)}
+\]
+using only the replacement sphere and centred ball. This is internally consistent, but the abstract says:
+
+> “These two certificates combine into a certified lower envelope \(\beta_r^{(n)}\).”
+
+Later a different \(\beta_r^{\star,(n)}\) is mentioned but never integrated into the main bracket theorem.
+
+You should choose one of two architectures:
+
+### Option A: Keep only \(\beta_r^{(n)}\)
+
+Delete the observable-sphere theorem from the main result or present it as an optional strengthening.
+
+### Option B: Use the strongest envelope
+
+Define
+\[
+\beta_r^{\mathrm{best}}
+=
+\max\{\beta_r^{(n)},\beta_r^{\star,(n)},\beta_r^{\mathrm{dir}}\},
+\]
+where every constituent is rigorously established.
+
+At present the manuscript has several overlapping lower bounds without a unified theorem.
+
+---
+
+# 27. The sentence “the centred ball gives \(\alpha_r\ge\rho_n\)” needs the radius normalization checked
+
+The radial map is
+\[
+h(u)=\mathcal I_*+\rho\frac{u}{\|u\|_{\diamond,\mathrm{inst}}}.
+\]
+For antipodes,
+\[
+h(u)-h(-u)
+=
+2\rho\,\frac{u}{\|u\|_{\diamond,\mathrm{inst}}},
+\]
+so the distance is \(2\rho\), yielding
+\[
+\alpha_r\ge\rho.
+\]
+This is correct. But the map is defined on an auxiliary Euclidean sphere in a \((r+1)\)-dimensional subspace. The manuscript should explicitly require
+\[
+r+1\le D_n,
+\]
+not merely \(r<D_n\), and then choose \(W\subset\mathfrak V\) with dimension \(r+1\). This is equivalent, but should be written.
+
+---
+
+# 28. The Borsuk--Ulam/coindex hierarchy needs a missing compactness or Hausdorff assumption discussion
+
+The intrinsic theorem allows \(Y\) to be Hausdorff. The deleted product is then
+\[
+F_2(Y)=Y^2\setminus\Delta.
+\]
+The argument only needs the topology of \(F_2(Y)\) and the fact that equal codes are excluded. Hausdorffness is not needed for the existence of the deleted product, but it is natural if one wants the diagonal closed.
+
+The result should say exactly where Hausdorffness is used. As written, the assumptions are stronger than necessary but not harmful.
+
+More important: if
+\[
+\coind F_2(Y)=+\infty,
+\]
+then the condition
+\[
+q>\coind F_2(Y)
+\]
+is impossible. The theorem is vacuous in that case. State this explicitly.
+
+---
+
+# 29. The zero-error threshold is not “if and only if” for arbitrary latent spaces
+
+The theorem proves:
+\[
+\delta_{r,\mathrm{inst}}^\diamond=0
+\iff r\ge D_n
+\]
+for Euclidean latent dimension \(r\).
+
+But the intrinsic latent-space theorem concerns arbitrary \(Y\), and the zero-error condition for arbitrary \(Y\) depends on whether \(Y\) can contain a topological copy of the instrument body, or more generally whether there are continuous encoder/decoder factorizations.
+
+Do not let the Euclidean theorem read as a universal latent-space statement.
+
+---
+
+# 30. The affine coordinates argument for exact decoding should specify the decoder outside the image
+
+The proof says:
+
+> “outside that image the decoder may be defined arbitrarily…”
+
+This is valid only because the decoder is unrestricted. If continuity of \(g\) were required, an arbitrary extension may not exist.
+
+This is another place where the decoder convention must be highlighted.
+
+---
+
+# 31. The “input-independent case \(d_A=1\)” is correct but the isometry should be written explicitly
+
+When \(A=\mathbb C\),
+\[
+\mathcal I_k(x)=x\tau_k
+\]
+for a positive operator \(\tau_k\) on \(B\), with
+\[
+\sum_k\Tr\tau_k=1.
+\]
+The instrument diamond norm equals trace norm because the input is one-dimensional:
+\[
+\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}
+=
+\sum_k\|\tau_k-\sigma_k\|_1.
+\]
+This is correct. State that \(\mathcal I_k\) is a positive functional times an output state/operator, not necessarily a normalized conditional state.
+
+---
+
+# 32. The “exact top-subcritical replacement-instrument width” proof uses the convex upper bound correctly, but the dimension substitution should be shown
+
+For the replacement state body:
+\[
+m=n d_B^2-1.
+\]
+At
+\[
+r=m-1=n d_B^2-2,
+\]
+the convex bound is
+\[
+\frac{2(m-r)}{m-r+1}
+=
+\frac{2}{2}=1.
+\]
+Write this explicitly. It is a neat exact result and deserves a clean one-line calculation.
+
+---
+
+# 33. The “certified bracket width” proposition is logically awkward
+
+It says:
+
+> “present methods give \(\rho_n\le\delta\le U_r\), \(U_r\ge1\), so certified bracket length at least \(1-\rho_n\).”
+
+The phrase “bracket length at least” is correct for the interval \([\rho_n,U_r]\), but what is really proved is
+\[
+U_r-\rho_n\ge1-\rho_n.
+\]
+This is a statement about the **available certificate**, not the unknown true width. You later acknowledge this, but the proposition should state it directly.
+
+Also, if \(U_r\) is the minimum of multiple upper bounds, \(U_r\ge1\) follows only if every admissible term is \(\ge1\), which is true in the cited ranges but should be proved once rather than deferred to a remark.
+
+---
+
+# 34. The asymptotic invariant \(\Pi_\infty\) is algebraically correct but its interpretation is too strong
+
+You write:
+
+> “strictly invariant under outcome branching”
+
+The quantity
+\[
+\Pi_n=D_n\rho_n
+\]
+has a finite \(n\to\infty\) limit. It is not “invariant under outcome branching” at finite \(n\); rather, it asymptotically approaches a branching-independent expression.
+
+Use:
+> “has a finite large-\(n\) limit despite linear affine-dimension growth and \(1/n\) centred-radius decay.”
+
+---
+
+# 35. The figure is internally inconsistent with the declared \(U_r\)
+
+For \(d_A=d_B=2,n=2\):
+\[
+D=4(2\cdot4-1)=28,
+\quad
+\rho=\frac{2}{2\cdot2\cdot2}=\frac14,
+\quad
+R=2-\frac14=1.75.
+\]
+
+The convex bound is
+\[
+U_r^{\mathrm{conv}}=\frac{2(28-r)}{29-r}.
+\]
+At \(r=0\):
+\[
+U_0^{\mathrm{conv}}=\frac{56}{29}\approx1.931,
+\]
+so the constant bound \(1.75\) dominates.
+
+At \(r=11\):
+\[
+U_{11}^{\mathrm{conv}}=\frac{34}{18}\approx1.889>1.75.
+\]
+At \(r=12\):
+\[
+U_{12}^{\mathrm{conv}}=\frac{32}{17}\approx1.882>1,
+\]
+while output pinching gives \(1\). Thus the plot’s switch at \(r=12\) is fine.
+
+But the statement
+
+> “\(U_r^{(n)}\) equals \(R_n=1.75\) for \(0\le r<12\)”
+
+requires checking input pinching too. For \(k=2\),
+\[
+Q_2(2)=2,\qquad
+r_{\rm in}=2(2\cdot4-1)=14,
+\]
+so no input-pinch bound enters before \(r=14\). This should be stated in the figure caption if the plot is intended as a verified envelope.
+
+---
+
+# 36. The paper uses “radius” in two different senses
+
+You use:
+
+- centred in-radius:
+  \[
+  \rho_{\diamond,\mathrm{inst}}(\mathcal I_*);
+  \]
+- covering radius:
+  \[
+  R_{\mathrm{inst}}(\Psi);
+  \]
+- antipodal radius/profile:
+  \[
+  \alpha_r.
+  \]
+
+These are distinct. The phrase “radius” without a qualifier is dangerous, especially in the abstract and table.
+
+Use consistently:
+
+- **centred in-radius**;
+- **worst-case covering radius about \(\Psi\)**;
+- **antipodal profile**.
+
+---
+
+# 37. The instrument norm operational interpretation has a factor-of-two error
+
+The remark says:
+
+> “\(\|\vec\Delta\|_{\diamond,\mathrm{inst}}\) equals the optimal bias in discriminating two instruments…”
+
+For two quantum channels/instruments with equal priors, the optimal success probability is
+\[
+p_{\mathrm{succ}}
+=
+\frac12+\frac14\|\mathcal I-\mathcal J\|_\diamond.
+\]
+The conventional distinguishing advantage over random guessing is
+\[
+p_{\mathrm{succ}}-\frac12
+=
+\frac14\|\mathcal I-\mathcal J\|_\diamond.
+\]
+
+If by “bias” you mean the unnormalized trace-distance bias, some communities use
+\[
+\frac12\|\mathcal I-\mathcal J\|_\diamond.
+\]
+But the manuscript must choose a convention. The norm itself is not “the optimal bias” without a factor.
+
+Replace with:
+> “For equal priors, the optimal discrimination success probability is \(1/2+\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}/4\).”
+
+---
+
+# 38. The statement \(\|\Phi\otimes\id_C\|_\diamond=\|\Phi\|_\diamond\) needs the domain/codomain orientation
+
+For a map \(\Phi:A\to B\), tensoring with an identity channel on a system \(C\) gives
+\[
+\Phi\otimes\id_C:A\otimes C\to B\otimes C.
+\]
+The equality is true for the diamond norm, but the paper writes it in a context where \(\Phi\) is sometimes the difference of instrument maps and sometimes a replacement map. Define the spaces explicitly to avoid a type mismatch.
+
+---
+
+# 39. The theorem for the exact covering radius uses a pure instrument that is not “extreme” in the sense claimed
+
+The construction
+\[
+\Phi(X)=VP_SXP_SV^\dagger+\Tr[(I-P_S)X]\omega
+\]
+is a channel, and the instrument with \(\mathcal I_1=\Phi\), other outcomes zero, is valid. But calling it an “extreme pure instrument” is inaccurate:
+
+- \(\Phi\) is not generally an isometric channel on the entire input because of the replacement term outside \(S\);
+- the output is pure only on the selected \(s\)-dimensional input subspace used in the witness.
+
+Say:
+> “a channel whose action on the selected Schmidt-rank-\(s\) input subspace produces a pure state.”
+
+---
+
+# 40. The affine ambient space is not naturally a vector space of maps without making the Choi normalization explicit
+
+The affine constraint is
+\[
+\sum_k\Tr_B\widehat J_{\mathcal I_k}=\frac{I_{A_0}}{d_A}.
+\]
+This is correct under normalized Choi convention. But later formulas sometimes use unnormalized intuition. The paper should state at the beginning:
+
+\[
+\widehat J_{\Phi}
+=
+\frac1{d_A}J_{\Phi}^{\mathrm{unnorm}},
+\]
+and consequently:
+\[
+\Tr_B\widehat J_\Phi=\frac{I_A}{d_A}
+\]
+for a channel.
+
+This would prevent several possible normalization mistakes in the radius and covering arguments.
+
+---
+
+# 41. The theorem names and abstract use “exact” inconsistently
+
+These are exact:
+
+- affine dimension;
+- centred radius;
+- covering radius, assuming the group-averaging proof is completed;
+- replacement profile;
+- zero-error Euclidean threshold.
+
+These are not exact:
+
+- full-body \(\alpha_r\) in the intermediate regime;
+- full-body compression width for general \(r\);
+- global in-radius;
+- the observable join improvement unless formalized;
+- any “metric parameters” beyond those listed.
+
+The abstract should enumerate the exact claims rather than use broad language.
+
+---
+
+# 42. The paper does not need the no-programming appendix for its main theorems
+
+The programmable-processor material is mathematically separate from the instrument geometry. It currently occupies substantial space and creates a second theorem ecosystem with different assumptions.
+
+A stronger paper would either:
+
+1. move it to a short appendix of two propositions; or
+2. remove it entirely and cite the standard no-programming theorem.
+
+The approximate-program-dimension corollary is useful, but it is not connected formally to the instrument compression bounds. Presenting it as a “separate physical question” is correct; the introduction should not imply that it supports the instrument geometry.
+
+---
+
+# 43. The \(\alpha_r\) definition should state the range and metric boundedness
+
+For a general metric space \(K\), \(\alpha_r(K)\) may be \(+\infty\) if \(K\) is unbounded. Your application is compact, so the profile lies in
+\[
+[0,\tfrac12\operatorname{diam}K].
+\]
+
+Add:
+\[
+0\le\alpha_r(K)\le\frac12\operatorname{diam}(K)
+\]
+for compact metric \(K\).
+
+This makes the later use of \(\alpha_r\le1\) precise after establishing diameter \(2\).
+
+---
+
+# 44. The use of “continuous image of \(S^m\)” needs to distinguish image from embedding
+
+The Jordan map
+\[
+X\mapsto \frac{X_+}{\Tr X_+}
+\]
+need not be injective. The manuscript correctly says this is not claimed. Preserve that qualification everywhere. In some later prose, the image is treated as if it were a sphere embedded in the state space. It is only a continuous antipodally separated parametrized family.
+
+This matters for any topological argument beyond the antipodal profile.
+
+---
+
+# 45. The uniform instrument is not necessarily the unique optimal covering centre
+
+The theorem proves that it is an optimal centre. It does not prove uniqueness. The manuscript sometimes says:
+
+> “the minimizing centre \(\mathcal I_*\)…”
+
+Use:
+> “an optimal centre is \(\mathcal I_*\).”
+
+Uniqueness would require a strict convexity or equality-case analysis that is absent.
+
+---
+
+# 46. Several “exact” statements depend on \(n d_B>1\), but the hypotheses are not repeated consistently
+
+Examples:
+
+- diameter \(2\);
+- replacement sphere;
+- centred-radius formula;
+- covering radius formula as \(2(1-\cdots)\);
+- \(\alpha_r=1\) at low dimensions.
+
+The singleton case is handled in some places but not all. Add a global convention:
+
+\[
+(n,d_B)=(1,1)
+\quad\Longrightarrow\quad
+\Inst_1(A,\mathbb C)=\{\Tr\}.
+\]
+
+Then state all nontrivial geometry theorems under
+\[
+n d_B>1.
+\]
+
+---
+
+# 47. The paper’s “channel case \(n=1\)” does not recover every channel claim unless the channel norm convention is aligned
+
+For \(n=1\),
+\[
+\|\vec\Delta\|_{\diamond,\mathrm{inst}}
+=
+\|\Delta_1\|_\diamond,
+\]
+and
+\[
+\mathfrak V_{A,B}^{(1)}
+=
+\{\Delta:\Tr_B\widehat J_\Delta=0\}.
+\]
+This is correct. But if the “main article” uses unnormalized Choi operators or a different diamond-ball normalization, “in agreement” cannot be asserted without showing the convention correspondence.
+
+Delete “in agreement with the exact all-dimensional channel theorem in the main article” unless the normalization is explicitly matched.
+
+---
+
+# 48. The table contains notation collisions that undermine reproducibility
+
+Examples:
+
+- \(k\) is used both as an outcome index and as a latent dimension in some prose.
+- \(k\) is also often a block-count variable in pinching.
+- \(r\) is both latent dimension and a rank in Lemma~\ref{lem:instrument-block-domination}.
+- \(s\) is the Schmidt-rank/output-dimension minimum, while \(S\) is used for subspaces.
+- \(R\) denotes covering radius and also appears as a reference system label in proofs.
+
+Use separate notation:
+- latent dimension \(q\) or \(\ell_{\mathrm{lat}}\);
+- rank \(r_R\);
+- number of input blocks \(k_{\mathrm{in}}\);
+- number of output blocks \(\ell_{\mathrm{out}}\).
+
+This is especially important in the lower-envelope section, where \(r\) is simultaneously the latent coordinate dimension and a rank variable nearby.
+
+---
+
+# 49. The second `\appendix` is structurally wrong
+
+You invoke:
+
+```latex
+\appendix
+\section{Finite-program evaluation: background}
+```
+
+and later invoke:
+
+```latex
+\appendix
+\section{Structured orthogonal joins}
+```
+
+The second invocation resets appendix numbering and can generate duplicate Appendix A labels. Remove the second `\appendix`.
+
+---
+
+# 50. The package list and source contain a few avoidable build issues
+
+- `dsfont` appears unused.
+- `tikz` and `pgfplots` are needed only for the final figure.
+- `\operatorname{coind}` is defined via `\newcommand{\coind}{\operatorname{coind}_{\mathbb Z_2}}`, which is fine but makes expressions such as `\coind F_2(Y)` typographically unusual.
+- The table widths may overflow with `tabular` plus fixed `p{}` widths under A4 margins.
+- `\mathbb Z_2` should be \(\mathbb Z_2\) consistently, but the group is more conventionally \(\mathbb Z/2\mathbb Z\).
+
+---
+
+# A clean corrected theorem architecture
+
+The paper would be much stronger if reorganized around the following theorem sequence.
+
+## Theorem 1: affine geometry
+
+Let
+\[
+\mathsf H_{A,B}^{(n)}
+=
+\bigoplus_{k=1}^n\Herm(A_0\otimes B).
+\]
+The marginal map
+\[
+T(X_1,\dots,X_n)=\sum_k\Tr_B X_k
+\]
+is surjective, hence
+\[
+\dim\ker T
+=
+n d_A^2d_B^2-d_A^2
+=
+d_A^2(nd_B^2-1).
+\]
+The uniform instrument is relative interior because all Choi blocks are positive definite.
+
+This proves:
+\[
+\boxed{D_n=d_A^2(nd_B^2-1).}
+\]
+
+## Theorem 2: centred in-radius
+
+For \(s=\min(d_A,d_B)\),
+\[
+\boxed{\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+=\frac{2}{n d_Bs}}
+\]
+when \(n d_B>1\), with the explicit two-case boundary witness:
+- orthogonal output isometries if \(d_B>1\);
+- outcome-transfer POVM witness if \(d_B=1,n\ge2\).
+
+## Theorem 3: covering radius
+
+Prove:
+\[
+\boxed{
+\sup_{\mathcal I\in\Inst_n(A,B)}
+\|\mathcal I-\mathcal I_*\|_{\diamond,\mathrm{inst}}
+=
+2\left(1-\frac1{n d_Bs}\right).
+}
+\]
+Then complete the averaging proof that \(\mathcal I_*\) is an optimal centre.
+
+## Theorem 4: replacement profile
+
+For
+\[
+m=n d_B^2-1,
+\]
+\[
+\boxed{
+\alpha_r(\RepInst_n)=
+\begin{cases}
+1,&0\le r\le m-1,\\
+0,&r\ge m.
+\end{cases}}
+\]
+
+## Theorem 5: full-body lower envelope
+
+Define
+\[
+\beta_r^{(n)}
+=
+\begin{cases}
+1,&0\le r\le m-1,\\
+\rho_n,&m\le r<D_n,\\
+0,&r\ge D_n.
+\end{cases}
+\]
+Then
+\[
+\beta_r^{(n)}
+\le
+\delta_{r,\mathrm{inst}}^\diamond.
+\]
+
+If retaining the observable join, define a separate rigorously proved strengthened envelope rather than mentioning it informally.
+
+## Theorem 6: exact zero-error Euclidean threshold
+
+Under the manuscript’s convention that the encoder is continuous and the decoder is unrestricted:
+\[
+\boxed{
+\delta_{r,\mathrm{inst}}^\diamond=0
+\iff r\ge D_n.
+}
+\]
+
+Add a separate remark:
+
+> If continuity of the decoder is required, the present proof does not establish the same theorem.
+
+## Proposition 7: monotonicity
+
+Correct to:
+\[
+\boxed{\alpha_{r+1}(K)\le\alpha_r(K).}
+\]
+
+---
+
+# Most important conceptual correction
+
+The central valid result is not “the complete exact geometry of instruments.” It is:
+
+> The instrument body has exact affine dimension \(d_A^2(nd_B^2-1)\), the uniform instrument has exact centred instrument-diamond in-radius \(2/(nd_B\min\{d_A,d_B\})\), its global covering radius is \(2(1-1/(nd_B\min\{d_A,d_B\}))\), and these yield rigorous lower and upper bounds on continuous-encoder compression widths.
+
+That is already a coherent and publishable theorem package. The manuscript becomes substantially stronger if it stops claiming exactness for the unresolved intermediate compression widths and removes the unsupported direction-space corollary.
