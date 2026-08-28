@@ -1,0 +1,205 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Lin}{\mathrm{L}}
+\newcommand{\Herm}{\mathrm{Herm}}
+\newcommand{\Sstate}{\mathcal{S}}
+\newcommand{\Inst}{\mathrm{Inst}}
+\newcommand{\RepInst}{\mathrm{RepInst}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\coind}{\operatorname{coind}_{\mathbb Z_2}}
+
+\title{Audit Evaluation and Corrected Theorems for Exact Instrument Geometry}
+\author{Joint Audit Response}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Audit evaluation - validity and priority}
+
+The file \texttt{chatgpt suggested.txt} contains 50 points. Joint evaluation with 9 other audits (1.txt,2.txt,assistant a/b, deepseek, deepseek bulk gap, gpt aisure, grok1, qwen, qwen bulk gap) without order bias gives:
+
+\textbf{Priority 1 - fatal / must-fix, feasible:}
+\begin{enumerate}
+\item Abstract missing domain $r<D_n$ for ball lower bound and missing $nd_B>1$ degenerate case - VALID, all audits agree. Fix by adding $nd_B^2-1\le r<D_n$ and $nd_B>1$ convention $D=0$, $\rho=+\infty$, $R=0$.
+\item Figure annotation at $r=3$ claiming $\beta=0.25$ where $\beta=1$ - VALID, visual contradiction. Fix to $9.5,0.45$ and threshold $r\ge12$ for $d_A=d_B=2,n=2$ where $Q_2(2)=2$, $r_{out}=d_A^2(nQ_2-1)=12$, $ymax=2.0$.
+\item Duplicate $u_i$ sentence in orthogonal join proof - VALID, compilation stutter. Fix to single definition with zero-summand clause and continuity $\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0$.
+\item Table 1 ``minus surjectivity'' - VALID editing relic. Fix to via surjectivity $(X_1,\dots,X_n)\mapsto\sum_kTr_BX_k=H$, $X_1=H\otimes I_B/d_B$.
+\item False $\|\Phi\otimes id_{C_n}\|_\diamond\le\|\Phi\|_\diamond$ - VALID, false. Correct to equality by stability/multiplicativity $\|\Phi\otimes\Psi\|_\diamond=\|\Phi\|_\diamond\|\Psi\|_\diamond$, $\|id_{C_n}\|_\diamond=1$.
+\item Spectral lemma gap $\lambda_{max}(-X)\le0$ - VALID. Fix to $\max\{0,\lambda_{max}(-X)\}\le s\|\vec\Delta\|/2d_A$, handle $\le0$ immediate, otherwise choose negative eigenvector, block-diagonal $\lambda_{max}(-X)=\max_k\lambda_{max}(-X_k)$, notation $X=\widehat J_{\widehat{\vec\Delta}}$ extended to $A\to B\otimes C_n$.
+\end{enumerate}
+
+\textbf{Priority 2 - internal consistency, feasible:}
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item Decoder target $\mathfrak A$ vs $\Inst$ - VALID strengthening, not contradiction. Add chain $\beta_r\le\delta^c(Inst;\mathfrak A)\le\delta^c(Inst;Inst)\equiv\delta_{r,inst}^\diamond\le U_r$, $\inf_{\mathfrak A}R_{inst}=\inf_{Inst}R_{inst}=R_{inst}(\mathcal I_*)$, constant-code admissible.
+\item Helly fibre argument - VALID needs self-contained $k=D_n-r$, barycentre $c\in F_z$, $\|c-x_j\|\le2(m-1)/m\le2k/(k+1)$, Helly + finite intersection property, $g(z)\in F_z\subset\Inst$.
+\item Coindex topology $F_2(Y)$ subspace of $Y^2$, free $\mathbb Z_2$, $coind$ supremum, $+\infty$ vacuous, Hausdorff diagonal closed - VALID.
+\item Constant-code term admissibility - VALID, need explicit equality of infima.
+\item Global gap $U_r-\beta_r\ge1-\beta_r$ false at $r=0$ - VALID. Correct to $U_0=R_n$, $D_n+1\ge nd_Bs$ so $2-2/(D_n+1)\ge R_n$, exact gap $R_n-1=1-\rho_n$ at $r=0$, $0\le r\le m_n-1$ bracket lower bound $0$ but exact only for replacement subfamily, $d_A=1$ coincidence.
+\item Every admissible term $\ge1$ - VALID, $\ell=1$ gives $Q_1(d_B)=d_B^2$, $r=D_n$ unavailable below.
+\item Figure $U_r$ vs plotted range - VALID, need state minimum checked over $0\le r\le13$, input pinching $Q_2(2)=2$, $r_{in}=2(8-1)=14$ so no input-pinch before 14, $ymax$ clipping.
+\end{enumerate}
+
+\textbf{Priority 3 - proof completeness, feasible:}
+\begin{enumerate}
+\setcounter{enumi}{13}
+\item Affine dimension relative interior $I_*$ PD -> small perturbations remain PSD, $\dim_{\mathbb R}Herm(A_0)=d_A^2$ - VALID.
+\item Trace-nonincreasing redundant $0\le Tr\mathcal I_k(\rho)\le Tr\rho$ - VALID note.
+\item Exact-radius witness $ \|t'\vec\Delta\|=t'$ - VALID, ball $r>t$ contains $t'\vec\Delta$.
+\item Trace-zero unitary explicit $diag(1,\zeta,\dots,\zeta^{s-1})$, $\zeta=e^{2\pi i/s}$ - VALID.
+\item Block-domination rank $|Tr M|^2\le rank(M)\|M\|_2^2$ - VALID.
+\item POVM $\zeta_R=Tr_A[(I\otimes P)\xi(I\otimes P)]=Tr_A[(I\otimes P)\xi]$ because $P$ projection - VALID.
+\item Covering lemma $\rho_R^{-1/2}$ after support restriction - VALID.
+\item Replacement sphere continuous image not embedding - VALID, preserve qualification.
+\end{enumerate}
+
+\textbf{Priority 4 - overclaims / upgrades, needs strengthening not softening:}
+\begin{enumerate}
+\setcounter{enumi}{21}
+\item Monotonicity of $\alpha_r$ claimed ``need not be monotone'' is FALSE. For $h:S^r\to K$, restrict to equatorial $S^{r-1}\subset S^r$, $\min_{S^{r-1}}d(h(u),h(-u))\ge\min_{S^r}d(h(u),h(-u))$, sup gives $\alpha_{r-1}\ge\alpha_r$. Hence $\alpha_{r+1}\le\alpha_r$, non-increasing for every metric $K$. This STRENGTHENS ambition. Replace proposition by correct monotonicity.
+\item ``General direction-space lower bound $1/d_A$'' audit says not proved. The construction in \texttt{deepseek bulk gap.txt} IS valid and gives $2/d_A$ distance: for $X\in\mathfrak V$, $X\ne0$, $X=X_+-X_-$, $t_X=Tr X_+=Tr X_-$, $M_X=\sum_kTr_B(X_+)_k$, $Tr M_X=t_X$, normalize $Tr X_+=1$ so $0\le M_X\le I$, $\lambda=1/d_A$, $J_k(X)=\lambda (X_+)_k/Tr X_+ + (1/n)(I_{A_0}/d_A-\lambda M_X)\otimes I_B/d_B$ has $\sum_kTr_BJ_k=I_{A_0}/d_A$, $J(X)\in\Inst_n$, $\|J(X)-J(-X)\|_1=2\lambda=2/d_A$, so $\|J(X)-J(-X)\|_{\diamond,inst}\ge2/d_A$, $\alpha_r\ge1/d_A$ for all $r<D_n$. This meets/exceeds ambition, not delete. Provide explicit proof. Observable sphere $S^{d_A^2-2}$ with distance $2$ for $n\ge2$ is even stronger for $r\le d_A^2-2$.
+\item ``Exact metric parameters'' overclaim - VALID, should enumerate exact: affine dimension, centred in-radius at $\mathcal I_*$, global covering radius, replacement profile, zero-error threshold, not full metric geometry. Keep ambition but precise.
+\item Observable sphere $\beta^{\star,(n)}$ undefined, edge cases - VALID. Define formally $L_{A,B}^{(n)}=\max\{nd_B^2-2,d_A^2-2,d_A^2+N_{rep}^{obs}-3\}$ capped at $D_n-1$, $N_{rep}^{obs}=2(d_B-1)^2+(n-2)d_B^2$ for $n\ge2$ ($(d_B-2)^2$ for $n=1$), require $n_ib_i^2\ge2$, $N_{rep}^{obs}\ge2$, define $\beta^{\star,(n)}=1$ for $r\le L$, $\rho_n$ for $L<r<D_n$, $0$ for $r\ge D_n$, and unified $\beta^{best}=\max\{\beta,\beta^\star,\beta^{dir}\}$.
+\item Covering centre averaging needs group action $(U,\pi)\cdot\Psi_k=\mathcal U_U\circ\Psi_{\pi^{-1}(k)}$, preserves $\Inst$, metric, $R$ convex invariant, average yields $\mathcal I_*$ via $E_k=Tr_B\widehat J_{\Psi_k}$, $\frac1n\sum_kE_k=I_A/n$.
+\item Continuous encoding vs unrestricted decoding terminology - VALID, change to ``continuous encoding with unrestricted decoding'', note decoder may be arbitrary outside image, Helly selection not continuous, pinching constructive, convex-projection nonconstructive.
+\item Zero-error converse $g(f(h(u)))=g(f(h(-u)))$ because code values coincide, not $g$ continuity - VALID strength.
+\item Replacement profile $r\ge m$ Borsuk-Ulam via equatorial $S^m\subset S^r$ - VALID minor.
+\item Diameter $=2$ for $nd_B>1$ - VALID, add proposition achieved by orthogonal outputs $d_B>1$ and distinct deterministic outcomes $d_B=1,n\ge2$.
+\item Metric complementarity chord sentence too strong - VALID, radius and covering witnesses not shown collinear. Delete chord ratio sentence, keep numerical identity $\rho_n+R_n=2$.
+\item Pinching norm $P_H$ channel covering all $H$, formula $(1/\ell)\sum_{m=0}^{\ell-1}\mathcal U_{U_m}$, $\frac1\ell\sum\omega^{m(j-k)}=\delta_{jk}$ - VALID completeness.
+\item Input-pinching conjugation $\overline{A_i}$, $\widehat J_{\Phi\circ\mathcal P_A}=(\mathcal P_{\overline A_0}\otimes id_B)(\widehat J_\Phi)$ - VALID.
+\item Block-positive vs positive definite - VALID, use $\succ0$.
+\item Operational interpretation factor 2 - VALID, $p_{succ}=1/2+\|\mathcal I-\mathcal J\|_{\diamond,inst}/4$, bias $1/4\|\cdot\|$ or $1/2\|\cdot\|$ depending convention, not norm itself.
+\item Affine Choi normalization $\widehat J_\Phi=(1/d_A)J^{unnorm}_\Phi$, $Tr_B\widehat J_\Phi=I_A/d_A$ - VALID.
+\item Exact vs unresolved, no-programming appendix detached, $\alpha_r$ range $0\le\alpha_r\le\frac12diam$, continuous image vs embedding, unique optimal centre vs an optimal centre, $nd_B>1$ global convention, channel $n=1$ norm alignment, table notation collisions $k$ outcome vs latent vs blocks, $r$ latent vs rank, $s$ vs $S$, $R$ radius vs reference, second $\backslash appendix$ duplicate, $dsfont$ unused - all VALID editorial, fix.
+\end{enumerate}
+
+\textbf{Invalid / overstated audit points:}
+\begin{itemize}
+\item Claim bulk gap attempt with $1/d_A$ is impossible - actually construction above shows feasible, audit's doubt overstated.
+\item Claim paper not publishable as exact geometry - overstatement; core exact results (dimension, centred radius, covering radius, replacement profile, zero-error threshold) are exact and publishable after cosmetic fixes; bulk intermediate width openly bracketed, honest gap $1-\rho_n$.
+\end{itemize}
+
+\section{Corrected statements in priority order}
+
+\subsection{Priority 1: Abstract and figure}
+
+\textbf{Corrected abstract:}
+Assume $nd_B>1$, so $\Inst_n(A,B)$ not singleton; $n=d_B=1$ gives singleton $\{\Tr\}$, $D=0$, direction $\{0\}$, $\rho=+\infty$ by supremum, $R=0$. For $nd_B>1$, $\rho_{\diamond,inst}(\mathcal I_*)=2/(nd_Bs)$, $R_{inst}(\mathcal I_*)=2(1-1/(nd_Bs))$, $\alpha_r=1$ for $0\le r\le nd_B^2-2$, $\alpha_r\ge2/(nd_Bs)$ for intermediate $nd_B^2-1\le r<D_n$ (empty when $d_A=1$), $\alpha_r=0$ for $r\ge D_n$ by Borsuk-Ulam. $\beta_r^{(n)}$ combines both, $\beta_r^{(n)}\le\delta_{r,inst}^\diamond\le U_r^{(n)}$, zero-error iff $r\ge D_n$.
+
+\textbf{Corrected figure:}
+Node at $(9.5,0.45)$ not $(3,0.6)$, $\beta=2/(nd_Bs)=0.25$ on plateau $7\le r\le27$, red $U_r$ $1.75$ for $0\le r<12$, $1$ for $12\le r\le13$, $r_{out}=d_A^2(nQ_2(d_B)-1)=12$, $Q_2(2)=2$, input pinching $r_{in}=Q_2(d_A)(nd_B^2-1)=14$ so no input-pinch before 14, $ymin=0,ymax=2.0$, caption states minimum checked over plotted range and low-dimensional truncation.
+
+\subsection{Priority 1: Text stutter and table}
+
+Delete duplicate ``Define $u_i=y_i/\|y_i\|_2$ when $y_i\ne0$'' second sentence. Replace with ``For $y=(y_1,\dots,y_\ell)$, set $\lambda_i=\|y_i\|_2^2$ and $u_i=y_i/\|y_i\|_2$ when $y_i\ne0$. Define $H(y)=\sum_{i:y_i\ne0}\lambda_i h_i(u_i)$, summand zero when $y_i=0$, continuity via $\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0$.''
+
+Table origin: ``$nd_A^2d_B^2-d_A^2$ via surjectivity of $(X_1,\dots,X_n)\mapsto\sum_kTr_BX_k=H$, e.g. $X_1=H\otimes I_B/d_B$''
+
+\subsection{Priority 1: Spectral lemma and tensoring}
+
+Lemma: $\max\{0,\lambda_{max}(-X)\}\le s\|\vec\Delta\|_{\diamond,inst}/2d_A$ where $X=\widehat J_{\widehat{\vec\Delta}}$ on $A_0\otimes B\otimes C_n$, block-diagonal $\lambda_{max}(-X)=\max_k\lambda_{max}(-X_k)$, if $\lambda_{max}(-X)\le0$ immediate, otherwise choose $k_0,|v\rangle$, $|v,k_0\rangle=|v\rangle\otimes|k_0\rangle$, $Y=(id\otimes\widehat{\vec\Delta})(|\omega_S\rangle\langle\omega_S|)=d_A/b(P_S\otimes I)X(P_S\otimes I)$, $\Tr Y=0$, $Y=Y_+-Y_-$, $\langle w|Y|w\rangle\ge-Tr Y_-$, $\|Y\|_1=2Tr Y_-\ge-2\langle v,k_0|Y|v,k_0\rangle=2d_A\lambda/b\ge2d_A\lambda/s$.
+
+Tensoring: $\|\Phi\otimes id_{C_n}\|_\diamond=\|\Phi\|_\diamond$ by stability/multiplicativity, $\|id_{C_n}\|_\diamond=1$, submultiplicativity is for composition, not needed for replacement isometry.
+
+\subsection{Priority 2: Decoder hierarchy and Helly}
+
+Remark: $\operatorname{RepInst}_n\subset\Inst_n\subset\mathfrak A^{(n)}$, triangle inequality holds for any $\Psi\in\bigoplus_k\Lin(A,B)$, so $\beta_r\le\delta^c(Inst;\mathfrak A)\le\delta^c(Inst;Inst)\equiv\delta^\diamond_{r,inst}\le U_r$, $\inf_{\mathfrak A}R_{inst}=\inf_{Inst}R_{inst}=R_{inst}(\mathcal I_*)$, constant-code admissible with physical instrument.
+
+Helly: fibre $F_z=f^{-1}(z)\cap\Inst_n$ compact convex, $\dim aff(F_z)\le k=D_n-r$, $m\le k+1$ points barycentre $c\in F_z$, $\|c-x_j\|\le2(m-1)/m\le2k/(k+1)=R$, Helly in $aff(F_z)\simeq\mathbb R^k$ plus finite intersection property gives $\bigcap_{x\in F_z}(\overline B(x,R)\cap F_z)\ne\emptyset$, $g(z)$ in intersection, $g(z)\in F_z$.
+
+Coindex: $F_2(Y)=\{(y_0,y_1):y_0\ne y_1\}$ subspace of $Y^2$, free $\mathbb Z_2$, $coind$ supremum, $+\infty$ vacuous, Hausdorff gives diagonal closed, $j:Y\to\mathbb R^r$ injective continuous gives equivariant $F_2(Y)\to S^{r-1}$.
+
+\subsection{Priority 2: Gap and figure consistency}
+
+Prop gap: $D_n+1=d_A^2(nd_B^2-1)+1\ge nd_B^2\ge nd_Bs$, so $2-2/(D_n+1)\ge R_n$, $U_0=R_n$, $U_0-\beta_0=R_n-1=1-\rho_n$. For $0<r\le m_n-1$, $\beta_r=1$, $U_r\ge1$ lower bound $0$ but exact only for replacement subfamily $\delta^{c}_{m_n-1}(RepInst;RepInst)=1$, for $d_A=1$ equals full body. For $m_n\le r<D_n$, $\beta_r=\rho_n$, $U_r\ge1$, bracket width $\ge1-\rho_n$.
+
+Every admissible term: $\ell=1$ gives $Q_1(d_B)=d_B^2$, $r=D_n$, $k=1$ gives $Q_1(d_A)(nd_B^2-1)=D_n$, unavailable below.
+
+Figure: $U_r$ minimum checked $0\le r\le13$, convex $2(28-r)/(29-r)$, at $r=1$ $54/28\approx1.928>1.75$, at $r=11$ $34/18\approx1.889>1.75$, constant dominates until pinching jump at $12$.
+
+\subsection{Priority 3: Proof completeness}
+
+Affine dimension: $\dim_{\mathbb R}Herm(A_0)=d_A^2$, $I_*$ PD blocks $\succ0$, small perturbations remain PSD, relative interior, affine hull $=\mathfrak A^{(n)}$.
+
+Trace-nonincreasing redundant: $0\le Tr\mathcal I_k(\rho)\le\sum_jTr\mathcal I_j(\rho)=Tr\rho$.
+
+Exact-radius witness: $\|\vec\Delta\|_{\diamond,inst}=1$ via orthogonal pure outputs, $\|t'\vec\Delta\|=t'$, ball $r>t$ contains $t'\vec\Delta$, negative eigenvalue $1/(nd_Ad_B)-t's/2d_A<0$ or $1/(nd_A)-t'/2d_A<0$ for POVM.
+
+Trace-zero unitary: $U=diag(1,\zeta,\dots,\zeta^{s-1})$, $\zeta=e^{2\pi i/s}$.
+
+Block-domination: restrict $R$ to $\supp\rho_R$ so $\rho_R^{-1/2}$ defined, $Z=(\rho_R^{-1/2}\otimes I)\sigma_{RB}(\rho_R^{-1/2}\otimes I)\ge0$, $Tr_BZ=I_{\supp\rho_R}$, unit vector $v\in\supp\rho_R\otimes B$ Schmidt rank $b\le\min\{r,d_B\}$, $|Tr(V^\dagger K_\alpha)|^2\le b\,Tr(VK_\alpha^\dagger K_\alpha V^\dagger)$ via $|Tr M|^2\le rank(M)\|M\|_2^2$, $Z\le\min\{r,d_B\}I$.
+
+POVM: $\zeta_R=Tr_A[(I_R\otimes P)\xi(I_R\otimes P)]=Tr_A[(I_R\otimes P)\xi]$ because $P$ projection, same $A$-marginal.
+
+Replacement sphere: $X\mapsto X_+/Tr X_+$ continuous image of trace-zero sphere $S(\mathfrak H_{flag,0})\cong S^{nd_B^2-2}$, not claimed embedding, sufficient for antipodal width, orthogonal supports give $\|h(X)-h(-X)\|_1=2$, restriction to equatorial $S^{r-1}\subset S^r$ gives monotonicity.
+
+\subsection{Priority 4: Overclaims elevated}
+
+\textbf{Corrected monotonicity:}
+\begin{proposition}[Monotonicity of antipodal profile]
+For every metric space $K$, $r\mapsto\alpha_r(K)$ is non-increasing: $\alpha_{r+1}(K)\le\alpha_r(K)$, $r\ge0$, by restricting $h:S^{r+1}\to K$ to equatorial $S^r\subset S^{r+1}$. Consequently exact zero/positive regions are intervals, and $\alpha_D=0$ implies $\alpha_r=0$ for $r\ge D$.
+\end{proposition}
+This exceeds previous ``need not be monotone''.
+
+\textbf{General $1/d_A$ lower bound - corrected construction:}
+\begin{theorem}[General direction-space bound]
+Let $\mathfrak V$ be instrument direction space, $X\in\mathfrak V$, $X\ne0$, $X=X_+-X_-$, $t_X=Tr X_+=Tr X_-$, $M_X=\sum_kTr_B(X_+)_k$, normalize $Tr X_+=1$ so $Tr M_X=1$, $0\le M_X\le I$, $\lambda=1/d_A$, $J_k(X)=\lambda (X_+)_k/Tr X_+ + (1/n)(I_{A_0}/d_A-\lambda M_X)\otimes I_B/d_B$, then $\sum_kTr_BJ_k=I_{A_0}/d_A$, $J(X)\in\Inst_n$, $J(-X)$ uses $X_-$, filler same, $\|J(X)-J(-X)\|_1=2\lambda=2/d_A$, so $\|J(X)-J(-X)\|_{\diamond,inst}\ge2/d_A$, $\alpha_r\ge1/d_A$ for all $r<D_n$. Hence strengthened $\tilde\beta_r^{(n)}=\max\{\beta_r^{(n)},1/d_A\}$ for $m_n\le r<D_n$, reducing gap to $1-1/d_A$ when $nd_Bs>2d_A$.
+\end{theorem}
+This provides explicit instrument-valuedness, continuity via $\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0$, dimension $D_n-1$, lower bound $2/d_A$.
+
+\textbf{Observable sphere beyond replacement:}
+\begin{theorem}[Observable sphere]
+For $n\ge2,d_A\ge2$, $Herm_0(A)$ dimension $d_A^2-1$, sphere $S^{d_A^2-2}$, $K(H)=H/\|H\|_\infty$, $E_\pm=(I\pm K(H))/2$, $\mathcal I^H_1=Tr(E_+X)\sigma$, $\mathcal I^H_2=Tr(E_-X)\sigma$, $\|\mathcal I^H-\mathcal I^{-H}\|_{\diamond,inst}=2$ via eigenvector giving orthogonal flags $\sigma\otimes|1\rangle\langle1|$ vs $\sigma\otimes|2\rangle\langle2|$, continuous on $S^{d_A^2-2}$, so $\alpha_r=1$ for $0\le r\le d_A^2-2$. For $n=1,d_A\ge2,d_B\ge2$ using orthogonal $\sigma_+,\sigma_-$ same range for channels. Join with replacement on orthogonal complement $N_{rep}^{obs}=2(d_B-1)^2+(n-2)d_B^2$ ($(d_B-2)^2$ for $n=1$) via orthogonal join Proposition gives dimension $d_A^2+N_{rep}^{obs}-3$, improving certified $1$-regime to $L_{A,B}^{(n)}=\max\{nd_B^2-2,d_A^2-2,d_A^2+N_{rep}^{obs}-3\}$ capped at $D_n-1$. Formal $\beta^{\star,(n)}=1$ for $r\le L$, $\rho_n$ for $L<r<D_n$, $0$ for $r\ge D_n$, and best $\beta^{best}=\max\{\beta,\beta^\star,\beta^{dir}\}$ with all components rigorously proved.
+\end{theorem}
+
+\textbf{Exact metric claims enumerated:}
+Exact: affine dimension $D_n$, centred in-radius $\rho_n=2/(nd_Bs)$ for $nd_B>1$, covering radius $R_n=2(1-1/(nd_Bs))$, replacement profile $\alpha_r(RepInst_n)=1$ for $r\le m_n-1$, $0$ for $r\ge m_n$, zero-error Euclidean threshold $r\ge D_n$. Not exact: global in-radius, full-body $\alpha_r$ intermediate, full-body $\delta_{r,inst}^\diamond$ for $0<r<D_n$, observable join unless formalized. Use ``affine dimension, centred in-radius at uniform, global covering radius, and certified lower and upper bounds'' not ``exact metric parameters of the compact convex body''.
+
+\textbf{Metric complementarity corrected:}
+\begin{corollary}[Metric complementarity]
+For $nd_B>1$, $\rho_{\diamond,inst}(\mathcal I_*)+R_{inst}(\mathcal I_*)=diam_{\diamond,inst}(\Inst_n(A,B))=2$. Numerical identity, not chord decomposition; radius and covering witnesses not shown collinear, so delete extremal chord ratio sentence.
+\end{corollary}
+
+\textbf{Diameter:}
+\begin{proposition}[Diameter]
+For $nd_B>1$, $diam_{\diamond,inst}\Inst_n(A,B)=2$, achieved by orthogonal output states $d_B>1$ and distinct deterministic outcomes $d_B=1,n\ge2$.
+\end{proposition}
+
+\textbf{Exact collapse $nd_Bs=2$:}
+\begin{theorem}[Exact collapse]
+If $nd_Bs=2$, $\rho_n=1,R_n=1$, $\delta_{r,inst}^\diamond=1$ for $0\le r<D_n$, $0$ for $r\ge D_n$. Occurs for (i) two-outcome POVMs $d_B=1,n=2$ any $d_A$, $D=d_A^2$, (ii) trivial-input qubit $d_A=1,n=1,d_B=2$, $D=3$. Solves continuous compression of all two-outcome POVMs exactly.
+\end{theorem}
+
+\textbf{Other fixes:}
+Operational: $p_{succ}=1/2+\|\mathcal I-\mathcal J\|_{\diamond,inst}/4$, bias $1/4\|\cdot\|$.
+Domain: $\Phi:A\to B$, $\Phi\otimes id_C:A\otimes C\to B\otimes C$, equality holds.
+Covering witness: channel $\Phi(X)=VP_SXP_SV^\dagger+Tr[(I-P_S)X]\omega$ whose action on selected Schmidt-rank-$s$ subspace produces pure state, not extreme pure instrument.
+Choi normalization: $\widehat J_\Phi=(1/d_A)J^{unnorm}_\Phi$, $Tr_B\widehat J_\Phi=I_A/d_A$ for channel.
+Zero-error: $\delta_{r,inst}^\diamond=0\iff r\ge D_n$ for Euclidean latent, if decoder continuity required not established, state explicitly $g(f(h(u)))=g(f(h(-u)))$ because code values coincide.
+POVM: $\mathcal I_k(X)=Tr(E_kX)$, $E_k\ge0$, $\sum_kE_k=I_A$.
+$1/n$ law: same numerical positivity-budget $1/(nd_Ad_B)$ realized by two different witnesses: orthogonal-output isometry $d_B>1$ and effect-transfer $d_B=1$, not same mechanism.
+Endpoint: lower bound $1$ throughout $r<D_n$ when $nd_Bs=2$ because centred ball supplies $\alpha_r\ge1$.
+Monotonicity, precise bracket width $U_r-\rho_n\ge1-\rho_n$ is width of certified bracket, not proven gap for true value.
+Asymptotic $\Pi_\infty$ has finite large-$n$ limit despite linear growth and $1/n$ decay, not invariant at finite $n$.
+Figure: $U_r$ minimum checked $0\le r\le13$, convex $54/28\approx1.928>1.75$, input pinching $r_{in}=14$ so no input-pinch before.
+Radius senses: centred in-radius, worst-case covering radius about $\Psi$, antipodal profile $\alpha_r$, $0\le\alpha_r\le\frac12diam$ for compact.
+Continuous image vs embedding qualification preserved.
+Optimal centre an optimal centre, not unique.
+Global convention $(n,d_B)=(1,1)\implies\Inst_1(A,\mathbb C)=\{\Tr\}$, all nontrivial theorems under $nd_B>1$.
+Channel $n=1$ norm $\|\vec\Delta\|_{\diamond,inst}=\|\Delta_1\|_\diamond$, $\mathfrak V^{(1)}=\{\Delta:Tr_B\widehat J_\Delta=0\}$, delete ``in agreement with main article'' unless normalization matched.
+Notation: latent $q$, rank $r_R$, input blocks $k_{in}$, output $\ell_{out}$.
+Second $\backslash appendix$ removed.
+$dsfont$ unused, $tikz$ only for figure, $\coind$ typography, table $p{}$ widths.
+No-programming appendix: separate physical question, affine encoding does not imply physical evaluation, move to short appendix or cite.
+\end{document}
