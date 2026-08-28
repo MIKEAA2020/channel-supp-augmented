@@ -1,0 +1,170 @@
+The open question in Remark 3.4 is resolved affirmatively: the uniform depolarising instrument \(\mathcal I_*\) is in fact an optimal centre for the global in-radius.
+
+### Theorem
+
+Assume \(n d_B>1\). Then
+
+\[
+\sup_{\mathcal I_0\in\Inst_n(A,B)}
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+=
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+=
+\frac{2}{n d_B\min\{d_A,d_B\}}.
+\]
+
+### Proof
+
+Define the in-radius functional
+
+\[
+f(\mathcal I_0)
+:=
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+=
+\sup\Bigl\{
+\rho\ge 0:
+\mathcal I_0+\mathfrak V_{A,B}^{(n)}\cap
+\overline B_{\diamond,\mathrm{inst}}(0,\rho)
+\subseteq
+\Inst_n(A,B)
+\Bigr\}.
+\]
+
+Here \(\overline B_{\diamond,\mathrm{inst}}(0,\rho)\) is the closed ball in the direction space \(\mathfrak V_{A,B}^{(n)}\).
+
+#### Step 1: \(f\) is concave
+
+Let \(\mathcal I_0,\mathcal I_1\in\Inst_n(A,B)\), let \(\lambda\in[0,1]\), and suppose
+
+\[
+\mathcal I_j+\rho_j B_{\diamond,\mathrm{inst}}(0,1)
+\subseteq
+\Inst_n(A,B),
+\qquad j=0,1.
+\]
+
+Then by convexity of \(\Inst_n(A,B)\),
+
+\[
+\lambda(\mathcal I_0+\rho_0 B)
++
+(1-\lambda)(\mathcal I_1+\rho_1 B)
+=
+(\lambda\mathcal I_0+(1-\lambda)\mathcal I_1)
++
+(\lambda\rho_0+(1-\lambda)\rho_1)B
+\subseteq
+\Inst_n(A,B).
+\]
+
+Taking suprema over admissible \(\rho_0,\rho_1\) gives
+
+\[
+f\bigl(\lambda\mathcal I_0+(1-\lambda)\mathcal I_1\bigr)
+\ge
+\lambda f(\mathcal I_0)+(1-\lambda)f(\mathcal I_1).
+\]
+
+Thus \(f\) is concave.
+
+#### Step 2: \(f\) is invariant under the symmetrisation group
+
+Let \(G=\mathrm U(B)\times S_n\) act on instruments by
+
+\[
+[(U,\pi)\cdot \mathcal I]_k
+=
+\mathcal U_U\circ \mathcal I_{\pi^{-1}(k)},
+\qquad
+\mathcal U_U(X)=UXU^\dagger.
+\]
+
+This action has the following properties:
+
+1. It maps \(\Inst_n(A,B)\) bijectively onto itself.
+2. It maps the direction space \(\mathfrak V_{A,B}^{(n)}\) bijectively onto itself, because
+   \[
+   \Tr_B\bigl[(I_{A_0}\otimes U)
+   \Jhat_{\Delta_k}
+   (I_{A_0}\otimes U^\dagger)\bigr]
+   =
+   \Tr_B\Jhat_{\Delta_k},
+   \]
+   and permutations of the outcome index preserve the summed trace-annihilating condition.
+3. It is an isometry for the instrument diamond norm, since it acts by a unitary/permutation channel on the flagged output system \(B\otimes C_n\).
+
+Consequently,
+
+\[
+f(g\cdot \mathcal I)=f(\mathcal I)
+\]
+
+for all \(g\in G\) and all \(\mathcal I\in\Inst_n(A,B)\).
+
+#### Step 3: Symmetrisation gives \(\mathcal I_*\)
+
+Let \(\mathcal I\in\Inst_n(A,B)\) be arbitrary. Its group average under the normalised Haar measure on \(\mathrm U(B)\) and the uniform measure on \(S_n\) is
+
+\[
+\overline{\mathcal I}
+:=
+\int_G g\cdot \mathcal I\,dg.
+\]
+
+Averaging first over \(\mathrm U(B)\), Schur’s lemma gives for each component
+
+\[
+\int_{\mathrm U(B)}
+U\, \mathcal I_k(X)\, U^\dagger\, dU
+=
+\frac{\Tr(\mathcal I_k(X))}{d_B}\, I_B.
+\]
+
+Averaging then over the outcome permutation group \(S_n\), the \(k\)-th component becomes
+
+\[
+\frac1n \sum_{j=1}^n
+\frac{\Tr(\mathcal I_j(X))}{d_B}\, I_B
+=
+\frac{\Tr\bigl((\sum_j \mathcal I_j)(X)\bigr)}{n d_B}\, I_B
+=
+\frac{\Tr(X)}{n d_B}\, I_B,
+\]
+
+because \(\sum_j\mathcal I_j\) is trace preserving. Hence
+
+\[
+\overline{\mathcal I}
+=
+\mathcal I_*.
+\]
+
+#### Step 4: Concavity plus invariance yields optimality
+
+Since \(f\) is concave and invariant,
+
+\[
+f(\mathcal I_*)
+=
+f\!\left(\int_G g\cdot\mathcal I\,dg\right)
+\ge
+\int_G f(g\cdot\mathcal I)\,dg
+=
+\int_G f(\mathcal I)\,dg
+=
+f(\mathcal I).
+\]
+
+Because \(\mathcal I\in\Inst_n(A,B)\) was arbitrary,
+
+\[
+f(\mathcal I_*)
+=
+\max_{\mathcal I_0\in\Inst_n(A,B)}
+f(\mathcal I_0).
+\]
+
+Combining this with the exact value from Theorem 3.4 proves the claim.
+
+Thus the uniform depolarising instrument is not merely a convenient centre; it is an optimal in-radius centre for the entire instrument body. The open question in Remark 3.4 is therefore closed.
