@@ -1,0 +1,732 @@
+# A. Remaining mathematical issues
+
+## A.1. The observable construction for \(n=1\) has a missing case in its eigenvector argument
+
+In the \(n\ge2\) proof you write:
+
+> “If \(K(H)|\psi\rangle=|\psi\rangle\), then … for \(-H\) the roles of \(E_+\) and \(E_-\) are exchanged.”
+
+But \(\|K(H)\|_\infty=1\) only guarantees an eigenvalue \(+1\) **or** \(-1\). If the selected eigenvalue is \(-1\), then for \(H\) the roles are already reversed.
+
+This is not a serious mathematical problem, but the proof should handle both cases explicitly.
+
+### Replace the relevant paragraph by
+
+```latex
+Since \(\|K(H)\|_\infty=1\), \(K(H)\) has a unit eigenvector
+\(|\psi\rangle\) with eigenvalue \(\varepsilon\in\{+1,-1\}\). Then
+\[
+\Tr(E_{\varepsilon}(H)|\psi\rangle\langle\psi|)=1,
+\qquad
+\Tr(E_{-\varepsilon}(H)|\psi\rangle\langle\psi|)=0,
+\]
+where \(E_{+1}(H)=E_+(H)\) and \(E_{-1}(H)=E_-(H)\).
+For \(-H\), the two effects are exchanged:
+\[
+E_+(-H)=E_-(H),\qquad E_-(-H)=E_+(H).
+\]
+Therefore the flagged outputs of \(\mathcal I^H\) and
+\(\mathcal I^{-H}\) are supported on different classical flags and are
+orthogonal.
+```
+
+The same correction should be made in the \(n=1\) paragraph.
+
+---
+
+## A.2. The “observable sphere” is a continuous image, not necessarily a sphere in the body
+
+The theorem currently says:
+
+> “Then \(\alpha_r(\Inst_n(A,B))=1\)…”
+
+This conclusion is correct, but the phrase “observable antipodal sphere” can suggest an embedding. The map
+\[
+H\longmapsto \mathcal I^H
+\]
+need not be injective because \(H\) and positive scalar multiples of \(H\) are identified by the normalization \(H/\|H\|_\infty\), and additional degeneracies may occur.
+
+You already make this distinction correctly in the replacement theorem. Make it explicit here too.
+
+### Suggested theorem wording
+
+```latex
+Then there exists a continuous map
+\[
+h:S^{d_A^2-2}\longrightarrow\Inst_n(A,B)
+\]
+whose antipodal images have instrument-diamond distance \(2\).
+Consequently,
+\[
+\alpha_r(\Inst_n(A,B))=1
+\qquad(0\le r\le d_A^2-2).
+\]
+No injectivity of \(h\) is asserted.
+```
+
+---
+
+## A.3. The full-direction construction uses a notation clash between \(P\) and projectors
+
+In Theorem~\ref{thm:full-direction}, you define
+\[
+P=\frac{Z_+}{t},\qquad Q=\frac{Z_-}{t}.
+\]
+Earlier, and elsewhere in the paper, \(P\) is used for orthogonal projections. This is not merely cosmetic in a Choi-operator proof.
+
+### Replace
+
+\[
+P=\frac{Z_+}{t},\qquad Q=\frac{Z_-}{t}
+\]
+
+by
+
+\[
+\Theta_+=\frac{Z_+}{t},\qquad
+\Theta_-=\frac{Z_-}{t}.
+\]
+
+Then use \(\Theta_\pm\) consistently:
+\[
+J^+(Z)=\lambda\Theta_++(1-\lambda)\nu\otimes\tau_0,
+\]
+\[
+J^-(Z)=\lambda\Theta_-+(1-\lambda)\nu\otimes\tau_0.
+\]
+
+This avoids confusion with the projection \(P_W\).
+
+---
+
+## A.4. The full-direction theorem should explicitly justify that \(J^\pm(Z)\) are block diagonal in the outcome flag
+
+You state:
+
+> “Both \(J^\pm(Z)\) are positive and flag-block diagonal…”
+
+The first summands are flag-block diagonal because \(Z\) is. The filler term is flag-block diagonal because
+\[
+\tau_0=\frac{I_B}{d_B}\otimes\frac{I_{C_n}}n
+\]
+is diagonal in the flag basis. This is straightforward but should be stated.
+
+### Add
+
+```latex
+Because \(Z\) is flag-block diagonal, so are \(Z_\pm\), hence
+\(\Theta_\pm\). The filler \(\nu\otimes\tau_0\) is also flag-block
+diagonal because \(\tau_0\) is diagonal in the fixed flag basis.
+```
+
+---
+
+## A.5. The full-direction theorem has a hidden \(D=0\) issue
+
+The theorem assumes \(nd_B>1\), so
+\[
+D=d_A^2(nd_B^2-1)>0.
+\]
+Thus \(S^{D-1}\) is meaningful. This is fine.
+
+However, the table and several specialisations state the full-direction sphere formula without repeating the nontriviality condition. In particular, for the singleton case \(n=d_B=1\),
+\[
+D=0,
+\]
+and \(S^{-1}\) is not being used in the usual topological sense.
+
+### Required correction
+
+Qualify the table row and every specialisation by:
+
+```latex
+For \(nd_B>1\), the full-direction construction has domain
+\(S^{D_{A,B}^{(n)}-1}\).
+```
+
+Do not present \(S^{-1}\) as an ordinary sphere in the degenerate case.
+
+---
+
+## A.6. The replacement profile theorem should state explicitly why \(\alpha_r=0\) for \(r\ge m\)
+
+The proof is correct, but one sentence is slightly imprecise:
+
+> “compose any map \(S^r\to\RepInst_n(A,B)\) with the inverse isometry and affine coordinates in \(\mathbb R^m\).”
+
+The inverse isometry maps instruments to the compact convex state body, but “affine coordinates” should be identified with an affine isomorphism from the trace-one hyperplane to \(\mathbb R^m\).
+
+### Replace by
+
+```latex
+The replacement family is affinely isometric, under
+Lemma~\ref{lem:replacement-isometry}, to the compact convex body
+\[
+K_{\mathrm{rep}}
+=\{\tau\in\Sstate_{\mathrm{flag}}(B\otimes C_n)\}
+\]
+inside a real affine space of dimension \(m=nd_B^2-1\).
+Choose an affine isomorphism from its affine hull to \(\mathbb R^m\).
+For any continuous \(h:S^r\to K_{\mathrm{rep}}\), restrict to an
+equatorial \(S^m\subseteq S^r\) when \(r>m\), and apply
+Borsuk--Ulam to the resulting map \(S^m\to\mathbb R^m\).
+```
+
+---
+
+## A.7. The convex-projection bound needs a precise norm notation
+
+In Proposition~\ref{prop:convex}, you write
+\[
+\overline B(x,R)
+\]
+without specifying whether this is Euclidean or instrument-diamond. The proof uses the instrument-diamond norm, because the fibre diameter is bounded by \(2\) in that norm.
+
+### Replace
+
+\[
+\overline B(x,R)
+\]
+
+by
+
+\[
+\overline B_{\diamond,\mathrm{inst}}(x,R)
+=
+\{z:\|z-x\|_{\diamond,\mathrm{inst}}\le R\}.
+\]
+
+Then state:
+
+```latex
+These are convex closed sets in the finite-dimensional affine space
+\(\aff(F)\), because every norm ball is convex.
+```
+
+The barycentre estimate should also be written as
+\[
+\|c-x_j\|_{\diamond,\mathrm{inst}}
+\le \frac{2(m-1)}m.
+\]
+
+---
+
+## A.8. The convex-projection proof has a small \(k=0\) issue
+
+You state the proposition for
+\[
+0\le r\le D.
+\]
+The proof says:
+
+> “Otherwise project … and put \(k=D-r\).”
+
+For \(r=D\), \(k=0\), and the preceding “otherwise” excludes that case. The statement is correct, but the proof should separately handle \(r=D\) before assuming \(k\ge1\).
+
+### Replace the opening by
+
+```latex
+If \(r=D_{A,B}^{(n)}\), affine coordinates give exact reconstruction.
+Assume henceforth \(0\le r<D_{A,B}^{(n)}\), and put
+\[
+k=D_{A,B}^{(n)}-r\ge1.
+\]
+```
+
+---
+
+## A.9. The output pinching Choi formula should be displayed
+
+The proof says:
+
+> “the reconstruction of \(\mathcal I\) is \((\mathcal P_B\otimes\id_{C_n})\circ\mathcal I\)”
+
+This is type-ambiguous: \(\mathcal P_B\otimes\id_{C_n}\) acts on the output of the flagged channel, not on the tuple directly.
+
+### Replace by
+
+```latex
+Define the reconstructed instrument by
+\[
+\widetilde{\mathcal I}_k=\mathcal P_B\circ\mathcal I_k,
+\qquad k=1,\dots,n.
+\]
+Equivalently, its flagged channel is
+\[
+\widehat{\widetilde{\mathcal I}}
+=(\mathcal P_B\otimes\id_{C_n})\circ\widehat{\mathcal I}.
+\]
+```
+
+Then the norm estimate is unambiguous.
+
+---
+
+## A.10. The input pinching Choi identity contains a notation error
+
+You write:
+\[
+\Jhat_{\Phi\circ\mathcal P_A}
+=(\mathcal P_{\overline A_0}\otimes\id_B)\Jhat_\Phi.
+\]
+
+There is no previously defined space \(\overline A_0\). The intended object is the conjugate block-pinching channel on \(A_0\), which should be denoted, for example,
+\[
+\mathcal P_{\overline A_0}
+=
+\sum_i P_{\overline{A_i}}(\cdot)P_{\overline{A_i}}.
+\]
+
+### Add before the formula
+
+```latex
+Let
+\[
+\mathcal P_{\overline A_0}(Y)
+=\sum_iP_{\overline{A_i}}YP_{\overline{A_i}}
+\]
+be the block pinching on the conjugate reference space \(A_0\).
+With the fixed Choi bases,
+\[
+\Jhat_{\Phi\circ\mathcal P_A}
+=
+(\mathcal P_{\overline A_0}\otimes\id_B)(\Jhat_\Phi).
+\]
+```
+
+The present notation is also inconsistent with the earlier phrase “use the basis-conjugate decomposition \(A_0=\bigoplus_i\overline A_i\).”
+
+---
+
+## A.11. The input/output pinching bounds need the range condition \(r\le D\) handled explicitly
+
+The theorem states bounds “for \(r\ge r_{\mathrm{out}}^{(n)}\)” and “for \(r\ge r_{\mathrm{in}}^{(n)}\).” If \(r>D\), the width is already zero, so the inequalities remain true, but the coordinate encoding argument only needs to be given for
+\[
+r_{\mathrm{out}}^{(n)}\le r<D
+\]
+and similarly for input pinching.
+
+### Suggested formulation
+
+```latex
+For every \(r\ge r_{\mathrm{out}}^{(n)}\), the bound holds; for
+\(r\ge D_{A,B}^{(n)}\) it is understood through the exact
+zero-error theorem.
+```
+
+This avoids suggesting that one embeds an affine body of dimension \(r_{\mathrm{out}}\) into a latent space of dimension \(r\) without explaining padding.
+
+---
+
+## A.12. The intrinsic corollary’s first sentence is logically unnecessary and slightly misleading
+
+The proof begins:
+
+> “There is nothing to prove when \(q\ge D_{A,B}^{(n)}\).”
+
+The claimed inequality is
+\[
+\text{error}\ge \beta_q^{\mathrm{best},(n)}.
+\]
+Since \(\beta_q^{\mathrm{best},(n)}=0\) in this range, the assertion is indeed trivial. But the sentence should explicitly say this.
+
+### Replace by
+
+```latex
+If \(q\ge D_{A,B}^{(n)}\), then
+\(\beta_q^{\mathrm{best},(n)}=0\), so the claimed inequality is
+trivial. Assume henceforth \(q<D_{A,B}^{(n)}\).
+```
+
+---
+
+## A.13. The coindex discussion should distinguish \(q=0\) from \(q\in\mathbb N_0\)
+
+For \(q=0\),
+\[
+S^0=\{-1,+1\}.
+\]
+An equivariant map \(S^0\to F_2(Y)\) exists exactly when \(F_2(Y)\neq\varnothing\). Your convention \(\coind F_2(Y)=-1\) when \(F_2(Y)=\varnothing\) is correct.
+
+However, the statement
+
+> “If \(Y\) admits a continuous injection \(\jmath:Y\to\mathbb R^r\), the normalised difference map … is continuous…”
+
+requires \(r\ge1\). You address this later, but state it at the first occurrence.
+
+### Add
+
+```latex
+For \(r\ge1\), any continuous injection
+\(\jmath:Y\to\mathbb R^r\) induces the equivariant normalized
+difference map ...
+```
+
+---
+
+## A.14. The claim about the “certified lower envelope being non-increasing by construction” needs a one-line verification
+
+The envelope is piecewise:
+\[
+1\quad\to\quad\gamma\quad\to\quad0.
+\]
+For it to be non-increasing, one needs
+\[
+0<\gamma\le1.
+\]
+This is true because
+\[
+\rho_n\le1,\qquad \frac1{d_A}\le1.
+\]
+
+### Add to Definition~\ref{def:beta-best}
+
+```latex
+Here \(0<\gamma_{A,B}^{(n)}\le1\), since \(nd_Bs\ge2\) and
+\(d_A\ge1\). Thus the displayed function is non-increasing.
+```
+
+---
+
+# B. One substantive claim should be weakened
+
+## B.1. “The affine encoding already achieves error \(0\) with exactly \(D\) coordinates”
+
+In Remark~\ref{rem:barrier}, you write:
+
+> “The affine encoding already achieves error \(0\) with exactly \(D\) coordinates…”
+
+This is true under your convention, but the phrase “exactly \(D\) coordinates” can be misread as asserting that \(D\) is a minimal coordinate count for arbitrary, possibly discontinuous, encoders. The zero-error theorem proves minimality for **continuous encoders into Euclidean spaces**, not for arbitrary codes.
+
+### Replace by
+
+```latex
+The affine encoding achieves error \(0\) with \(D\) Euclidean
+coordinates, and Theorem~\ref{thm:zero-error} shows that \(D\) is
+also necessary when the encoder is required to be continuous.
+```
+
+---
+
+# C. The no-programming appendix contains one important technical issue
+
+## C.1. The definition of \(\Lambda_j\) in the approximate-program proof is not dimensionally transparent
+
+You define
+\[
+\Lambda_j(\eta)=W_j^\dagger P_j\eta P_jW_j
++
+\Tr[(I_M-P_j)\eta]\tau_j.
+\]
+
+This is correct if \(\tau_j\) is regarded as a state on \(M_j\). But the first term has output in \(M_j\), while the second term is written without explicitly indicating the embedding. It would be clearer to define
+\[
+\Lambda_j:\Lin(M)\to\Lin(M_j)
+\]
+and write
+\[
+\Lambda_j(\eta)
+=
+W_j^\dagger P_j\eta P_jW_j
++
+\Tr[(I_M-P_j)\eta]\,\tau_j.
+\]
+
+Then state that this map is CPTP because it is the sum of:
+- a compression channel on the \(P_j\)-corner;
+- a measure-and-prepare channel on the orthogonal complement.
+
+Also, the first term should technically be written
+\[
+W_j^\dagger P_j\eta P_jW_j
+=
+W_j^\dagger\eta W_j,
+\]
+since \(P_jW_j=W_j\), but retaining \(P_j\) makes the trace decomposition visible.
+
+---
+
+# D. The table has a genuine factual error
+
+In the comparison table, the “Full-direction sphere” row for the channel case is
+\[
+S^{d_A^2(d_B^2-1)-1}.
+\]
+
+This is correct for \(d_B>1\), but the table header does not state the nontriviality condition. In the singleton channel case \(d_B=1\), the exponent is \(-1\), and the row is not meaningful as an ordinary sphere.
+
+Likewise, the “Replacement sphere” row
+\[
+S^{d_B^2-2}
+\]
+requires \(d_B>1\) for the channel case.
+
+### Add a qualification in the table caption
+
+```latex
+The sphere rows are stated only in the non-singleton regimes:
+\(d_B>1\) for channels and \(nd_B>1\) for instruments.
+```
+
+---
+
+# E. The exact channel specialisation should mention the singleton exception
+
+The first bullet says:
+
+> “The channel body reduces to the channel body, and Theorem~\ref{thm:exact-radius} gives, for \(d_B>1\),…”
+
+This correctly restricts the radius formula. But the sentence “the instrument body reduces to the channel body” is also true for \(d_B=1\), where the channel body is a singleton. Add:
+
+```latex
+For \(d_B=1\) the channel body is the singleton trace functional,
+as described in Remark~\ref{rem:degenerate}.
+```
+
+---
+
+# F. The statement “all upper bounds remain at least one” should be scoped to the listed envelope
+
+You correctly qualify this in Remark~\ref{rem:barrier}, but the scaling corollary says:
+
+> “while every admissible upper bound remains at least \(1\)”
+
+This should say:
+
+```latex
+while every upper-bound term included in Definition~\ref{def:upper}
+remains at least \(1\)
+```
+
+Otherwise it can be read as a universal statement about all possible upper bounds.
+
+---
+
+# G. The net argument in Remark~\ref{rem:barrier} is too informal and should either be removed or weakened
+
+The passage
+
+> “An \(\varepsilon\)-net of a \(D\)-dimensional convex body has size \(N(\varepsilon)\ge(r_0/\varepsilon)^D\) up to constants…”
+
+requires hypotheses and a precise metric-volume argument. In particular:
+
+- the body must contain a norm ball of radius \(r_0\);
+- the covering metric must be the same norm, or norm-equivalence constants must be included;
+- “up to constants” is not enough for the subsequent phrase “strictly dominated”;
+- a net-based code is not automatically subject to the same continuity constraint.
+
+Since this remark is not used in any theorem, the safest action is to replace it with a qualitative statement.
+
+### Suggested replacement
+
+```latex
+A finite \(\varepsilon\)-net gives a discontinuous, finite-code
+approximation scheme, but it does not improve the present continuous
+Euclidean-coordinate results. Quantitative covering-number estimates
+would require a separate choice of metric-volume normalization and are
+not needed here.
+```
+
+---
+
+# H. The claim about continuous decoding below the threshold remains too strong
+
+Remark~\ref{rem:nonconstructive} says:
+
+> “If both encoder and decoder were required to be continuous, the zero-error threshold \(r\ge D\) remains valid…”
+
+The upper direction is proved. The lower direction is also true because your lower-bound argument applies to arbitrary decoders. So the exact zero-error threshold does indeed remain valid under the stronger requirement that the decoder be continuous.
+
+However, the wording should distinguish:
+- the threshold for **zero error**;
+- the nonzero subcritical widths.
+
+### Replace by
+
+```latex
+If both encoder and decoder are required to be continuous, the same
+zero-error threshold \(r\ge D_{A,B}^{(n)}\) follows: the upper bound is
+provided by Theorem~\ref{thm:zero-error}, while the Borsuk--Ulam lower
+bound applies a fortiori to continuous decoders. The subcritical
+quantitative upper bounds below do not presently provide continuous
+decoders.
+```
+
+---
+
+# I. A better formulation of the global covering-radius proof
+
+The proof is correct, but one sentence should be made more precise:
+
+> “The functional \(R_{\mathrm{inst}}\) is convex, being a supremum of norms.”
+
+For fixed \(\mathcal I\),
+\[
+\Psi\mapsto\|\mathcal I-\Psi\|_{\diamond,\mathrm{inst}}
+\]
+is convex, and a supremum of convex functions is convex.
+
+### Replace by
+
+```latex
+For each fixed \(\mathcal I\), the function
+\[
+\Psi\longmapsto
+\|\mathcal I-\Psi\|_{\diamond,\mathrm{inst}}
+\]
+is convex. Hence its supremum over \(\mathcal I\in\Inst_n(A,B)\),
+namely \(R_{\mathrm{inst}}\), is convex.
+```
+
+This avoids any concern that “a supremum of norms” is being invoked without identifying the variable.
+
+---
+
+# J. The phrase “the diameter of the body exactly \(2\)” should be tied to \(nd_B>1\)
+
+The abstract handles this correctly, but the table and some prose do not. Add the condition everywhere:
+
+\[
+\diam_{\diamond,\mathrm{inst}}\Inst_n(A,B)=2
+\qquad\text{provided }nd_B>1.
+\]
+
+For \(n=d_B=1\), the diameter is \(0\).
+
+---
+
+# K. The \(\operatorname{coind}\) notation is awkward in displayed mathematics
+
+The command
+```latex
+\newcommand{\coind}{\operatorname{coind}_{\mathbb Z_2}}
+```
+means that
+```latex
+\coind F_2(Y)
+```
+renders as an operator with a subscript followed by a non-parenthesized argument. This is legal but typographically poor.
+
+### Better definition
+
+```latex
+\newcommand{\coindZ}{\operatorname{coind}_{\mathbb Z_2}}
+```
+
+Then write
+\[
+\coindZ(F_2(Y)).
+\]
+
+Use the same parenthesized form in all definitions and corollaries.
+
+---
+
+# L. A few wording corrections
+
+## L.1. “Direction space” versus “linear direction space”
+
+The set
+\[
+\mathfrak V_{A,B}^{(n)}
+\]
+is a real vector space of Hermiticity-preserving maps. Say “real linear direction space” once.
+
+## L.2. “Block-positive”
+
+In the affine-dimension proof, use “positive semidefinite,” not “block-positive”:
+
+```latex
+every sufficiently small Hermitian perturbation remains positive
+semidefinite
+```
+
+“Block-positive” has a distinct technical meaning.
+
+## L.3. “Pure output in the first flag”
+
+In the covering-radius equality proof, the output is a pure state in the first flag **on the selected input**. The channel is not globally a pure isometry because of the replacement term outside \(W\).
+
+Your parenthetical correction is good; make the main sentence equally precise:
+
+```latex
+A Schmidt-rank-\(s\) input supported on \(W\) produces a pure output
+supported in the first flag.
+```
+
+---
+
+# M. Suggested corrected abstract sentence
+
+The abstract is now mostly accurate, but this sentence remains slightly too strong:
+
+> “We prove a full-direction antipodal construction with separation \(2/d_A\), giving …”
+
+This is fine. The phrase “observable-sphere and orthogonal-join constructions extending the separation-\(2\) regime to an explicit dimension \(L\)” is also accurate, provided “sphere” is understood as a continuous image.
+
+I would revise the abstract’s central claim to:
+
+```latex
+We determine the affine dimension, the centred relative in-radius at
+the uniform instrument, and the global covering radius about that
+instrument. For continuous encoding with unrestricted decoding, we also
+give explicit certified lower and upper bounds for the intermediate
+compression widths; these widths are not claimed to be exact in
+general.
+```
+
+This is more precise than:
+
+> “The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences.”
+
+---
+
+# N. Recommended final theorem-status table
+
+To prevent internal overclaiming, add a short table or paragraph near Remark~\ref{rem:exact-vs-certified}:
+
+```latex
+\begin{remark}[Status of the principal quantities]
+The following quantities are proved exactly:
+\[
+D_{A,B}^{(n)},\qquad
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*),\qquad
+R_{\mathrm{inst}}(\mathcal I_*),\qquad
+\diam_{\diamond,\mathrm{inst}}\Inst_n(A,B),
+\]
+the replacement-family profile, the zero-error threshold, and the
+special collapse \(nd_B\min\{d_A,d_B\}=2\). The general intermediate
+widths \(\delta_{r,\mathrm{inst}}^\diamond\), the full antipodal profile,
+and the global in-radius remain only partially determined.
+\end{remark}
+```
+
+This also makes clear that the collapse theorem is an additional exact special case.
+
+---
+
+# O. Overall assessment after revision
+
+After the above corrections, the mathematical structure is coherent:
+
+1. The affine dimension proof is sound.
+2. The spectral estimate and centred-radius theorem are sound.
+3. The covering-radius argument is sound once the group action and convexity are written in full.
+4. The replacement isometry and exact replacement profile are sound.
+5. The full-direction construction is valid and supplies the \(1/d_A\) lower bound.
+6. The observable construction is valid, with the \(\pm1\) eigenvalue case made explicit.
+7. The join construction is valid.
+8. The Borsuk--Ulam zero-error threshold is valid under continuous encoding and unrestricted decoding, and the continuous decoder at the threshold is correctly supplied by metric projection.
+9. The pinching bounds are valid after correcting the Choi-space notation.
+10. The no-programming appendix is logically independent and broadly correct.
+
+The most important remaining fixes are:
+
+- precise norm notation in the convex-projection argument;
+- correction of the input-pinching Choi formula;
+- explicit handling of both eigenvalue signs in the observable construction;
+- removal of the net-counting overstatement;
+- qualification of sphere formulas in singleton cases;
+- replacing ambiguous “sphere” language by “continuous antipodally separated image” where injectivity is not known.
+
+With these changes, the manuscript’s claims would be appropriately scoped and the main theorem package would be rigorous.
