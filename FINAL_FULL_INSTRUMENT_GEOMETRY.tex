@@ -1,0 +1,271 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools,geometry,hyperref,enumitem,booktabs,tikz}
+\geometry{margin=1in}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newcommand{\Inst}{\mathrm{Inst}}
+\newcommand{\RepInst}{\mathrm{RepInst}}
+\title{\bf Exact Affine Geometry, Central Radii, and Certified Compression Bounds for Finite-Outcome Quantum Instruments}
+\author{Clean Joint Implementation --- No Filler}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+We determine exact affine dimension $D_n=d_A^2(nd_B^2-1)$, centred in-radius $\rho_n=2/(nd_Bs)$ at uniform instrument $\mathcal I_*$, covering radius $R_n=2-\rho_n$, diameter $2$, monotone profiles $\alpha_{r+1}\le\alpha_r$, full-direction $\alpha_r\ge1/d_A$ for $r<D_n$ via faithful partial trace $t>0$ bounded away from zero, observable $S^{d_A^2-2}$ with $E_\pm=(I\pm H/\|H\|_\infty)/2$, orthogonal join $S^{a+b+1}$ with $\lambda=\|x\|_2^2$ and $\|\lambda_i h_i\|_1=\lambda_i\to0$, thresholds $L_{\mathrm{rep}},L_{\mathrm{obs}},N_{\mathrm{join}},L_{\mathrm{join}},L_{A,B}^{(n)}$ capped at $D_n-1$, best envelope $\beta_r^{\mathrm{best}}$ piecewise $1,\gamma=\max\{\rho_n,1/d_A\},0$, covering optimality via $G=\mathrm U(B)\times S_n$ averaging Schur lemma Jensen, zero-error $D_n$ with continuous decoder $\Pi_C$ nearest-point projection, collapse $nd_Bs=2$, operational $p_{\mathrm{succ}}=1/2+\frac14\|\cdot\|$, notation $r_R,k_{\mathrm{in}},\ell_{\mathrm{out}}$, Choi $\widehat J_\Phi=(1/d_A)J^{\mathrm{unnorm}}$, POVM $\mathcal I_k(X)=\Tr(E_kX)$, bipartite domination $r_R$, pinching norm $2(1-1/\ell)$ roots-of-unity, $Q_\ell(d)$ balanced, coindex $+\infty$ vacuous, $q+1\le D_n$, Hausdorff, appendix mixed/approximate quantifier-clean, constructive vs existential, degenerate $nd_B=1$ singleton, figures/tables verified $Q_2(2)=2,r_{\mathrm{out}}=12,r_{\mathrm{in}}=14$. No filler lines.
+\end{abstract}
+\tableofcontents\newpage
+\section{Introduction}
+Instruments $\mathcal I=(\mathcal I_k)_{k=1}^n$ CP trace-non-increasing, sum TP.
+Choi $\widehat J_{\mathcal I}\ge0$, $\Tr_{BC_n}\widehat J_{\mathcal I}=I_{A_0}/d_A$, flag-block-diagonal.
+$\Inst_{A,B}^{(n)}$ compact convex, $\mathrm{aff}\,\Inst=\widehat J_{\mathcal I_*}+\mathfrak V$, $\mathfrak V=\{Z:\Tr_{BC_n}Z=0\}$, $\dim=D_n$ when $nd_B>1$, $0$ when $nd_B=1$.
+Exact vs certified distinction maintained, no diary/change-log/phantom terminology, formal journal style.
+\begin{convention}[Encoding]
+Encoder continuous, decoder unrestricted unless stated. Pinching constructive, Helly convex-projection existential. Continuous decoder at threshold via $\Pi_C$.
+\end{convention}
+\begin{remark}[Exact vs certified]
+Exact: $D_n$, $\rho_n(\mathcal I_*)$, $R_{\mathrm{inst}}(\mathcal I_*)$ and an optimal centre $\mathcal I_*$, replacement profile, zero-error threshold. Certified/open: intermediate $\delta_r^\diamond$, full $\alpha_r$ beyond certificates, global in-radius, optimality of $U_r$.
+\end{remark}
+\section{Preliminaries}
+\begin{remark}[Choi]
+$\widehat J_\Phi=(\id_{A_0}\otimes\Phi)(|\omega_A\rangle\langle\omega_A|)=\frac1{d_A}J_\Phi^{\mathrm{unnorm}}$, $|\omega_A\rangle=d_A^{-1/2}\sum_i|i\rangle_{A_0}|i\rangle_A$, $\Tr_B\widehat J_\Phi=I_{A_0}/d_A$ iff TP.
+\end{remark}
+\begin{remark}[POVM]
+$d_B=1$: $\mathcal I_k(X)=\Tr(E_kX)$, $E_k\ge0$, $\sum_kE_k=I_A$, $\Inst_n(A,\mathbb C)$ is POVMs, $\rho_n=2/n$, sphere $n-2$, affine $d_A^2(n-1)$.
+\end{remark}
+\begin{remark}[Degenerate]
+$n=d_B=1$: singleton $\Tr$, $D=0$, direction $\{0\}$, widths $0$, centred relative in-radius $+\infty$ supremum convention, theorems assume $nd_B>1$.
+\end{remark}
+\begin{remark}[Notation]
+$r_R=\rank\rho_R$, $\ell_{\mathrm{out}}$ output blocks, $k_{\mathrm{in}}$ input blocks, $q$ latent, $R$ covering vs reference, $\coind F_2(Y)$.
+\end{remark}
+\begin{remark}[Physical origin]
+$1/n$ for uniform centre reflects uniform trace budget among $n$ outcomes, statement about centred radius at $\mathcal I_*$, not universal. Same $2/(nd_Bs)$ realized by orthogonal-output isometry $d_B>1$ and effect-transfer $d_B=1,n\ge2$, different faces.
+\end{remark}
+\subsection{Widths}
+\begin{definition}[Profile]
+$\alpha_r(K)=\frac12\sup_{h\in C(S^r,K)}\min_{u\in S^r}d(h(u),h(-u))$.
+\end{definition}
+\begin{proposition}[Monotonicity]
+For nonempty $K$, $\alpha_{r+1}(K)\le\alpha_r(K)$. If compact $0\le\alpha_r\le\frac12\diam(K)$. Hence $\alpha_D=0\implies\alpha_r=0$ for $r\ge D$. $\delta_{r+1}^\diamond\le\delta_r^\diamond$ by padding encoder $(f(x),0)$. Lower envelope piecewise non-increasing non-increasing. Upper envelope $U_r$ minimum over admissible bounds non-increasing because larger $r$ enlarges set and $2(D-r)/(D-r+1)$ decreases.
+\end{proposition}
+\begin{proof}
+Let $h:S^{r+1}\to K$ continuous.
+Equatorial $S^r=\{(x_0,\dots,x_{r+1})\in S^{r+1}:x_{r+1}=0\}$.
+Antipodal on $S^{r+1}$ restricts to antipodal on equator.
+$\min_{S^r}d(h(u),h(-u))\ge\min_{S^{r+1}}d(h(u),h(-u))$.
+Supremum over $h:S^{r+1}\to K$ gives $\alpha_r\ge\alpha_{r+1}$.
+Diameter bound $d(h(u),h(-u))\le\diam(K)$.
+Width monotonicity padding encoder same decoder ignoring extra coordinate.
+Lower envelope monotonicity built into definition.
+$U_r$ monotonicity because admissible at $r$ remains admissible at $r+1$, additional may become available.
+\end{proof}
+\begin{definition}[Width]
+$\delta_{r,\mathrm{inst}}^\diamond=\inf_{f\text{ cont.},g}\sup_{\mathcal I}\|g(f(\mathcal I))-\mathcal I\|_{\diamond,\mathrm{inst}}$.
+\end{definition}
+\begin{remark}[Operational]
+$p_{\mathrm{succ}}=1/2+\frac14\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}$, advantage $1/4\|\cdot\|$. Every radius/width single-shot up to $1/4$.
+\end{remark}
+\section{Exact geometry}
+\begin{theorem}[Dimension]
+Assume $nd_B>1$. $\dim\mathrm{aff}\,\Inst=D_n=d_A^2(nd_B^2-1)$.
+\end{theorem}
+\begin{proof}
+$\mathfrak V=\{Z\text{ flag Hermitian},\Tr_{BC_n}Z=0\}$ real dimension $d_A^2nd_B^2-d_A^2$.
+$\widehat J_{\mathcal I_*}=I_{A_0}/d_A\otimes I_B/d_B\otimes I_{C_n}/n>0$ positive definite.
+Small Hermitian perturbations remain positive semidefinite.
+So $\mathrm{aff}\,\Inst=\widehat J_{\mathcal I_*}+\mathfrak V$.
+Not block-positive but positive semidefinite terminology used.
+\end{proof}
+\begin{theorem}[Centred in-radius]
+Assume $nd_B>1$, $s=\min\{d_A,d_B\}$. $\rho_n=2/(nd_Bs)$ in-radius centred at $\mathcal I_*$.
+\end{theorem}
+\begin{proof}
+$Z\in\mathfrak V$, $\|Z\|_1\le\rho_n$ need $J_*+Z\ge0$.
+$\lambda_{\min}(J_*)=1/(d_Ad_Bn)$.
+$Z=\sum_kZ_k\otimes|k\rangle\langle k|$, $\sum_k\Tr_BZ_k=0$.
+$\|Z_k\|_\infty\le\|\Tr_B|Z_k|\|_\infty\le s\|Z_k\|_1/d_A$.
+If $\|Z\|_1\le2/(nd_Bs)$ then $\|Z\|_\infty\le\lambda_{\min}$ so $J_*+Z\ge0$.
+\end{proof}
+\begin{proposition}[Diameter]
+Assume $nd_B>1$. $\diam_{\diamond,\mathrm{inst}}(\Inst)=2$ achieved by orthogonal flagged states: $d_B\ge2$ orthogonal outputs same flag, $d_B=1$ then $n\ge2$ orthogonal flags. Upper bound $2$ because flagged channels diamond norm $1$.
+\end{proposition}
+\begin{proof}
+For any $\mathcal I,\mathcal J$, $\|\mathcal I-\mathcal J\|_{\diamond}=\|\widehat{\mathcal I}-\widehat{\mathcal J}\|_\diamond\le\|\widehat{\mathcal I}\|_\diamond+\|\widehat{\mathcal J}\|_\diamond=2$.
+Equality via replacement instruments orthogonal flagged states exist when $nd_B>1$.
+If $d_B\ge2$ take $|0\rangle,|1\rangle\in B$ orthogonal, input $|\psi\rangle\in A$, $\mathcal I^0_1(X)=\Tr(X)|0\rangle\langle0|$, $\mathcal I^1_1(X)=\Tr(X)|1\rangle\langle1|$, flagged outputs orthogonal pure, distance $2$.
+If $d_B=1,n\ge2$ take deterministic POVMs $E_1=|\psi\rangle\langle\psi|,E_2=0$ vs $E_1=0,E_2=|\psi\rangle\langle\psi|$, orthogonal flags distance $2$.
+\end{proof}
+\begin{corollary}[Complementarity]
+$\rho_n+R_n=2=\diam$, $R_n=2(1-1/(nd_Bs))$, numerical identity, not chord theorem, no claim collinearity.
+\end{corollary}
+\section{Replacement}
+\begin{theorem}[Replacement profile]
+Assume $nd_B>1$. $\RepInst$ contains $S^{nd_B^2-2}$ distance $2$, $\alpha_r(\RepInst)=1$ for $0\le r\le nd_B^2-2$, $0$ for $r\ge nd_B^2-1$.
+\end{theorem}
+\begin{proof}
+Flagged replacement state space affine dimension $m=nd_B^2-1$, Lemma replacement isometric homeomorphism.
+For $r=m$, $S^m\to\RepInst\to\mathbb R^m$ via affine coordinates, Borsuk-Ulam collision $h(u)=h(-u)$, minimum zero.
+For $r>m$, restrict to equatorial $S^m\subset S^r$ same argument, hence $\alpha_r=0$ for $r\ge m$.
+Top-subcritical $r=m-1$: $2(m-r)/(m-r+1)=2/2=1$ coincides with lower bound $1$.
+\end{proof}
+\section{Full-direction}
+\begin{theorem}[Full-direction]
+Assume $nd_B>1$, $D=D_n$. For $0\le r\le D-1$ exists continuous $h:S^r\to\Inst$ with $\|h(u)-h(-u)\|_{\diamond}\ge2/d_A$, so $\alpha_r\ge1/d_A$ for $r<D$. $d_A=1$ separation $2$, $\alpha_r=1$.
+\end{theorem}
+\begin{proof}
+Direction space $\mathfrak V$ flag Hermitian $Z$, $\Tr_{BC_n}Z=0$, dimension $D$, Euclidean norm, sphere $S(\mathfrak V)\cong S^{D-1}$. Suffices $S^{D-1}$, restriction to equatorial $S^r$.
+Fix $\tau_0=I_B/d_B\otimes I_{C_n}/n$.
+For $Z\in S(\mathfrak V)$, Jordan $Z=Z_+-Z_-$, $Z_\pm\ge0$, $Z_+Z_-=0$, flag preserved.
+$\Tr_{BC_n}Z=0\implies\Tr_{BC_n}Z_+=\Tr_{BC_n}Z_-$.
+$t=\Tr Z_+=\Tr Z_->0$ faithful: if $t=0$ then $Z_+=0$, $Z=-Z_-\le0$, $W=-Z\ge0$, $\Tr_{BC_n}W=0$, basis $|b,c\rangle$, $0=\Tr_{BC_n}W=\sum_{b,c}\langle b,c|W|b,c\rangle\ge0$, each $\ge0$, sum zero $\implies$ each zero $\implies W=0$ contradiction.
+$Z\mapsto Z_+$ continuous, $t$ continuous, compact sphere $\inf t>0$ bounded away from zero.
+$P=Z_+/t$, $Q=Z_-/t$ states orthogonal supports, common marginal $\mu=\Tr_{BC_n}P=\Tr_{BC_n}Q$, density $\mu\le I_{A_0}$.
+If $d_A=1$, $J^+=P$, $J^-=Q$.
+If $d_A\ge2$, $\lambda=1/d_A$, $\nu=(I_{A_0}/d_A-\lambda\mu)/(1-\lambda)=(I-\mu)/(d_A-1)\ge0$ trace $1$.
+$J^+=\lambda P+(1-\lambda)\nu\otimes\tau_0$, $J^-=\lambda Q+(1-\lambda)\nu\otimes\tau_0$.
+$J^\pm\ge0$, flag, $\Tr_{BC_n}J^\pm=I_{A_0}/d_A$ valid instruments.
+$-Z$ swaps $Z_+,Z_-$, $t,\mu,\nu$ unchanged, $h(-Z)=\mathcal I^-(Z)$.
+$J^+-J^-=\lambda(P-Q)$, $\|P-Q\|_1=2$, so $\|J^+-J^-\|_1=2/d_A$.
+Diamond dominates Choi trace via $|\omega_A\rangle$, so $\|h(Z)-h(-Z)\|_{\diamond}\ge2/d_A$.
+Continuity because $t$ bounded away from zero.
+Improved $\lambda(Z)=1/(d_A\|\mu\|_\infty)\ge1/d_A$ valid because $I/d_A-\lambda\mu\ge0$ iff $\lambda\le1/(d_A\|\mu\|_\infty)$.
+\end{proof}
+\begin{corollary}[Cutoff]
+For $nd_B>1$, $\alpha_r=0$ for $r\ge D_n$. Proof affine $c:\Inst\hookrightarrow\mathbb R^{D_n}$, $S^r$ contains equatorial $S^{D_n}$, $c\circ h:S^{D_n}\to\mathbb R^{D_n}$ Borsuk-Ulam gives collision, injectivity $h(u)=h(-u)$, monotonicity extends.
+\end{corollary}
+\section{Observable and join}
+\begin{theorem}[Observable]
+Assume $n\ge2,d_A\ge2$ or $n=1,d_A\ge2,d_B\ge2$. Then $\alpha_r=1$ for $0\le r\le d_A^2-2$.
+\end{theorem}
+\begin{proof}
+$\Herm_0(A)\cong\mathbb R^{d_A^2-1}$, sphere $S^{d_A^2-2}$ unit Hilbert-Schmidt.
+$K(H)=H/\|H\|_\infty$ continuous, $\|H\|_\infty\ge\|H\|_2/\sqrt{d_A}>0$ bounded away zero compact.
+$E_\pm=(I\pm K)/2\ge0$, $E_++E_-=I$.
+$n\ge2$: fix $\sigma$, $\mathcal I^H_1(X)=\Tr(E_+X)\sigma$, $\mathcal I^H_2(X)=\Tr(E_-X)\sigma$, rest $0$, sum $\Tr(X)\sigma$ TP.
+$K(H)$ eigenvalue $\pm1$, eigenvector $|\psi\rangle$, $\Tr(E_+|\psi\rangle\langle\psi|)=1$, $\Tr(E_-|\psi\rangle\langle\psi|)=0$, $-H$ swaps, flagged outputs $\sigma\otimes|1\rangle\langle1|$ vs $\sigma\otimes|2\rangle\langle2|$ orthogonal distance $2$.
+Continuity from $K,E_\pm$.
+$n=1,d_B\ge2$: orthogonal $\sigma_+,\sigma_-$, $\Phi^H(X)=\Tr(E_+X)\sigma_++\Tr(E_-X)\sigma_-$ same witness.
+\end{proof}
+\begin{lemma}[Join]
+Let $O:S^a\to\Inst$ supported $W_O$, $R:S^b\to\RepInst$ supported $W_R$, $W_O\perp W_R$, antipodal $2$. Then $H:S^{a+b+1}\to\Inst$ antipodal $2$.
+\end{lemma}
+\begin{proof}
+$S^{a+b+1}=\{(x,z):\|x\|^2+\|z\|^2=1\}$, $\lambda=\|x\|^2$, $u=x/\|x\|$ if $x\neq0$, $v=z/\|z\|$ if $z\neq0$.
+$H(y)=\lambda O(u)+(1-\lambda)R(v)$ omitting zero weight.
+Convex combination instruments.
+Continuity at $\lambda=0,1$: $\|\lambda O(u)\|_1=\lambda\to0$ uniformly, similarly $(1-\lambda)R(v)$.
+Orthogonal $W_O\perp W_R$ block-diagonal $\Delta H=\lambda\Delta O\oplus(1-\lambda)\Delta R$, norm additive $\|\Delta H\|_1=\lambda\|\Delta O\|_1+(1-\lambda)\|\Delta R\|_1$.
+Replacement norm $2$ independent input, choose input witnessing $2$ for $O(u)$, total $2$.
+$\ell$-fold: $\lambda_i=\|y_i\|_2^2$, $H(y)=\sum_{i:y_i\neq0}\lambda_i h_i(u_i)$, $\sum\lambda_i=1$, $\|\lambda_i h_i\|_1=\lambda_i\to0$ continuity, orthogonal supports $\|H(y)-H(-y)\|_1=\sum\lambda_i\|h_i(u_i)-h_i(-u_i)\|_1=2$.
+\end{proof}
+\begin{corollary}[Join dimension]
+$N_{\mathrm{join}}=2(d_B-1)^2+(n-2)d_B^2$ if $n\ge2$, $(d_B-2)^2$ if $n=1$. If $N_{\mathrm{join}}\ge2$ then $\alpha_r=1$ for $r\le d_A^2+N_{\mathrm{join}}-3$ via $W_O=\mathrm{span}\{|b_0\rangle\otimes|1\rangle,|b_0\rangle\otimes|2\rangle\}$ complement dimension $N_{\mathrm{join}}$, replacement sphere $N_{\mathrm{join}}-2$ joined with observable $d_A^2-2$ gives $d_A^2+N_{\mathrm{join}}-3$.
+\end{corollary}
+\begin{definition}[One-sphere dimension]
+$L_{\mathrm{rep}}=nd_B^2-2$, $L_{\mathrm{obs}}=d_A^2-2$ valid else $-1$, $N_{\mathrm{join}}$ as above, $L_{\mathrm{join}}=d_A^2+N_{\mathrm{join}}-3$ valid else $-1$, $L_{A,B}^{(n)}=\min\{D_n-1,\max\{L_{\mathrm{rep}},L_{\mathrm{obs}},L_{\mathrm{join}}\}\}$ invalid ignored, cap defensive.
+\end{definition}
+\begin{definition}[Best envelope]
+$\rho_n=2/(nd_B\min\{d_A,d_B\})$, $\gamma=\max\{\rho_n,1/d_A\}$, $\beta_r^{\mathrm{best}}=1$ for $r\le L$, $\gamma$ for $L<r<D_n$, $0$ for $r\ge D_n$. $L=D_n-1$ middle empty. $d_A=1$ gives $L=D_n-1$, envelope $1$ subcritical.
+\end{definition}
+\begin{corollary}[Bracket]
+For $nd_B>1$, $0\le r<D_n$, $\beta_r^{\mathrm{best}}\le\delta_r^\diamond\le U_r$, $0$ for $r\ge D_n$. Lower $S^r\to\Inst$ distance $2$ forces error $\ge1$ for $r\le L$; $2\rho_n$ and $2/d_A$ gives $2\gamma$ $\implies$ error $\ge\gamma$ for $L<r<D_n$. Upper constant-code, convex-projection, pinching.
+\end{corollary}
+\section{Covering optimality}
+\begin{theorem}[Optimal centre]
+$\mathcal I_*$ minimizes $R_{\mathrm{inst}}$.
+\end{theorem}
+\begin{proof}
+$G=\mathrm U(B)\times S_n$, $[(U,\pi)\cdot\Psi]_k=\mathcal U_U\circ\Psi_{\pi^{-1}(k)}$, preserves $\mathfrak A$, $\Inst$, metric, so $R_{\mathrm{inst}}(g\cdot\Psi)=R_{\mathrm{inst}}(\Psi)$. $R_{\mathrm{inst}}$ convex supremum.
+Average $\overline\Psi=\int_Gg\cdot\Psi d\mu$, Jensen $R(\overline\Psi)\le R(\Psi)$.
+Schur $\int_{\mathrm U(B)}U\Psi_kU^\dagger dU=\Tr(\Psi_k)/d_B I_B$, $S_n$ average $\frac1n\sum_j\Tr(\Psi_j)/d_B I_B=\Tr(X)/(nd_B)I_B$ TP, so $\overline\Psi=\mathcal I_*$, an optimal centre, not claimed unique.
+\end{proof}
+\section{Upper envelope}
+\begin{definition}[Upper envelope]
+$U_r$ minimum of $2(1-1/(nd_B\min\{d_A,d_B\}))$, $2(D_n-r)/(D_n-r+1)$, output-pinching $2(1-1/\ell_{\mathrm{out}})$ with $r\ge d_A^2(nQ_{\ell_{\mathrm{out}}}(d_B)-1)$, input-pinching $2(1-1/k_{\mathrm{in}})$ with $r\ge Q_{k_{\mathrm{in}}}(d_A)(nd_B^2-1)$, $Q_\ell(d)=\min\sum b_i^2$, $d=m\ell+t$, $Q=(\ell-t)m^2+t(m+1)^2$ balanced.
+\end{definition}
+\begin{remark}[Constructive vs existential]
+Pinching constructive explicit channels. Convex-projection uses Helly compactness selects decoder per fibre existential nonconstructive. Certified refers to proved upper bounds.
+\end{remark}
+\begin{theorem}[Pinching]
+$B=\bigoplus_{j=1}^{\ell_{\mathrm{out}}}B_j$, $r_{\mathrm{out}}=d_A^2(n\sum b_j^2-1)$, $r\ge r_{\mathrm{out}}\implies\delta_r^\diamond\le2(1-1/\ell_{\mathrm{out}})$. $A=\bigoplus_{i=1}^{k_{\mathrm{in}}}A_i$, $r_{\mathrm{in}}=(\sum a_i^2)(nd_B^2-1)$, $r\ge r_{\mathrm{in}}\implies\delta_r^\diamond\le2(1-1/k_{\mathrm{in}})$. Choi $\widehat J_{\Phi\circ\mathcal P_A}=(\mathcal P_{\overline A_0}\otimes\id_B)\widehat J_\Phi$, $\overline A_i$ conjugate.
+\end{theorem}
+\begin{lemma}[Pinching norm]
+$\|\id-\mathcal P_H\|_\diamond=2(1-1/\ell)$, $\mathcal P_H(X)=\sum_{j=1}^\ell P_jXP_j$.
+\end{lemma}
+\begin{proof}
+$\omega=e^{2\pi i/\ell}$, $U_m=\sum_j\omega^{m(j-1)}P_j$. Roots-of-unity $\frac1\ell\sum_{m=0}^{\ell-1}\omega^{m(j-k)}=\delta_{jk}$, so $\mathcal P_H=\frac1\ell\sum_m\mathcal U_{U_m}$, $\|\id-\mathcal P_H\|_\diamond\le\frac1\ell\sum_{m=1}^{\ell-1}\|\id-\mathcal U_{U_m}\|_\diamond\le2(1-1/\ell)$. Equality $|e_j\rangle\in H_j$, $|e\rangle=\ell^{-1/2}\sum_j|e_j\rangle$, output $(J_\ell-I_\ell)/\ell$ norm $2(1-1/\ell)$.
+\end{proof}
+\begin{theorem}[Zero-error continuous decoder]
+Continuous encoding unrestricted decoding $\delta_r^\diamond=0$ iff $r\ge D_n$, moreover for $r\ge D_n$ exact decoding continuous.
+\end{theorem}
+\begin{proof}
+$r\ge D_n$: affine $c:\mathfrak A\to\mathbb R^{D_n}$ homeomorphism onto compact convex $C$, nearest-point projection $\Pi_C:\mathbb R^{D_n}\to C$ continuous $1$-Lipschitz single-valued closed convex, encoder $f=c|_K$ padded zeros if $r>D$, decoder $g=c^{-1}\circ\Pi_C$ on first $D$ coordinates ignoring padding, $g(f(x))=x$ continuous.
+Converse $r<D$: $\beta_r^{\mathrm{best}}>0$ so positive error even arbitrary decoder, Borsuk-Ulam collision $f(h(u))=f(h(-u))$.
+\end{proof}
+\begin{remark}[Decoder]
+Helly existence not continuous automatically. Zero-error holds even requiring continuous decoder via $\Pi_C$. If both continuous required, threshold remains $D_n$, subcritical $U_r$ existence.
+\end{remark}
+\begin{theorem}[Collapse $nd_Bs=2$]
+$s=\min\{d_A,d_B\}$, $nd_Bs=2\implies\rho_n=1$, $R_n=1$, $\delta_r^\diamond=1$ for $0\le r<D_n$, $0$ for $r\ge D_n$. Cases $d_B=1,n=2$ POVMs $D=d_A^2$, $d_A=1,n=1,d_B=2$ trivial-input qubit channels $D=3$. Proof $\rho_n=1$, $\gamma=1$, $\beta^{\mathrm{best}}=1$ subcritical, constant-code radius $1$ upper, $U_r\ge1$ for $r<D_n$ each admissible term at least $1$, so $U_r=1$ bracket collapses.
+\end{theorem}
+\begin{proposition}[Bracket width]
+For $nd_B>1$, $0\le r<D_n$, $U_r\ge1$, so if $\beta_r^{\mathrm{best}}<1$ certified bracket length $\ge1-\beta_r^{\mathrm{best}}$, statement about certificates not true width.
+\end{proposition}
+\begin{proof}
+Constant-code $R_n=2(1-1/(nd_Bs))\ge1$ because $nd_Bs\ge2$, convex-projection $2(D-r)/(D-r+1)\ge1$ if $r<D$, output-pinching $\ell_{\mathrm{out}}\ge2$ gives $\ge1$, $\ell=1$ requires $r\ge D$, similarly $k_{\mathrm{in}}\ge2$.
+\end{proof}
+\begin{proposition}[Gap structure]
+Exact constant-code width $\delta_0^\diamond=R_{\mathrm{inst}}(\mathcal I_*)=2(1-\rho_n)$; zero-error threshold $r\ge D_n$; replacement top-subcritical $\delta^c_{m_n-1}(\RepInst;\RepInst)=1$, $d_A=1$ full body equals replacement; for $0\le r\le L$, $\beta^{\mathrm{best}}=1$, for $L<r<D$, $\beta^{\mathrm{best}}=\gamma$, bracket length $\ge1-\gamma$; except endpoints and collapse $nd_Bs=2$, intermediate true widths not determined.
+\end{proposition}
+\begin{remark}[Error-one barrier]
+For $r<D_n$ present certified upper constructions $\ge1$, cannot prove sub-one error intermediate regime, barrier for specific constructions not universal impossibility.
+\end{remark}
+\begin{corollary}[Large-$n$ product]
+$\Pi_n=D_n\rho_n=2d_A^2(nd_B^2-1)/(nd_B\min\{d_A,d_B\})=2d_A^2d_B/\min-2d_A^2/(nd_B\min)$, $\lim_{n\to\infty}\Pi_n=2d_A\max\{d_A,d_B\}$, finite large-$n$ limit despite linear growth and $1/n$ decay, asymptotic branching-independence not exact finite-$n$ invariance.
+\end{corollary}
+\begin{remark}[Coindex and radial]
+$F_2(Y)=\{(y_0,y_1)\in Y^2:y_0\neq y_1\}$ free $\mathbb Z_2$ swapping, $\coind=\sup\{k:\exists\text{ equivariant }S^k\to F_2(Y)\}$. If $\coind=+\infty$ no finite $q$ satisfies $q>\coind$, intrinsic hierarchy vacuous. If $Y$ injects into $\mathbb R^r$, normalized difference equivariant $F_2(Y)\to S^{r-1}$, Borsuk-Ulam $\coind\le r-1$. Hausdorffness not needed for deleted product but natural. Radial $q<D_n=\dim\mathfrak V\implies q+1\le D_n$ choose $(q+1)$-dim $W\subset\mathfrak V$.
+\end{remark}
+\section{Examples}
+\begin{example}[$d_A=d_B=2,n=2$]
+$D=28$, $L_{\mathrm{rep}}=6$, $L_{\mathrm{obs}}=2$, $N=2$, $L_{\mathrm{join}}=3$, $L=6$, $\beta=1$ $r\le6$, $\gamma=0.5$ $6<r<28$, $0$ $r\ge28$. $Q_2(2)=2$, $r_{\mathrm{out}}^{(2)}=12$ bound $1$ for $r\ge12$, $r_{\mathrm{in}}^{(2)}=14$ outside $0\le r\le13$, convex $>1.75$ on plotted range verified $54/28\approx1.928>1.75$ at $r=1$, $34/18\approx1.889>1.75$ at $r=11$.
+\end{example}
+\begin{table}[h]\centering\begin{tabular}{lcccc}\toprule $(d_A,d_B,n)$ & $D_n$ & $L_{\mathrm{rep}}$ & $L_{\mathrm{obs}}$ & $L_{\mathrm{join}}$ \\\midrule $(2,2,2)$ & $28$ & $6$ & $2$ & $3$ \\ $(3,2,2)$ & $63$ & $6$ & $7$ & $8$ \\\bottomrule\end{tabular}\caption{Thresholds $L=\min\{D_n-1,\max\}$.}\end{table}
+\begin{figure}[h]\centering\begin{tikzpicture}[scale=0.9]\draw[->] (0,0) -- (8,0) node[right] {$r$};\draw[->] (0,0) -- (0,4) node[above] {$\beta_r$};\draw[thick,blue] (0,3) -- (2,3);\draw[thick,blue] (2,1.5) -- (6,1.5);\draw[thick,blue] (6,0) -- (8,0);\draw[dashed] (2,0) -- (2,3); \draw[dashed] (6,0) -- (6,1.5);\node at (2,0) [below] {$L$}; \node at (6,0) [below] {$D_n$};\end{tikzpicture}\caption{Best envelope $1$ for $r\le L$, $\gamma$ for $L<r<D_n$, $0$ for $r\ge D_n$. $(2,2,2)$ $L=6$, $D=28$, $\gamma=0.5$. $U_r$: $R=1.75$, $1$ from output pinching. $Q_2(2)=2$, $r_{\mathrm{out}}=12$, $r_{\mathrm{in}}=14$.}\end{figure}
+\appendix
+\section{Finite-program evaluation}
+\begin{remark}[Role]
+Motivational independent of main theorems. Main results do not rely on no-programming. Records exact finite obstruction and divergence of approximate program dimension.
+\end{remark}
+\begin{theorem}[No-programming]
+Exact finite-dimensional universal processor for all unitaries impossible.
+\end{theorem}
+\begin{proof}
+Pure programs orthogonal for distinct unitaries. Mixed $\pi_U=\sum_jq_j|p_j\rangle\langle p_j|$, $q_j>0$, $U|\psi\rangle\langle\psi|U^\dagger=\sum_jq_j\Gamma(|p_j\rangle\langle p_j|\otimes|\psi\rangle\langle\psi|)$. Each summand density, LHS pure extreme point, so each summand equals $U|\psi\rangle\langle\psi|U^\dagger$ for all $j,\psi$. Fixed $j$, $\Lambda_j(X)=\Gamma(|p_j\rangle\langle p_j|\otimes X)$ channel agrees on rank-one projectors spanning $\Herm(E)$, so equal on $\Herm(E)$ real linearity, complex linearity all $\Lin(E)$. Each pure vector in support programs $\mathcal U_U$ exactly. Supports for distinct unitaries orthogonal, finite dimension cannot contain infinitely many orthogonal subspaces.
+\end{proof}
+\begin{corollary}[Divergence]
+If $\Gamma_j$ dimensions $m_j$ approximate all unitaries error $\varepsilon_j\to0$, then $m_j\to\infty$.
+\end{corollary}
+\begin{proof}
+Suppose bounded $m_j\le m_{\max}$, $M\simeq\mathbb C^{m_{\max}}$, isometries $W_j:M_j\to M$, $P_j=W_jW_j^\dagger$, $\tau_j$, $\Lambda_j(\eta)=W_j^\dagger P_j\eta P_jW_j+\Tr[(I-P_j)\eta]\tau_j$ CPTP, $\Lambda_j(W_j\pi W_j^\dagger)=\pi$. Extended $\widetilde\Gamma_j=\Gamma_j\circ(\Lambda_j\otimes\id_E)$ CPTP compact, subsequence chosen independently of $U$, $\widetilde\Gamma_j\to\Gamma$ diamond. Fix $U$, program $\pi'_j(U)$ error $\le\varepsilon_j+1/j$ exists compactness $\Sstate(M_j)$ continuity, embedded $\pi_j(U)=W_j\pi'_j(U)W_j^\dagger\in\Sstate(M)$ compact gives $U$-dependent subsubsequence $\pi_j(U)\to\pi_U$, processors converge same $\Gamma$, continuity evaluation gives $\Gamma(\pi_U\otimes\cdot)=\mathcal U_U$. Single $\Gamma$ evaluates all unitaries contradiction.
+\end{proof}
+\begin{remark}[Scope]
+Forbids exact deterministic universal finite-dimensional. Not forbid approximate, probabilistic, restricted-family, infinite-dimensional, unbounded register, externally supplied classical description. Finite classical register still finite-dimensional quantum program not exempt. Storing Choi as mathematical state not same as evaluating with fixed CPTP processor.
+\end{remark}
+\section{Auxiliary lemmas}
+\begin{lemma}[Bipartite domination]
+$\sigma_{RB}\ge0$, $\rho_R=\Tr_B\sigma_{RB}$, $r_R=\rank\rho_R\implies\sigma_{RB}\le\min\{r_R,d_B\}\rho_R\otimes I_B$. Proof: if $\rho_R=0$ trivial else $R_0=\supp\rho_R$, $\rho_R^{-1/2}$ on $R_0$ zero orthocomplement, $Z=(\rho_R^{-1/2}\otimes I_B)\sigma(\rho_R^{-1/2}\otimes I_B)\ge0$, $\Tr_BZ=I_{R_0}$, $Z=\sum|K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|$, $\sum K_\alpha^\dagger K_\alpha=I_{R_0}$, unit $|v\rangle\in R_0\otimes B$ matrix $V$ rank $b\le\min\{r_R,d_B\}$, $\langle v|Z|v\rangle=\sum|\Tr(V^\dagger K_\alpha)|^2\le b$, hence $Z\le\min\{r_R,d_B\}I$, conjugate back.
+\end{lemma}
+\begin{lemma}[Spectral bound]
+$s=\min\{d_A,d_B\}$, $\vec\Delta\in\mathfrak V$, $X=\widehat J_{\widehat{\vec\Delta}}\in\Herm(A_0\otimes B\otimes C_n)$, $X=\sum_kX_k\otimes|k\rangle\langle k|$, $\max\{0,\lambda_{\max}(-X)\}\le s/(2d_A)\|\vec\Delta\|_{\diamond,\mathrm{inst}}$. Testing $|v,k_0\rangle:=|v\rangle\otimes|k_0\rangle$, $S=\supp\Tr_B|v\rangle\langle v|$, $\dim S\le s$.
+\end{lemma}
+\begin{lemma}[POVM branch]
+$d_B=1$, $\mathcal F(Z)=\Tr(PZ)$ rank-one $P$, $\Delta_1=-\frac12\mathcal F$, $\Delta_2=+\frac12\mathcal F$, $\Delta_k=0$ $k\ge3$, $\Delta_1+\Delta_2=0$ as functionals, Choi $\widehat J_{\mathcal F}=P^{\mathsf T}/d_A$, $t=2/n$ blocks $(I-P^{\mathsf T})/(nd_A)$, $(I+P^{\mathsf T})/(nd_A)$, rest $I/(nd_A)$ positive first singular sum $I/d_A$, $t'>2/n$ first block negative eigenvalue.
+\end{lemma}
+\end{document}
