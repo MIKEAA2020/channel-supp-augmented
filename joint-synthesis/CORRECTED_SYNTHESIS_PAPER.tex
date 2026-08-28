@@ -986,6 +986,11 @@ where $\overline A_i$ is the conjugate subspace in $A_0$ of the block $A_i\subse
 Padding by zero coordinates handles larger $r$ in both cases.
 \end{proof}
 
+\begin{remark}[Pinching bounds are certified, not exact]
+\label{rem:pinching-certified}
+The bounds of Theorem~\ref{thm:pinching} are certified upper bounds on the compression width: they are achieved by the explicit pinching constructions above, but it is not claimed that the equality $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=2(1-1/\ell_{\mathrm{out}})$ (or its input analogue) holds at any $r$. The only exact width determinations in the paper are those listed in Proposition~\ref{prop:gap}.
+\end{remark}
+
 For $1\le\ell\le d$ write $d=m\ell+t$, $0\le t<\ell$, and set
 \[
 Q_\ell(d)=(\ell-t)m^2+t(m+1)^2.

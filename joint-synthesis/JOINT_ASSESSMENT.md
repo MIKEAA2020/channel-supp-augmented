@@ -351,3 +351,61 @@ The remaining collisions listed in the audits were eliminated: subspaces are now
 denoted W (killing s vs S), the reference system in the covering arguments is now E
 (killing R-radius vs R-reference), joining the earlier r_R/k_in/ℓ_out renames.
 The notation remark records the full convention.
+
+### Deeper verification pass (follow-up)
+
+A second, independent pass was run with exhaustive coverage instead of keyword targets.
+
+**Source inventory.** The four `FINAL_*.tex` files are byte-identical (md5 `fc632af4...`),
+so the true source set is four files: `final.txt` (1,456 lines), the augmented `.txt`
+(1,501 lines), the compact `.tex` (271 lines), and `AUDIT_RESPONSE_AND_CORRECTED_VERSION.tex`
+(205 lines). Each was read completely.
+
+**Method.** (i) A complete block skeleton (every section/paragraph/theorem/lemma/
+proposition/corollary/remark/definition/example/proof) was extracted from each source.
+(ii) A paragraph-fingerprint scan scored every paragraph of both `.txt` sources by
+content-word overlap with the synthesis: 135/135 and 140/140 paragraphs score >= 0.75,
+with exactly two sub-threshold items, both resolved as deliberate:
+- `final.txt:973` (the one-line shorthand "m_n:=nd_B^2-1, D_n:=..., rho_n:=..., R_n:=...")
+  is not reproduced verbatim; each quantity is defined where first used, which is
+  cleaner and avoids the collision-prone single-letter pile-up.
+- the LaTeX preamble wrapper (no content).
+(iii) A sentence-level scan with a 0.55 threshold flagged 7 sentences across both
+sources; every one verified present in the synthesis (upper-envelope four-type
+enumeration in Definition of U_r; partition-basis sentence in Remark rem:partitions;
+Cauchy-Schwarz support step inside the spectral lemma; the figure-comment arithmetic).
+(iv) The compact `.tex` and `AUDIT_RESPONSE` were then read line by line in full and
+each distinct claim checked against the synthesis: all present, including the
+exact-vs-certified taxonomy (Remark rem:exact-vs-certified), the constructive-vs-
+existential distinction (Remark rem:nonconstructive), the degenerate-case
++infinity supremum convention (Remark rem:degenerate), the t>0 faithfulness argument
+(cleaner Tr-based proof), the coindex +infinity vacuity and coind<=r-1 Borsuk-Ulam
+bound, the top-subcritical coincidence 2(m-r)/(m-r+1)=2/2=1, the collapse cases
+(d_B=1,n=2 and d_A=1,n=1,d_B=2 with exact thresholds d_A^2 and 3), the POVM
+effect-transfer witness with its maximality eigenvalue, the input-pinching conjugate
+identity, the no-programming scope exemptions, the floor proof with equality only at
+r=D-1, the multiplicative-stability isometry proof, the Helly barycentre bookkeeping,
+the surjectivity construction X_1=H⊗I_B/d_B, and the trace-zero unitary witness
+diag(1,zeta,...,zeta^{s-1}).
+
+**Tables.** The synthesis's Table tab:comparison is a strict superset of the source
+Table 1 (it adds the full-direction sphere row); Table tab:thresholds is a strict
+superset of the compact threshold table (it adds (2,3,1) and (2,1,2) with the collapse
+annotation). The dropped summary Table 2's "Status" column is carried by
+Proposition prop:gap, Proposition prop:floor, and the two remarks, which state
+exactness/degree-of-certainty per item more precisely than a table cell can.
+
+**Outcome.** Exactly one implementable item was found and added: the explicit
+statement that the pinching bounds are certified upper bounds, not exact widths
+(Remark rem:pinching-certified, placed directly after the pinching proof).
+Two further candidates were checked and deliberately skipped:
+- A separate formal proposition for the POVM (d_B=1) witness: the witness is already
+  a full case of Theorem thm:exact-radius (statement and proof), so a separate
+  proposition would duplicate rather than add content.
+- The "certified gap approaches one as n->infinity" asymptotic from the Gap paragraph:
+  superseded by the strengthened envelope (gamma -> 1/d_A constant), which is the
+  correction documented above.
+
+With this, every paragraph of every earlier version is accounted for: present,
+strengthened, or deliberately removed with a recorded reason. No further content
+from earlier drafts remains unimplemented.
