@@ -1,0 +1,232 @@
+The one real gap (fixed): Corollary cor:join-dimension proved the observable–replacement join by invoking the state-level Proposition prop:join on the observable sphere — but that sphere is a family of input-dependent instruments, not flagged states (no antipodal state-map of dimension 
+d 
+A
+2
+​
+ −2
+ fits inside the 2-dimensional 
+W 
+obs
+​
+ 
+ for 
+d 
+A
+​
+ ≥3
+). I closed it with a new instrument-level join proposition: replacement components separate on every input, so the observable sphere's eigenvector input exposes all components simultaneously; orthogonal output supports make the trace norm additive. The claimed values 
+L 
+join
+​
+ 
+ (e.g. 
+L=8
+ for 
+(3,2,2)
+) survive — now with a valid proof.
+
+Also fixed: the incomplete "exact vs certified" list (diameter, 
+δ 
+0
+​
+ 
+, collapse case, 
+d 
+A
+​
+ =1
+ profile were missing); the imprecise "taking the stronger yields 
+2γ
+" arguments (now two independent certificates); a missing pinching-inadmissibility step in Prop. gap; a dangling β⋆ draft note; undefined 
+Herm 
+0
+​
+ (A)
+; an unjustified 
+b≤s
+; the unjustified "replacement face" terminology; a mis-scoped barrier remark; the 9-vs-8 table column spec; unreferenced figure/tables; three margin-protruding displays; and minor grammar.
+
+---
+
+The conjecture is true, and the proof is the concave mirror of a tool already in the paper:
+
+Theorem (now Theorem 3.12). 
+I 
+0
+​
+ ∈\Inst 
+n
+​
+ (A,B)
+sup
+​
+ ρ 
+⋄,inst
+​
+ (I 
+0
+​
+ )=ρ 
+⋄,inst
+​
+ (I 
+∗
+​
+ )= 
+nd 
+B
+​
+ min{d 
+A
+​
+ ,d 
+B
+​
+ }
+2
+​
+ .
+
+Proof.
+
+Concavity + 1-Lipschitz (new Lemma 3.11): for the closed direction ball 
+B 
+V
+​
+ (ρ)
+, the Minkowski identity 
+λB 
+V
+​
+ (ρ 
+0
+​
+ )+(1−λ)B 
+V
+​
+ (ρ 
+1
+​
+ )=B 
+V
+​
+ (λρ 
+0
+​
+ +(1−λ)ρ 
+1
+​
+ )
+ plus convexity of the body gives 
+ρ(λI 
+0
+​
+ +(1−λ)I 
+1
+​
+ )≥λρ(I 
+0
+​
+ )+(1−λ)ρ(I 
+1
+​
+ )
+; ball nesting 
+I 
+1
+​
+ +B(ρ−δ)⊆I 
+0
+​
+ +(I 
+1
+​
+ −I 
+0
+​
+ )+B(ρ−δ)⊆I 
+0
+​
+ +B(ρ)
+ gives 
+∣ρ(I 
+0
+​
+ )−ρ(I 
+1
+​
+ )∣≤∥I 
+0
+​
+ −I 
+1
+​
+ ∥
+.
+Invariance: 
+G=U(B)×S 
+n
+​
+ 
+ preserves the body, the direction space (Choi 
+A 
+0
+​
+ 
+-marginals are unitary-invariant), and the norm (flagged operator of 
+g⋅\vD
+ is post-composed by the unitary channel 
+U⊗W 
+π
+​
+ 
+) — so 
+ρ(g⋅I 
+0
+​
+ )=ρ(I 
+0
+​
+ )
+.
+Jensen: the Haar barycentre of every orbit is 
+I 
+∗
+​
+ 
+ (the Schur + permutation average already computed in the covering theorem, valid on all of 
+A
+). Concavity gives 
+ρ(I 
+∗
+​
+ )≥ρ(I 
+0
+​
+ )
+ for every centre. ∎
+The duality is exact: covering radius convex in the centre → 
+I 
+∗
+​
+ 
+ minimises it (paper, existing); in-radius concave → 
+I 
+∗
+​
+ 
+ maximises it (new). Sanity-checked against the qubit state space (
+2λ 
+min
+​
+ 
+, maximised at maximally mixed) and the classical simplex (
+2min 
+k
+​
+ p 
+k
+​
+ 
+, maximised at uniform).
+
