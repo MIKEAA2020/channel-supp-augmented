@@ -1,0 +1,735 @@
+## 1. Substantive proof gaps / mathematical issues
+
+### 1.1. Major gap: the observable–replacement join is not justified by Proposition \ref{prop:join}
+
+**Location.** Proposition \ref{prop:join}, Corollary \ref{cor:join-dimension}, Definition \ref{def:one-sphere}, Definition \ref{def:beta-best}, abstract.
+
+**Issue.**  
+Proposition \ref{prop:join} is stated for maps
+
+\[
+h_i:S^{r_i}\to \Sstate_{\mathrm{flag}}(B\otimes C_n)
+\]
+
+into flagged states supported on mutually orthogonal subspaces, and then composed with the replacement-instrument embedding. It therefore applies to replacement-instrument spheres only.
+
+But the observable sphere from Theorem \ref{thm:observable} is not a replacement sphere. For \(n\ge 2\), the instrument constructed there has components
+
+\[
+\mathcal I^H_1(X)=\Tr(E_+(H)X)\sigma,\qquad
+\mathcal I^H_2(X)=\Tr(E_-(H)X)\sigma,
+\]
+
+which are input-dependent. This is not of the replacement form
+
+\[
+X\mapsto \Tr(X)\tau_k.
+\]
+
+For \(n=1\), the channel
+
+\[
+\Phi^H(X)=\Tr(E_+(H)X)\sigma_+ + \Tr(E_-(H)X)\sigma_-
+\]
+
+is also not a replacement channel unless \(E_+(H),E_-(H)\) are independent of \(H\), which they are not.
+
+Thus the sentence in Corollary \ref{cor:join-dimension},
+
+> Proposition \ref{prop:join} joins the two spheres,
+
+is not valid as written. The observable sphere is only “supported on \(W_{\mathrm{obs}}\)” at the level of the output support of its Choi operator; it is not a map into flagged states. Consequently the certified dimension \(L_{\mathrm{join}}\), and any value of \(L_{A,B}^{(n)}\) or \(\beta_r^{\mathrm{best},(n)}\) that relies on it, is not proved by the current text.
+
+**Why this matters.**  
+For some parameter values \(L_{\mathrm{join}}\) improves the certified one-sphere dimension. Example: Table row \((3,2,2)\) has
+
+\[
+L_{\mathrm{rep}}=6,\quad L_{\mathrm{obs}}=7,\quad L_{\mathrm{join}}=8.
+\]
+
+Without a valid join argument, the certified value would only be \(7\), not \(8\). The abstract and Definition \ref{def:beta-best} therefore overstate what is currently certified unless the join lemma is strengthened.
+
+**Suggested fix.**  
+Prove a stronger join lemma for instrument Choi operators with orthogonal output supports. A plausible statement is:
+
+> Let \(h_1:S^{r_1}\to \Inst_n(A,B)\) be a continuous instrument sphere whose normalized flagged Choi operators are supported on \(A_0\otimes W_1\), and suppose
+> \[
+> \|h_1(u)-h_1(-u)\|_{\diamond,\mathrm{inst}}=2.
+> \]
+> Let \(h_2:S^{r_2}\to \RepInst_n(A,B)\) be a replacement sphere whose flagged states are supported on \(W_2\), with \(W_1\perp W_2\), and with antipodal distance \(2\). Then the convex join of the Choi operators gives a continuous map
+> \[
+> S^{r_1+r_2+1}\to \Inst_n(A,B)
+> \]
+> with antipodal instrument-diamond distance \(2\).
+
+The proof would use that the replacement part attains distance \(2\) on every input state, while the observable part has some input witness attaining distance \(2\). For the joined point, choose the observable witness; the replacement part still contributes its full separation because it is input-independent. This should be stated explicitly. Without such a lemma, Corollary \ref{cor:join-dimension} is a gap.
+
+---
+
+### 1.2. Major gap: norm ambiguity in Proposition \ref{prop:convex}
+
+**Location.** Proposition \ref{prop:convex}, proof.
+
+**Issue.**  
+The proof says:
+
+> project affine coordinates ... Each nonempty fibre \(F\) ... has diameter at most two ... consider the family \(\{F\}\cup\{\overline B(x,R):x\in F\}\) in \(\aff(F)\simeq \mathbb R^k\).
+
+But the diameter bound “at most two” is in the instrument diamond norm. The balls \(\overline B(x,R)\) and the barycentre estimates must be taken in the same norm. As written, “affine coordinates” and “balls” are not norm-specified. If one chooses arbitrary Euclidean affine coordinates, the Euclidean diameter of a fibre need not be \(2\), and the estimate
+
+\[
+\|c-x_j\|\le \frac{2(m-1)}m
+\]
+
+need not hold in the Euclidean coordinate norm.
+
+**Suggested fix.**  
+State explicitly that the affine hull is equipped with the instrument-diamond norm (or the norm transported from \(\mathfrak V_{A,B}^{(n)}\)). Then use norm balls, not necessarily Euclidean balls. Helly’s theorem applies to arbitrary compact convex sets in finite-dimensional real affine space, and norm balls are convex. The barycentre argument uses only the triangle inequality and the fact that the fibre diameter is \(\le 2\) in that norm.
+
+Also clarify that the linear projection used as encoder is continuous in finite dimensions, and that decoder error is measured in the same norm.
+
+This fix is likely enough, but it must be written explicitly.
+
+---
+
+### 1.3. Gap: continuity of constructed maps into the instrument diamond metric is often not stated
+
+**Location.** Theorem \ref{thm:observable}, Theorem \ref{thm:full-direction}, partly Theorem \ref{thm:replacement-profile}.
+
+**Issue.**  
+The antipodal profile is defined using continuous maps into \(K\) with the instrument diamond metric. Some proofs only show continuity in Euclidean/operator/Choi norms.
+
+Examples:
+
+- In Theorem \ref{thm:observable}, the proof says the map \(H\mapsto H/\|H\|_\infty\) is continuous on the Euclidean unit sphere, but does not explicitly state that the resulting map into instruments is continuous in \(\|\cdot\|_{\diamond,\mathrm{inst}}\).
+
+- In Theorem \ref{thm:full-direction}, continuity is argued for the Choi operators \(J^\pm(Z)\). One needs to say that continuity in Choi/operator norm implies continuity in the finite-dimensional instrument diamond norm.
+
+- In Theorem \ref{thm:replacement-profile}, continuity is essentially in trace norm and then transferred by Lemma \ref{lem:replacement-isometry}; this is better, but still worth stating explicitly.
+
+**Suggested fix.**  
+Add a global sentence early in Section 4, for example:
+
+> All constructions below are finite-dimensional. The normalized Choi representation identifies instruments with a compact convex subset of a finite-dimensional real vector space. Continuity in any norm on this space, in particular in Choi trace norm or operator norm, is equivalent to continuity in the instrument diamond norm.
+
+Then refer to this whenever needed.
+
+---
+
+### 1.4. Ambiguity in the definition of \(N_{\mathrm{join}}\)
+
+**Location.** Corollary \ref{cor:join-dimension}.
+
+**Issue.**  
+The text says:
+
+> The orthogonal complement of \(W_{\mathrm{obs}}\) in the flag-block-diagonal Hermitian space has real dimension \(N_{\mathrm{join}}\).
+
+This is ambiguous. There are at least two possible interpretations:
+
+1. Hilbert-Schmidt orthogonal complement to the affine span of the observable flagged states.  
+   This would have dimension \(nd_B^2-2\) in the \(n\ge 2\) case, not the stated formula.
+
+2. Flag-block-diagonal Hermitian operators supported on the Hilbert-space orthogonal complement \(W_{\mathrm{obs}}^\perp\).  
+   This gives the stated formula
+   \[
+   2(d_B-1)^2+(n-2)d_B^2.
+   \]
+
+The proof needs interpretation (2), but the wording invites interpretation (1).
+
+**Suggested fix.**  
+Rewrite as:
+
+> Let \(\mathcal H_{\mathrm{comp}}\) be the real vector space of flag-block-diagonal Hermitian operators supported on the Hilbert-space orthogonal complement \(W_{\mathrm{obs}}^\perp\). Its real dimension is ...
+
+Then the formula is unambiguous.
+
+---
+
+### 1.5. Reference dimension not explicitly restricted in the covering-radius upper bound
+
+**Location.** Theorem \ref{thm:covering}, upper-bound proof.
+
+**Issue.**  
+The proof fixes a “reference-assisted input state” and then uses
+
+\[
+\rank \rho_{k,E}\le d_A.
+\]
+
+This is true only if the reference system \(E\) has dimension at most \(d_A\). The diamond norm can indeed be restricted to a reference of input dimension \(d_A\), and this is stated earlier in the paper, but at this point the proof should explicitly say:
+
+> By the standard reduction for the diamond norm, we may take \(\dim E=d_A\).
+
+Otherwise the rank bound is not justified for an arbitrary reference.
+
+**Suggested fix.**  
+Insert a sentence at the beginning of the upper-bound proof:
+
+> Since the diamond norm of a map with input \(A\) is attained with a reference of dimension \(d_A\), we take \(\dim E=d_A\).
+
+---
+
+### 1.6. Missing explicit ranges for pinching parameters in Definition \ref{def:upper}
+
+**Location.** Definition \ref{def:upper}.
+
+**Issue.**  
+The definition minimizes over “all output-pinching values” and “all input-pinching values” satisfying certain inequalities, but it does not explicitly restrict
+
+\[
+1\le \ell_{\mathrm{out}}\le d_B,\qquad 1\le k_{\mathrm{in}}\le d_A.
+\]
+
+The quantity \(Q_\ell(d)\) was defined only for \(1\le \ell\le d\), and physical block decompositions require positive block sizes.
+
+**Suggested fix.**  
+Add:
+
+> Here \(\ell_{\mathrm{out}}\) ranges over \(1,\dots,d_B\), and \(k_{\mathrm{in}}\) ranges over \(1,\dots,d_A\). Families outside these ranges are ignored.
+
+---
+
+### 1.7. Degenerate singleton case not consistently excluded in summary table
+
+**Location.** Table \ref{tab:comparison}, “Channel \(n=1\)” column.
+
+**Issue.**  
+The table gives for channels:
+
+\[
+\text{Centred in-radius } \frac{2}{d_B s},
+\qquad
+\text{Replacement sphere } S^{d_B^2-2}.
+\]
+
+But for \(n=1,d_B=1\), the body is the degenerate singleton trace functional, the centred radius is \(+\infty\) under the paper’s convention, and the replacement sphere would be \(S^{-1}\). The table does not explicitly exclude this case.
+
+**Suggested fix.**  
+Add a note to the table:
+
+> The channel column assumes the nondegenerate case \(d_B>1\); the case \(n=d_B=1\) is the singleton discussed in Remark \ref{rem:degenerate}.
+
+---
+
+### 1.8. Remark on covering-number encodings is heuristic and mixes bits with continuous dimension
+
+**Location.** Remark \ref{rem:barrier}, paragraph on covering-number encodings.
+
+**Issue.**  
+The remark says an \(\varepsilon\)-net needs \(\Theta(D\log_2(1/\varepsilon))\) bits and is therefore dominated by affine coordinates. But the compression width in the paper is a continuous latent dimension, not a discrete bit count. A continuous encoder into \(\mathbb R^r\) is not directly constrained by bit-counting. The argument is suggestive but not a rigorous obstruction in the paper’s model.
+
+**Suggested fix.**  
+Either remove this paragraph or qualify it clearly:
+
+> This is only a heuristic comparison with discrete net-based codes; it is not used in the proofs and does not by itself rule out continuous low-dimensional encodings.
+
+---
+
+## 2. Internal consistency and forward-reference issues
+
+### 2.1. Lemma used before it is stated
+
+**Location.** Proposition \ref{prop:diameter} proof.
+
+The proof says:
+
+> By the replacement isometry (Lemma \ref{lem:replacement-isometry}) ...
+
+But Lemma \ref{lem:replacement-isometry} is stated later, in Section \ref{sec:lower}. This is not fatal, but it is a line-level forward reference. Either move the lemma earlier or replace the sentence with a direct two-line argument.
+
+---
+
+### 2.2. Corollary \ref{cor:bracket} uses objects defined later
+
+**Location.** Corollary \ref{cor:bracket}.
+
+The corollary states
+
+\[
+\beta_r^{\mathrm{best},(n)}(A,B)
+\le
+\delta_{r,\mathrm{inst}}^{\diamond}(A,B)
+\le
+U_r^{(n)}(A,B),
+\]
+
+but \(U_r^{(n)}\) is defined only later in Definition \ref{def:upper}. The proof also refers to:
+
+- Corollary \ref{cor:intrinsic}, which appears later;
+- Proposition \ref{prop:convex}, which appears later;
+- Theorem \ref{thm:pinching}, which appears later.
+
+This is a structural inconsistency. It can be fixed by moving Definition \ref{def:upper} and the necessary upper-bound results before Corollary \ref{cor:bracket}, or by explicitly saying “where \(U_r^{(n)}\) is defined in Definition \ref{def:upper} below” and similarly for the other forward references.
+
+---
+
+### 2.3. Remark \ref{rem:decoder-codomain} references later corollaries
+
+**Location.** Remark \ref{rem:decoder-codomain}.
+
+It refers to Corollaries \ref{cor:intrinsic} and \ref{cor:euclidean} before they are stated. Again, not mathematically wrong, but line-level ordering should be adjusted or the remark moved after those corollaries.
+
+---
+
+## 3. Section-by-section line-level notes
+
+### Abstract
+
+- The abstract’s claims about the replacement profile, centred radius, covering radius, diameter, and zero-error threshold are consistent with the body, subject to the join gap in §1.1.
+- “Every radius and width carries a single-shot operational interpretation” is fine for radii and widths measured in the instrument diamond norm, but note that the lower-bound section allows affine decoders. The width itself is still over instrument-valued decoders, so the operational interpretation remains valid.
+
+---
+
+### Section \ref{sec:intro}
+
+No mathematical issue. The scope statement distinguishing representational dimension from programmable evaluation is clear.
+
+---
+
+### Section \ref{sec:prelim}
+
+#### Compactness/convexity not explicitly proved
+
+The paper repeatedly calls \(\Inst_n(A,B)\) a compact convex body, but does not explicitly prove compactness and convexity. This is standard, but a one-sentence remark would help:
+
+- Convexity follows from convexity of the CP cone and affine trace constraints.
+- Compactness follows from positivity plus the summed marginal constraint, which bounds each Choi block.
+
+#### Definition of \(\delta_r^{\mathrm c}(K;L)\)
+
+In Definition \ref{def:width}, the notation
+
+\[
+\delta_r^{\mathrm c}(K;L)
+\]
+
+is introduced as “the analogous width with arbitrary decoder into \(L\).” It would be clearer to write the full infimum explicitly, specifying that the encoder remains continuous into \(\mathbb R^r\) and the decoder is an arbitrary map into \(L\).
+
+---
+
+### Section \ref{sec:exact-geometry}
+
+#### Proposition \ref{prop:dimension}
+
+The dimension count is correct. The surjectivity argument for the marginal constraint is fine. The positive-definite interior witness \(\mathcal I_*\) is also fine.
+
+Minor: The proof could explicitly say that the trace-nonincreasing inequalities introduce no affine equalities at \(\mathcal I_*\), because positivity plus the summed marginal condition gives strict inequalities for \(n>1\), while for \(n=1\) trace preservation is already the affine constraint.
+
+---
+
+#### Lemma \ref{lem:spectral}
+
+The proof is correct. A few minor clarity points:
+
+- When defining \(|\omega_W\rangle\), it may help to state explicitly that \(W\subseteq A_0\) and the conjugate vectors live in \(A\).
+- The identity
+  \[
+  Y=\frac{d_A}{b}(P_W\otimes I)X(P_W\otimes I)
+  \]
+  uses the normalized Choi convention; this is clear but could be labelled as such.
+
+No mathematical flaw found.
+
+---
+
+#### Theorem \ref{thm:ball}
+
+Correct. The implication “positive block-diagonal Choi + summed marginal fixed” implies individual trace-nonincreasing is correctly observed.
+
+---
+
+#### Theorem \ref{thm:exact-radius}
+
+The two cases are correct and the witnesses achieve equality.
+
+Minor comments:
+
+- In the \(d_B>1\) case, the statement “if \(s\ge 2\), take a trace-zero unitary \(U\)” is fine, but one could add “for example, diagonal with entries the \(s\)-th roots of unity”.
+- The proof that \(\|\mathcal E_1-\mathcal E_0\|_\diamond=2\) uses a lower-bound witness and the general upper bound \(\le 2\) for trace-nonincreasing CP maps. The upper bound is obvious but not explicitly stated.
+
+---
+
+#### Lemma \ref{lem:domination}
+
+The proof is correct. The vectorization convention is consistent enough for the inequality. A reader might prefer a sentence saying that transposition conventions do not affect the rank/trace-norm estimate.
+
+---
+
+#### Theorem \ref{thm:covering}
+
+Upper bound: correct after adding the explicit reference-dimension restriction noted in §1.5.
+
+Equality construction: correct. The trace-distance calculation could be written explicitly as:
+
+\[
+\left\|
+|\psi\rangle\langle\psi|-\frac{I_N}{N}
+\right\|_1
+=
+2\left(1-\frac1N\right),
+\qquad N=nd_Bs.
+\]
+
+Optimality of \(\mathcal I_*\): correct. The averaging argument over \(\mathrm U(B)\times S_n\) is valid.
+
+---
+
+#### Proposition \ref{prop:diameter}
+
+Correct, but it uses Lemma \ref{lem:replacement-isometry} before that lemma appears. See §2.1.
+
+---
+
+#### Corollary \ref{cor:complementarity}
+
+Correct and carefully scoped. The disclaimer about not asserting collinearity is good.
+
+---
+
+### Section \ref{sec:lower}
+
+#### Definition \ref{def:alpha} and Proposition \ref{prop:monotonicity}
+
+Correct. The monotonicity proof is fine. For \(r=0\), Borsuk–Ulam arguments are sometimes trivial; the text could note that the \(S^0\) case is handled directly, but this is minor.
+
+---
+
+#### Lemma \ref{lem:replacement-isometry}
+
+Correct.
+
+---
+
+#### Theorem \ref{thm:replacement-profile}
+
+Correct. The Jordan decomposition construction is continuous and gives orthogonal supports. The Borsuk–Ulam cutoff for the replacement body is also correct.
+
+Minor: The proof says “for \(r=m\), Borsuk–Ulam applied to \(S^m\to \RepInst\to \mathbb R^m\)”. This is fine, but one should remember that \(m=nd_B^2-1\), so the zero range is \(r\ge m\), as stated.
+
+---
+
+#### Theorem \ref{thm:full-direction}
+
+The construction is correct. The main missing line is the explicit statement that continuity of the Choi construction implies continuity in the instrument diamond metric; see §1.3.
+
+Also, the sentence
+
+> For any Hermiticity-preserving tuple \(\vD\), the instrument diamond norm dominates the trace norm of its normalised flagged Choi operator
+
+is correct but could be given as a displayed inequality:
+
+\[
+\|\vD\|_{\diamond,\mathrm{inst}}
+\ge
+\|\Jhat_{\widehat{\vD}}\|_1.
+\]
+
+---
+
+#### Remark \ref{rem:tunable-lambda}
+
+Mathematically fine. It is not needed for the certified bound, but it is correctly scoped.
+
+---
+
+#### Corollary \ref{cor:cutoff}
+
+Correct.
+
+---
+
+#### Theorem \ref{thm:observable}
+
+The construction is correct, but two minor issues:
+
+1. The proof treats the case where \(K(H)\) has eigenvalue \(+1\). If the norm is attained only at eigenvalue \(-1\), the roles are swapped. This is obvious, but the sentence could say “or \(-1\), with the roles exchanged”.
+
+2. Continuity into the instrument diamond metric should be explicitly justified by finite-dimensional norm equivalence; see §1.3.
+
+---
+
+#### Proposition \ref{prop:join}
+
+As a statement about replacement spheres, it is correct. The issue is that it is later applied to the observable sphere, which is not a replacement sphere. See §1.1.
+
+---
+
+#### Corollary \ref{cor:join-dimension}
+
+This is the main problematic corollary. See §1.1 and §1.4.
+
+The dimension formula for \(N_{\mathrm{join}}\) is correct if interpreted as the dimension of flag-block-diagonal Hermitian operators supported on \(W_{\mathrm{obs}}^\perp\), but the wording should be fixed. More importantly, the proof does not currently justify joining the observable instrument sphere with a replacement sphere.
+
+---
+
+#### Remark \ref{rem:partitions}
+
+Fine.
+
+---
+
+#### Definition \ref{def:one-sphere}
+
+Depends on \(L_{\mathrm{join}}\), so it is affected by the join gap. If the join lemma is fixed, the definition is fine.
+
+Minor stylistic issue: the phrase “where invalid terms (\(-1\)) are ignored” is clear enough, but one could define the maximum over only valid terms.
+
+---
+
+#### Definition \ref{def:beta-best}
+
+The definition is clear, but it depends on Corollary \ref{cor:join-dimension}. The sentence
+
+> This single symbol replaces the older base envelope and all informal “\(\beta^\star\)” variants
+
+is revision meta-comment and should probably be removed in a final version.
+
+---
+
+### Section \ref{sec:widths}
+
+#### Convention \ref{conv:decoder}
+
+Clear.
+
+---
+
+#### Definition \ref{def:width}
+
+Clear, except for the slightly compressed definition of \(\delta_r^{\mathrm c}(K;L)\); see above.
+
+---
+
+#### Remark \ref{rem:decoder-codomain}
+
+The inequality chain
+
+\[
+\beta_r^{\mathrm{best},(n)}
+\le
+\delta_r^{\mathrm c}(\Inst;\mathfrak A)
+\le
+\delta_r^{\mathrm c}(\Inst;\Inst)
+=
+\delta_{r,\mathrm{inst}}^\diamond
+\le
+U_r^{(n)}
+\]
+
+is conceptually correct. The last inequality depends on Definition \ref{def:upper}, which appears later. See §2.3.
+
+---
+
+#### Corollary \ref{cor:bracket}
+
+Mathematically plausible, but the proof uses several forward references; see §2.2. The proof also relies on the join certificate, so it is affected by §1.1.
+
+For the middle regime, the sentence
+
+> the centred ball gives antipodal separation \(2\rho_n\) ... while Theorem \ref{thm:full-direction} gives separation \(2/d_A\)
+
+is correct, but the proof should explicitly say: choose the radial map if \(\rho_n\ge 1/d_A\), and choose the full-direction map if \(1/d_A\ge \rho_n\).
+
+---
+
+#### Coindex paragraph
+
+The definitions and the implication “continuous injection into \(\mathbb R^r\) gives \(\coind F_2(Y)\le r-1\)” are correct.
+
+Minor: The sentence
+
+> Hausdorffness is not needed for the deleted product itself, but is natural to make the diagonal closed
+
+is fine but not necessary.
+
+---
+
+#### Corollary \ref{cor:intrinsic}
+
+The proof is correct, subject to the join issue for the \(q\le L\) regime. The radial-map construction in the middle regime is fine.
+
+Minor: The phrase “finite-dimensional norm equivalence makes the normalisation continuous” is overkill; the denominator is simply a nonzero continuous function on the Euclidean sphere.
+
+---
+
+#### Corollary \ref{cor:euclidean}
+
+Correct.
+
+---
+
+#### Theorem \ref{thm:zero-error}
+
+Correct. The continuous decoder via Euclidean nearest-point projection onto a compact convex set is valid.
+
+---
+
+#### Proposition \ref{prop:convex}
+
+This is the norm-ambiguity issue discussed in §1.2. Once the norm is specified, the Helly argument is fine.
+
+Additional minor proof clarification:
+
+The sentence
+
+> if it contains \(m\) balls centred at \(x_1,\dots,x_m\), their barycentre \(c\) lies in \(F\) by convexity
+
+should be split:
+
+- If the subfamily does not contain \(F\), the barycentre need not lie in \(F\), but it still intersects the balls.
+- If the subfamily contains \(F\), then the barycentre lies in \(F\).
+
+The current wording can confuse the two cases.
+
+---
+
+#### Remark \ref{rem:nonconstructive}
+
+Correct and useful.
+
+---
+
+#### Lemma \ref{lem:pinching-norm}
+
+Correct.
+
+---
+
+#### Theorem \ref{thm:pinching}
+
+Correct. Minor suggestions:
+
+- In the output-pinching dimension count, explicitly say that \(\mathcal I_*\) is invariant under output pinching and remains positive definite on each retained block.
+- In the input-pinching dimension count, similarly say that \(I_{A_0}\) is block-diagonal with respect to the conjugate decomposition, so \(\mathcal I_*\) remains a positive-definite relative interior point.
+
+---
+
+#### Balanced partition paragraph and \(Q_\ell(d)\)
+
+Correct.
+
+---
+
+#### Definition \ref{def:upper}
+
+Add explicit ranges for \(\ell_{\mathrm{out}}\) and \(k_{\mathrm{in}}\); see §1.6.
+
+---
+
+#### Proposition \ref{prop:floor}
+
+Correct.
+
+---
+
+#### Corollary \ref{cor:constant-code}
+
+Correct.
+
+---
+
+#### Corollary \ref{cor:top-subcritical}
+
+Correct, but it applies Proposition \ref{prop:convex} to the replacement body. Proposition \ref{prop:convex} is stated only for the full instrument body. Either state Proposition \ref{prop:convex} in a slightly more general form for any compact convex body of affine dimension \(m\) and diameter \(2\), or add a sentence saying the proof applies verbatim.
+
+---
+
+#### Theorem \ref{thm:collapse}
+
+Correct.
+
+---
+
+#### Proposition \ref{prop:gap}
+
+Correct, but item 1’s proof implicitly ignores pinching terms at \(r=0\). It would be clearer to add:
+
+> No pinching term is admissible at \(r=0\) below full dimension, because the one-block thresholds equal \(D\).
+
+---
+
+#### Corollary \ref{cor:asymptotic}
+
+Correct.
+
+---
+
+#### Corollary \ref{cor:scaling}
+
+Correct for the strict regimes stated. Boundary cases \(c=d_B^2\) and \(c=d_A^2d_B^2\) are not addressed. This is acceptable, but one could add “the boundary cases require a more refined statement and are not claimed here”.
+
+---
+
+#### Remark \ref{rem:barrier}
+
+The first paragraph is correctly scoped: it says the barrier applies to the specific upper-bound constructions. The covering-number paragraph is heuristic; see §1.8.
+
+---
+
+### Section \ref{sec:specialisations}
+
+#### Channel case
+
+Correct for \(d_B>1\). It should explicitly exclude the degenerate \(n=d_B=1\) case if not already clear from the global assumption.
+
+#### POVM case
+
+Correct.
+
+#### Input-independent case
+
+Correct.
+
+#### Example \ref{ex:222}
+
+Numerically consistent. The value \(L=6\) here does not depend on the questionable join improvement, because \(L_{\mathrm{rep}}\) already dominates.
+
+---
+
+### Tables and figure
+
+- Figure \ref{fig:envelope} is consistent with Example \ref{ex:222}.
+- Table \ref{tab:comparison}: needs degenerate-case qualification; see §1.7.
+- Table \ref{tab:thresholds}: rows using \(L_{\mathrm{join}}\) are affected by the join gap. In particular, \((3,2,2)\) has \(L_{\mathrm{join}}=8\), which is not currently proved.
+
+---
+
+### Appendix \ref{app:no-programming}
+
+No mathematical flaw found.
+
+Minor points:
+
+- In Theorem \ref{thm:no-programming}, the pure-program no-programming theorem is cited. The extension to mixed programs is correctly proved using extremality of pure outputs.
+- In Corollary \ref{cor:divergence}, the compactness argument is fine, but the wording “passing to a further subsequence chosen independently of the target unitary” could be clarified. One first fixes a global subsequence along which the extended processors converge. Then, for each fixed unitary \(U\), one may pass to a further \(U\)-dependent subsequence for the program states.
+
+---
+
+## 4. Summary of required corrections
+
+The most important fixes are:
+
+1. **Fix or remove the observable–replacement join.**  
+   Proposition \ref{prop:join} does not apply to Theorem \ref{thm:observable}. Either prove a stronger join lemma for instrument spheres with orthogonal output supports, or remove \(L_{\mathrm{join}}\) from the certified envelope.
+
+2. **Specify the norm in Proposition \ref{prop:convex}.**  
+   The Helly/barycentre argument must be performed in the instrument diamond norm or a transported version of it.
+
+3. **State finite-dimensional continuity explicitly.**  
+   All antipodal constructions should be explicitly continuous in the instrument diamond metric.
+
+4. **Clarify \(N_{\mathrm{join}}\).**  
+   Define it as the dimension of flag-block-diagonal Hermitian operators supported on \(W_{\mathrm{obs}}^\perp\).
+
+5. **Fix forward references.**  
+   Especially Proposition \ref{prop:diameter} using Lemma \ref{lem:replacement-isometry} early, and Corollary \ref{cor:bracket} using \(U_r^{(n)}\) before definition.
+
+6. **Add small missing hypotheses/ranges.**  
+   Reference dimension in Theorem \ref{thm:covering}; pinching parameter ranges in Definition \ref{def:upper}; degenerate-case exclusion in Table \ref{tab:comparison}.
+
+7. **Qualify the covering-number remark.**  
+   It is heuristic and not part of the rigorous barrier.
+
+With these corrections, the main exact geometry appears sound. The join issue is the only one that currently affects the quantitative certified lower envelope beyond the replacement and observable dimensions.
