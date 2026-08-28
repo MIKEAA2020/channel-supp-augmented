@@ -1,0 +1,86 @@
+I've conducted a thorough line-level review of the manuscript. The work is mathematically sophisticated, and the core results are sound. However, several proofs contain gaps in rigor, some definitions require clarification, and certain arguments can be strengthened for publication. Below are my detailed findings, organized by section.
+
+### Abstract & Introduction
+
+The abstract is clear and accurately summarizes the results. The introduction correctly delineates between exact and certified results.
+
+**Suggestions:**
+- In the abstract, the phrase "The single-outcome case recovers channels, and the one-dimensional-output case recovers finite-outcome measurements" is slightly informal. Consider "The case \(n=1\) specializes to the results for quantum channels, and the case \(d_B=1\) specializes to results for finite-outcome measurements (POVMs)."
+
+### Section 2: Preliminaries
+
+**Remark 2.1 (Normalised Choi convention).** This is crucial and well-placed. The explanation of the trace-preserving condition is correct.
+
+**Definition 2.2 (Instrument, flagged channel, and instrument diamond norm).** The operational formula for the instrument diamond norm is stated as a definition. It should be a proposition or at least a remark justifying it.
+
+**Flaw:** The equivalence
+\[ \|\widehat{\vD}\|_\diamond = \sup_{\rho\in\Sstate(A_0\otimes A)} \sum_{k=1}^n\|(\id_{A_0}\otimes\Delta_k)(\rho)\|_1 \]
+is non-trivial. The left-hand side involves the trace norm of the output of the flagged map \(\widehat{\vD}\), which is block-diagonal. The trace norm of a block-diagonal operator is the sum of the trace norms of its blocks. This justifies the formula. This should be explicitly stated, perhaps as a separate sentence or a short proof within the definition's remark.
+
+**Remark 2.3 (Operational meaning).** The formula \(p_{\mathrm{succ}} = \frac12+\frac14\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}\) is standard. A reference or a one-line justification (e.g., "by the standard result for the diamond norm and the fact that the optimal measurement is covariant") would be helpful.
+
+**Lemma 2.10 (Bipartite domination for instrument blocks).** The proof is elegant. The use of the vectorization convention is implicit. A line defining \(|K\rangle\!\rangle = (K \otimes I)|\omega\rangle\) or equivalent would make it self-contained. The step \( \sum_\alpha |\Tr(V^\dagger K_\alpha)|^2 \le b \sum_\alpha \Tr(VK_\alpha^\dagger K_\alpha V^\dagger) \) uses the Cauchy-Schwarz and rank inequality \(|\Tr M|^2 \le \operatorname{rank}(M) \|M\|_2^2\). This is correct but the justification should be more explicit.
+
+### Section 3: Exact Affine and Metric Parameters
+
+**Proposition 3.1 (Affine dimension).** The proof of the surjectivity of the marginal map is correct. The proof that \(\mathcal I_*\) is a relative interior point is stated but could be slightly expanded. The argument "every sufficiently small Hermitian perturbation in \(\mathfrak V_{A,B}^{(n)}\) therefore remains positive semidefinite" is correct because the set of positive definite operators is open, and the Choi operator of \(\mathcal I_*\) is positive definite. Since the constraints are affine and the body has non-empty interior relative to the affine space, the dimension count is exact.
+
+**Lemma 3.2 (Instrument spectral bound).** This is a key lemma. The proof is mostly solid, but a few steps need clarification:
+- The definition of \(Y\): \(Y = (\id_{A_0}\otimes\widehat{\vD})(|\omega_W\rangle\langle\omega_W|)\). This is an operator on \(B\otimes C_n\), not \(A_0\otimes B\otimes C_n\). The formula \(Y=\frac{d_A}{b}(P_W\otimes I_{B\otimes C_n})X(P_W\otimes I_{B\otimes C_n})\) is correct because of the Choi relation.
+- The direction constraint implies \(\Tr Y=0\). This is correct because \(\sum_k \Delta_k\) is trace-annihilating.
+- The statement "For a traceless Hermitian operator \(Y=Y_+-Y_-\) one has \(\Tr Y_+=\Tr Y_-=\tfrac12\|Y\|_1\) and \(\langle w|Y|w\rangle\ge-\Tr Y_-\) for every unit vector \(w\)" is correct and the proof is given. This part is rigorous.
+- The final step: \(\|Y\|_1 \ge -2\langle v,k_0|Y|v,k_0\rangle\). This is true because \(\|Y\|_1 = \Tr Y_+ + \Tr Y_- \ge 2\Tr Y_-\). This is a standard but non-obvious inequality. The explanation is present and correct.
+
+**Theorem 3.3 (Instrument diamond ball).** The proof correctly combines Lemma 3.2 with the positivity margin of \(\mathcal I_*\). The conclusion that the perturbed tuple is an instrument is sound because the full Choi operator is positive, block-diagonal, and has the correct marginal.
+
+**Theorem 3.4 (Exact centred instrument radius).** The proof is very well-structured, handling the cases \(d_B>1\) and \(d_B=1\) separately. The constructions are valid.
+- In the \(d_B=1, n\ge2\) case, the direction \(\vD\) is defined with \(\Delta_1=-\tfrac12\mathcal F\), \(\Delta_2=+\tfrac12\mathcal F\). The instrument diamond norm is calculated as 1. The calculation of \(\|\vD\|_{\diamond,\mathrm{inst}}=1\) should be slightly more explicit. The given argument shows that for any input state \(\xi\), the trace norm of the output is at most \(\Tr(\zeta_E) \le 1\), and equality is attained for an input supported on \(P\). This is correct.
+- The statement "At \(t=2/n\) the first two Choi blocks of \(\mathcal I_*+t\vD\) are \(\frac{I_{A_0}-P^{\mathsf T}}{nd_A}\) and \(\frac{I_{A_0}+P^{\mathsf T}}{nd_A}\)" is correct, using the fact that \(\Jhat_{\mathcal F}=P^{\mathsf T}/d_A\).
+
+**Theorem 3.5 (Exact instrument covering radius).** This is a central theorem. The proof of the upper bound is well-developed. The optimality of the centre via symmetrization is standard and correctly applied.
+- The proof of \(a\le Kb\) leading to \(\tfrac12\|\sigma-\tau\|_1\le 1-\frac1K\) is correct but could be broken down into smaller steps for readability. The spectral projection argument is sound.
+- The proof of equality is a bit too terse. The constructed channel \(\Phi\) with a pure isometry on a Schmidt-rank-\(s\) subspace and a fixed replacement elsewhere is valid. The claim that the maximally entangled input on \(W\) gives a pure output in the first flag is correct, and the trace norm calculation is correct.
+
+**Proposition 3.6 (Exact instrument diameter).** The proof is standard and correct. The existence of replacement instruments with orthogonal flagged states when \(nd_B>1\) is clear.
+
+### Section 4: Antipodal Certificates
+
+**Theorem 4.2 (Perfectly separated replacement instruments).** The proof is rigorous. The dimension count \(m = nd_B^2-1\) is correct. The continuity of the map \(X \mapsto X_+\) is a standard result from functional calculus and is correctly invoked. The use of Borsuk-Ulam for the upper part of the replacement family's profile is correct.
+
+**Theorem 4.4 (Full-direction antipodal sphere).** This is a highly original and important theorem. The proof is technically sound and clever.
+- The claim that \(t=\Tr Z_+ > 0\) is correct. If \(t=0\), then \(Z_+=0\), so \(Z=-Z_-\le0\). Since \(\Tr Z = 0\), this implies \(Z=0\), contradicting \(Z\in S(\mathcal V)\).
+- The construction of the correction state \(\nu\) is correct. The definition \(\nu = (\frac{I_{A_0}}{d_A}-\lambda\mu)/(1-\lambda)\) with \(\lambda=1/d_A\) is a valid state because its trace is 1 and it is positive semidefinite.
+- The proof that \(\|J^+(Z)-J^-(Z)\|_1 = 2/d_A\) is correct.
+- The crucial observation that the instrument diamond norm dominates the trace norm of the normalised flagged Choi operator is correct, as testing on the maximally entangled state is a valid strategy for the diamond norm.
+
+**Theorem 4.6 (Observable antipodal sphere).** The proof is correct and the construction is clear. For \(n=1\), \(d_B\ge2\), the construction with orthogonal output states is valid. The eigenvector witness argument is standard.
+
+**Proposition 4.7 (Orthogonal join).** The proof is correct. The continuity argument at points where some \(y_i=0\) is sound because \(\lambda_i \to 0\) uniformly. The trace norm calculation is correct because of the orthogonality of the supports.
+
+### Section 5: Compression Widths
+
+**Corollary 5.1 (Certified width bracket).** This corollary summarizes the main result of the paper. The proof is correct and references the appropriate theorems. The key point about decoders valued in the ambient affine space strengthening the lower bound is a nice touch.
+
+**Corollary 5.2 (Intrinsic latent-space instrument hierarchy).** The proof correctly uses the coindex of the deleted product. The argument is valid.
+
+**Theorem 5.4 (Zero-error threshold).** The proof is correct. The use of Euclidean nearest-point projection onto a closed convex set is standard and its continuity and 1-Lipschitz property are well-known.
+
+**Proposition 5.5 (Convex-projection instrument bound).** The proof is correct and uses Helly's theorem in a standard way. The calculation of the radius \(R=2k/(k+1)\) is correct.
+
+**Theorem 5.7 (Input- and output-pinching).** The proofs are correct. The surjectivity of the blockwise marginal maps is proven. The dimension counts \(r_{\mathrm{out}}^{(n)}\) and \(r_{\mathrm{in}}^{(n)}\) are correct. The use of the pinching norm lemma (Lemma 5.6) and composition submultiplicativity is standard.
+
+**Proposition 5.9 (Error-one floor).** The proof is correct. The inequalities \(R_n\ge1\) and \(2(D-r)/(D-r+1)\ge1\) for \(r<D\) are straightforward. The pinching bounds being at least 1 is also clear because \(\ell_{\mathrm{out}}, k_{\mathrm{in}} \ge 2\) in the relevant range.
+
+**Corollary 5.11 (Exact top-subcritical replacement-instrument width).** The proof is elegant. The lower bound from Borsuk-Ulam and the upper bound from convex projection give a matching result.
+
+**Theorem 5.12 (Exact collapse when \(nd_Bs=2\)).** The proof is correct. The radial map with radius \(\rho_n=1\) produces a perfectly separated sphere, giving the lower bound. The constant code gives the matching upper bound.
+
+### Appendix A: No-programming
+
+The no-programming theorem and its corollaries are well-proven. The proof of Corollary A.4 correctly uses compactness and a diagonal argument. The remark correctly scopes the result.
+
+### Overall Assessment
+
+This is a very strong paper with original and significant results. The mathematics is rigorous, and the structure is clear. The distinction between exact and certified bounds is a valuable contribution to the field. The line-level issues I found are mostly about adding explanatory sentences to make the proofs even more accessible, rather than fixing mathematical errors.
+
+**Recommendation:** Accept for publication after minor revisions. The author should address the line-level comments above, particularly adding the brief justification in Definition 2.2 and expanding a few of the key proof steps. The paper is otherwise ready.
