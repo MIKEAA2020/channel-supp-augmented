@@ -1,0 +1,237 @@
+the open question in Remark \ref{rem:global-inradius} can be settled affirmatively by the same symmetry/averaging method already used for the covering radius. The key point is that any relative diamond ball contained in the instrument body can be averaged over the output-unitary and outcome-permutation group; its centre averages to \(\mathcal I_*\), while the ball itself is invariant. Thus no other centre can have a larger relative in-radius.
+
+Below is a proof written in the paper’s notation.
+
+---
+
+## Proposed proposition
+
+Assume \(nd_B>1\). Let
+
+\[
+s=\min\{d_A,d_B\}.
+\]
+
+Then
+
+\[
+\sup_{\mathcal I_0\in \Inst_n(A,B)}
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+=
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+=
+\frac{2}{n d_B s}.
+\]
+
+In particular, the uniform depolarising instrument \(\mathcal I_*\) is an optimal in-radius centre.
+
+The degenerate case \(n=d_B=1\) is trivial: the body is a singleton, the direction space is \(\{0\}\), and the in-radius is \(+\infty\) under the paper’s supremum convention.
+
+---
+
+## Proof
+
+Let
+
+\[
+K=\Inst_n(A,B),
+\qquad
+V=\mathfrak V_{A,B}^{(n)},
+\]
+
+and let
+
+\[
+B_{\diamond}
+=
+\{\Delta\in V:\|\Delta\|_{\diamond,\mathrm{inst}}\le 1\}
+\]
+
+be the closed unit ball in the direction space.
+
+For \(\mathcal I_0\in K\), the centred relative in-radius is
+
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+=
+\sup\{r\ge 0:\mathcal I_0+rB_{\diamond}\subseteq K\}.
+\]
+
+We will show that for every \(\mathcal I_0\in K\),
+
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+\le
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*).
+\]
+
+---
+
+### 1. The symmetry group
+
+Let
+
+\[
+G=\mathrm U(B)\times S_n
+\]
+
+act on instruments by output unitary conjugation and outcome permutation:
+
+\[
+[(U,\pi)\cdot \mathcal J]_k
+=
+\mathcal U_U\circ \mathcal J_{\pi^{-1}(k)},
+\qquad
+\mathcal U_U(X)=UXU^\dagger.
+\]
+
+This action has the following properties.
+
+1. **It preserves the instrument body.**  
+   If \(\mathcal J\in \Inst_n(A,B)\), then \((U,\pi)\cdot \mathcal J\in \Inst_n(A,B)\).
+
+2. **It preserves the instrument diamond norm.**  
+   On flagged maps, the action is conjugation by a unitary on \(B\otimes C_n\), followed by a permutation of the classical flag. Hence for every \(\Delta\in V\),
+
+   \[
+   \|(U,\pi)\cdot \Delta\|_{\diamond,\mathrm{inst}}
+   =
+   \|\Delta\|_{\diamond,\mathrm{inst}}.
+   \]
+
+   Therefore \(G\) preserves \(B_{\diamond}\).
+
+3. **The barycentre of every instrument orbit is \(\mathcal I_*\).**  
+   Let \(\mathcal J=(\mathcal J_1,\dots,\mathcal J_n)\in K\). Average first over \(\mathrm U(B)\). For each component,
+
+   \[
+   \int_{\mathrm U(B)}
+   U\mathcal J_j(X)U^\dagger\,dU
+   =
+   \frac{\Tr(\mathcal J_j(X))}{d_B}I_B.
+   \]
+
+   Then average over outcome permutations. The \(k\)-th component becomes
+
+   \[
+   \frac1n\sum_{j=1}^n
+   \frac{\Tr(\mathcal J_j(X))}{d_B}I_B
+   =
+   \frac{\Tr(X)}{n d_B}I_B,
+   \]
+
+   because \(\sum_j\mathcal J_j\) is trace preserving. This is exactly
+
+   \[
+   (\mathcal I_*)_k(X)=\frac{\Tr(X)}{n d_B}I_B.
+   \]
+
+   Hence
+
+   \[
+   \int_G g\mathcal J\,d\mu(g)=\mathcal I_*,
+   \]
+
+   where \(\mu\) is normalized Haar measure on \(G\).
+
+---
+
+### 2. Averaging transfers any contained ball to \(\mathcal I_*\)
+
+Fix \(\mathcal I_0\in K\). Suppose
+
+\[
+\mathcal I_0+rB_{\diamond}\subseteq K
+\]
+
+for some \(r\ge 0\).
+
+For every \(g\in G\), since \(gK=K\) and \(gB_{\diamond}=B_{\diamond}\),
+
+\[
+g\mathcal I_0+rB_{\diamond}
+=
+g(\mathcal I_0+rB_{\diamond})
+\subseteq K.
+\]
+
+Now fix an arbitrary direction \(\Delta\in B_{\diamond}\). For every \(g\in G\),
+
+\[
+g\mathcal I_0+r\Delta\in K.
+\]
+
+Averaging these points over \(G\), and using convexity and closedness of \(K\), gives
+
+\[
+\int_G (g\mathcal I_0+r\Delta)\,d\mu(g)
+=
+\left(\int_G g\mathcal I_0\,d\mu(g)\right)+r\Delta
+=
+\mathcal I_*+r\Delta
+\in K.
+\]
+
+Since \(\Delta\in B_{\diamond}\) was arbitrary,
+
+\[
+\mathcal I_*+rB_{\diamond}\subseteq K.
+\]
+
+Therefore
+
+\[
+r\le \rho_{\diamond,\mathrm{inst}}(\mathcal I_*).
+\]
+
+Taking the supremum over all \(r\) such that \(\mathcal I_0+rB_{\diamond}\subseteq K\), we obtain
+
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+\le
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*).
+\]
+
+Since \(\mathcal I_0\in K\) was arbitrary, \(\mathcal I_*\) maximises the centred relative in-radius over the whole instrument body.
+
+---
+
+### 3. Insert the exact centred value
+
+By Theorem \ref{thm:exact-radius},
+
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+=
+\frac{2}{n d_B\min\{d_A,d_B\}}.
+\]
+
+Hence
+
+\[
+\sup_{\mathcal I_0\in \Inst_n(A,B)}
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+=
+\frac{2}{n d_B\min\{d_A,d_B\}},
+\]
+
+and \(\mathcal I_*\) is an optimal centre.
+
+---
+
+## Suggested replacement for Remark \ref{rem:global-inradius}
+
+You could replace the current remark with something like:
+
+> **Remark [Global in-radius].**  
+> The centred radius of Theorem \ref{thm:exact-radius} is also the global in-radius. Let \(B_{\diamond}\) be the unit ball in the direction space. If \(\mathcal I_0+rB_{\diamond}\subseteq \Inst_n(A,B)\), then applying the output-unitary/outcome-permutation group \(G=\mathrm U(B)\times S_n\) gives \(g\mathcal I_0+rB_{\diamond}\subseteq \Inst_n(A,B)\) for every \(g\in G\). Averaging pointwise over \(G\), and using that the barycentre of every orbit is \(\mathcal I_*\), gives \(\mathcal I_*+rB_{\diamond}\subseteq \Inst_n(A,B)\). Hence no centre can have a larger relative in-radius than \(\mathcal I_*\). Therefore
+> \[
+> \sup_{\mathcal I_0\in\Inst_n(A,B)}
+> \rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
+> =
+> \rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+> =
+> \frac{2}{n d_B\min\{d_A,d_B\}}.
+> \]
+
+This also means that the item in Remark \ref{rem:exact-vs-certified} listing “the global in-radius over all centres” as open can be upgraded to an exact determination.
