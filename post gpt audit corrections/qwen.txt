@@ -1,0 +1,1154 @@
+# Phase 1 — Fatal mathematical corrections and rigorous upgrades
+
+## 1. Replace the false monotonicity statement with the correct theorem
+
+The original proposition saying that \(\alpha_r\) need not be monotone is false. With the paper’s definition,
+
+\[
+\alpha_r(K)
+=
+\frac12\sup_{h\in C(S^r,K)}
+\min_{u\in S^r} d(h(u),h(-u)),
+\]
+
+the antipodal profile is always non-increasing in \(r\).
+
+### Correct replacement
+
+**Proposition — Monotonicity of the antipodal profile.**  
+For every nonempty metric space \(K\),
+
+\[
+\alpha_{r+1}(K)\le \alpha_r(K)
+\qquad
+\text{for all }r\ge0.
+\]
+
+Moreover, if \(K\) has finite diameter,
+
+\[
+0\le \alpha_r(K)\le \frac12\operatorname{diam}(K).
+\]
+
+**Proof.**  
+Let \(h:S^{r+1}\to K\) be continuous. Restrict \(h\) to an equatorial copy \(S^r\subset S^{r+1}\). The antipodal map on the equator is the usual antipodal map, hence
+
+\[
+\min_{u\in S^r} d(h(u),h(-u))
+\ge
+\min_{u\in S^{r+1}} d(h(u),h(-u)).
+\]
+
+Taking the supremum over all continuous \(h:S^{r+1}\to K\) gives
+
+\[
+\alpha_r(K)\ge \alpha_{r+1}(K).
+\]
+
+The diameter bound is immediate because \(d(h(u),h(-u))\le\operatorname{diam}(K)\). ∎
+
+This also strengthens the Borsuk–Ulam cutoff logic: once \(\alpha_D(K)=0\), monotonicity gives \(\alpha_r(K)=0\) for all \(r\ge D\).
+
+---
+
+## 2. Replace the unsupported “general direction-space \(1/d_A\)” corollary with a proved theorem
+
+The audit correctly says the original corollary was not proved. The claim can in fact be repaired and made rigorous. The following theorem supplies the missing construction.
+
+This is a genuine upgrade: it proves a full-direction antipodal lower bound for every sphere below affine dimension.
+
+### Correct replacement
+
+Let \(C_n\) be the classical flag space and write
+
+\[
+\mathcal C = B\otimes C_n.
+\]
+
+Let \(\Herm_{\mathrm{flag}}(\mathcal C)\) denote the real vector space of flag-block-diagonal Hermitian operators on \(\mathcal C\). The instrument body can be identified with the compact convex set
+
+\[
+\mathcal K_{A,B}^{(n)}
+=
+\left\{
+J\in \Herm(A_0\otimes \mathcal C)_{\mathrm{flag}}:
+J\ge0,\ 
+\Tr_{\mathcal C}J=\frac{I_{A_0}}{d_A}
+\right\}.
+\]
+
+Its direction space is
+
+\[
+\mathcal V_{A,B}^{(n)}
+=
+\left\{
+Z\in \Herm(A_0\otimes \mathcal C)_{\mathrm{flag}}:
+\Tr_{\mathcal C}Z=0
+\right\},
+\]
+
+with real dimension
+
+\[
+D_{A,B}^{(n)}=d_A^2(n d_B^2-1).
+\]
+
+---
+
+**Theorem — Full-direction antipodal sphere with separation \(2/d_A\).**  
+Assume \(n d_B>1\). For every
+
+\[
+0\le r\le D_{A,B}^{(n)}-1,
+\]
+
+there exists a continuous map
+
+\[
+h:S^r\to \Inst_n(A,B)
+\]
+
+such that
+
+\[
+\|h(u)-h(-u)\|_{\diamond,\mathrm{inst}}
+\ge
+\frac{2}{d_A}
+\qquad
+\forall u\in S^r.
+\]
+
+Consequently,
+
+\[
+\alpha_r(\Inst_n(A,B))
+\ge
+\frac1{d_A}
+\qquad
+\text{for all }0\le r<D_{A,B}^{(n)}.
+\]
+
+If \(d_A=1\), the bound becomes \(\alpha_r\ge1\), consistent with the replacement profile.
+
+---
+
+### Proof
+
+Choose any Euclidean norm on \(\mathcal V_{A,B}^{(n)}\), and let \(S(\mathcal V)\cong S^{D-1}\) be its unit sphere, where \(D=D_{A,B}^{(n)}\). It suffices to construct a continuous map on \(S^{D-1}\); restriction to equatorial copies gives all smaller \(r\).
+
+Fix a flagged state \(\tau_0\in\Sstate_{\mathrm{flag}}(\mathcal C)\). For example, take the uniform flagged state
+
+\[
+\tau_0=\frac{I_B}{d_B}\otimes \frac{I_{C_n}}{n}.
+\]
+
+Take \(Z\in\mathcal V_{A,B}^{(n)}\), \(Z\ne0\). Write its Jordan decomposition
+
+\[
+Z=Z_+-Z_-,
+\qquad
+Z_+,Z_-\ge0,
+\qquad
+Z_+Z_-=0.
+\]
+
+Because \(Z\) is flag-block diagonal, so are \(Z_+\) and \(Z_-\). Because \(\Tr_{\mathcal C}Z=0\),
+
+\[
+\Tr_{\mathcal C}Z_+
+=
+\Tr_{\mathcal C}Z_-.
+\]
+
+Let
+
+\[
+t=\Tr Z_+=\Tr Z_->0,
+\]
+
+and define the normalized positive operators
+
+\[
+P=\frac{Z_+}{t},
+\qquad
+Q=\frac{Z_-}{t}.
+\]
+
+Then \(P,Q\) are states on \(A_0\otimes\mathcal C\), with orthogonal supports, and they have the same \(A_0\)-marginal
+
+\[
+\mu:=\Tr_{\mathcal C}P=\Tr_{\mathcal C}Q.
+\]
+
+Now define a correction state on \(A_0\). If \(d_A=1\), set
+
+\[
+J^+(Z)=P,
+\qquad
+J^-(Z)=Q.
+\]
+
+If \(d_A\ge2\), set
+
+\[
+\lambda=\frac1{d_A},
+\]
+
+and define
+
+\[
+\nu
+=
+\frac{\frac{I_{A_0}}{d_A}-\lambda\mu}{1-\lambda}.
+\]
+
+Because \(\mu\le I_{A_0}\), we have
+
+\[
+\lambda\mu
+=
+\frac{\mu}{d_A}
+\le
+\frac{I_{A_0}}{d_A},
+\]
+
+so \(\nu\ge0\). Also,
+
+\[
+\Tr\nu
+=
+\frac{1-\lambda}{1-\lambda}
+=
+1.
+\]
+
+Now define
+
+\[
+J^+(Z)
+=
+\lambda P+(1-\lambda)\nu\otimes\tau_0,
+\]
+
+\[
+J^-(Z)
+=
+\lambda Q+(1-\lambda)\nu\otimes\tau_0.
+\]
+
+Both \(J^+(Z)\) and \(J^-(Z)\) are positive, flag-block diagonal states on \(A_0\otimes\mathcal C\). Their \(A_0\)-marginal is
+
+\[
+\Tr_{\mathcal C}J^\pm(Z)
+=
+\lambda\mu+(1-\lambda)\nu
+=
+\frac{I_{A_0}}{d_A}.
+\]
+
+Therefore \(J^+(Z)\) and \(J^-(Z)\) are normalized flagged Choi operators of instruments. Let
+
+\[
+h(Z)=\mathcal I^+(Z)
+\]
+
+be the instrument corresponding to \(J^+(Z)\).
+
+For \(-Z\), the positive and negative parts are exchanged:
+
+\[
+(-Z)_+=Z_-,
+\qquad
+(-Z)_-=Z_+.
+\]
+
+The quantity \(t\) is unchanged, and the common marginal \(\mu\) is unchanged. Hence the correction state \(\nu\) is unchanged, and
+
+\[
+h(-Z)=\mathcal I^-(Z).
+\]
+
+The Choi difference is
+
+\[
+J^+(Z)-J^-(Z)
+=
+\lambda(P-Q)
+\]
+
+when \(d_A\ge2\), and
+
+\[
+J^+(Z)-J^-(Z)
+=
+P-Q
+\]
+
+when \(d_A=1\). Since \(P,Q\) are states with orthogonal supports,
+
+\[
+\|P-Q\|_1=2.
+\]
+
+Thus
+
+\[
+\|J^+(Z)-J^-(Z)\|_1
+=
+\frac{2}{d_A}
+\]
+
+for \(d_A\ge2\), and equals \(2\) for \(d_A=1\).
+
+Finally, for any Hermiticity-preserving tuple \(\vec\Delta\), the instrument diamond norm dominates the trace norm of its normalized flagged Choi operator, because testing on the maximally entangled input gives the Choi operator itself:
+
+\[
+\|\vec\Delta\|_{\diamond,\mathrm{inst}}
+\ge
+\|\widehat J_{\widehat{\vec\Delta}}\|_1.
+\]
+
+Therefore
+
+\[
+\|h(Z)-h(-Z)\|_{\diamond,\mathrm{inst}}
+\ge
+\frac{2}{d_A},
+\]
+
+with the \(d_A=1\) case giving \(2\).
+
+It remains only to note continuity. The map \(Z\mapsto Z_+\) is continuous on Hermitian operators. The scalar \(t=\Tr Z_+\) is continuous and strictly positive on the compact Euclidean unit sphere of \(\mathcal V\), hence bounded away from zero there. Therefore \(Z\mapsto P,Q,\mu,\nu,J^+(Z)\) is continuous. Restricting to any equatorial sphere \(S^r\subset S^{D-1}\) gives the stated result. ∎
+
+---
+
+## 3. Add the corresponding Borsuk–Ulam upper cutoff for \(\alpha_r\)
+
+The paper should explicitly state that the full-body antipodal profile vanishes at and above affine dimension.
+
+### Correct statement
+
+**Proposition — Antipodal cutoff at affine dimension.**  
+For \(n d_B>1\),
+
+\[
+\alpha_r(\Inst_n(A,B))=0
+\qquad
+\text{for all }r\ge D_{A,B}^{(n)}.
+\]
+
+**Proof.**  
+Choose affine coordinates
+
+\[
+c:\Inst_n(A,B)\hookrightarrow \mathbb R^{D_{A,B}^{(n)}}.
+\]
+
+For any continuous \(h:S^r\to\Inst_n(A,B)\) with \(r\ge D\), restrict to an equatorial copy of \(S^D\) if necessary. Then
+
+\[
+c\circ h:S^D\to\mathbb R^D.
+\]
+
+By Borsuk–Ulam, there exists \(u\in S^D\) such that
+
+\[
+c(h(u))=c(h(-u)).
+\]
+
+Since \(c\) is injective,
+
+\[
+h(u)=h(-u),
+\]
+
+so the minimum antipodal distance is zero. Hence \(\alpha_D=0\), and monotonicity gives \(\alpha_r=0\) for all \(r\ge D\). ∎
+
+---
+
+# Phase 2 — Replace the lower envelope with a stronger certified envelope
+
+The original envelope used only the replacement sphere and the centered ball. We now incorporate:
+
+1. replacement spheres, giving separation \(2\) up to \(n d_B^2-2\);
+2. the new full-direction sphere, giving separation \(2/d_A\) up to \(D-1\);
+3. the observable-sphere and join constructions, giving separation \(2\) up to an explicit larger dimension \(L_{A,B}^{(n)}\).
+
+This gives a strictly stronger lower envelope without overclaiming.
+
+---
+
+## 4. Formalize the observable sphere and the join construction
+
+The observable-sphere idea is valid, but it needs a rigorous statement and precise edge-case handling. The following is the corrected version.
+
+---
+
+### Theorem — Observable antipodal sphere
+
+Assume \(n\ge2\) and \(d_A\ge2\). Fix a state \(\sigma\in\Sstate(B)\). For \(H\in\Herm_0(A)\), \(H\ne0\), define
+
+\[
+K(H)=\frac{H}{\|H\|_\infty},
+\qquad
+E_\pm(H)=\frac{I_A\pm K(H)}2.
+\]
+
+Define an \(n\)-outcome instrument \(\mathcal I^H\) by
+
+\[
+\mathcal I^H_1(X)=\Tr(E_+(H)X)\sigma,
+\]
+
+\[
+\mathcal I^H_2(X)=\Tr(E_-(H)X)\sigma,
+\]
+
+\[
+\mathcal I^H_k(X)=0
+\qquad(k\ge3).
+\]
+
+Then \(H\mapsto \mathcal I^{H/\|H\|_\infty}\) is continuous on the Euclidean unit sphere in \(\Herm_0(A)\), and
+
+\[
+\|\mathcal I^H-\mathcal I^{-H}\|_{\diamond,\mathrm{inst}}=2.
+\]
+
+Therefore
+
+\[
+\alpha_r(\Inst_n(A,B))=1
+\qquad
+0\le r\le d_A^2-2.
+\]
+
+For \(n=1\), \(d_A\ge2\), \(d_B\ge2\), the same conclusion holds for channels by choosing two orthogonal output states \(\sigma_+,\sigma_-\) and defining
+
+\[
+\Phi^H(X)
+=
+\Tr(E_+(H)X)\sigma_+
++
+\Tr(E_-(H)X)\sigma_-.
+\]
+
+---
+
+### Proof sketch
+
+Since \(\|K(H)\|_\infty=1\), the operators \(E_\pm(H)\) are positive effects and
+
+\[
+E_+(H)+E_-(H)=I_A.
+\]
+
+Thus \(\mathcal I^H\) is an instrument.
+
+Because \(K(H)\) is Hermitian with operator norm one, there exists a unit eigenvector \(|\psi\rangle\) with eigenvalue \(+1\) or \(-1\). Suppose \(K(H)|\psi\rangle=|\psi\rangle\). Then
+
+\[
+\Tr(E_+(H)|\psi\rangle\langle\psi|)=1,
+\qquad
+\Tr(E_-(H)|\psi\rangle\langle\psi|)=0.
+\]
+
+For \(-H\), the roles of \(E_+\) and \(E_-\) are exchanged. Hence the flagged outputs are supported on orthogonal flags \(|1\rangle\) and \(|2\rangle\), giving trace distance \(2\). Since the diameter of the instrument body is at most \(2\), the distance is exactly \(2\).
+
+Continuity follows from continuity of the operator norm and functional calculus on the unit sphere. The channel case \(n=1\) is identical, using orthogonal output states instead of orthogonal flags. ∎
+
+---
+
+## 5. Corrected orthogonal join for observable and replacement spheres
+
+The corrupted join proof should be replaced by the following clean version.
+
+---
+
+### Proposition — Orthogonal join of instrument spheres
+
+Let
+
+\[
+O:S^a\to\Inst_n(A,B)
+\]
+
+be a continuous family with
+
+\[
+\|O(u)-O(-u)\|_{\diamond,\mathrm{inst}}=2,
+\]
+
+and suppose all flagged outputs of \(O(u)\) are supported in a flagged subspace \(W_O\).
+
+Let
+
+\[
+R:S^b\to\RepInst_n(A,B)
+\]
+
+be a replacement-instrument sphere supported in a flagged subspace \(W_R\) orthogonal to \(W_O\), with
+
+\[
+\|R(v)-R(-v)\|_{\diamond,\mathrm{inst}}=2
+\]
+
+for all \(v\), independently of the input state.
+
+Then there is a continuous map
+
+\[
+H:S^{a+b+1}\to\Inst_n(A,B)
+\]
+
+such that
+
+\[
+\|H(y)-H(-y)\|_{\diamond,\mathrm{inst}}=2
+\qquad
+\forall y\in S^{a+b+1}.
+\]
+
+**Proof.**  
+Represent \(S^{a+b+1}\) as the unit sphere in
+
+\[
+\mathbb R^{a+1}\oplus\mathbb R^{b+1}.
+\]
+
+For \(y=(x,z)\), put
+
+\[
+\lambda=\|x\|_2^2,
+\qquad
+1-\lambda=\|z\|_2^2.
+\]
+
+If \(x\ne0\), set \(u=x/\|x\|_2\); if \(z\ne0\), set \(v=z/\|z\|_2\). Define
+
+\[
+H(y)
+=
+\lambda O(u)+(1-\lambda)R(v),
+\]
+
+omitting a term when its weight is zero. Convex combinations of instruments are instruments.
+
+Continuity at \(\lambda=0\) or \(\lambda=1\) follows because the omitted term has diamond norm bounded by its weight. Orthogonality of \(W_O\) and \(W_R\) implies that for every input state, the flagged output difference decomposes as an orthogonal direct sum:
+
+\[
+\Delta H(y)
+=
+\lambda\,\Delta O(u)
+\oplus
+(1-\lambda)\,\Delta R(v).
+\]
+
+Hence its trace norm is
+
+\[
+\lambda\|\Delta O(u)\|_1
++
+(1-\lambda)\|\Delta R(v)\|_1.
+\]
+
+The replacement term has norm \(2\) for every input state. Choose an input state witnessing the antipodal distance \(2\) for \(O(u)\). Then the total norm is
+
+\[
+\lambda\cdot2+(1-\lambda)\cdot2=2.
+\]
+
+Thus \(H\) has antipodal distance \(2\). ∎
+
+---
+
+## 6. Define the explicit enlarged \(1\)-regime dimension \(L_{A,B}^{(n)}\)
+
+Let
+
+\[
+m_n=n d_B^2-1,
+\qquad
+D_n=d_A^2m_n,
+\qquad
+s=\min\{d_A,d_B\}.
+\]
+
+The replacement sphere gives
+
+\[
+L_{\mathrm{rep}}=n d_B^2-2=m_n-1.
+\]
+
+The observable sphere gives, when valid,
+
+\[
+L_{\mathrm{obs}}=d_A^2-2.
+\]
+
+The observable-plus-replacement join gives the following dimensions.
+
+### Case \(n\ge2\)
+
+The observable construction uses the flagged subspace spanned by
+
+\[
+|b_0\rangle\otimes|1\rangle,
+\qquad
+|b_0\rangle\otimes|2\rangle,
+\]
+
+for some unit vector \(b_0\in B\). The orthogonal complement has flagged real dimension
+
+\[
+N_{\mathrm{rep}}^{\mathrm{obs}}
+=
+2(d_B-1)^2+(n-2)d_B^2.
+\]
+
+If
+
+\[
+N_{\mathrm{rep}}^{\mathrm{obs}}\ge2,
+\]
+
+then the replacement sphere on that complement has dimension
+
+\[
+N_{\mathrm{rep}}^{\mathrm{obs}}-2,
+\]
+
+and the join gives
+
+\[
+L_{\mathrm{join}}
+=
+d_A^2+N_{\mathrm{rep}}^{\mathrm{obs}}-3.
+\]
+
+If \(N_{\mathrm{rep}}^{\mathrm{obs}}<2\), ignore \(L_{\mathrm{join}}\).
+
+### Case \(n=1\)
+
+Here the observable construction requires two orthogonal output states and is valid when \(d_B\ge2\). The orthogonal complement has output dimension \(d_B-2\), hence flagged real dimension
+
+\[
+N_{\mathrm{rep}}^{\mathrm{obs}}=(d_B-2)^2.
+\]
+
+If
+
+\[
+N_{\mathrm{rep}}^{\mathrm{obs}}\ge2,
+\]
+
+then
+
+\[
+L_{\mathrm{join}}
+=
+d_A^2+N_{\mathrm{rep}}^{\mathrm{obs}}-3.
+\]
+
+Otherwise ignore \(L_{\mathrm{join}}\).
+
+### Define \(L_{A,B}^{(n)}\)
+
+Let
+
+\[
+L_{A,B}^{(n)}
+=
+\min\left\{
+D_n-1,\ 
+\max\left(
+L_{\mathrm{rep}},
+L_{\mathrm{obs}},
+L_{\mathrm{join}}
+\right)
+\right\},
+\]
+
+where invalid terms are omitted. In particular, if \(d_A=1\), the observable and join terms are omitted and
+
+\[
+L_{1,B}^{(n)}=n d_B^2-2=D_{1,B}^{(n)}-1.
+\]
+
+---
+
+## 7. Replace the certified lower envelope with the strengthened version
+
+Define
+
+\[
+\rho_n=\frac{2}{n d_B s},
+\]
+
+and
+
+\[
+\gamma_{A,B}^{(n)}
+=
+\max\left\{
+\rho_n,
+\frac1{d_A}
+\right\}.
+\]
+
+Now define the strengthened certified lower envelope:
+
+\[
+\beta_{r}^{\mathrm{cert},(n)}(A,B)
+=
+\begin{cases}
+1,
+&0\le r\le L_{A,B}^{(n)},\\[4pt]
+\gamma_{A,B}^{(n)},
+&L_{A,B}^{(n)}<r<D_{A,B}^{(n)},\\[8pt]
+0,
+&r\ge D_{A,B}^{(n)}.
+\end{cases}
+\]
+
+This replaces the older \(\beta_r^{(n)}\). The old version is recovered by setting \(L_{A,B}^{(n)}=n d_B^2-2\) and ignoring the \(1/d_A\) full-direction bound.
+
+---
+
+### Corrected bracket theorem
+
+For \(n d_B>1\),
+
+\[
+\boxed{
+\beta_{r}^{\mathrm{cert},(n)}(A,B)
+\le
+\delta_{r,\mathrm{inst}}^\diamond(A,B)
+\le
+U_r^{(n)}(A,B)
+}
+\]
+
+for all \(0\le r<D_{A,B}^{(n)}\), and
+
+\[
+\delta_{r,\mathrm{inst}}^\diamond(A,B)=0
+\qquad
+r\ge D_{A,B}^{(n)}.
+\]
+
+**Proof of the lower bound.**  
+For \(0\le r\le L_{A,B}^{(n)}\), the replacement, observable, and join constructions provide continuous maps \(S^r\to\Inst_n(A,B)\) with antipodal distance \(2\). Borsuk–Ulam then forces error at least \(1\) for every encoder into \(\mathbb R^r\).
+
+For
+
+\[
+L_{A,B}^{(n)}<r<D_{A,B}^{(n)},
+\]
+
+the centered ball gives antipodal distance \(2\rho_n\), and the full-direction Jordan construction gives antipodal distance \(2/d_A\). Taking the stronger of the two gives separation \(2\gamma_{A,B}^{(n)}\), hence error at least \(\gamma_{A,B}^{(n)}\).
+
+The upper bound is unchanged: constant code, convex projection, and pinching bounds remain valid. ∎
+
+This is strictly stronger than the previous lower envelope and repairs the unsupported \(1/d_A\) claim.
+
+---
+
+# Phase 3 — Repair exactness claims, covering-radius proof, and decoder conventions
+
+## 8. Replace overbroad “exact metric parameters” language with precise exact claims
+
+The abstract and introduction should not claim that the full metric geometry or all compression widths are exactly determined. The correct high-level claim is stronger than the paper’s current wording but still rigorous.
+
+### Corrected abstract core
+
+Use language of the following form:
+
+> We determine the exact affine dimension, the exact centered in-radius at the uniform depolarising instrument, the exact global covering radius, and the exact antipodal profile of the replacement face of the finite-outcome instrument body. We prove a full-direction antipodal lower bound \(\alpha_r\ge1/d_A\) for every \(r<D_{A,B}^{(n)}\), and observable/join constructions giving \(\alpha_r=1\) up to an explicit dimension \(L_{A,B}^{(n)}\). These yield a strengthened certified lower envelope for continuous-encoder compression widths. Together with convex-projection and pinching upper bounds, this gives an explicit bracket. The zero-error Euclidean encoding threshold is exactly the affine dimension \(D_{A,B}^{(n)}\).
+
+This preserves the paper’s ambition without claiming false exactness for intermediate widths.
+
+---
+
+## 9. Complete the covering-radius centre argument rigorously
+
+The averaging proof should be expanded as follows.
+
+Let \(G=\mathrm U(B)\times S_n\). For \(g=(U,\pi)\in G\), define
+
+\[
+(g\cdot\Psi)_k
+=
+U\circ \Psi_{\pi^{-1}(k)}\circ U^\dagger,
+\]
+
+where the output unitary acts by conjugation on \(B\). This action preserves:
+
+1. the affine space \(\mathfrak A_{A,B}^{(n)}\);
+2. the instrument body \(\Inst_n(A,B)\);
+3. the instrument diamond norm.
+
+Therefore
+
+\[
+R_{\mathrm{inst}}(g\cdot\Psi)=R_{\mathrm{inst}}(\Psi).
+\]
+
+Also \(R_{\mathrm{inst}}\) is convex in the centre:
+
+\[
+R_{\mathrm{inst}}(t\Psi_1+(1-t)\Psi_2)
+\le
+tR_{\mathrm{inst}}(\Psi_1)+(1-t)R_{\mathrm{inst}}(\Psi_2).
+\]
+
+Let \(\overline\Psi\) be the Haar average of \(\Psi\) over \(G\). Jensen gives
+
+\[
+R_{\mathrm{inst}}(\overline\Psi)
+\le
+R_{\mathrm{inst}}(\Psi).
+\]
+
+Now compute \(\overline\Psi\). First average over output unitaries. For each component \(\Psi_j\), Schur’s lemma gives
+
+\[
+\int_{\mathrm U(B)}
+U\Psi_j(X)U^\dagger\,dU
+=
+\frac{\Tr(\Psi_j(X))}{d_B}I_B.
+\]
+
+Then average over outcome permutations. Each component becomes
+
+\[
+\frac1n\sum_{j=1}^n
+\frac{\Tr(\Psi_j(X))}{d_B}I_B
+=
+\frac{\Tr X}{n d_B}I_B,
+\]
+
+because \(\sum_j\Psi_j\) is trace preserving. Thus
+
+\[
+\overline\Psi=\mathcal I_*.
+\]
+
+Hence
+
+\[
+R_{\mathrm{inst}}(\mathcal I_*)
+\le
+R_{\mathrm{inst}}(\Psi)
+\]
+
+for every \(\Psi\in\mathfrak A_{A,B}^{(n)}\). Therefore \(\mathcal I_*\) is an optimal centre. It is not necessary to claim uniqueness.
+
+---
+
+## 10. Replace the overstrong metric-complementarity chord claim
+
+The original corollary’s “extremal chord” sentence is unsupported. Replace it with the safe and still strong statement below.
+
+### Correct replacement
+
+**Corollary — Diameter complementarity.**  
+For \(n d_B>1\),
+
+\[
+\operatorname{diam}_{\diamond,\mathrm{inst}}
+(\Inst_n(A,B))=2,
+\]
+
+and
+
+\[
+\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
++
+R_{\mathrm{inst}}(\mathcal I_*)
+=
+2.
+\]
+
+There is no claim that the in-radius witness and covering-radius witness lie on a common chord unless collinearity is separately proved.
+
+**Proof.**  
+The diameter is at most \(2\) because flagged instruments are CPTP maps. It is at least \(2\) because replacement instruments with orthogonal flagged states have distance \(2\). The identity
+
+\[
+\rho_n+R_n
+=
+\frac{2}{n d_Bs}
++
+2\left(1-\frac1{n d_Bs}\right)
+=
+2
+\]
+
+is algebraic. ∎
+
+---
+
+## 11. Clarify and partially strengthen the decoder convention
+
+The paper’s width definition uses continuous encoders and unrestricted decoders. This should be stated explicitly.
+
+However, the zero-error threshold can be strengthened: at \(r\ge D_{A,B}^{(n)}\), a continuous decoder exists.
+
+### Correct replacement
+
+**Theorem — Zero-error threshold with continuous decoder at threshold.**  
+For Euclidean latent spaces,
+
+\[
+\delta_{r,\mathrm{inst}}^\diamond(A,B)=0
+\qquad
+\Longleftrightarrow
+\qquad
+r\ge D_{A,B}^{(n)}.
+\]
+
+Moreover, for \(r\ge D_{A,B}^{(n)}\), exact decoding can be chosen continuous.
+
+**Proof.**  
+The converse direction is unchanged: affine coordinates embed the compact convex instrument body into \(\mathbb R^{D_n}\). Let
+
+\[
+c:\Inst_n(A,B)\to C\subset\mathbb R^{D_n}
+\]
+
+be an affine homeomorphism onto a compact convex set \(C\). The Euclidean nearest-point projection
+
+\[
+\Pi_C:\mathbb R^{D_n}\to C
+\]
+
+is continuous. Define
+
+\[
+g(y)=c^{-1}(\Pi_C(y)).
+\]
+
+Then \(g\) is continuous and satisfies
+
+\[
+g(c(x))=x
+\qquad
+\forall x\in\Inst_n(A,B).
+\]
+
+Padding with zero coordinates gives the result for all \(r\ge D_n\).
+
+The forward direction follows because the strengthened lower envelope satisfies
+
+\[
+\beta_r^{\mathrm{cert},(n)}(A,B)>0
+\qquad
+\forall r<D_n.
+\]
+
+Thus exact reconstruction is impossible for \(r<D_n\), even with arbitrary decoders. ∎
+
+For positive-width upper bounds such as the Helly projection bound, the decoder need not be continuous. The paper should say:
+
+> The compression widths allow continuous encoders and unrestricted decoders. The zero-error threshold remains valid even if the decoder is required to be continuous. The Helly upper bound is an existence bound unless a continuous selection theorem is additionally invoked.
+
+This avoids misleading language without weakening the main result.
+
+---
+
+# Phase 4 — Immediate wording and consistency fixes needed after the mathematical core
+
+These are not the deepest issues, but they should be applied once the above replacements are accepted.
+
+## 12. Operational discrimination factor
+
+Replace the claim that the instrument diamond norm “equals the optimal bias” with the precise equal-prior formula:
+
+\[
+p_{\mathrm{succ}}
+=
+\frac12
++
+\frac14
+\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}.
+\]
+
+Thus the advantage over random guessing is
+
+\[
+p_{\mathrm{succ}}-\frac12
+=
+\frac14
+\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}.
+\]
+
+---
+
+## 13. “Constructive” versus “certified” upper bounds
+
+The pinching bounds are constructive. The Helly/fibre bound is an existence bound unless a continuous or algorithmic selection is supplied.
+
+Use:
+
+> certified upper envelope
+
+or
+
+> explicit upper bounds,
+
+and reserve “constructive” for the pinching constructions.
+
+---
+
+## 14. Global in-radius remains open
+
+Keep the remark that the global in-radius is not determined. If desired, state:
+
+> It is natural to conjecture that \(\mathcal I_*\) also maximizes the in-radius, but this is not proved here.
+
+This preserves ambition while remaining rigorous.
+
+---
+
+## 15. POVM specialization should be explicit
+
+When \(d_B=1\), write explicitly:
+
+\[
+\mathcal I_k(X)=\Tr(E_kX),
+\qquad
+E_k\ge0,
+\qquad
+\sum_{k=1}^n E_k=I_A.
+\]
+
+Then the instrument body is exactly the convex body of \(n\)-outcome POVMs.
+
+---
+
+## 16. Diameter statements should distinguish \(\le2\) and \(=2\)
+
+Add once:
+
+\[
+\operatorname{diam}_{\diamond,\mathrm{inst}}
+(\Inst_n(A,B))=2
+\qquad
+(n d_B>1).
+\]
+
+Thereafter use equality rather than alternating with “at most two.”
+
+---
+
+## 17. Degenerate case convention
+
+Use a global convention:
+
+- If \(n=d_B=1\), then \(\Inst_1(A,\mathbb C)\) is the singleton trace functional.
+- Its affine dimension is \(0\).
+- Its width is \(0\).
+- Its direction space is \(\{0\}\).
+- The centered relative in-radius is \(+\infty\) under the supremum convention, or may be declared undefined if one restricts to nontrivial direction spaces.
+
+All nontrivial theorems should explicitly assume \(n d_B>1\).
+
+---
+
+# Recommended revised theorem architecture
+
+The revised paper should present the main results in this order:
+
+1. **Affine dimension.**
+   \[
+   D_{A,B}^{(n)}=d_A^2(n d_B^2-1).
+   \]
+
+2. **Centered in-radius at \(\mathcal I_*\).**
+   \[
+   \rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
+   =
+   \frac{2}{n d_B\min(d_A,d_B)}.
+   \]
+
+3. **Global covering radius and optimal centre.**
+   \[
+   R_{\mathrm{inst}}(\mathcal I_*)
+   =
+   2\left(1-\frac1{n d_B\min(d_A,d_B)}\right).
+   \]
+
+4. **Replacement antipodal profile.**
+   \[
+   \alpha_r(\RepInst_n(A,B))
+   =
+   \begin{cases}
+   1,&0\le r\le n d_B^2-2,\\
+   0,&r\ge n d_B^2-1.
+   \end{cases}
+   \]
+
+5. **Full-direction antipodal sphere.**
+   \[
+   \alpha_r(\Inst_n(A,B))
+   \ge
+   \frac1{d_A}
+   \qquad
+   (0\le r<D_{A,B}^{(n)}).
+   \]
+
+6. **Observable/join \(1\)-regime.**
+   \[
+   \alpha_r(\Inst_n(A,B))=1
+   \qquad
+   0\le r\le L_{A,B}^{(n)}.
+   \]
+
+7. **Strengthened certified lower envelope.**
+   \[
+   \beta_r^{\mathrm{cert},(n)}
+   =
+   \begin{cases}
+   1,&r\le L_{A,B}^{(n)},\\
+   \max\{\rho_n,1/d_A\},&L_{A,B}^{(n)}<r<D_n,\\
+   0,&r\ge D_n.
+   \end{cases}
+   \]
+
+8. **Upper envelope and bracket.**
+   \[
+   \beta_r^{\mathrm{cert},(n)}
+   \le
+   \delta_{r,\mathrm{inst}}^\diamond
+   \le
+   U_r^{(n)}.
+   \]
+
+9. **Zero-error threshold.**
+   \[
+   \delta_{r,\mathrm{inst}}^\diamond=0
+   \iff
+   r\ge D_{A,B}^{(n)}.
+   \]
+
+This architecture is more rigorous than the original and strictly stronger in the lower-bound regime.
+
+---
+
+# Summary of what has been fixed in this pass
+
+The following audit points are now addressed at the mathematical core level:
+
+1. **False monotonicity claim** — replaced by a correct theorem.
+2. **Unsupported \(1/d_A\) direction-space bound** — replaced by a full proof and construction.
+3. **Overclaimed exact metric geometry** — replaced by precise exact claims.
+4. **Undefined \(\beta_r^{\star,(n)}\)** — replaced by a fully defined strengthened envelope.
+5. **Observable sphere and join** — formalized with edge cases.
+6. **Corrupted join proof** — replaced by a clean proof.
+7. **Covering-radius centre averaging** — made rigorous.
+8. **Metric-complementarity chord overclaim** — replaced by a safe diameter complementarity.
+9. **Decoder convention** — clarified, with zero-error threshold strengthened to allow continuous decoder at \(r\ge D\).
+10. **Borsuk–Ulam cutoff \(\alpha_r=0\) for \(r\ge D\)** — made explicit.
+
