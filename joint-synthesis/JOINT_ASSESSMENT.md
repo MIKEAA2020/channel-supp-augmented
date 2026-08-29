@@ -586,3 +586,101 @@ or rewritten (all content already present elsewhere; no new claims):
 **Validation.** All structural checks pass on the final text (1,514 lines):
 every \ref resolves, every environment balances, dollar parity holds, no
 duplicated sentences, no leftover symbols. Committed with this section.
+
+---
+
+## 10. Journal formalisation and visual-aid pass (fifth pass)
+
+### Journal formalisation
+
+The paper was rewritten to formal journal conventions. The revision history was
+removed from the document (the LaTeX header comment block that named the audit
+folders and the adjudication ledger is gone; that provenance remains only in this
+assessment file). All change-log, defensive, and editorial phrasing was replaced by
+positive, formal statements. Specifically:
+
+- **Abstract**: "not claimed to be exactly determined" -> "left open between the two
+  envelopes in general"; "strengthened certified lower envelope" -> "certified lower
+  envelope" (no base envelope is defined in the paper, so "strengthened" had no
+  referent).
+- **Complementarity corollary**: the negative clause about non-collinearity of the
+  witnesses was replaced by the positive statement that the identity is obtained by
+  adding the two exact values, each witnessed by its own independently constructed
+  point.
+- **Non-injectivity clauses** (replacement and observable spheres): converted from
+  defensive disclaimers into statements of fact ("the map may fail to be injective:
+  H and its positive scalar multiples define the same instrument") with the
+  methodological reason ("injectivity is not required by the width arguments").
+- **Tunable mixing parameter**: "we fixed lambda = 1/d_A" -> "the proof uses the
+  constant value lambda = 1/d_A"; "no filler needed" -> "no correction state is
+  needed"; "filler" renamed to "correction term" throughout.
+- **Barrier remark**: "it is worth recording why" -> "It is natural to ask whether
+  either of two further tools lowers the certified upper bounds below one; neither
+  does"; the net comparison is now "informal" without the defensive "not used in any
+  proof"; "the three constructions of this paper" -> "the three constructions".
+- **Pinching remark**: dropped the self-referential sentence "The only exact width
+  determinations in the paper are those listed in Proposition ...".
+- **Nonconstructive-decoder remark**: continuity of the Helly-selected decoder is
+  now tied to the convention rather than stated as a disclaimer.
+- **Removed defensive clauses**: "no comparison with external conventions is
+  asserted" (channel specialisation), "no worst conditional-branch normalisation is
+  used" (diamond-norm definition), "(in particular, no claim of extremality is made
+  or needed)" (covering witness).
+- **Editorialisms removed**: "naive" (scaling corollary), "worth recording"
+  (duality remark -> "Two consequences follow."), "restate" (gap proof -> "follow
+  from"), "not addressed here" -> "left open" (duality remark), boundary cases "not
+  claimed here" -> "left to a more refined analysis" (scaling corollary), "no
+  injectivity is asserted" (observable theorem), "no filler" (tunable lambda).
+- **Asymptotic corollary**: the negative invariance clause was replaced by positive
+  content: the convergence is from below, with the exact finite-n formula displayed.
+- **Full proof added**: Proposition monotonicity previously bundled six claims and
+  closed its proof with "the remaining claims are explained in the statement". It
+  now carries a complete proof: equatorial restriction (alpha), the diameter bound,
+  the alpha_D = 0 propagation by induction, encoder padding (width monotonicity),
+  the 0 < gamma <= 1 check (lower envelope), and term-by-term monotonicity of the
+  four families (upper envelope), with forward references to the two envelope
+  definitions marked "(Definitions ... below)".
+
+Scans for residual meta-language (older/draft/audit/ledger/filler/naive/"not
+claimed"/"worth recording"/"we fixed"/etc.) return empty; the word "filler" no
+longer occurs. Deliberately retained as genuine scope statements: "the bound
+therefore concerns these specific constructions rather than all possible codes;
+nonlinear manifold encodings or other decoder families are not excluded" (barrier
+remark) and "certified" as a defined term (nonconstructive-decoder remark).
+
+### Visual aids
+
+The question whether the paper merits additional non-decorative tables/figures was
+answered affirmatively, and three aids were added (all content already present in
+the theorems; nothing decorative):
+
+1. **Figure fig:radius-notions (new)**: two-panel schematic of the four radius
+   notions of Remark rem:radius-terminology - (left) centred in-radius, covering
+   radius, diameter on a schematic convex body; (right) the antipodal-profile
+   mechanism (u, -u on S^r mapped to distant points of the body). The caption notes
+   the drawing is schematic and that rho_n + R_n = 2 holds for the instrument
+   body's exact values, not for a generic convex set. Referenced from the
+   terminology remark.
+2. **Figure fig:envelope (upgraded from one panel to three)**:
+   (a) the existing (2,2,2) worked example; (b) NEW (3,2,2), the case where the
+   one-sphere dimension L = 8 comes from the observable-replacement join (it
+   exceeds L_rep = 6 and L_obs = 7), with the upper envelope stepping
+   1.75 -> 4/3 -> 1 at r = 21 (three-block input pinching, Q_3(3) = 3) and
+   r = 27 (two-block output pinching), and gamma = 1/3; (c) NEW the exact
+   collapse (2,1,2): lower and upper envelopes coincide with the exact step
+   function (1 below D = 4, 0 from 4 on). All panel numbers were recomputed and
+   verified. Referenced from Example ex:222(a), Table tab:thresholds(b), and
+   Theorem thm:collapse(c).
+3. **Table tab:summary (new)**: the regime-by-regime summary of the compression
+   widths (constant code; one-sphere regime; intermediate; full dimension;
+   collapse), with certified lower bound, certified upper bound, and exactness
+   status per row with theorem references. This restores - in corrected form -
+   the summary Table 2 of final.txt, whose earlier omission (recorded in sections
+   7 and 9) is hereby superseded: with the paper now stating per-regime status
+   explicitly, the table is a useful single-glance summary and is referenced from
+   the exact-vs-certified remark and the barrier remark.
+
+All structural checks pass after the pass (labels resolve, environments balance,
+dollar parity, no duplicate labels, no residual meta-language). The paper now
+carries 2 figures (3 panels + 1 schematic) and 3 tables, all referenced in the
+text.
