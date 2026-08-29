@@ -1342,7 +1342,7 @@ The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.92\linewidth, height=4.4cm,
+    width=0.92\linewidth, height=2.9cm,
     xlabel={Latent dimension $r$}, ylabel={Error},
     xmin=0, xmax=13.4, ymin=0, ymax=2.05,
     xtick={0,2,4,6,8,10,12}, ytick={0,0.5,1,1.5,2},
@@ -1371,7 +1371,7 @@ The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $
 \medskip
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.92\linewidth, height=4.4cm,
+    width=0.92\linewidth, height=2.9cm,
     xlabel={Latent dimension $r$}, ylabel={Error},
     xmin=0, xmax=32.5, ymin=0, ymax=2.05,
     xtick={0,4,8,12,16,20,24,28,32}, ytick={0,0.5,1,1.5,2},
@@ -1402,7 +1402,7 @@ The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $
 \medskip
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.92\linewidth, height=4.0cm,
+    width=0.92\linewidth, height=2.5cm,
     xlabel={Latent dimension $r$}, ylabel={Error},
     xmin=0, xmax=5, ymin=0, ymax=1.3,
     xtick={0,1,2,3,4,5}, ytick={0,0.5,1},
@@ -1420,7 +1420,8 @@ The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $
 \node at (axis cs:4.55,0.32) [anchor=west, font=\footnotesize] {$D^{(n)}=4$};
 \end{axis}
 \end{tikzpicture}
-\caption{Certified lower and upper envelopes of the instrument compression width. (a) The worked example $d_A=d_B=2$, $n=2$ (Example~\ref{ex:222}): $\beta_r^{\mathrm{best},(n)}=1$ for $0\le r\le6$, $\gamma=\max\{\rho_n,1/d_A\}=\max\{1/4,1/2\}=1/2$ for $7\le r<28$, $0$ at $r\ge28$; the upper envelope on the plotted range is $R_{\mathrm{inst}}=2(1-1/8)=1.75$ for the constant code on $0\le r<12$ and $1$ from balanced two-sector output pinching for $12\le r\le13$ ($Q_2(2)=2$, $r_{\mathrm{out}}=12$); the convex-projection bound exceeds $1.75$ on the whole plotted range ($56/29$ at $r=0$, $34/18$ at $r=11$), and input pinching enters only at $r_{\mathrm{in}}=14$, outside the range. (b) $d_A=3$, $d_B=2$, $n=2$: the one-sphere dimension $L^{(n)}=8$ comes from the observable--replacement join (it exceeds both $L_{\mathrm{rep}}=6$ and $L_{\mathrm{obs}}=7$); the upper envelope steps down $1.75\to4/3\to1$ at $r=21$ (three-block input pinching, $Q_3(3)=3$, $r_{\mathrm{in}}=21$) and $r=27$ (two-block output pinching, $r_{\mathrm{out}}=27$), and the intermediate lower bound is $\gamma=1/3$. (c) The exact collapse for $d_A=2$, $d_B=1$, $n=2$ (Theorem~\ref{thm:collapse}): both envelopes equal the exact width, which is the step function $1$ below $D^{(n)}=4$ and $0$ from $D^{(n)}$ on. In panels (a) and (b), filled circles mark the lower envelope and filled squares the upper envelope; in (c) the two envelopes coincide with the exact width, and dashed segments mark the jumps.}
+{\small\caption{Certified lower and upper envelopes of the instrument compression width. (a) The worked example $d_A=d_B=2$, $n=2$ (Example~\ref{ex:222}): $\beta_r^{\mathrm{best},(n)}=1$ for $0\le r\le6$ and $\gamma=\max\{\rho_n,1/d_A\}=1/2$ for $7\le r<28$; the upper envelope is $R_{\mathrm{inst}}=1.75$ for $0\le r<12$ and $1$ from balanced two-sector output pinching for $12\le r\le13$, while convex projection exceeds $1.75$ throughout and input pinching enters only at $r_{\mathrm{in}}=14$. (b) $d_A=3$, $d_B=2$, $n=2$: the one-sphere dimension $L^{(n)}=8$ comes from the observable--replacement join; the upper envelope steps down $1.75\to4/3\to1$ at $r=21$ (three-block input pinching) and $r=27$ (two-block output pinching), and the intermediate lower bound is $\gamma=1/3$. (c) The exact collapse for $d_A=2$, $d_B=1$, $n=2$ (Theorem~\ref{thm:collapse}): both envelopes equal the exact width, which is $1$ below $D^{(n)}=4$ and $0$ from $D^{(n)}$ on. Filled circles and squares mark the lower and upper envelopes in (a) and (b); dashed segments mark the jumps.}
+}
 \label{fig:envelope}
 \end{figure}
 
@@ -1546,6 +1547,9 @@ a CPTP map $\Lin(M)\to\Lin(M_j)$: the first term is the compression onto the $P_
 \label{rem:scope}
 The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. The optimal asymptotic program cost of approximate universal unitary programming is determined in~\cite{YangRennerChiribella2020}, and quantitative program-dimension lower bounds in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation. Complementary quantitative statements --- the positive finite-programming floor, program-state separation, and the packing lower bounds --- are developed in the companion paper~\cite{CompanionChannels}.
 \end{remark}
+
+\section*{Data Availability}
+No data were generated or analysed in this study.
 
 \begin{thebibliography}{99}
 

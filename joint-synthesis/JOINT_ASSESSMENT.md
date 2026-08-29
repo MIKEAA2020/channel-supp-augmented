@@ -1095,3 +1095,56 @@ resolve (every cited key has a bibitem and conversely).
 
 Both papers compile with zero warnings; all labels, references, and
 citation keys resolve; C is 44 pages, I is 34 pages.
+
+## 15. Task 13: figure placement, tables of contents, data availability, supplements, and repository paths
+
+### 15.1 Figure 2 of the instrument paper
+Diagnosis: the envelope figure (three stacked panels with a long caption)
+exceeded LaTeX's top-float height budget (0.7 of the text height, about
+17.3 cm), so it could never be placed on a text page and was dumped on a
+float page after the bibliography --- the last page of the PDF. The
+figure belongs in Section 6 (Specialisations, examples, and explicit
+trade-off), immediately after the worked example that references panels
+(a) and (b); panel (c) also supports the collapse discussion of
+Section 5. Its position in the source was already correct; only the
+float geometry was wrong. Fix: panels compacted (2.9/2.9/2.5 cm) and the
+caption tightened, bringing the float under the top-float budget. It now
+renders at the top of page 29, inside Section 6, directly after the
+worked example. Figure 1 was checked and was already in place
+(pages 12--13, Section 3).
+
+### 15.2 Tables of contents and introduction roadmaps
+The instrument paper already carried a rendered table of contents on
+page 1. The channel paper had none; \tableofcontents was added after
+the keywords line and renders on page 1 (45 pages total). Roadmaps:
+the channel paper's introduction contains the section map (Sections
+2--7 and the appendix); the instrument paper's introduction gained its
+roadmap in Task 12. Both verified to cover all sections including the
+conclusions.
+
+### 15.3 Data availability statements
+Evaluated: both papers are purely theoretical; no datasets, code, or
+experiments are involved, so the standard statement is appropriate and
+recommended (many journals require one, and its absence can prompt
+desk-rejection queries). The channel paper already carried "No data
+were generated or analyzed in this study." before the bibliography.
+The instrument paper lacked one; "No data were generated or analysed
+in this study." was added in the same position with British spelling.
+
+### 15.4 Supplementary files
+Evaluated: neither paper merits supplementary files. All proofs are
+presented in full in the main text and appendices (channel paper:
+Technical proofs appendix; instrument paper: finite-program appendix);
+there are no long numerical tables, code, or auxiliary case analyses
+beyond what is included. The companion-paper architecture already
+serves the role a supplement would otherwise play (shared foundations
+in the channel paper, referenced by the instrument paper).
+
+### 15.5 Repository paths
+Channel paper: `main article before supp/main article before supp`
+(LaTeX source, no file extension). Instrument paper:
+`joint-synthesis/CORRECTED_SYNTHESIS_PAPER.tex`. Assessment log:
+`joint-synthesis/JOINT_ASSESSMENT.md`; channel-paper audit:
+`main article audit/AUDIT_main_article.md`. Compiled PDFs are local
+build artifacts and are not committed; both papers compile cleanly
+(zero warnings) from the committed sources.
