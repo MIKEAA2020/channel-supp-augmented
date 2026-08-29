@@ -99,6 +99,8 @@ and for $r\ge D_{A,B}^{(n)}$ exact decoding may be chosen continuously via Eucli
 
 Quantum instruments are the natural generalisation of quantum channels to finite-outcome statistics: a collection of completely positive, trace-nonincreasing maps whose sum is a channel. They describe both the probability of an outcome and the conditional post-measurement state, and they model finite-outcome measurements, adaptive protocols, and the nodes of quantum networks~\cite{DaviesLewis1970,Ozawa1984,ChiribellaEtAl2009Instruments,ChiribellaEtAl2008Combs}.
 
+The general source--latent theory underlying the obstruction arguments --- fiber radii, antipodal profiles, deleted-product coindex, and stable Lipschitz variants --- is developed in the companion paper~\cite{CompanionChannels}, which treats the channel case; the present paper uses the specialisations recorded in Section~\ref{sec:prelim}. Throughout, the $n=1$ restrictions of the instrument theorems below recover the corresponding channel-level statements of~\cite{CompanionChannels}: the observable sphere, the full-direction sphere, the join, the global in-radius, and the covering results.
+
 The question treated here is the same as for channels: can the compact convex body of $n$-outcome instruments between $A$ and $B$ be encoded continuously into a low-dimensional latent space and decoded with uniformly small error? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
 
 The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences: the affine dimension, the centred and global in-radii, the covering radius, and the diameter are determined exactly, with the uniform depolarising instrument turning out to be an optimal centre simultaneously for the in-radius and the covering radius (a concave--convex duality, Theorem~\ref{thm:global-inradius} and Remark~\ref{rem:duality}). Which quantities are determined \emph{exactly}, and which only by \emph{certified bounds}, is stated once in Remark~\ref{rem:exact-vs-certified} and maintained throughout. A separate physical question --- whether an abstract code can be realised by a fixed programmable processor --- is addressed in Appendix~\ref{app:no-programming}: exact finite-dimensional evaluation of all unitary channels is impossible, and vanishing error forces unbounded program dimension. This separates \emph{representational} dimension from \emph{programmable} evaluation; the main theorems do not rely on the appendix.
@@ -517,6 +519,7 @@ Assume $nd_B>1$. Then the uniform depolarising instrument is an optimal in-radiu
 =\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
 =\frac{2}{nd_B\min\{d_A,d_B\}}.
 \]
+For $n=1$ this is the global in-radius statement for channels in the companion paper~\cite{CompanionChannels}.
 \end{theorem}
 
 \begin{proof}
@@ -711,7 +714,7 @@ Assume $nd_B>1$, and let $D=D_{A,B}^{(n)}$. For every $0\le r\le D-1$ there exis
 \|h(u)-h(-u)\|_{\diamond,\mathrm{inst}}\ge\frac2{d_A}
 \qquad\forall u\in S^r.
 \]
-Consequently $\alpha_r(\Inst_n(A,B))\ge1/d_A$ for all $0\le r<D$. When $d_A=1$ the separation is $2$, hence $\alpha_r=1$ for all $r<D_{1,B}^{(n)}$, consistent with the exact replacement profile.
+Consequently $\alpha_r(\Inst_n(A,B))\ge1/d_A$ for all $0\le r<D$. When $d_A=1$ the separation is $2$, hence $\alpha_r=1$ for all $r<D_{1,B}^{(n)}$, consistent with the exact replacement profile. For $n=1$ the construction restricts to the full-direction sphere of the companion paper~\cite{CompanionChannels}.
 \end{theorem}
 
 \begin{proof}
@@ -798,7 +801,7 @@ Assume either (i) $n\ge2$ and $d_A\ge2$, or (ii) $n=1$, $d_A\ge2$, $d_B\ge2$. Th
 \[
 \alpha_r(\Inst_n(A,B))=1\qquad(0\le r\le d_A^2-2).
 \]
-The construction is a continuous image of the sphere and may fail to be injective: $H$ and its positive scalar multiples define the same instrument. Injectivity is not required by the width arguments.
+For $n=1$ this is the observable sphere of the channel-level companion paper~\cite{CompanionChannels}. The construction is a continuous image of the sphere and may fail to be injective: $H$ and its positive scalar multiples define the same instrument. Injectivity is not required by the width arguments.
 \end{theorem}
 
 \begin{proof}
@@ -908,6 +911,7 @@ If $N_{\mathrm{join}}\ge2$, then
 \[
 \alpha_r(\Inst_n(A,B))=1\qquad(0\le r\le d_A^2+N_{\mathrm{join}}-3).
 \]
+For $n=1$ this is the observable--replacement join of the companion paper~\cite{CompanionChannels}.
 \end{corollary}
 
 \begin{proof}
@@ -963,7 +967,7 @@ The two breakpoints of the envelope have a direct resource interpretation. A fla
 
 \begin{remark}[Two mechanisms behind the intermediate floor]
 \label{rem:gamma-mechanisms}
-The intermediate floor $\gamma_{A,B}^{(n)}=\max\{\rho_n,1/d_A\}$ combines two certificates of different geometric origin, and the maximum is the correct combination because each term is individually a valid lower bound on every width in the intermediate regime. The term $\rho_n=2/(nd_Bs)$ is a local statement: a ball of radius $\rho_n$ about the uniform instrument exists, and the antipodal pairs inside a centrally symmetric ball certify error at least $\rho_n$ via the radial map (Corollary~\ref{cor:intrinsic}); it decays with $n$ because the uniform trace budget is split among $n$ outcomes. The term $1/d_A$ is a global statement: a sphere spanning all $D_{A,B}^{(n)}$ directions of the body exists whose antipodes are separated by $2/d_A$ (Theorem~\ref{thm:full-direction}); the value $1/d_A$ is the largest mixing weight at which two orthogonal flagged Choi states with a common input marginal can be completed to instruments uniformly over all directions, the direction-dependent optimum $1/(d_A\|\mu(Z)\|_\infty)$ of Remark~\ref{rem:tunable-lambda} collapsing to $1/d_A$ exactly at the maximally mixed marginal. The two terms trade off at $n\approx2d_A/(d_B\min\{d_A,d_B\})$: below this threshold the ball term dominates the maximum, above it the input-dimension term $1/d_A$ is the floor; in particular, whenever $d_A\le d_B$ the floor is $1/d_A$ for every $n\ge2$. This is the geometric reason the intermediate obstruction carries an $n$-independent component.
+The intermediate floor $\gamma_{A,B}^{(n)}=\max\{\rho_n,1/d_A\}$ combines two certificates of different geometric origin, and the maximum is the correct combination because each term is individually a valid lower bound on every width in the intermediate regime. The term $\rho_n=2/(nd_Bs)$ is a local statement: a ball of radius $\rho_n$ about the uniform instrument exists, and the antipodal pairs inside a centrally symmetric ball certify error at least $\rho_n$ via the radial map (Corollary~\ref{cor:intrinsic}); it decays with $n$ because the uniform trace budget is split among $n$ outcomes. The term $1/d_A$ is a global statement: a sphere spanning all $D_{A,B}^{(n)}$ directions of the body exists whose antipodes are separated by $2/d_A$ (Theorem~\ref{thm:full-direction}); the value $1/d_A$ is the largest mixing weight at which two orthogonal flagged Choi states with a common input marginal can be completed to instruments uniformly over all directions, the direction-dependent optimum $1/(d_A\|\mu(Z)\|_\infty)$ of Remark~\ref{rem:tunable-lambda} collapsing to $1/d_A$ exactly at the maximally mixed marginal. The two terms trade off at $n\approx2d_A/(d_B\min\{d_A,d_B\})$: below this threshold the ball term dominates the maximum, above it the input-dimension term $1/d_A$ is the floor; in particular, whenever $d_A\le d_B$ the floor is $1/d_A$ for every $n\ge2$. This is the geometric reason the intermediate obstruction carries an $n$-independent component. The $n=1$ value $\gamma_{A,B}^{(1)}=\max\{2/(d_B\min\{d_A,d_B\}),1/d_A\}$ is the intermediate envelope value of the companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 \section{Compression widths: upper bounds and exact thresholds}
@@ -1586,13 +1590,16 @@ a CPTP map $\Lin(M)\to\Lin(M_j)$: the first term is the compression onto the $P_
 
 \begin{remark}[Scope of the no-programming obstruction]
 \label{rem:scope}
-The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. Optimal asymptotic program-cost scaling for approximate universal unitary programming is established in~\cite{YangRennerChiribella2020}, and quantitative lower bounds on the program dimension in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation.
+The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. Optimal asymptotic program-cost scaling for approximate universal unitary programming is established in~\cite{YangRennerChiribella2020}, and quantitative lower bounds on the program dimension in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation. Complementary quantitative statements --- the positive finite-programming floor, program-state separation, and the packing lower bounds --- are developed in the companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 \begin{thebibliography}{99}
 
 \bibitem{Choi1975}
 M.-D. Choi, \emph{Completely positive linear maps on complex matrices}, Linear Algebra Appl. \textbf{10}, 285--290 (1975).
+
+\bibitem{CompanionChannels}
+Anonymous, \emph{Exact diamond balls, antipodal widths, and query-uniform compression bounds for quantum channels}, companion manuscript.
 
 \bibitem{Jamiolkowski1972}
 A.~Jamio{\l}kowski, \emph{Linear transformations which preserve trace and positive semidefiniteness of operators}, Rep. Math. Phys. \textbf{3}, 275--278 (1972).

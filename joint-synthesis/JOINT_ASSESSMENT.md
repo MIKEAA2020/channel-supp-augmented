@@ -791,3 +791,121 @@ Three non-decorative additions, all tied to proof structure:
 All new text follows the formal, changelog-free style of the Task 8 pass.
 The paper compiles cleanly (pdflatex, zero warnings), all labels resolve, all
 15 bibitems are cited, and the structural checks of Section 10 pass.
+
+## 12. Task 10: audit of the channel paper, application of all fixes, and cross-article integration
+
+The user uploaded "main article before supp" (3,466 lines; channel paper, C)
+and asked for (1) all audit fixes applied, (2) nonsuperficial cross-article
+strengthening/citation between C and the instrument paper (I), (3) a
+structural-alignment assessment. The audit is in
+`main article audit/AUDIT_main_article.md` (committed at `056d77c`).
+
+### 12.1 Audit fixes applied to C (all of F1-F11, style, terminology)
+
+- F1 (major): the informationally complete POVM condition in
+  prop:one-query-injective and thm:sampled-achievability is now
+  eta < 1/((D+1) sum_i ||H_i||_infty), which makes every E_i and E_0
+  strictly positive; the non-sequitur "sum to the identity and hence form a
+  POVM" now has a genuine positivity argument.
+- F2: placeholder line removed. F3: stray sentence with undefined symbols
+  removed from the program-packing proof.
+- F4: thm:partition and cor:block-envelope strengthened from alpha_r >= 2/s
+  to alpha_r = 1 (Jordan block spheres via prop:join), which is also what
+  fig:replacement-join always displayed; figure and theorems now agree.
+- F5: prop:memory-sharpness now cites prop:euclidean-threshold with the
+  relative-interior-point argument. F6: comb-figure continuity citation
+  corrected to prop:physical-continuity. F7: duplicated sentence removed.
+  F8: duplicated subject removed. F9: single empty-latent clause placed
+  after thm:intrinsic-latent. F10: redundant coindex shorthand declaration
+  removed (the definition's declaration is retained; it is used in the
+  comb-figure caption). F11: redundant parenthetical removed.
+- Style: date fixed; author block unified; inline "(Watrous)" replaced by
+  a citation; Bloch meta-commentary removed; interrupting parentheticals
+  rephrased; defensive clauses converted to declarative statements
+  ("Uniqueness ... is left open", "remain open and are bracketed by the two
+  envelopes", "in which case it is capped at 2"); "This zero denotes"
+  rephrased; lmodern added (scalable fonts); table column widths
+  rebalanced; the cor:query-cq overfull reduced with \allowbreak.
+- Terminology: "compression width" now defined at def:width (title,
+  abstract, keywords align); "dephasing" -> "pinching" (abstract, example,
+  special-case paragraph); "antipodal profile" abbreviation declared at
+  the definition; both "flagged" uses replaced by channel vocabulary; the
+  instrument superscripts in fig:replacement-join's note replaced by the
+  channel formulas; "quantum instruments" dropped from the keywords.
+
+### 12.2 Cross-article strengthening (nonsuperficial, implemented)
+
+The two papers are now mutually cited companions, each self-contained.
+All new material has mathematical content, not decoration.
+
+From I to C (content transfers, each with a full proof in C):
+1. **Observable sphere (new C theorem).** For d_A,d_B >= 2, a continuous
+   S^{d_A^2-2} inside the channel body with antipodal diamond distance 2,
+   hence alpha_r(Chan) = 1 for 0 <= r <= d_A^2-2. C's proof is the n=1
+   case of I's observable-sphere theorem (H -> H/||H||, effects
+   E_+-(H), two orthogonal output states). This is a genuine improvement:
+   for d_A^2-2 > d_B^2-2 (large input, small output) it extends the
+   value-one range beyond the replacement range.
+2. **Full-direction sphere (new C theorem).** alpha_r(Chan) >= 1/d_A for
+   0 <= r < D_{A,B}, the n=1 case of I's full-direction theorem (Jordan
+   decomposition plus correction state nu = (I-mu)/(d_A-1)). Genuine
+   improvement of the intermediate lower bound whenever
+   1/d_A > 2/(d_B s), in particular for every d_A <= d_B with d_B >= 3.
+3. **Observable-replacement join (new C proposition).**
+   alpha_r(Chan) = 1 for 0 <= r <= d_A^2+(d_B-2)^2-3 (d_A >= 2,
+   d_B >= 3), the n=1 case of I's join corollary; strictly better than the
+   replacement range whenever d_A^2 >= 4d_B-5, in particular for every
+   square system of dimension at least four.
+4. **Global in-radius (new C theorem).** rho_diamond(Phi_0) <=
+   rho_diamond(Omega) for every centre, via concavity of the in-radius
+   (halfspace formula) and Haar/Jensen under U(B); the n=1 case of I's
+   global in-radius theorem. Upgrades the ball term of C's envelope from
+   "centred at Omega" to "optimal over all centres".
+5. **Envelope upgrade.** def:channel-envelope now mirrors I's definition:
+   L_{A,B} = min{D-1, max{L_rep, L_obs, L_join}} and
+   gamma_{A,B} = max{rho_dep, 1/d_A}, with L_{A,B} = L^{(1)}_{A,B} and
+   gamma_{A,B} = gamma^{(1)}_{A,B} stated explicitly. All downstream
+   statements updated (thm:hierarchy, rem:certified-envelope,
+   rem:output-prep, cor:perfect-separation-indices, tab:channel-scales,
+   ex:qubit, abstract, intro, conclusion). The qubit example numbers are
+   unchanged (gamma_{2,2} = max{1/2,1/2} = 1/2, L_{2,2} = 2), which is
+   stated in the example.
+6. **Programming complementarity.** C's intro sentence about the
+   supplement is now a citation to I (mixed-program passage and
+   cor:unequal), and I's appendix rem:scope cites C's programming section
+   (positive floor, program-state separation, packing bounds).
+
+From C to I (pointers, since I never needed the full machinery):
+7. I's introduction now states that the general source-latent theory
+   (fiber radii, antipodal profiles, deleted-product coindex, stable
+   Lipschitz variants) is developed in C and that the present paper uses
+   only the specialisations of I's Section 2 (preliminaries).
+8. Theorem-level n=1 identifications in I: thm:observable,
+   thm:full-direction, cor:join-dimension, thm:global-inradius each carry
+   a pointer to the corresponding C theorem, and rem:gamma-mechanisms
+   records gamma^{(1)}_{A,B} as C's envelope value.
+
+### 12.3 Structural-alignment verdict
+
+- The general source-latent theory stays in C (single source of truth);
+  I imports by reference. Moving it to I would duplicate ~80 lines of
+  foundation and split the citation chain; moving it out of C would
+  orphan C's Sections 3-8 from their hypotheses.
+- The programming material stays split: C's Section 5.3 (positive floor,
+  packing, separation - quantitative minimax) and I's appendix
+  (no-programming exact statement, mixed-program passage, unequal-output
+  corollary - qualitative). They are complementary rather than
+  duplicative, and now cite each other. Merging them would force one
+  paper to carry material outside its scope.
+- Notation now aligned across both papers: L_{A,B} = L^{(1)}_{A,B},
+  gamma_{A,B} = gamma^{(1)}_{A,B}, both papers use the same sphere names
+  (replacement / full-direction / observable) and the same normalized
+  Choi convention. The C paper's Section 4 order (replacement, Clifford,
+  observable, full-direction, envelope) mirrors I's Section 4.
+- No section was relocated between papers, and no further redistribution
+  is recommended. If the two were ever merged, C's Section 2 would be the
+  shared foundations chapter and I's Sections 2-4 would follow C's
+  Sections 3-4 with n reinstated; both papers document this structure.
+
+Both papers compile (pdflatex, zero warnings); all labels, references,
+and bibliography entries resolve in each; C is now 44 pages, I 33 pages.

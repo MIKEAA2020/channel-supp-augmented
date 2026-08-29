@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{geometry}
 \usepackage{microtype}
+\usepackage{lmodern}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,calc,shapes,fit,backgrounds}
 \usepackage{pgfplots}
@@ -40,19 +41,19 @@
 
 \title{Exact Diamond Balls, Antipodal Widths, and Query-Uniform Compression Bounds for Quantum Channels}
 \author{xx xx\\
-\small Email: \href{mailto:xx_xx@xx.xx.xx}{xx\_xx@xx.xx.xx.xx}\\
 \small xx\\
-\small ORCID: xx}
-\date{friday 28 august 2026}
+\small ORCID: xx\\
+\small Email: \href{mailto:xx\_xx@xx.xx.xx}{xx\_xx@xx.xx.xx}}
+\date{August 28, 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Quantum channels with fixed finite-dimensional input and output form a compact convex body. We ask whether this body can be encoded continuously into a low-dimensional latent space and decoded with uniformly small diamond-norm error when the decoder is unrestricted. This is a continuous version of nonlinear width, distinct from tomography, which counts channel uses, and from physical programming, which fixes a processor. For a compact source the optimal error equals the minimal worst-case radius of encoder fibers. Lower bounds follow from antipodal pairs in the source and from latent collision topology via Borsuk--Ulam and deleted-product coindex. Even input-independent preparations force error one below the output-state count, with a Clifford unitary analogue. The largest diamond ball around the completely depolarizing channel is exact and yields a lower bound up to the affine dimension, the exact threshold for zero-error encoding; the depolarizing channel is an optimal constant decoder with exact covering radius. Matching upper bounds from convex projection and balanced input/output dephasing bracket the intermediate widths. Every deterministic adaptive network querying the channel finitely many times induces a continuous final code containing all side information, so the same bottlenecks hold uniformly in query number, for uniformly successful postselection, and for finite sampled transcripts. A one-query informationally complete measurement gives an injective encoding at the threshold, and repetition gives an $O(N^{-1/2})$ expected-error achievability bound, separating representational dimension from tomography and programmable processors.
+Quantum channels with fixed finite-dimensional input and output form a compact convex body. We ask whether this body can be encoded continuously into a low-dimensional latent space and decoded with uniformly small diamond-norm error when the decoder is unrestricted. This is a continuous version of nonlinear width, distinct from tomography, which counts channel uses, and from physical programming, which fixes a processor. For a compact source the optimal error equals the minimal worst-case radius of encoder fibers. Lower bounds follow from antipodal pairs in the source and from latent collision topology via Borsuk--Ulam and deleted-product coindex. Even input-independent preparations force error one below the output-state count, with an observable-sphere and a Clifford unitary analogue. The largest diamond ball around the completely depolarizing channel is exact and optimal over all centres; combined with a full-direction section it yields the intermediate lower bound $\max\{2/(d_B\min\{d_A,d_B\}),1/d_A\}$ up to the affine dimension, the exact threshold for zero-error encoding; the depolarizing channel is an optimal constant decoder with exact covering radius. Matching upper bounds from convex projection and balanced input/output pinching bracket the intermediate widths. Every deterministic adaptive network querying the channel finitely many times induces a continuous final code containing all side information, so the same bottlenecks hold uniformly in query number, for uniformly successful postselection, and for finite sampled transcripts. A one-query informationally complete measurement gives an injective encoding at the threshold, and repetition gives an $O(N^{-1/2})$ expected-error achievability bound, separating representational dimension from tomography and programmable processors.
 \end{abstract}
 
-\noindent\textbf{Keywords:} quantum channel compression; exact diamond in-radius; antipodal width; Borsuk--Ulam obstruction; block pinching; quantum combs; quantum instruments.
+\noindent\textbf{Keywords:} quantum channel compression; exact diamond in-radius; antipodal width; Borsuk--Ulam obstruction; block pinching; quantum combs; deleted-product coindex.
 
 \section{Introduction}
 
@@ -114,22 +115,20 @@ conditioning on events whose probability can vanish. The unrestricted
 state-space decoder is distinguished from a fixed physical programmable
 processor.
 
-The contributions are: (i) an exact fiber-radius characterization of encoder-continuous width with unrestricted decoder; (ii) a source--latent collision theorem via antipodal profile and deleted-product coindex, recovering Euclidean Borsuk--Ulam as a special case; (iii) a maximal metric lower bound $1$ through index $d_B^2-2$ from the replacement family, with orthogonal-block joins and a Clifford unitary analogue; (iv) the exact all-dimensional depolarizing-centered in-radius and the exact Chebyshev covering radius, with variational and spectral certificates; (v) constructive upper envelopes from convex projection and balanced input/output pinching, bracketing the widths below the affine threshold; (vi) query-uniform final-code bottlenecks for deterministic finite-query combs, uniformly successful postselection, and finite sampled transcripts, together with a one-query injective encoding and $O(N^{-1/2})$ finite-sample upper bound. The exact positive widths below the affine dimension remain open.
+The contributions are: (i) an exact fiber-radius characterization of encoder-continuous width with unrestricted decoder; (ii) a source--latent collision theorem via antipodal profile and deleted-product coindex, recovering Euclidean Borsuk--Ulam as a special case; (iii) a maximal metric lower bound $1$ through index $L_{A,B}$ from the replacement family, the observable sphere, and their join, a full-direction section certifying $1/d_A$ through the affine dimension, and a Clifford unitary analogue; (iv) the exact all-dimensional depolarizing-centered in-radius --- optimal among all centres --- and the exact Chebyshev covering radius, with variational and spectral certificates; (v) constructive upper envelopes from convex projection and balanced input/output pinching, bracketing the widths below the affine threshold; (vi) query-uniform final-code bottlenecks for deterministic finite-query combs, uniformly successful postselection, and finite sampled transcripts, together with a one-query injective encoding and $O(N^{-1/2})$ finite-sample upper bound. The exact positive widths below the affine dimension remain open.
 
 Section~\ref{sec:source-latent} develops fiber radii, antipodal profiles, and
 latent-space collisions. Section~\ref{sec:geometry} then fixes the channel
 and norm conventions used in the applications. Section~\ref{sec:balls}
 studies relative diamond balls and centered in-radii.
-Section~\ref{sec:replacement-unitary} develops the replacement and Clifford
-sections and the resulting channel lower and constructive upper envelopes. Section~\ref{sec:codes}
+Section~\ref{sec:replacement-unitary} develops the replacement, observable,
+full-direction, and Clifford sections and the resulting channel lower and constructive upper envelopes. Section~\ref{sec:codes}
 treats abstract state alphabets and physical programs.
 Section~\ref{sec:adaptive} gives the adaptive-network consequences, and
 Section~\ref{sec:conclusion} records scope and open questions. The appendix
 collects the longer proofs of the radius and covering results, fixed-marginal
 twirling, programming packing, structured partitions, and the Clifford
-construction. A standalone supplement treats mixed and unequal-output
-programming and extends the ball and compression theorems to finite-outcome
-quantum instruments.
+construction. A companion paper~\cite{CompanionInstruments} treats mixed and unequal-output programming and extends the ball and compression theorems to finite-outcome quantum instruments; conversely, the channel-level theorems of the present paper are recovered from the instrument results by taking $n=1$.
 
 Throughout, all systems are finite-dimensional and all latent dimensions are
 real dimensions. Unless stated otherwise, the encoder is continuous and the
@@ -156,11 +155,12 @@ For a topological latent space $Y$, define
 \sup_{x\in K}d(g(f(x)),x).
 \]
 For $Y=\mathbb R^r$, write $\delta_r^{\mathrm c}(K;X)$, with
-$\mathbb R^0$ a singleton. No regularity is imposed on $g$. If no continuous $f:K\to Y$ exists (e.g., $K$ nonempty and $Y$ empty), define the infimum over an empty set to be $+\infty$. Since the source $K$ is nonempty, an empty latent space creates no additional case in the obstruction theorem beyond the trivial infinite width.
+$\mathbb R^0$ a singleton. No regularity is imposed on $g$. If no continuous $f:K\to Y$ exists (e.g., $K$ nonempty and $Y$ empty), define the infimum over an empty set to be $+\infty$.
 \end{definition}
 
 This is a variant of continuous nonlinear width in which only the encoder is
-required to be continuous.
+required to be continuous. We refer to this quantity as the compression
+width.
 
 \begin{definition}[Fiber radii and fiber diameter]
 \label{def:fiber-widths}
@@ -242,7 +242,8 @@ For $r\in\mathbb N_0$, define
 =\frac12\sup_{h\in C(S^r,K)}
 \min_{u\in S^r}d(h(u),h(-u)).
 \]
-The minimum exists by compactness of $S^r$.
+The minimum exists by compactness of $S^r$. The quantity $\alpha_r(K)$
+is henceforth abbreviated to the antipodal profile.
 \end{definition}
 
 \begin{proposition}[Profile properties]
@@ -326,9 +327,7 @@ where $S^k$ has the antipodal action. If $F_2(Y)=\varnothing$, the value is
 defined to be $-1$; otherwise the displayed supremum is used and may be
 $+\infty$. This is the standard sphere-map coindex convention; see, for
 example,~\cite{Matousek2003}. When the acting group is clear, we
-occasionally suppress the subscript $\mathbb Z_2$. Since the source $K$ is
-nonempty, an empty latent space admits no encoder $K\to Y$ and creates no
-additional case in the obstruction theorem.
+occasionally suppress the subscript $\mathbb Z_2$.
 \end{definition}
 
 \begin{remark}[Configuration-space intuition]
@@ -355,7 +354,9 @@ u\longmapsto(f(h(u)),f(h(-u)))
 is an equivariant map from $S^r$ to $F_2(Y)$, contradicting the coindex
 hypothesis. Thus an antipodal pair has one code. The triangle inequality
 forces one reconstruction error to be at least half the pair separation.
-Take the supremum over $h$.
+Take the supremum over $h$. An empty latent space admits no encoder from
+the nonempty source; by the convention in Definition~\ref{def:width} the
+width is then $+\infty$, so no separate case arises.
 \end{proof}
 
 \begin{proposition}[Euclidean recovery]
@@ -942,14 +943,15 @@ $J=dP-I_{H\otimes H}/d$, and direct spectral decomposition gives
 Lemma~\ref{lem:choi-upper} supplies the matching upper bound.
 \end{proof}
 
-\section{Replacement and unitary sections}
+\section{Antipodal sections and the channel lower envelope}
 \label{sec:replacement-unitary}
 
 The full-body in-radius controls every subcritical affine dimension, but
 smaller source families can have much larger antipodal separation. This
-section first uses input-independent replacement channels to obtain the
-maximal metric bound, then treats a coherent unitary promise, and finally
-combines these sections with the full channel ball.
+section uses input-independent replacement channels and an input-dependent
+observable construction to obtain the maximal metric bound, then treats a
+coherent unitary promise, and finally combines these sections with the
+full-direction sphere and the full channel ball.
 
 \subsection{Replacement-family geometry}
 
@@ -1141,9 +1143,9 @@ provides the stronger unrestricted replacement-channel bound.
 \node[below=3mm of Rep, font=\footnotesize, align=left, text width=30mm, anchor=north] (perf) {Perfect separation:\\$\|h(u)-h(-u)\|_\diamond=2$\\$\alpha_r=1$ for $r\le R$};
 
 % Balanced note - reduced width to stay inside page
-\node[below=12mm of FB, text width=0.85\linewidth, font=\footnotesize, align=left] (bal) {Balanced partition $Q_\ell(d)=(\ell-t)m^2+t(m+1)^2$, $d=m\ell+t$, minimizes $\sum b_i^2$ and thus $r_{\rm out}^{(n)}=d_A^2(n\sum b_i^2-1)$, $r_{\rm in}^{(n)}=(\sum a_i^2)(n d_B^2-1)$. $s=2$ gives $\alpha_r=1$ for $0\le r\le3\lfloor d_B/2\rfloor-1$.};
+\node[below=12mm of FB, text width=0.85\linewidth, font=\footnotesize, align=left] (bal) {Balanced partition $Q_\ell(d)=(\ell-t)m^2+t(m+1)^2$, $d=m\ell+t$, minimizes $\sum b_i^2$ and thus $r_{\mathrm{out}}=d_A^2(\sum b_i^2-1)$ and $r_{\mathrm{in}}=(\sum a_i^2)(d_B^2-1)$. $s=2$ gives $\alpha_r=1$ for $0\le r\le3\lfloor d_B/2\rfloor-1$.};
 \end{tikzpicture}
-\caption{Replacement-family geometry and orthogonal-block join. Each block $B_i$ carries a sphere $S^{b_i^2-2}$ with antipodal trace distance $2$ via $X\mapsto X_+/{\rm Tr}X_+$ (Lemma~\ref{lem:replacement}). Orthogonal supports give $\|H(y)-H(-y)\|_1=\sum\lambda_i\|h_i(u_i)-h_i(-u_i)\|_1\ge2\min\rho_i$ (Proposition~\ref{prop:join}). The replacement isometry (Lemma~\ref{lem:replacement}) transfers this to diamond distance $2$ for channels, and flagged version to $n d_B^2-2$ for instruments (instrument analogue, cf.~supplementary). Balanced $Q_\ell(d)$ minimizes pinching thresholds.}
+\caption{Replacement-family geometry and orthogonal-block join. Each block $B_i$ carries a sphere $S^{b_i^2-2}$ with antipodal trace distance $2$ via $X\mapsto X_+/{\rm Tr}X_+$ (Lemma~\ref{lem:replacement}). Orthogonal supports give $\|H(y)-H(-y)\|_1=\sum\lambda_i\|h_i(u_i)-h_i(-u_i)\|_1\ge2\min\rho_i$ (Proposition~\ref{prop:join}). The replacement isometry (Lemma~\ref{lem:replacement}) transfers this to diamond distance $2$ for channels; the $n$-outcome analogue for quantum instruments is developed in the companion paper~\cite{CompanionInstruments}. Balanced $Q_\ell(d)$ minimizes pinching thresholds.}
 \label{fig:replacement-join}
 \end{figure}
 
@@ -1201,8 +1203,7 @@ $f:\UChan(H)\to\mathbb R^r$ admits an exact decoder on its image, then
 \[
 r\geq d^2.
 \]
-This is a lower bound on the Euclidean embedding dimension of the unitary
-promise class, not an assertion that $d^2$ is sufficient.
+This is a lower bound on the Euclidean embedding dimension of the unitary promise class; whether $d^2$ coordinates admit an exact continuous encoder is not addressed here.
 \end{proposition}
 
 \begin{proof}
@@ -1239,29 +1240,259 @@ $\|H_u\|_1=p$ (eigenvalues $\pm1$ equal multiplicity),
 \]
 \end{proof}
 
+\subsection{Observable and full-direction sections}
+
+\begin{theorem}[Observable antipodal sphere]
+\label{thm:observable-channel}
+Assume $d_A\ge2$ and $d_B\ge2$. Then there exists a continuous map
+$h:S^{d_A^2-2}\to\Chan(A,B)$ whose antipodal images have diamond distance
+$2$; consequently
+\[
+\alpha_r(\Chan(A,B))=1\qquad(0\le r\le d_A^2-2).
+\]
+This is the $n=1$ case of the observable-sphere theorem for $n$-outcome
+quantum instruments in the companion paper~\cite{CompanionInstruments}.
+\end{theorem}
+
+\begin{proof}
+Fix two orthogonal pure states $\sigma_+,\sigma_-$ on $B$. For
+$H\in\Herm_0(A)$, $H\neq0$, set $K(H)=H/\|H\|_\infty$ and
+$E_\pm(H)=(I_A\pm K(H))/2$. Then $E_\pm(H)\ge0$ and
+$E_+(H)+E_-(H)=I_A$, so
+\[
+\Phi^H(X)=\Tr(E_+(H)X)\,\sigma_++\Tr(E_-(H)X)\,\sigma_-
+\]
+is a channel. Since $\|K(H)\|_\infty=1$, some unit eigenvector
+$|\psi\rangle$ of $K(H)$ has eigenvalue $\varepsilon\in\{+1,-1\}$; then
+$\Tr(E_\varepsilon(H)|\psi\rangle\langle\psi|)=1$ and
+$\Tr(E_{-\varepsilon}(H)|\psi\rangle\langle\psi|)=0$. Since
+$E_\pm(-H)=E_\mp(H)$, the outputs of $\Phi^H$ and $\Phi^{-H}$ on the input
+$|\psi\rangle\langle\psi|$ are $\sigma_\varepsilon$ and
+$\sigma_{-\varepsilon}$, which are orthogonal, so their trace distance is
+$2$; the diamond distance is therefore exactly $2$ by the diameter bound.
+The map $H\mapsto H/\|H\|_\infty$ is continuous on the Euclidean unit
+sphere of $\Herm_0(A)\cong\mathbb R^{d_A^2-1}$, so the construction gives a
+continuous image of $S^{d_A^2-2}$ with antipodal diamond distance $2$;
+equatorial restriction supplies every smaller index.
+\end{proof}
+
+\begin{theorem}[Full-direction antipodal sphere]
+\label{thm:full-direction-channel}
+Assume $d_B>1$, and let $D=D_{A,B}$. For every $0\le r\le D-1$ there
+exists a continuous map $h:S^r\to\Chan(A,B)$ such that
+\[
+\|h(u)-h(-u)\|_\diamond\ge\frac2{d_A}
+\qquad\forall u\in S^r.
+\]
+Consequently $\alpha_r(\Chan(A,B))\ge1/d_A$ for all $0\le r<D$. When
+$d_A=1$ the separation is $2$, hence $\alpha_r=1$ for all $r<D_{1,B}$,
+consistent with the exact replacement profile. This is the $n=1$ case of
+the corresponding instrument theorem in the companion
+paper~\cite{CompanionInstruments}.
+\end{theorem}
+
+\begin{proof}
+Identify channels with their normalized Choi operators
+$J\in\Herm(A_0\otimes B)$, $J\ge0$, $\Tr_BJ=I_{A_0}/d_A$. The direction
+space $\mathcal V=\{Z\in\Herm(A_0\otimes B):\Tr_BZ=0\}$ has real dimension
+$D$. Equip $\mathcal V$ with a Euclidean norm and let
+$S(\mathcal V)\cong S^{D-1}$ be its unit sphere; equatorial restriction
+supplies every smaller index. Fix $\tau_0=I_B/d_B$. For $Z\in S(\mathcal V)$
+write the Jordan decomposition $Z=Z_+-Z_-$ with $Z_+,Z_-\ge0$,
+$Z_+Z_-=0$; functional calculus makes $Z\mapsto Z_+$ continuous. Since
+$\Tr_BZ=0$,
+\[
+\Tr_BZ_+=\Tr_BZ_-.
+\]
+Let $t=\Tr Z_+=\Tr Z_-$. We claim $t>0$: if $t=0$ then $Z_+=0$, so
+$Z=-Z_-\le0$; but then $\Tr Z=0$ forces $Z=0$, contradicting
+$Z\in S(\mathcal V)$. Define the normalized states
+\[
+\Theta_+=\frac{Z_+}{t},\qquad\Theta_-=\frac{Z_-}{t},
+\]
+which have orthogonal supports and share the same $A_0$-marginal
+\[
+\mu:=\Tr_B\Theta_+=\Tr_B\Theta_-.
+\]
+If $d_A=1$ the marginal condition is automatic and we set
+$J^+(Z)=\Theta_+$, $J^-(Z)=\Theta_-$. Otherwise put $\lambda=1/d_A$. Since
+$\mu$ is a state on $A_0$, $\mu\le I_{A_0}$, hence
+$\lambda\mu\le I_{A_0}/d_A$. Define the correction state
+\[
+\nu=\frac{\frac{I_{A_0}}{d_A}-\lambda\mu}{1-\lambda}
+=\frac{I_{A_0}-\mu}{d_A-1}\ge0,
+\qquad\Tr\nu=1,
+\]
+and set
+\[
+J^+(Z)=\lambda\Theta_++(1-\lambda)\nu\otimes\tau_0,\qquad
+J^-(Z)=\lambda\Theta_-+(1-\lambda)\nu\otimes\tau_0.
+\]
+Both $J^\pm(Z)$ are positive with $A_0$-marginal
+\[
+\lambda\mu+(1-\lambda)\nu=\frac{I_{A_0}}{d_A},
+\]
+so each is the normalized Choi operator of a channel; let $h(Z)$ be the
+channel with Choi operator $J^+(Z)$. For $-Z$ the positive and negative
+parts are interchanged while $t$ and $\mu$ are unchanged, so $\nu$ is
+unchanged and $h(-Z)$ has Choi operator $J^-(Z)$. The Choi difference is
+\[
+J^+(Z)-J^-(Z)=\lambda(\Theta_+-\Theta_-)
+\]
+(with $\lambda=1$ when $d_A=1$), and since $\Theta_+,\Theta_-$ are states
+with orthogonal supports,
+\[
+\|J^+(Z)-J^-(Z)\|_1=2\lambda=\frac2{d_A}.
+\]
+By \eqref{eq:choi-diamond},
+$\|h(Z)-h(-Z)\|_\diamond\ge\|J^+(Z)-J^-(Z)\|_1=2/d_A$. Finally,
+$Z\mapsto Z_+$ is continuous and $t=\Tr Z_+$ is continuous and strictly
+positive on the compact unit sphere, hence bounded away from zero there;
+so $Z\mapsto J^+(Z)$ is continuous. Equatorial restriction proves the
+theorem for all $0\le r\le D-1$.
+\end{proof}
+
+\begin{proposition}[Observable--replacement join]
+\label{prop:join-channel}
+Assume $d_A\ge2$ and $d_B\ge3$. Then
+\[
+\alpha_r(\Chan(A,B))=1
+\qquad(0\le r\le d_A^2+(d_B-2)^2-3).
+\]
+This is the $n=1$ case of the instrument-level join in the companion
+paper~\cite{CompanionInstruments}.
+\end{proposition}
+
+\begin{proof}
+Let $W_2=\operatorname{span}\{|\varphi_+\rangle,|\varphi_-\rangle\}$
+be the two-dimensional subspace spanned by the orthogonal output states of
+the observable sphere in Theorem~\ref{thm:observable-channel}; every
+channel in that sphere has output supported on $W_2$. Let $W_2^\perp$ be
+its orthogonal complement, of dimension $d_B-2\ge1$. The Jordan
+construction of Theorem~\ref{thm:full-state-antipodal}, restricted to
+$\Herm_0(W_2^\perp)\subseteq\Herm_0(B)$, gives a continuous map
+$h_{\mathrm{rep}}:S^{(d_B-2)^2-2}\to\Sstate(W_2^\perp)$ whose antipodes have
+orthogonal supports; by Lemma~\ref{lem:replacement} the corresponding
+replacement channels have antipodal diamond distance $2$. For
+$y=(y_1,y_2)$ on the join sphere
+$S^{(d_A^2-2)+((d_B-2)^2-2)+1}$ with $\lambda=\|y_1\|_2^2$, set
+$u_1=y_1/\|y_1\|_2$ and $u_2=y_2/\|y_2\|_2$ where the corresponding blocks
+are nonzero, and define
+\[
+H(y)(X)=\lambda\,\Phi^{u_1}(X)+(1-\lambda)\,\mathcal R_{\sigma_{u_2}}(X),
+\]
+setting the corresponding term to zero when its block vanishes. Both
+summands are channels, so $H(y)$ is a channel; continuity at vanishing
+blocks holds as in Proposition~\ref{prop:join}, since each vanishing term
+is bounded in diamond norm by the vanishing weight. On the input
+$|\psi\rangle\langle\psi|$ exposing the pair $(\Phi^{u_1},\Phi^{-u_1})$,
+the output of $H(y)-H(-y)$ splits into the part
+$\lambda(\sigma_\varepsilon-\sigma_{-\varepsilon})$ supported on $W_2$ and
+the part $(1-\lambda)(\sigma_{u_2}-\sigma_{-u_2})$ supported on
+$W_2^\perp$; the two supports are mutually orthogonal and each part has
+trace norm $2\lambda$, respectively $2(1-\lambda)$, so the total trace
+norm is $2$, and the diamond distance is exactly $2$ by the diameter bound.
+Restriction to coordinate equators supplies every smaller index, and
+$\alpha_r\le1$ always by the diameter bound.
+\end{proof}
+
+\begin{theorem}[Global in-radius and the optimal centred ball]
+\label{thm:global-inradius-channel}
+For every $\Phi_0\in\Chan(A,B)$,
+\[
+\rho_\diamond(\Phi_0)\le\rho_\diamond(\Omega_{A,B})=\rhodep(A,B).
+\]
+Thus $\rhodep(A,B)$ is the largest relative ball contained in the channel
+body about any centre, and the centred-ball term of the certified envelope
+cannot be improved by re-centring. The concavity argument is the $n=1$
+case of the instrument-level statement in the companion
+paper~\cite{CompanionInstruments}.
+\end{theorem}
+
+\begin{proof}
+For a convex body $K$ in a normed affine space, the relative in-radius
+about an interior point equals the infimum over closed halfspaces
+$H\supseteq K$ of the distance from the centre to $\partial H$: the ball
+$B(x,\rho)\subseteq K$ if and only if $B(x,\rho)\subseteq H$ for every
+such $H$, by separation, and the two infima coincide. Each map
+$x\mapsto\operatorname{dist}(x,\partial H)$ is affine, so the in-radius is
+a pointwise infimum of affine functions and hence concave on $K$.
+
+For $V\in\mathrm U(B)$ let $T_V(\Psi)=\mathcal V_V\circ\Psi$ with
+$\mathcal V_V(Y)=VYV^\dagger$. This is an affine isometry of
+$\Chan(A,B)$ by unitary invariance of the diamond norm, so
+$\rho_\diamond(T_V(\Phi_0))=\rho_\diamond(\Phi_0)$. The Haar barycentre of
+$\Phi_0$ under this action is
+$\int T_V(\Phi_0)\,dV=\Omega_{A,B}$, computed in the proof of
+Theorem~\ref{thm:depolarizing-chebyshev}. Jensen's inequality for the
+concave in-radius gives
+\[
+\rho_\diamond(\Omega_{A,B})
+=\rho_\diamond\Big(\int T_V(\Phi_0)\,dV\Big)
+\ge\int\rho_\diamond(T_V(\Phi_0))\,dV
+=\rho_\diamond(\Phi_0),
+\]
+as claimed.
+\end{proof}
+
 \subsection{The channel lower envelope}
 
-The replacement sphere supplies the strongest bound at small indices, while
-the exact centered ball remains available throughout the full affine range.
-The following envelope records their pointwise maximum and keeps its positive
+The replacement, observable, and joined spheres supply the strongest bound
+at small indices, while the globally optimal centred ball and the
+full-direction section remain available throughout the full affine range.
+The following envelope records their pointwise maxima and keeps its positive
 entries separate from the exact zero-error threshold.
 
 \begin{definition}[Certified channel lower envelope]
 \label{def:channel-envelope}
 Set
 \[
-\beta_r(A,B)=
+L_{\mathrm{rep}}=d_B^2-2,
+\]
+\[
+L_{\mathrm{obs}}=
 \begin{cases}
-1,&0\leq r\leq d_B^2-2,\\[2pt]
-\rhodep(A,B),&d_B^2-1\leq r<D_{A,B},\\[2pt]
-0,&r\geq D_{A,B}.
+d_A^2-2,&d_A\ge2,\ d_B\ge2,\\
+-1,&\text{otherwise},
+\end{cases}
+\qquad
+L_{\mathrm{join}}=
+\begin{cases}
+d_A^2+(d_B-2)^2-3,&d_A\ge2,\ d_B\ge3,\\
+-1,&\text{otherwise},
 \end{cases}
 \]
-If $d_A=1$, then $D_{A,B}=d_B^2-1$, so the middle range is empty.
+and
+\[
+L_{A,B}
+=\min\Big\{D_{A,B}-1,\ \max\{L_{\mathrm{rep}},L_{\mathrm{obs}},L_{\mathrm{join}}\}\Big\},
+\qquad
+\gamma_{A,B}
+=\max\Big\{\rhodep(A,B),\ \frac1{d_A}\Big\}.
+\]
+Then
+\[
+\beta_r(A,B)=
+\begin{cases}
+1,&0\le r\le L_{A,B},\\[2pt]
+\gamma_{A,B},&L_{A,B}<r<D_{A,B},\\[2pt]
+0,&r\ge D_{A,B}.
+\end{cases}
+\]
+If $d_A=1$, the observable and join terms are invalid and
+$L_{1,B}=d_B^2-2=D_{1,B}-1$, so the middle range is empty. Since
+$d_B\min\{d_A,d_B\}\ge2$ and $d_A\ge1$, one has $0<\gamma_{A,B}\le1$, so
+the displayed envelope is non-increasing. Each component is certified by
+Theorems~\ref{thm:full-state-antipodal}, \ref{thm:observable-channel},
+\ref{thm:full-direction-channel}, and \ref{thm:global-inradius-channel},
+Proposition~\ref{prop:join-channel}, and Theorem~\ref{thm:bottleneck}. The
+quantity $L_{A,B}$ is the $n=1$ value of the separation index and
+$\gamma_{A,B}$ the $n=1$ envelope value of the instrument-level companion
+paper~\cite{CompanionInstruments}.
 \end{definition}
 
 \begin{remark}[Certified envelope]
-The envelope $\beta_r$ is a certified lower bound. The drop from $1$ to $\rhodep$ at $r=d_B^2-1$ reflects the current proof techniques (replacement channels give $1$ up to $d_B^2-2$, centered ball gives $\rhodep$ thereafter) and not necessarily the exact value of $\alpha_r(\Chan(A,B))$, which might remain larger than $\rhodep$ for some $r\ge d_B^2-1$.
+The envelope $\beta_r$ is a certified lower bound. The drop from $1$ to $\gamma_{A,B}$ at $r=L_{A,B}$ records the certified constructions used here (replacement, observable, and joined spheres; the globally optimal centred ball of Theorem~\ref{thm:global-inradius-channel}; the full-direction section), not an exact evaluation of $\alpha_r(\Chan(A,B))$, which may remain larger than $\gamma_{A,B}$ for some $r>L_{A,B}$.
 \end{remark}
 
 \begin{theorem}[Channel reconstruction lower envelope]
@@ -1293,24 +1524,34 @@ is exact. Note that $\widetilde\delta_r^\diamond\le\delta_r^\diamond$, so vanish
 \begin{proof}
 Every channel-valued decoder is $\TPHP(A,B)$-valued, which gives the first
 inequality. Theorem~\ref{thm:profile-fiber} gives the second. Theorem
-\ref{thm:full-state-antipodal} gives the value one through index
-$d_B^2-2$. For $d_B^2-1\leq r<D_{A,B}$, Theorem
-\ref{thm:exact-inradius} and Theorem~\ref{thm:bottleneck} give the lower
-bound $\rhodep(A,B)$. Proposition~\ref{prop:euclidean-threshold} gives
+\ref{thm:full-state-antipodal}, Theorem~\ref{thm:observable-channel}, and
+Proposition~\ref{prop:join-channel} give the value one through index
+$L_{A,B}$. For $L_{A,B}<r<D_{A,B}$, the radial map of
+Theorem~\ref{thm:bottleneck} combined with the globally optimal centred
+ball of Theorem~\ref{thm:global-inradius-channel} gives the lower bound
+$\rhodep(A,B)$, and Theorem~\ref{thm:full-direction-channel} gives the
+lower bound $1/d_A$; the pointwise maximum is $\gamma_{A,B}$.
+Proposition~\ref{prop:euclidean-threshold} gives
 exact reconstruction at and above $D_{A,B}$.
 \end{proof}
 
 \begin{remark}[Output preparation and dynamical response]
-The breakpoint $d_B^2-1$ is the affine parameter count of one output density
-operator. Below it, a code cannot uniformly resolve even the
-input-independent replacement channels, which explains the maximal lower
-bound one. At and above that breakpoint the replacement family itself can
-be encoded exactly, but a general channel still has
-$D_{A,B}=d_A^2(d_B^2-1)$ affine degrees of freedom. The remaining gap to
-$D_{A,B}$ reflects the additional data specifying how the output changes
-with the input operator. Thus the two parameter scales distinguish
-output-state complexity from input-dependent process response. They do not,
-however, imply a decomposition theorem for optimal physical encoders.
+The breakpoint $L_{A,B}+1$ separates two input-dependent scales. A single
+output density operator carries $d_B^2-1$ affine parameters, while an
+input-dependent channel carries $d_A^2(d_B^2-1)$. The first regime
+($r\le L_{A,B}$) is obstructed both by preparing and recording an output
+state --- which forces the value one up to $d_B^2-2$ --- and by
+input-dependent effect readout, where the observable sphere
+(Theorem~\ref{thm:observable-channel}) and its join with the replacement
+sphere (Proposition~\ref{prop:join-channel}) force the value one beyond the
+output-state range whenever $d_A^2\ge4d_B-5$, in particular for every
+square system of dimension at least four. The second regime concerns the
+additional dependence of the output on the input operator, where the
+globally optimal centred ball and the full-direction section certify
+$\gamma_{A,B}=\max\{\rhodep(A,B),1/d_A\}$; for $d_A\le d_B$ the
+input-dependent term dominates and $\gamma_{A,B}=1/d_A$. The two scales
+distinguish output-state complexity from input-dependent process response;
+they do not imply a decomposition theorem for optimal physical encoders.
 \end{remark}
 
 \begin{definition}[Perfect-separation indices]
@@ -1330,7 +1571,7 @@ and
 \label{cor:perfect-separation-indices}
 The proved bounds are
 \[
-d_B^2-2\leq\pi(A,B)\leq D_{A,B}-1,
+L_{A,B}\leq\pi(A,B)\leq D_{A,B}-1,
 \]
 and, for every $d\geq2$,
 \[
@@ -1347,8 +1588,7 @@ body is the output state space, and therefore
 \end{corollary}
 
 \begin{proof}
-The lower bounds follow from Theorem~\ref{thm:full-state-antipodal} and
-Corollary~\ref{cor:unitary-promise}. For $r\geq D_{A,B}$, affine
+The lower bound on $\pi(A,B)$ follows from Theorem~\ref{thm:full-state-antipodal}, Theorem~\ref{thm:observable-channel}, and Proposition~\ref{prop:join-channel}; the unitary bounds follow from Corollary~\ref{cor:unitary-promise}. For $r\geq D_{A,B}$, affine
 coordinates and Borsuk--Ulam force an antipodal collision for every map from
 $S^r$ into the channel body. Thus $\alpha_r(\Chan(A,B))=0$ in that range.
 
@@ -1385,7 +1625,7 @@ Consequently,
 =\sup_{\Phi\in\Chan(A,B)}
 \|\Phi-\Omega_{A,B}\|_\diamond.
 \]
-No uniqueness of the optimal center is asserted.
+Uniqueness of the optimal center is left open.
 \end{theorem}
 
 \begin{proof}
@@ -1660,7 +1900,7 @@ r\geq d_A^2\left(
 \left\lceil\frac{d_B}{2}\right\rceil^2-1
 \right),
 \]
-while complete output dephasing gives
+while complete output pinching gives
 \[
 \delta_r^\diamond(A,B)
 \leq2\left(1-\frac1{d_B}\right)
@@ -1763,19 +2003,25 @@ certified lower and constructive upper bounds.
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{p{4.0cm}p{3.4cm}p{2.8cm}p{3.1cm}}
+\begin{tabular}{p{3.8cm}p{3.2cm}p{2.8cm}p{4.1cm}}
 \hline
 Source geometry or regime & Index range & Guarantee & Status\\
 \hline
-Full replacement-state family
+Replacement sphere
 & $0\leq r\leq d_B^2-2$
 & $\alpha_r=1$ & Exact profile value\\
+Observable sphere
+& $0\le r\le d_A^2-2$ ($d_A,d_B\ge2$)
+& $\alpha_r=1$ & Exact profile value\\
+Observable--replacement join
+& $0\le r\le d_A^2+(d_B-2)^2-3$ ($d_A\ge2$, $d_B\ge3$)
+& $\alpha_r=1$ & Exact profile value\\
 Full channel ball
-& $d_B^2-1\leq r<D_{A,B}$
-& $\alpha_r\geq\rhodep(A,B)$ & Lower bound for both widths\\
-Depolarizing-centered ball
-& centered geometry; profile consequence for $0\leq r<D_{A,B}$
-& $\rho_\diamond=\rhodep(A,B)$ & Exact centered radius\\
+& $L_{A,B}<r<D_{A,B}$
+& $\alpha_r\ge\gamma_{A,B}$ & Lower bound for both widths, $\gamma_{A,B}=\max\{\rhodep(A,B),\ 1/d_A\}$\\
+Global in-radius
+& centred geometry
+& $\rho_\diamond(\Omega_{A,B})=\rhodep(A,B)$ is optimal over all centres & Exact centred radius\\
 Euclidean channel code
 & $r\geq D_{A,B}$
 & $\widetilde\delta_r^\diamond=\delta_r^\diamond=0$
@@ -1793,9 +2039,9 @@ Balanced block pinching
 & $\delta_r^\diamond\leq2(1-1/\ell)$ & Constructive upper bound\\
 \hline
 \end{tabular}
-\caption{Exact statements and constructive bounds. Positive full-body
-reconstruction widths below $D_{A,B}$ are not claimed to equal either
-envelope.}
+\caption{Exact statements and constructive bounds. The positive full-body
+reconstruction widths below $D_{A,B}$ remain open and are bracketed by the
+two envelopes.}
 \label{tab:channel-scales}
 \end{table}
 
@@ -1819,13 +2065,13 @@ while
 \leq\delta_3^\diamond(2,2)\leq\frac32.
 \]
 The balanced two-sector output-pinching threshold is $r=4$, so it does not
-improve the $r=3$ bound. From that threshold onward, output dephasing gives
+improve the $r=3$ bound. From that threshold onward, output pinching gives
 \[
 \frac12\leq\widetilde\delta_r^\diamond(2,2)
 \leq\delta_r^\diamond(2,2)\leq1
 \quad(4\leq r\leq11).
 \]
-Both widths vanish for $r\geq12$. For qubits the replacement sphere can be visualized on the Bloch ball: $X\mapsto X_+/t_X$ sends a traceless Hermitian $X$ to the pure state supported on its positive part; $X$ and $-X$ give orthogonal pure states, i.e., antipodal Bloch vectors, with trace distance $2$. The replacement isometry transfers this to diamond distance $2$. This zero denotes existence of an exact abstract code, not a canonical physical programming protocol. Figure~\ref{fig:qubit-envelope} plots $\beta_r$ and $U_r$ for this case, showing the $r=4$ pinching drop and the remaining gap.
+Both widths vanish for $r\geq12$. For qubits the observable sphere contributes $L_{\mathrm{obs}}=2=d_B^2-2$, the join is invalid ($d_B=2$), and $\gamma_{2,2}=\max\{\rhodep(2,2),1/2\}=1/2$ coincides with $\rhodep(2,2)$, so the envelope values displayed are unchanged; for $d_A\le d_B$ with $d_B\ge3$ the input-dependent term $1/d_A$ is strictly larger than $\rhodep(A,B)$, and for square systems of dimension at least four the join extends the value-one range beyond $d_B^2-2$. For qubits the replacement sphere can be visualized on the Bloch ball: $X\mapsto X_+/t_X$ sends a traceless Hermitian $X$ to the pure state supported on its positive part; $X$ and $-X$ give orthogonal pure states, i.e., antipodal Bloch vectors, with trace distance $2$. The replacement isometry transfers this to diamond distance $2$. The vanishing of both widths at $r\ge12$ records the existence of an exact abstract code, not of a physical programming protocol. Figure~\ref{fig:qubit-envelope} plots $\beta_r$ and $U_r$ for this case, showing the $r=4$ pinching drop and the remaining gap.
 \end{example}
 
 \begin{figure}[t]
@@ -1898,8 +2144,7 @@ one stated here, and its conclusion is the displayed inequality.
 \begin{theorem}[Quantum-state latent-code hierarchy]
 \label{thm:compression}
 Let $M$ be an $m$-dimensional Hilbert space, set $r=m^2-1$, and let
-$\operatorname{Enc}:\Chan(A,B)\to\Sstate(M)$ be continuous. For every decoder $\operatorname{Dec}:\Sstate(M)\to\TPHP(A,B)$ (no regularity assumed), every map
-$\operatorname{Dec}$ satisfies
+$\operatorname{Enc}:\Chan(A,B)\to\Sstate(M)$ be continuous. For every decoder $\operatorname{Dec}:\Sstate(M)\to\TPHP(A,B)$ (no regularity assumed), one has
 \[
 \sup_{\Phi\in\Chan(A,B)}
 \|\operatorname{Dec}(\operatorname{Enc}(\Phi))-\Phi\|_\diamond
@@ -1940,7 +2185,7 @@ m_{\min}=\left\lceil\sqrt{D_{A,B}+1}\right\rceil.
 \end{proposition}
 
 \begin{proof}
-Necessity follows from the positive full-body lower bound below $D_{A,B}$.
+Necessity follows from Proposition~\ref{prop:euclidean-threshold}: the depolarizing channel has positive-definite normalized Choi operator, hence is a relative interior point, so the channel body contains a positive relative ball.
 For sufficiency, choose affine coordinates
 $c:\operatorname{aff}\Chan(A,B)\to\mathbb R^{D_{A,B}}$ with
 $c(\Omega_{A,B})=0$, and an injective linear map
@@ -2067,7 +2312,7 @@ with at least two points has coindex $0$; and
 \operatorname{coind}_{\mathbb Z_2}F_2(S^n)=n.
 \]
 \item If $n\geq1$, $Y$ contains a subset homeomorphic to a nonempty open
-subset of an $n$-manifold (with $n\ge1$ so that a small embedded $S^{n-1}$ exists), and $Y$ injects continuously into
+subset of an $n$-manifold, and $Y$ injects continuously into
 $\mathbb R^s$, then
 \[
 n-1\leq\operatorname{coind}_{\mathbb Z_2}F_2(Y)\leq s-1.
@@ -2104,7 +2349,7 @@ Finally, $\mathbb{CP}^1\simeq S^2$.
 \end{proof}
 
 \begin{remark}[Convex code spaces]
-We write $\operatorname{coind}:=\operatorname{coind}_{\mathbb Z_2}$ when the group is clear. Proposition~\ref{prop:euclidean-coindex} gives the exact values
+Proposition~\ref{prop:euclidean-coindex} gives the exact values
 \[
 \operatorname{coind}_{\mathbb Z_2}F_2(\Sstate(M))=m^2-2,
 \qquad
@@ -2260,9 +2505,9 @@ The triangle inequality and Proposition~\ref{prop:processor} give
 
 \begin{theorem}[Packing lower bound for physical programming]
 \label{thm:program-packing-rate}
-Let $m\geq2$, put $n=m^2-1$, and suppose $L\geq2$ (so $L^{1/n}-1\neq0$) target unitary
+Let $m\geq2$, put $n=m^2-1$, and suppose $L\geq2$ target unitary
 channels in $\UChan(H)$ are pairwise diamond-separated by at least
-$\Delta$. If $L=1$ the bound is trivial. Then
+$\Delta$; for $L=1$ the bound is trivial. Then
 \[
 \gamma_{m,d}
 \geq
@@ -2310,7 +2555,7 @@ $\rho_i=(I+r_i\cdot\sigma)/2$, with Bloch vectors $r_i$ in the unit ball.
 The Hermitian matrix
 $\rho_i-\rho_j=(r_i-r_j)\cdot\sigma/2$ has eigenvalues
 $\pm\|r_i-r_j\|_2/2$ because $(a\cdot\sigma)$ has eigenvalues $\pm\|a\|_2$, and hence
-$\|\rho_i-\rho_j\|_1=\|r_i-r_j\|_2/2+\|r_i-r_j\|_2/2=\|r_i-r_j\|_2$ (max $2$ for orthogonal pure states with antipodal Bloch vectors $\|r_i-r_j\|=2$, so factor $2$ would incorrectly give $4$). Therefore
+$\|\rho_i-\rho_j\|_1=\|r_i-r_j\|_2/2+\|r_i-r_j\|_2/2=\|r_i-r_j\|_2$. Therefore
 \[
 \sum_{i<j}\|r_i-r_j\|_2^2
 =4\sum_i\|r_i\|_2^2-
@@ -2473,7 +2718,7 @@ separately.
 \vspace{2mm}
 \begin{minipage}{0.92\linewidth}
 \footnotesize
-\textbf{Complete code includes:} all quantum registers, classical outcomes, control bits, and side systems available to decoder. Discarding an outcome corresponds to averaging. Classical transcript $T\in\{1,\dots,c\}$ sampled from $p(\cdot|\Phi)\in\Delta_{c-1}$ is part of $\rho_R^{(N)}$ when retained; its law is continuous in $\Phi$ (Theorem~\ref{thm:query-independent}). Postselection with $p(\Phi)\ge p_0>0$ keeps continuity after normalization (Proposition~\ref{prop:postselection}).
+\textbf{Complete code includes:} all quantum registers, classical outcomes, control bits, and side systems available to decoder. Discarding an outcome corresponds to averaging. Classical transcript $T\in\{1,\dots,c\}$ sampled from $p(\cdot|\Phi)\in\Delta_{c-1}$ is part of $\rho_R^{(N)}$ when retained; its law is continuous in $\Phi$ (Proposition~\ref{prop:physical-continuity}). Postselection with $p(\Phi)\ge p_0>0$ keeps continuity after normalization (Proposition~\ref{prop:postselection}).
 \end{minipage}
 \caption{Deterministic finite-query adaptive network as a quantum comb. The $N$ slots are filled with the unknown channel (or $\Phi_j$ for heterogeneous sensitivity Corollary~\ref{cor:heterogeneous-slots}). All interleavings are fixed CPTP maps, possibly with coherent control and intermediate measurements. The final state $\rho_R^{(N)}$ is the complete retained code; any classical transcript, quantum memory $M$, or cq blocks $(m_j)$ is a function of it. Lower bounds $\beta_r$ depend only on $\operatorname{embdim}(f(\Chan))$ or $\operatorname{coind}F_2(Y)$, uniformly in $N$.}
 \label{fig:comb-complete-code}
@@ -2501,7 +2746,7 @@ operations before slot $k$, so the joint state entering that slot is the
 same. Replacing one channel changes the trace norm by at most
 $\|\Phi-\Psi\|_\diamond$. This remains valid for every accumulated ancilla
 including arbitrary classical registers because the diamond norm is already stabilized at a reference dimension
-$d_A$ (Watrous), i.e., $\|\Phi-\Psi\|_\diamond=\sup_{\rho\in\Sstate(A_0\otimes A)}\|(id\otimes(\Phi-\Psi))(\rho)\|_1$ suffices for any extension. Subsequent deterministic CPTP maps contract trace norm. Therefore
+$d_A$~\cite{Watrous2018}, i.e., $\|\Phi-\Psi\|_\diamond=\sup_{\rho\in\Sstate(A_0\otimes A)}\|(id\otimes(\Phi-\Psi))(\rho)\|_1$ suffices for any extension. Subsequent deterministic CPTP maps contract trace norm. Therefore
 \[
 \|\rho^{(k)}-\rho^{(k-1)}\|_1
 \leq\|\Phi-\Psi\|_\diamond,
@@ -2568,7 +2813,7 @@ $N$, so it survives all displayed infima and every limit inferior.
 \begin{corollary}[Query-independent classical--quantum code bound]
 \label{cor:query-cq}
 For a network in
-$\mathfrak C_N^{\mathrm{cq}}(m_1,\ldots,m_c)$, set
+$\mathfrak C_N^{\mathrm{cq}}(m_1,\allowbreak\ldots,\allowbreak m_c)$, set
 \[
 r_{\mathrm{cq}}=\sum_{j=1}^cm_j^2-1.
 \]
@@ -2608,7 +2853,7 @@ the relevant antipodal sections.
 
 \begin{proof}
 A CP trace-nonincreasing map $\mathcal E$ is trace-norm contractive on
-Hermitian operators (this Hermitian case suffices because the relevant states $\sigma_R^{(N)}$ are Hermitian; no claim for arbitrary operators is needed). Indeed, if $X=X_+-X_-$ is the Jordan decomposition,
+Hermitian operators, which suffices for the states appearing below. Indeed, if $X=X_+-X_-$ is the Jordan decomposition,
 then positivity and trace-nonincreasingness give
 \[
 \|\mathcal E(X)\|_1
@@ -2709,7 +2954,7 @@ For every sufficiently small $\eta>0$, there is a one-query measurement (an info
 \begin{proof}
 Choose a Hilbert--Schmidt orthonormal basis
 $H_1,\ldots,H_{D_{A,B}}$ of the direction space $V_{A,B}$. Every $H_i$ is
-traceless. For sufficiently small $\eta>0$, specifically $0<\eta<1/((D_{A,B}+1)\max_i\|H_i\|_\infty)$, the operators
+traceless. For $0<\eta<1/((D_{A,B}+1)\sum_i\|H_i\|_\infty)$, the operators
 \[
 E_i=\frac{I_{A_0\otimes B}}{D_{A,B}+1}+\eta H_i
 \quad(1\leq i\leq D_{A,B}),
@@ -2719,7 +2964,7 @@ and
 E_0=\frac{I_{A_0\otimes B}}{D_{A,B}+1}
 -\eta\sum_{i=1}^{D_{A,B}}H_i
 \]
-are positive, since $I/(D_{A,B}+1)$ is positive definite with minimal eigenvalue $1/(D_{A,B}+1)$. They sum to the identity and hence form a POVM.
+are positive: each perturbing operator has operator norm at most $\eta\sum_i\|H_i\|_\infty<1/(D_{A,B}+1)$, below the minimal eigenvalue $1/(D_{A,B}+1)$ of $I/(D_{A,B}+1)$. They sum to the identity and hence form a POVM.
 
 Prepare $|\omega_A\rangle$, apply the unknown channel once, measure the
 resulting normalized Choi state, and retain the classical output state with
@@ -2740,7 +2985,7 @@ $\Phi=\Psi$. Thus the output-state encoder is injective.
 \begin{theorem}[Finite-sample channel reconstruction]
 \label{thm:sampled-achievability}
 Fix any admissible perturbation parameter $\eta>0$ for the POVM constructed
-in Proposition~\ref{prop:one-query-injective} (any fixed $\eta$ with $0<\eta<1/((D_{A,B}+1)\max\|H_i\|_\infty)$); the resulting constant below
+in Proposition~\ref{prop:one-query-injective} (any fixed $\eta$ with $0<\eta<1/((D_{A,B}+1)\sum_i\|H_i\|_\infty)$); the resulting constant below
 depends on this choice and the statement is an existence statement. Repeat that one-query experiment independently
 $N$ times. There is a channel-valued decoder from the sampled transcript
 such that
@@ -2799,7 +3044,7 @@ The multinomial covariance identity gives
 \right)
 \leq\frac1N.
 \]
-Jensen's inequality now proves the stated bound. For small $N$ or small $\eta$ this bound may exceed the trivial diameter $2$; it is primarily an existence and asymptotic statement and may be capped at $2$. The decoder is defined as above on the encoder image (count vectors) and set to the fixed channel $\Omega_{A,B}$ outside that image; no regularity is required. Concentration follows from Hoeffding's inequality, and sample-optimal state tomography bounds are given in~\cite{HaahEtAl2017}.
+Jensen's inequality now proves the stated bound. For small $N$ or small $\eta$ the bound may exceed the trivial diameter $2$, in which case it is capped at $2$; the stated decay is the asymptotic content. The decoder is defined as above on the encoder image (count vectors) and set to the fixed channel $\Omega_{A,B}$ outside that image; no regularity is required. Concentration follows from Hoeffding's inequality, and sample-optimal state tomography bounds are given in~\cite{HaahEtAl2017}.
 \end{proof}
 
 \begin{remark}[Latent states and sampled outcomes]
@@ -2842,7 +3087,7 @@ Lipschitz-decoder variants such as Theorem~\ref{thm:stable-obstruction}.
 \section{Conclusion and open problems}
 \label{sec:conclusion}
 
-Encoder-continuous reconstruction admits an exact fiber-radius formulation. The antipodal profile quantifies source geometry and the deleted-product coindex quantifies latent collision topology. The replacement family provides the maximal lower bound $1$ through index $d_B^2-2$ via orthogonal-block joins; the Clifford construction extends perfect separation to unitary channels. Across the remaining subcritical dimensions the exact depolarizing-centered in-radius $\rhodep(A,B)=2/d_B\min\{d_A,d_B\}$ gives a certified lower bound up to the affine dimension $D_{A,B}=d_A^2(d_B^2-1)$, which is the exact threshold for zero-error continuous encoding with unrestricted decoder. The depolarizing channel is an optimal constant decoder with exact covering radius $2-\rhodep(A,B)$. The lower envelope is complemented by constructive upper envelopes from convex projection and balanced input/output pinching, as illustrated in Figure~\ref{fig:qubit-envelope} and Figure~\ref{fig:replacement-join}, bracketing the unknown positive widths. For abstract quantum-state codes the bounds imply $m\ge d_B$ is necessary for error below one and $m^2-1\ge D_{A,B}$ is necessary and sufficient for exact encoding.
+Encoder-continuous reconstruction admits an exact fiber-radius formulation. The antipodal profile quantifies source geometry and the deleted-product coindex quantifies latent collision topology. The replacement family, the observable sphere, and their join provide the maximal lower bound $1$ through index $L_{A,B}$; the Clifford construction extends perfect separation to unitary channels. Across the remaining subcritical dimensions the globally optimal centred ball and the full-direction section give the certified lower bound $\gamma_{A,B}=\max\{\rhodep(A,B),1/d_A\}$ up to the affine dimension $D_{A,B}=d_A^2(d_B^2-1)$, which is the exact threshold for zero-error continuous encoding with unrestricted decoder. The $n$-outcome instrument versions of these results appear in the companion paper~\cite{CompanionInstruments}. The depolarizing channel is an optimal constant decoder with exact covering radius $2-\rhodep(A,B)$. The lower envelope is complemented by constructive upper envelopes from convex projection and balanced input/output pinching, as illustrated in Figure~\ref{fig:qubit-envelope} and Figure~\ref{fig:replacement-join}, bracketing the unknown positive widths. For abstract quantum-state codes the bounds imply $m\ge d_B$ is necessary for error below one and $m^2-1\ge D_{A,B}$ is necessary and sufficient for exact encoding.
 
 The Euclidean zero-error threshold is not a universal-programming threshold. Every deterministic finite-query adaptive network, equivalently a finite quantum comb, induces a continuous final code containing all classical and quantum side information (Figure~\ref{fig:comb-complete-code}); the same dimensional bottlenecks hold uniformly in the query count, for uniformly successful postselection, and for finite sampled transcripts. A one-query informationally complete measurement yields a continuous injective encoding at the affine threshold, and repeated sampling yields a channel-valued estimator with expected error $O(N^{-1/2})$. These results isolate final representational dimension as the obstruction, distinct from tomography sample complexity and from fixed-processor programming limits.
 
@@ -2852,7 +3097,7 @@ Several concrete problems remain:
 $\widetilde\delta_r^\diamond(A,B)$ and $\delta_r^\diamond(A,B)$ for
 $0<r<D_{A,B}$;
 \item determine the exact perfect-separation indices $\pi(A,B)$ and
-$\pi_{\mathrm U}(d)$ within the proved lower and upper ranges (i.e., within the proved intervals, not only beyond lower bounds);
+$\pi_{\mathrm U}(d)$ within the proved lower and upper ranges;
 \item determine exact deleted-product coindices of structured nonconvex latent
 spaces beyond the patch and embedding bounds proved here;
 \item determine whether the optimal Chebyshev center $\Omega_{A,B}$ is unique;
@@ -3023,7 +3268,7 @@ $r\leq d_A$, it follows that
 \leq d_Bs\left(\rho_R\otimes\frac{I_B}{d_B}\right).
 \]
 
-Both $\sigma_{RB}=(\id_R\otimes\Phi)(\xi_{RA})$ and $\tau=\xi_R\otimes I_B/d_B$ have trace one since the flagged maps of channels are channels. If states $\rho$ and $\tau$ satisfy $\rho\leq K\tau$, let $P$ be the
+Both $\sigma_{RB}=(\id_R\otimes\Phi)(\xi_{RA})$ and $\tau=\xi_R\otimes I_B/d_B$ have trace one since $(\id_R\otimes\Phi)$ is itself a channel. If states $\rho$ and $\tau$ satisfy $\rho\leq K\tau$, let $P$ be the
 positive spectral projection of $\rho-\tau$ and put
 $a=\Tr(P\rho)$ and $b=\Tr(P\tau)$. Then $a\leq Kb$ because $P\rho P\le K P\tau P$, and $a\leq1$, so
 \[
@@ -3096,7 +3341,7 @@ e(\mathcal P)=
 Choose target channels $\Phi_1,\ldots,\Phi_L$ with pairwise diamond distance
 at least $\Delta$. Compactness of the program-state space gives, for every
 target, a minimizing program state $\rho_i$ (minimum attained because $\Sstate(M)$ is compact and $\rho\mapsto\|\mathcal P_\rho-\mathcal U\|_\diamond$ is continuous, indeed $\|\mathcal P_\rho-\mathcal P_\sigma\|_\diamond\le\|\rho-\sigma\|_1$), and its error is at most
-$e(\mathcal P)$. Moreover $\|\tilde\Gamma_{j,\pi_j}-\Gamma_{\pi_U}\|_\diamond\le\|\tilde\Gamma_j-\Gamma\|_\diamond+\|\pi_j-\pi_U\|_1$. Proposition~\ref{prop:program-separation} therefore gives
+$e(\mathcal P)$. Proposition~\ref{prop:program-separation} therefore gives
 \[
 \|\rho_i-\rho_j\|_1\geq
 \eta:=\Delta-2e(\mathcal P).
@@ -3166,35 +3411,31 @@ $\sum_i\lambda_i=1$, $H(y)$ is a state. Orthogonality of the blocks gives
 \label{thm:partition}
 Let $b_1,\ldots,b_\ell\geq2$ satisfy $\sum_i b_i\leq d_B$, and put
 \[
-b_*=\max_i b_i,
-\qquad
 R=\sum_i(b_i^2-1)-1.
 \]
 Then
 \[
-\alpha_r(\Chan(A,B))\geq\frac2{b_*},
+\alpha_r(\Chan(A,B))=1,
 \qquad0\leq r\leq R.
 \]
 \end{theorem}
 
 \begin{proof}
-On a block of dimension $b_i$, use the radial map constructed in the proof
-of Theorem~\ref{thm:bottleneck} on the centered trace-norm ball from
-Lemma~\ref{lem:replacement}. It gives an explicit continuous map
-$h_i:S^{b_i^2-2}\to\Sstate(B_i)$ satisfying
-\[
-\|h_i(u)-h_i(-u)\|_1=\frac4{b_i}
-\qquad\text{for every }u.
-\]
-Proposition~\ref{prop:join} produces a sphere of dimension
+On a block of dimension $b_i\geq2$, the Jordan construction in the proof of
+Theorem~\ref{thm:full-state-antipodal}, restricted to
+$\Herm_0(B_i)\subseteq\Herm_0(B)$, gives a continuous map
+$h_i:S^{b_i^2-2}\to\Sstate(B_i)$ whose antipodes have orthogonal supports,
+hence trace distance $2$. Proposition~\ref{prop:join} produces a sphere of
+dimension
 \[
 \sum_i(b_i^2-2)+\ell-1
 =\sum_i(b_i^2-1)-1=R
 \]
-and separation at least $4/b_*$. Replacement channels preserve this
-distance by Lemma~\ref{lem:replacement}. Dividing the antipodal separation
-by two gives the stated profile bound; restriction to coordinate equators
-gives every smaller $r$.
+with antipodal trace distance $2$. Replacement channels preserve this
+distance by Lemma~\ref{lem:replacement}, so the antipodal separation in
+diamond distance is $2$; dividing by two gives the profile value one on
+this sphere. Restriction to coordinate equators gives every smaller $r$,
+and the diameter bound supplies the reverse inequality.
 \end{proof}
 
 \begin{corollary}[Block-size envelope]
@@ -3209,11 +3450,10 @@ q(s^2-1)+t^2-2,&2\leq t<s.
 \]
 Then
 \[
-\alpha_r(\Chan(A,B))\geq\frac2s,
+\alpha_r(\Chan(A,B))=1,
 \qquad0\leq r\leq R_s.
 \]
-In particular, since the diamond diameter of the channel body is at most
-$2$,
+In particular, for $s=2$,
 \[
 \alpha_r(\Chan(A,B))=1
 \quad\text{for}\quad
@@ -3225,10 +3465,8 @@ $2$,
 If $t=0$ or $t=1$, use $q$ blocks of size $s$ and leave the possible
 one-dimensional remainder unused. Theorem~\ref{thm:partition} then gives
 $R_s=q(s^2-1)-1$. If $2\leq t<s$, add one block of size $t$, giving
-$R_s=q(s^2-1)+(t^2-1)-1$. In both cases the largest block has size $s$,
-so the lower bound is $2/s$. For $s=2$ this value is $1$, which is also
-the universal upper bound because the diamond diameter of a channel set is
-at most $2$.
+$R_s=q(s^2-1)+(t^2-1)-1$. Theorem~\ref{thm:partition} gives the value one
+on this range, and the diameter bound supplies the reverse inequality.
 \end{proof}
 
 \begin{proposition}[Optimization within a block-size constraint]
@@ -3267,7 +3505,7 @@ Each operation is admissible, preserves the used dimension except in the
 middle case, and strictly increases $F$. Hence no maximizing partition can
 contain two subfull blocks.
 
-A maximizing partition leaves at most one output dimension unused: if at least two dimensions were unused, one could add a block of size $2\le b\le s$, strictly increasing $F$ (possible because $s\ge2$). Hence let $u\in\{0,1\}$ be the unused dimension of a maximizer. If there is a
+Hence let $u\in\{0,1\}$ be the unused dimension of a maximizer. If there is a
 subfull block of size $b$, then $u=0$: otherwise enlarging that block from
 $b$ to $b+1\leq s$ would increase $F$ by $2b+1$ and keep $\sum b_i\le d_B$. Thus the maximizer is
 either $k$ blocks of size $s$ with $u\in\{0,1\}$ unused, or $k$ blocks of
@@ -3342,7 +3580,6 @@ Thus the antipodal channels generated by $\widetilde U_u$ and
 $\widetilde U_{-u}$ are perfectly distinguishable.
 \end{proof}
 
-xxxxxxxxxxxxxxxxxxxxxxxx
 \section*{Data Availability}
 No data were generated or analyzed in this study.
 
@@ -3459,6 +3696,12 @@ Proc.~39th ACM STOC, 565--574 (2007).
 J.~Haah, A.~W.~Harrow, Z.~Ji, X.~Wu, and N.~Yu,
 \emph{Sample-optimal tomography of quantum states},
 IEEE Trans.~Inf.~Theory \textbf{63}, 5628--5641 (2017).
+
+\bibitem{CompanionInstruments}
+Anonymous,
+\emph{Exact affine geometry, central radii, and certified compression bounds
+for finite-outcome quantum instruments},
+companion manuscript.
 
 \end{thebibliography}
 
