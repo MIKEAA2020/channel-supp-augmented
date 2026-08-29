@@ -970,7 +970,7 @@ formula/boilerplate/bibliography items plus parallel theorem statements
   loses content.
 - Proof-completeness inventory over both papers: every theorem, lemma,
   proposition, and corollary has either an in-place full proof, an
-  appendix full proof, or (for exactly four results) a specialisation
+  appendix full proof, or (for exactly three results) a specialisation
   citation whose full proof exists in the other paper: C's
   thm:full-direction-channel (full proof in I), I's prop:convex (full
   proof in C), I's lem:pinching-norm (full proof in C). This is the
