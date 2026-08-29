@@ -1001,3 +1001,97 @@ Both papers compile (pdflatex, zero warnings); all labels, references,
 and bibliography entries resolve; C cites I in 10 places and I cites C in
 16 places, each citation attached to a specific statement, threshold, or
 proof.
+
+## 14. Task 12: titles and abstracts, keywords, section alignment, and citation verification
+
+Four-part request, adjudicated for both papers (C = channel paper,
+I = instrument paper).
+
+### 14.1 Titles and abstracts
+
+- **Titles.** C's title ("Exact Diamond Balls, Antipodal Widths, and
+  Query-Uniform Compression Bounds for Quantum Channels") was found
+  perfectly aligned with the final content (diamond-ball in-radius;
+  antipodal widths; query-uniform adaptive bounds) and was kept. I's
+  title was improved: "Central Radii" is not a standard convex-geometry
+  term and did not signal the paper's central novelty, so the title now
+  reads "Exact Affine Geometry, Optimal Centres, and Certified
+  Compression Bounds for Finite-Outcome Quantum Instruments", matching
+  the global in-radius optimality and covering-centre duality
+  (Theorem 5.5 / Remark 5.6). C's bibliography entry for the companion
+  was updated accordingly.
+- **Abstracts.** Both were checked for alignment first: every claim in
+  each abstract matches a proved statement. Both nevertheless merited
+  rewriting against the brief (background for a broader readership,
+  maximal information with minimal wording, seamless flow, novelty
+  emphasis, no jargon overload, details delegated to the body).
+  I's abstract was the main offender: eight displayed formulas,
+  including a degenerate edge case (n=d_B=1), the notation-heavy
+  envelope bracket, and no motivation for the reader. The new abstract
+  opens with what instruments are and why compressing them matters,
+  states the exact geometry in prose with two inline formulas
+  (dimension; in-radius value), records the optimality duality, the
+  certified lower/upper envelopes, the zero-error threshold, the
+  channel/measurement specialisations, and the companion relationship;
+  the edge case and the envelope displays are delegated to the body.
+  C's abstract was tightened along the same lines: internal jargon
+  ("observable-sphere") and the inline max formula were removed, the
+  three-way distinction (tomography / programming / continuous width)
+  is staged first, the exact-ball and covering results and the
+  query-uniform bottlenecks are stated in prose, and a closing clause
+  records the companion paper.
+
+### 14.2 Keywords (seven per paper)
+
+- I had no keywords line at all; one was added. C's seven keywords were
+  revised. Both lists follow the same policy: three to four standard,
+  high-volume search terms plus the paper's genuine novelties.
+  C: quantum channel compression; diamond norm; antipodal width; exact
+  in-radius; Borsuk--Ulam theorem; quantum combs; nonlinear
+  approximation. I: quantum instruments; diamond norm; compression
+  width; antipodal profile; Chebyshev radius; quantum measurements;
+  no-programming theorem. "Diamond norm" is shared deliberately (the
+  field's top search term); "nonlinear approximation" anchors the
+  approximation-theory community; "Chebyshev radius" anchors convex
+  geometry; each list carries its paper's two novelty terms.
+
+### 14.3 Section alignment
+
+- I had no Conclusion section (the paper ended at the examples table);
+  one was added before the acknowledgements: exact vs certified summary
+  with pointers to the summary table and the duality, the three
+  specialisations (n=1, d_B=1, d_A=1) with cross-references, and four
+  open problems (intermediate widths; the exact separation index;
+  the boundary cases of the scaling trichotomy; uniqueness of the
+  optimal centre). A short roadmap paragraph was added to I's
+  introduction referencing the new section. C's introduction and
+  conclusion were audited and found already aligned (contributions list
+  updated in Task 10, companion sentence present, open-problem list
+  consistent with the strengthened theorems), so no further section
+  changes were needed there.
+
+### 14.4 Citation verification (no hallucinations)
+
+All 23 C entries and 16 I entries were checked against the literature.
+The riskiest entries were verified by targeted web search:
+Wu--Fu--Zhu--Zhang--Xie--Li, Phys. Rev. A 109, 032623 (2024) --
+confirmed; Caro, ACM Trans. Quantum Comput. 5(2), Article 14, 1--53
+(2024) -- confirmed; Kubicki--Palazuelos--P\'erez-Garc\'ia, Phys. Rev.
+Lett. 122, 080505 (2019), including the published single-m spelling
+"no-programing" -- confirmed; Kvalheim--Sontag, TMLR (2024),
+arXiv:2310.02250 -- confirmed; Batson--Haaf--Kahn--Roberts, JHEP 04
+(2021) 280 -- confirmed; Petrova--Wojtaszczyk, Constr. Approx. 57,
+759--805 (2023) -- confirmed. The remaining entries (Choi 1975;
+Jamio{\l}kowski 1972; Watrous 2018; Matou{\v s}ek 2003; Barvinok 2002;
+Munkres 2000; Hirsch 1976; DeVore--Howard--Micchelli 1989;
+Cohen--DeVore--Petrova--Wojtaszczyk 2022; Nechita et al. 2018;
+Nielsen--Chuang 1997; Yang--Renner--Chiribella 2020; Chiribella et al.
+2009; Scott 2006; Szarek--Bengtsson--\.Zyczkowski 2006;
+Gutoski--Watrous 2007; Haah et al. 2017; Davies--Lewis 1970; Ozawa
+1984; Aharonov--Kitaev--Nisan 1998; Helstrom 1976; Pinkus 1985) are
+standard works verified from established knowledge. No hallucinated
+entry was found; no entry was added or removed. Both citation graphs
+resolve (every cited key has a bibitem and conversely).
+
+Both papers compile with zero warnings; all labels, references, and
+citation keys resolve; C is 44 pages, I is 34 pages.

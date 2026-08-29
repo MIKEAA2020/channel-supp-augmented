@@ -50,10 +50,11 @@
 \maketitle
 
 \begin{abstract}
-Quantum channels with fixed finite-dimensional input and output form a compact convex body. We ask whether this body can be encoded continuously into a low-dimensional latent space and decoded with uniformly small diamond-norm error when the decoder is unrestricted. This is a continuous version of nonlinear width, distinct from tomography, which counts channel uses, and from physical programming, which fixes a processor. For a compact source the optimal error equals the minimal worst-case radius of encoder fibers. Lower bounds follow from antipodal pairs in the source and from latent collision topology via Borsuk--Ulam and deleted-product coindex. Even input-independent preparations force error one below the output-state count, with an observable-sphere and a Clifford unitary analogue. The largest diamond ball around the completely depolarizing channel is exact and optimal over all centres; combined with a full-direction section it yields the intermediate lower bound $\max\{2/(d_B\min\{d_A,d_B\}),1/d_A\}$ up to the affine dimension, the exact threshold for zero-error encoding; the depolarizing channel is an optimal constant decoder with exact covering radius. Matching upper bounds from convex projection and balanced input/output pinching bracket the intermediate widths. Every deterministic adaptive network querying the channel finitely many times induces a continuous final code containing all side information, so the same bottlenecks hold uniformly in query number, for uniformly successful postselection, and for finite sampled transcripts. A one-query informationally complete measurement gives an injective encoding at the threshold, and repetition gives an $O(N^{-1/2})$ expected-error achievability bound, separating representational dimension from tomography and programmable processors.
+Quantum channels with fixed finite-dimensional input and output form a compact convex body. We ask how many continuous latent parameters are needed to encode an arbitrary channel and reconstruct it with uniformly small diamond-norm error, when the encoder is continuous and the decoder is unrestricted. This is a continuous analogue of nonlinear width, distinct from tomography, which counts channel uses, and from programmable processors, which fix a decoding device. For a compact source the optimal error equals the minimal worst-case radius of the encoder's fibers. Lower bounds follow from antipodal pairs in the source and from latent collision topology via Borsuk--Ulam and the deleted-product coindex. Even input-independent output preparation forces error one below the output-state dimension, with a Clifford analogue inside the unitary channels. We determine the largest diamond ball contained in the channel body: it is centred at the completely depolarizing channel, is optimal among all centres, and, together with a full-direction section, certifies the intermediate lower envelope; the same channel is the optimal constant decoder, with exact covering radius. Matching upper bounds from convex projection and balanced pinching bracket the intermediate widths. Every finite-query adaptive network induces a continuous final code containing all side information, so the same bottlenecks hold uniformly in the number of queries, for uniformly successful postselection, and for sampled transcripts; a one-query informationally complete measurement achieves the injective threshold, and repetition gives an $O(N^{-1/2})$ expected-error bound. The companion paper extends these results to finite-outcome quantum instruments.
 \end{abstract}
 
-\noindent\textbf{Keywords:} quantum channel compression; exact diamond in-radius; antipodal width; Borsuk--Ulam obstruction; block pinching; quantum combs; deleted-product coindex.
+\noindent\textbf{Keywords:} quantum channel compression; diamond norm; antipodal width; exact in-radius; Borsuk--Ulam theorem; quantum combs; nonlinear approximation.
+
 
 \section{Introduction}
 
@@ -3641,7 +3642,7 @@ IEEE Trans.~Inf.~Theory \textbf{63}, 5628--5641 (2017).
 
 \bibitem{CompanionInstruments}
 Anonymous,
-\emph{Exact affine geometry, central radii, and certified compression bounds
+\emph{Exact affine geometry, optimal centres, and certified compression bounds
 for finite-outcome quantum instruments},
 companion manuscript.
 

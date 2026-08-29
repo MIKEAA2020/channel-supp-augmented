@@ -37,7 +37,7 @@
 \newcommand{\vD}{\vec{\Delta}}
 \newcommand{\aff}{\operatorname{aff}}
 
-\title{\bf Exact Affine Geometry, Central Radii, and Certified Compression Bounds for Finite-Outcome Quantum Instruments}
+\title{\bf Exact Affine Geometry, Optimal Centres, and Certified Compression Bounds for Finite-Outcome Quantum Instruments}
 \author{Anonymous}
 \date{}
 
@@ -45,52 +45,11 @@
 \maketitle
 
 \begin{abstract}
-We determine several exact geometric parameters of the compact convex body of $n$-outcome quantum instruments between finite-dimensional quantum systems, together with certified compression bounds for continuous encoding. The affine dimension is
-\[
-D_{A,B}^{(n)}=d_A^2(nd_B^2-1).
-\]
-Assume $n d_B>1$, so that $\Inst_n(A,B)$ is not a singleton; when $n=d_B=1$ the body is the single trace functional, $D_{A,B}^{(1)}=0$, its direction space is $\{0\}$, every compression width is zero, and the centred relative in-radius is $+\infty$ under the supremum convention.
-
-For $n d_B>1$, the centred relative instrument-diamond in-radius about the uniform depolarising instrument $\mathcal I_*$ is exactly
-\[
-\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
-=\frac{2}{n d_B\min\{d_A,d_B\}},
-\]
-and the global covering radius is exactly
-\[
-R_{\mathrm{inst}}(\mathcal I_*)
-=2\left(1-\frac{1}{n d_B\min\{d_A,d_B\}}\right),
-\]
-with $\mathcal I_*$ an optimal centre and the diameter of the body exactly $2$; the same value is also the \emph{global} in-radius: no other centre of the body carries a larger relative ball. The replacement body has exact antipodal profile
-\[
-\alpha_r(\RepInst_n(A,B))=
-\begin{cases}
-1,&0\le r\le n d_B^2-2,\\
-0,&r\ge n d_B^2-1.
-\end{cases}
-\]
-We prove a full-direction antipodal construction with separation $2/d_A$, giving
-\[
-\alpha_r(\Inst_n(A,B))\ge \frac1{d_A}
-\qquad(0\le r<D_{A,B}^{(n)}),
-\]
-and observable-sphere and orthogonal-join constructions extending the separation-$2$ regime to an explicit dimension $L_{A,B}^{(n)}$. These certificates combine into a certified lower envelope $\beta_r^{\mathrm{best},(n)}(A,B)$, and, together with certified upper bounds from constant codes, convex projection, and balanced input/output pinching, produce the explicit bracket
-\[
-\beta_r^{\mathrm{best},(n)}(A,B)
-\le
-\delta_{r,\mathrm{inst}}^{\diamond}(A,B)
-\le
-U_r^{(n)}(A,B),
-\]
-with the intermediate widths $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)$ left open between the two envelopes in general.
-Under the convention of continuous encoding with unrestricted decoding, the zero-error Euclidean threshold is exactly the affine dimension:
-\[
-\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=0
-\quad\Longleftrightarrow\quad
-r\ge D_{A,B}^{(n)},
-\]
-and for $r\ge D_{A,B}^{(n)}$ exact decoding may be chosen continuously via Euclidean nearest-point projection in affine coordinates. Every radius and width carries a single-shot operational interpretation through the equal-prior discrimination formula $p_{\mathrm{succ}}=\tfrac12+\tfrac14\|\cdot\|_{\diamond,\mathrm{inst}}$. The single-outcome case recovers channels, and the one-dimensional-output case recovers finite-outcome measurements; the $1/n$ suppression of the centred radius against the $n$-fold growth of the affine dimension is made explicit.
+Quantum instruments describe the full statistics of a measurement together with the conditional post-measurement state, and they form the building blocks of adaptive protocols and quantum networks. We study the geometry of the set of all $n$-outcome instruments acting between two finite-dimensional quantum systems, and we ask how many continuous latent parameters are needed to encode an arbitrary instrument and later reconstruct it with uniformly small error, under the convention of continuous encoding and unrestricted decoding. The geometry of the instrument body is determined exactly: its affine dimension is $d_A^2(nd_B^2-1)$; the largest diamond-norm ball contained in the body has radius $2/(nd_B\min\{d_A,d_B\})$ and is centred at the uniform depolarising instrument, which is optimal among all centres; and the same instrument is optimal for the covering problem, with an exact covering radius linked to the in-radius by a complementarity identity. Every radius and width carries a single-shot operational meaning through the optimal discrimination error. On the compression side, antipodal constructions --- output preparation, an input-dependent observable sphere, and a full-direction section --- produce a certified lower envelope on the optimal error, matched by constructive upper bounds from constant codes, convex projection, and balanced pinching; the zero-error threshold equals the affine dimension. The single-outcome case recovers quantum channels, treated in a companion paper, and the one-dimensional-output case recovers finite-outcome measurements; the trade-off between the number of outcomes and the robustness of the uniform instrument is made explicit.
 \end{abstract}
+
+\noindent\textbf{Keywords:} quantum instruments; diamond norm; compression width; antipodal profile; Chebyshev radius; quantum measurements; no-programming theorem.
+
 
 \tableofcontents
 
@@ -104,6 +63,8 @@ The general source--latent theory underlying the obstruction arguments --- fiber
 The question treated here is the instrument-level analogue of the channel problem: does the compact convex body of $n$-outcome instruments between $A$ and $B$ admit a continuous low-dimensional latent encoding with uniformly accurate decoding? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
 
 The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences: the affine dimension, the centred and global in-radii, the covering radius, and the diameter are determined exactly, with the uniform depolarising instrument turning out to be an optimal centre simultaneously for the in-radius and the covering radius (a concave--convex duality, Theorem~\ref{thm:global-inradius} and Remark~\ref{rem:duality}). Which quantities are determined \emph{exactly}, and which only by \emph{certified bounds}, is stated once in Remark~\ref{rem:exact-vs-certified} and maintained throughout. A separate physical question --- whether an abstract code can be realised by a fixed programmable processor --- is addressed in Appendix~\ref{app:no-programming}: exact finite-dimensional evaluation of all unitary channels is impossible, and vanishing error forces unbounded program dimension. This separates \emph{representational} dimension from \emph{programmable} evaluation; the main theorems do not rely on the appendix.
+
+The paper is organised as follows. Section~\ref{sec:prelim} fixes notation and records the specialised forms of the companion source--latent theory used throughout. Section~\ref{sec:exact-geometry} determines the exact affine and metric parameters of the instrument body, and Section~\ref{sec:lower} constructs the antipodal certificates and the certified lower envelope. Section~\ref{sec:widths} develops the constructive upper bounds and the exact thresholds, and Section~\ref{sec:specialisations} collects the specialisations, worked examples, and the outcome trade-off. Section~\ref{sec:conclusion} summarises which quantities are exact and which are certified and lists the open problems; Appendix~\ref{app:no-programming} records the no-programming background.
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -1501,6 +1462,15 @@ $(2,1,2)$ & $4$  & $0$ & $2$ & $0$ & invalid & $2$ & $1$\\
 \caption{Certified one-sphere dimensions and intermediate envelope value, with $L_{A,B}^{(n)}=\min\{D^{(n)}-1,\max\{L_{\mathrm{rep}},L_{\mathrm{obs}},L_{\mathrm{join}}\}\}$ and $\gamma_{A,B}^{(n)}=\max\{\rho_n,1/d_A\}$. For $(2,1,2)$ one has $nd_Bs=2$ and the collapse of Theorem~\ref{thm:collapse} applies: $\beta_r^{\mathrm{best}}=1$ throughout $r<D$.}
 \label{tab:thresholds}
 \end{table}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The exact results of this paper are the affine dimension, the centred in-radius and its global optimality, the covering radius and the diameter, the constant-code width, the zero-error threshold, the replacement profile, and the collapse case, collected in Table~\ref{tab:summary}. The structural fact behind this exactness is the concave--convex duality of the uniform instrument (Theorem~\ref{thm:global-inradius} and Remark~\ref{rem:duality}): the same object is optimal both as the centre of the largest contained ball and as the centre of the smallest covering ball. The intermediate widths, by contrast, are certified rather than exact: the lower envelope combines the two mechanisms of Remark~\ref{rem:gamma-mechanisms}, the upper envelope is attained by explicit constructions, and the bracket between them remains open in general.
+
+The results specialise consistently. For $n=1$ they recover the channel-level theorems of the companion paper~\cite{CompanionChannels}; for $d_B=1$ they govern finite-outcome measurements; and for $d_A=1$ the subcritical widths are exact. The $1/n$ suppression of the centred radius against the $n$-fold growth of the affine dimension (Corollary~\ref{cor:scaling}) quantifies the cost of recording outcomes, and the threshold of Theorem~\ref{thm:collapse} identifies the cases in which the envelopes close.
+
+The following problems remain open: (i) determine the intermediate widths $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)$ for $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$, or improve either envelope; (ii) determine the largest index $r$ with $\alpha_r(\Inst_n(A,B))=1$; (iii) resolve the boundary cases $c=d_B^2$ and $c=d_A^2d_B^2$ of the scaling trichotomy of Corollary~\ref{cor:scaling}; (iv) determine whether the uniform instrument is the unique optimal centre for the in-radius and for the covering radius.
 
 \section*{Acknowledgements}
 The author thanks the anonymous referees for helpful comments.
