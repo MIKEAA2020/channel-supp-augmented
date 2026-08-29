@@ -101,7 +101,7 @@ Quantum instruments are the natural generalisation of quantum channels to finite
 
 The general source--latent theory underlying the obstruction arguments --- fiber radii, antipodal profiles, deleted-product coindex, and stable Lipschitz variants --- is developed in the companion paper~\cite{CompanionChannels}, which treats the channel case; the present paper uses the specialisations recorded in Section~\ref{sec:prelim}. Throughout, the $n=1$ restrictions of the instrument theorems below recover the corresponding channel-level statements of~\cite{CompanionChannels}: the observable sphere, the full-direction sphere, the join, the global in-radius, and the covering results.
 
-The question treated here is the same as for channels: can the compact convex body of $n$-outcome instruments between $A$ and $B$ be encoded continuously into a low-dimensional latent space and decoded with uniformly small error? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
+The question treated here is the instrument-level analogue of the channel problem: does the compact convex body of $n$-outcome instruments between $A$ and $B$ admit a continuous low-dimensional latent encoding with uniformly accurate decoding? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
 
 The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences: the affine dimension, the centred and global in-radii, the covering radius, and the diameter are determined exactly, with the uniform depolarising instrument turning out to be an optimal centre simultaneously for the in-radius and the covering radius (a concave--convex duality, Theorem~\ref{thm:global-inradius} and Remark~\ref{rem:duality}). Which quantities are determined \emph{exactly}, and which only by \emph{certified bounds}, is stated once in Remark~\ref{rem:exact-vs-certified} and maintained throughout. A separate physical question --- whether an abstract code can be realised by a fixed programmable processor --- is addressed in Appendix~\ref{app:no-programming}: exact finite-dimensional evaluation of all unitary channels is impossible, and vanishing error forces unbounded program dimension. This separates \emph{representational} dimension from \emph{programmable} evaluation; the main theorems do not rely on the appendix.
 
@@ -244,7 +244,7 @@ be the normalised Choi operator of the flagged map $\widehat{\vD}:A\to B\otimes 
 \end{lemma}
 
 \begin{proof}
-If $\lambda_{\max}(-X)\le0$ there is nothing to prove. Otherwise, since $X$ is block diagonal, $\lambda_{\max}(-X)=\max_k\lambda_{\max}(-X_k)$. Choose $k_0$ attaining the maximum and a unit vector $|v\rangle\in A_0\otimes B$ with $X_{k_0}|v\rangle=-\lambda|v\rangle$, $\lambda=\lambda_{\max}(-X)$. Let $W\subseteq A_0$ be the support of $\Tr_B|v\rangle\langle v|$ and put $b=\dim W$; the rank of the partial trace of a pure state equals its Schmidt rank, so $b\le\min\{d_A,d_B\}=s$. If $|e_1\rangle,\dots,|e_b\rangle$ is an orthonormal basis of $W$ and $|\overline e_j\rangle\in A$ its coordinatewise conjugate under the fixed Choi bases, define
+If $\lambda_{\max}(-X)\le0$ there is nothing to prove. Otherwise, since $X$ is block diagonal, $\lambda_{\max}(-X)=\max_k\lambda_{\max}(-X_k)$. Choose $k_0$ attaining the maximum and a unit vector $|v\rangle\in A_0\otimes B$ with $X_{k_0}|v\rangle=-\lambda|v\rangle$, $\lambda=\lambda_{\max}(-X)$. Write $W\subseteq A_0$ for the support of the $B$-marginal $\Tr_B|v\rangle\langle v|$ and set $b=\dim W$; the marginal of a pure state has rank equal to its Schmidt rank, so $b\le s=\min\{d_A,d_B\}$. If $|e_1\rangle,\dots,|e_b\rangle$ is an orthonormal basis of $W$ and $|\overline e_j\rangle\in A$ its coordinatewise conjugate under the fixed Choi bases, define
 \[
 |\omega_W\rangle=\frac1{\sqrt b}\sum_{j=1}^b|e_j\rangle_{A_0}|\overline e_j\rangle_A.
 \]
@@ -261,7 +261,7 @@ so $Y$ is Hermitian and traceless. Since $|v\rangle\in W\otimes B$, testing on $
 \[
 \langle v,k_0|Y|v,k_0\rangle=-\frac{d_A}{b}\lambda.
 \]
-For a traceless Hermitian operator $Y=Y_+-Y_-$ one has $\Tr Y_+=\Tr Y_-=\tfrac12\|Y\|_1$ and $\langle w|Y|w\rangle\ge-\Tr Y_-$ for every unit vector $|w\rangle$, because $Y\ge-Y_-$ and $\langle w|Y_-|w\rangle\le\Tr Y_-$. Consequently
+A traceless Hermitian operator $Y=Y_+-Y_-$ satisfies $\Tr Y_+=\Tr Y_-=\tfrac12\|Y\|_1$, and for every unit vector $|w\rangle$ one has $\langle w|Y|w\rangle\ge-\Tr Y_-$: indeed $Y\ge-Y_-$ implies $\langle w|Y|w\rangle\ge-\langle w|Y_-|w\rangle\ge-\Tr Y_-$. Consequently
 \[
 \|Y\|_1\ge-2\langle v,k_0|Y|v,k_0\rangle
 =\frac{2d_A}{b}\lambda\ge\frac{2d_A}{s}\lambda.
@@ -390,7 +390,7 @@ Then the uniform depolarising instrument is an optimal centre over all of $\math
 \[
 R_{\mathrm{inst}}(\mathcal I_*)=2\Big(1-\frac1{nd_Bs}\Big)=2-\rho_{\diamond,\mathrm{inst}}(\mathcal I_*).
 \]
-Consequently the exact constant-code instrument width equals this value.
+Consequently the exact constant-code instrument width equals this value. For $n=1$ this is the exact Chebyshev covering radius of the companion paper~\cite{CompanionChannels}.
 \end{theorem}
 
 \begin{proof}
@@ -407,17 +407,17 @@ Therefore
 \[
 \sigma_{EBC_n}\le nd_Bs\,\Big(\rho_E\otimes\frac{I_B}{d_B}\otimes\frac{I_{C_n}}n\Big),
 \]
-and the state in parentheses is the output of $\mathcal I_*$. If states satisfy $\sigma\le K\tau$, let $P$ be the positive spectral projection of $\sigma-\tau$ and put $a=\Tr(P\sigma)$, $b=\Tr(P\tau)$. Then $a\le Kb$ and $a\le1$, so
+and the state in parentheses is the output of $\mathcal I_*$. For states with $\sigma\le K\tau$, writing $P$ for the positive spectral projection of $\sigma-\tau$, the quantities $a=\Tr(P\sigma)$ and $b=\Tr(P\tau)$ satisfy $a\le Kb$ (as $P\sigma P\le KP\tau P$) and $a\le1$, whence
 \[
-\tfrac12\|\sigma-\tau\|_1=a-b\le a\Big(1-\frac1K\Big)\le1-\frac1K.
+\tfrac12\|\sigma-\tau\|_1=a-b\le a-\frac aK\le1-\frac1K.
 \]
 Taking the supremum over inputs yields $R_{\mathrm{inst}}(\mathcal I_*)\le2(1-1/(nd_Bs))$.
 
-For equality, choose an $s$-dimensional input subspace $W\subseteq A$, an isometry $V:W\to B$, and a state $\omega$ on $B$. With $P_W$ the subspace projection define the channel
+For the matching lower bound, select an $s$-dimensional subspace $W$ of the input space, an isometry $V:W\to B$, and an output state $\omega$. With $P_W$ the projection onto $W$, the channel
 \[
-\Phi(X)=VP_WXP_WV^\dagger+\Tr[(I_A-P_W)X]\,\omega,
+\Phi(X)=VP_WXP_WV^\dagger+\Tr[(I_A-P_W)X]\,\omega
 \]
-whose action on the selected Schmidt-rank-$s$ subspace is a pure isometry while its action outside $W$ is a fixed replacement. Set $\mathcal I_1=\Phi$ and $\mathcal I_k=0$ for $k\ge2$. A maximally entangled input of Schmidt rank $s$ on $W$ gives a pure output in the first flag, whereas $\mathcal I_*$ gives the maximally mixed state on the corresponding $nd_Bs$-dimensional support; the trace norm of their difference is $2(1-1/(nd_Bs))$ (equivalently, the trace distance is $1-1/(nd_Bs)$). Hence $R_{\mathrm{inst}}(\mathcal I_*)\ge2(1-1/(nd_Bs))$, and equality holds.
+acts as a pure isometry on inputs supported on $W$ and as a fixed replacement off $W$. Place it in the first outcome, $\mathcal I_1=\Phi$, $\mathcal I_k=0$ for $k\ge2$. On a maximally entangled input of Schmidt rank $s$ supported on $W$, the flagged output of $\mathcal I$ is pure, whereas the uniform instrument emits the maximally mixed state on the $nd_Bs$-dimensional support of that output; the trace norm of the difference of the two flagged outputs is $2(1-1/(nd_Bs))$ (trace distance $1-1/(nd_Bs)$). Hence $R_{\mathrm{inst}}(\mathcal I_*)\ge2(1-1/(nd_Bs))$, and equality holds.
 
 \emph{Optimality of the centre.} Let $G=\mathrm U(B)\times S_n$ act on $\mathfrak A_{A,B}^{(n)}$ by
 \[
@@ -572,7 +572,7 @@ For any nonempty metric space $(K,d)$ define
 \[
 \alpha_r(K)=\frac12\sup_{h\in C(S^r,K)}\min_{u\in S^r}d(h(u),h(-u)),
 \]
-with the instrument diamond metric when $K\subseteq\Inst_n(A,B)$.
+with the instrument diamond metric when $K\subseteq\Inst_n(A,B)$. The same quantity is defined for arbitrary compact metric sources in the companion paper~\cite{CompanionChannels}, where its general properties (monotonicity, behaviour under subsets and Lipschitz maps, metric perturbations) are recorded.
 \end{definition}
 
 \begin{remark}[Terminology for the four radius notions]
@@ -843,16 +843,12 @@ for every $y$. Composing with the replacement-instrument embedding gives the sam
 \end{proposition}
 
 \begin{proof}
-Regard the domain sphere as the unit sphere in $\bigoplus_{i=1}^{\ell}\mathbb R^{r_i+1}$. For $y=(y_1,\dots,y_\ell)$ set
-\[
-\lambda_i=\|y_i\|_2^2,\qquad
-u_i=\frac{y_i}{\|y_i\|_2}\ \ \text{when }y_i\neq0,
-\]
-and define
+View the domain sphere as the unit sphere of $\bigoplus_{i=1}^{\ell}\mathbb R^{r_i+1}$. For a point $y=(y_1,\dots,y_\ell)$ on it, write
+$\lambda_i=\|y_i\|_2^2$ and, on the blocks with $y_i\neq0$, $u_i=y_i/\|y_i\|_2$; then define
 \[
 H(y)=\sum_{i:y_i\neq0}\lambda_i\,h_i(u_i),
 \]
-with the $i$-th summand set to zero when $y_i=0$. Since $\sum_i\lambda_i=1$, $H(y)$ is a flagged state. Continuity at points where some $y_i=0$ follows because the trace norm of the $i$-th summand is $\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0$ as $y_i\to0$, uniformly in the direction $u_i$. Because the supports $W_i$ are pairwise orthogonal, the difference $H(y)-H(-y)$ is block diagonal with respect to $\bigoplus_iW_i$, so
+reading the $i$-th summand as zero when $y_i=0$. The weights satisfy $\sum_i\lambda_i=1$, so $H(y)$ is a flagged state. Continuity at points where some $y_i=0$ follows because the trace norm of the $i$-th summand is $\|\lambda_i h_i(u_i)\|_1=\lambda_i\to0$ as $y_i\to0$, uniformly in the direction $u_i$. Because the supports $W_i$ are pairwise orthogonal, the difference $H(y)-H(-y)$ is block diagonal with respect to $\bigoplus_iW_i$, so
 \[
 \|H(y)-H(-y)\|_1
 =\sum_i\lambda_i\|h_i(u_i)-h_i(-u_i)\|_1
@@ -1001,7 +997,7 @@ Since $\RepInst_n(A,B)\subset\Inst_n(A,B)\subset\mathfrak A_{A,B}^{(n)}$, and th
 =\delta_{r,\mathrm{inst}}^{\diamond}(A,B)
 \le U_r^{(n)}(A,B).
 \end{align*}
-Allowing unphysical affine decoders cannot circumvent the certified lower envelope; and because the optimal constant-code centre $\mathcal I_*$ is itself an instrument (Theorem~\ref{thm:covering}), the constant-code width coincides over both codomains (Corollary~\ref{cor:constant-code}), so every upper bound of this paper is admissible with a physical instrument decoder.
+Allowing unphysical affine decoders cannot circumvent the certified lower envelope; and because the optimal constant-code centre $\mathcal I_*$ is itself an instrument (Theorem~\ref{thm:covering}), the constant-code width coincides over both codomains (Corollary~\ref{cor:constant-code}), so every upper bound of this paper is admissible with a physical instrument decoder. The same codomain convention underlies the Hermiticity-preserving trace-preserving decoder bounds of the companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 \begin{corollary}[Certified width bracket]
@@ -1095,22 +1091,12 @@ For $0\le r\le D_{A,B}^{(n)}$,
 \end{proposition}
 
 \begin{proof}
-If $r=D_{A,B}^{(n)}$, affine coordinates give exact reconstruction. Assume henceforth $0\le r<D_{A,B}^{(n)}$, and put $k=D_{A,B}^{(n)}-r\ge1$. Project affine coordinates of the compact convex instrument body onto $\mathbb R^r$; the linear coordinate projection is continuous in finite dimensions. Each nonempty fibre $F$ is compact and convex, has diameter at most two (Proposition~\ref{prop:diameter}), and has affine dimension at most $k$. Equip $\aff(F)$ with the restriction of the instrument diamond norm, and let
-\[
-\overline B_{\diamond,\mathrm{inst}}(x,R)
-=\big\{z\in\aff(F):\|z-x\|_{\diamond,\mathrm{inst}}\le R\big\}
-\]
-be the closed ball in that norm; these are compact convex sets, since every norm ball is convex. Set $R=2k/(k+1)$ and consider the family $\{F\}\cup\{\overline B_{\diamond,\mathrm{inst}}(x,R):x\in F\}$ in $\aff(F)\simeq\mathbb R^k$. Any subfamily of at most $k+1$ members intersects: if it contains $m$ balls centred at $x_1,\dots,x_m$, their barycentre $c=\tfrac1m\sum_jx_j$ lies in $F$ by convexity, and pairwise distances in the fibre are at most $2$, so
-\[
-\|c-x_j\|_{\diamond,\mathrm{inst}}
-\le\frac{2(m-1)}m\le\frac{2k}{k+1}=R
-\]
-(the second inequality is equivalent to $m\le k+1$; if $F$ is also a member of the subfamily then $m\le k$, which is even stronger). Helly's theorem~\cite{Barvinok2002} and compactness of $F$ therefore give a point of $F$ within distance $R$ of the entire fibre. Use these points as decoder values.
+The instrument body $\Inst_n(A,B)$ is a compact convex subset of its $D_{A,B}^{(n)}$-dimensional affine hull, and its diameter is two (Proposition~\ref{prop:diameter}). The claim is therefore the convex-projection bound of the companion paper~\cite{CompanionChannels} specialised to this body: the argument there depends only on the affine dimension and the diameter, and the Helly-selection proof (Helly's theorem, see~\cite{Barvinok2002}) is recorded there in full.
 \end{proof}
 
 \begin{remark}[Nonconstructive Helly decoder]
 \label{rem:nonconstructive}
-The decoder in Proposition~\ref{prop:convex} is selected via Helly's theorem and compactness for each fibre; it is guaranteed to take values in the fibre and to achieve error $\le2k/(k+1)$; the decoder need not be continuous, and Definition~\ref{def:width} imposes no continuity requirement on decoders. Throughout, ``certified'' refers to proved upper bounds; it does not imply that the decoder is continuous or algorithmic. If both encoder and decoder were required to be continuous, the same zero-error threshold $r\ge D_{A,B}^{(n)}$ remains valid: the upper direction is Theorem~\ref{thm:zero-error} (which supplies a continuous decoder), and the Borsuk--Ulam lower bound applies a fortiori to continuous decoders. The subcritical upper bounds, however, become existence statements whose Helly-selected decoders may fail continuity.
+The decoder in Proposition~\ref{prop:convex} is selected via Helly's theorem and compactness for each fibre; it is guaranteed to take values in the fibre and to achieve error $\le2k/(k+1)$; the decoder need not be continuous, and Definition~\ref{def:width} imposes no continuity requirement on decoders. Throughout, ``certified'' refers to proved upper bounds; it does not imply that the decoder is continuous or algorithmic. If both encoder and decoder were required to be continuous, the same zero-error threshold $r\ge D_{A,B}^{(n)}$ remains valid: the upper direction is Theorem~\ref{thm:zero-error} (which supplies a continuous decoder), and the Borsuk--Ulam lower bound applies a fortiori to continuous decoders. The subcritical upper bounds, however, become existence statements whose Helly-selected decoders may fail continuity. A quantitative error bound for Lipschitz decoders, in terms of the antipodal profile of the reachable latent image, is developed in the companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 \begin{lemma}[Exact pinching norm]
@@ -1122,13 +1108,7 @@ For an orthogonal decomposition $H=\bigoplus_{j=1}^{\ell}H_j$ into nonzero block
 \end{lemma}
 
 \begin{proof}
-Set $\omega=e^{2\pi i/\ell}$ and $U_m=\sum_j\omega^{m(j-1)}P_j$. The roots-of-unity identity $\frac1\ell\sum_{m=0}^{\ell-1}\omega^{m(j-k)}=\delta_{jk}$ gives $\mathcal P_H=\frac1\ell\sum_{m=0}^{\ell-1}\mathcal U_{U_m}$, so
-\[
-\|\id_H-\mathcal P_H\|_\diamond
-\le\frac1\ell\sum_{m=1}^{\ell-1}\|\id_H-\mathcal U_{U_m}\|_\diamond
-\le2\Big(1-\frac1\ell\Big).
-\]
-For equality choose unit vectors $|e_j\rangle\in H_j$ and apply the difference map to the normalised test vector $|e\rangle=\ell^{-1/2}\sum_j|e_j\rangle$; on their span the output is represented by $(J_\ell-I_\ell)/\ell$, whose trace norm is $2(1-1/\ell)$.
+This is the channel pinching identity of the companion paper~\cite{CompanionChannels}, where the roots-of-unity averaging argument is recorded in full; only the value is used below.
 \end{proof}
 
 \begin{theorem}[Input- and output-pinching for instruments]
@@ -1185,7 +1165,7 @@ Padding by zero coordinates handles larger $r$ in both cases.
 
 \begin{remark}[Pinching bounds are certified, not exact]
 \label{rem:pinching-certified}
-The bounds of Theorem~\ref{thm:pinching} are certified upper bounds on the compression width: they are achieved by the explicit pinching constructions above; the equalities $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=2(1-1/\ell_{\mathrm{out}})$ and $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=2(1-1/k_{\mathrm{in}})$ are not established at any $r$.
+The bounds of Theorem~\ref{thm:pinching} are certified upper bounds on the compression width: they are achieved by the explicit pinching constructions above; the equalities $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=2(1-1/\ell_{\mathrm{out}})$ and $\delta_{r,\mathrm{inst}}^{\diamond}(A,B)=2(1-1/k_{\mathrm{in}})$ are not established at any $r$. For $n=1$ the thresholds reduce to $r_{\mathrm{out}}^{(1)}=d_A^2(\sum_jb_j^2-1)$ and $r_{\mathrm{in}}^{(1)}=(\sum_ia_i^2)(d_B^2-1)$, the balanced-pinching thresholds of the channel-level companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 For $1\le\ell\le d$ write $d=m\ell+t$, $0\le t<\ell$, and set
@@ -1316,6 +1296,10 @@ Fix $d_A,d_B$ and consider latent dimensions $r_n$ with $r_n/n\to c$.
 \end{enumerate}
 The boundary cases $c=d_B^2$ and $c=d_A^2d_B^2$ are left to a more refined analysis. Thus the number of outcomes linearly enlarges the parameter count needed for exact reconstruction while dividing the centred positivity margin by $n$, and the intermediate obstruction carries a constant, $n$-independent component $1/d_A$.
 \end{corollary}
+
+\begin{proof}
+The asymptotic comparisons $L_{A,B}^{(n)}=nd_B^2+O(1)$ and $D_{A,B}^{(n)}=nd_A^2d_B^2+O(1)$ follow from Definitions~\ref{def:beta-best} and \ref{def:upper} together with $L_{\mathrm{rep}}=nd_B^2-2$, $L_{\mathrm{obs}}=d_A^2-2$, and $L_{\mathrm{join}}=nd_B^2+O(1)$ when valid; they determine, by comparison with $r_n/n\to c$, which of the three ranges of the envelope contains $r_n$ for all large $n$. The displayed values are then the piecewise definition of $\beta_r^{\mathrm{best},(n)}$ (Definition~\ref{def:beta-best}) and the exact threshold of Theorem~\ref{thm:zero-error}.
+\end{proof}
 
 \begin{remark}[Error-one barrier, scoped]
 \label{rem:barrier}
@@ -1590,7 +1574,7 @@ a CPTP map $\Lin(M)\to\Lin(M_j)$: the first term is the compression onto the $P_
 
 \begin{remark}[Scope of the no-programming obstruction]
 \label{rem:scope}
-The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. Optimal asymptotic program-cost scaling for approximate universal unitary programming is established in~\cite{YangRennerChiribella2020}, and quantitative lower bounds on the program dimension in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation. Complementary quantitative statements --- the positive finite-programming floor, program-state separation, and the packing lower bounds --- are developed in the companion paper~\cite{CompanionChannels}.
+The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. The optimal asymptotic program cost of approximate universal unitary programming is determined in~\cite{YangRennerChiribella2020}, and quantitative program-dimension lower bounds in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation. Complementary quantitative statements --- the positive finite-programming floor, program-state separation, and the packing lower bounds --- are developed in the companion paper~\cite{CompanionChannels}.
 \end{remark}
 
 \begin{thebibliography}{99}

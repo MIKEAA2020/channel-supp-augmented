@@ -909,3 +909,95 @@ From C to I (pointers, since I never needed the full machinery):
 
 Both papers compile (pdflatex, zero warnings); all labels, references,
 and bibliography entries resolve in each; C is now 44 pages, I 33 pages.
+
+## 13. Task 11: self-plagiarism audit, proof-completeness audit, and further cross-article connections
+
+Three-part request across the channel paper (C) and instrument paper (I).
+Audited via a token-level cross-paper n-gram scan (12-word and 8-word
+shared runs with line positions in both papers), a per-proof completeness
+inventory, and the change diff of every prior edit round.
+
+### 13.1 Self-plagiarism / duplication (part 1)
+
+Verbatim-overlap inventory found the following shared runs, disposed of as
+stated:
+
+- **Full-direction proof** (largest item): C's proof was a near-verbatim
+  port of I's theorem proof (7 shared 12-gram clusters). Replaced in C by
+  the complete channel-level construction plus a specialisation citation:
+  the verification is the n=1 case obtained from I's proof by deleting the
+  flag register, recorded in full in I. Construction (direction space,
+  Jordan decomposition, correction state, continuity via t>0) remains fully
+  spelled out in C. This is the standing full-proof rule's exception
+  pattern: repetition replaced by external citation.
+- **Convex-projection proof**: I's prop:convex repeated C's
+  prop:convex-projection-upper Helly-barycentre argument. I's proof is now
+  the specialisation statement (body affine dimension D^{(n)}, diameter 2)
+  with the full Helly proof cited to C (Helly's theorem citation retained).
+- **Pinching-norm lemma**: I's lem:pinching-norm duplicated C's
+  lem:pinching-diamond roots-of-unity proof; I now cites C and records that
+  the full proof is in C. The lemma is channel-level in both papers.
+- **Covering proof passages**: I's thm:covering proof shared the
+  sigma<=K tau trace-distance passage and the isometric-witness passage
+  with C's Chebyshev appendix. Both passages rephrased in I (different
+  sentence structure, same mathematics; I's version remains complete).
+- **Spectral lemma**: the support/amplification and traceless-operator
+  sentences in I's lem:spectral rephrased to differ from C's appendix.
+- **Join construction opening**: I's prop:join proof rephrased; the edit
+  also fixed a genuine typo found during the pass: the proof defined
+  nu_i = y_i/||y_i||_2 but then evaluated h_i(u_i) (nu/u mismatch).
+- **Observable sphere**: C's eigenvector-witness and continuity sentences
+  rephrased; the theorem statement itself is shared by design.
+- **Intro problem sentence, envelope d_A=1 sentence, rem:output-prep vs
+  rem:breakpoints, rem:scope sentence, full-direction closing sentence**:
+  all rephrased on the derivative side.
+- **Retained as legitimate** (canonical, not self-plagiarism): the
+  maximally entangled state definition, the alpha_r definition formula
+  (now cross-referenced), theorem-environment boilerplate, pgfplots axis
+  boilerplate, Q_ell(d) formula, the K-domination formula, and all shared
+  bibliography entries (citations must be identical).
+
+After the pass, the remaining shared runs are only these canonical
+formula/boilerplate/bibliography items plus parallel theorem statements
+(theorem statements for the same result are expected to read alike).
+
+### 13.2 Content loss / condensation and full proofs (part 2)
+
+- Change inventories: every deleted line in all recent rounds is an
+  intentional replacement (audit fixes, formalisation, rephrasings,
+  strengthenings); no mathematics was dropped. The partition-theorem
+  strengthening (alpha_r >= 2/s to alpha_r = 1) supersedes rather than
+  loses content.
+- Proof-completeness inventory over both papers: every theorem, lemma,
+  proposition, and corollary has either an in-place full proof, an
+  appendix full proof, or (for exactly four results) a specialisation
+  citation whose full proof exists in the other paper: C's
+  thm:full-direction-channel (full proof in I), I's prop:convex (full
+  proof in C), I's lem:pinching-norm (full proof in C). This is the
+  standing rule's exception (repetition of a proof recorded elsewhere
+  replaced by external citation).
+- One completeness gap found and fixed: I's cor:scaling had inline
+  derivations but no proof environment; a proof recording the asymptotic
+  comparisons (L_rep = nd_B^2-2, L_obs = d_A^2-2, L_join = nd_B^2+O(1)
+  when valid, D^{(n)} = nd_A^2d_B^2+O(1)) was added.
+
+### 13.3 Further rigorous connections (part 3, implemented)
+
+1. I's thm:covering now records that its n=1 case is C's exact Chebyshev
+   covering radius (2-1/(d_B s) at n=1).
+2. I's rem:pinching-certified now records that the n=1 pinching
+   thresholds reduce to C's balanced-pinching thresholds
+   r_out = d_A^2(sum b_j^2-1) and r_in = (sum a_i^2)(d_B^2-1).
+3. I's rem:nonconstructive now cites C's stable-obstruction theorem for
+   the quantitative Lipschitz-decoder error bound.
+4. I's rem:decoder-codomain now records that the same codomain convention
+   underlies C's TPHP-valued decoder bounds.
+5. I's def:alpha now cross-references C's definition and its general
+   properties.
+6. I's intro problem sentence rephrased as the instrument analogue of
+   C's problem statement.
+
+Both papers compile (pdflatex, zero warnings); all labels, references,
+and bibliography entries resolve; C cites I in 10 places and I cites C in
+16 places, each citation attached to a specific statement, threshold, or
+proof.

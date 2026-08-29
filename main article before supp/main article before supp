@@ -1262,18 +1262,18 @@ $E_+(H)+E_-(H)=I_A$, so
 \[
 \Phi^H(X)=\Tr(E_+(H)X)\,\sigma_++\Tr(E_-(H)X)\,\sigma_-
 \]
-is a channel. Since $\|K(H)\|_\infty=1$, some unit eigenvector
-$|\psi\rangle$ of $K(H)$ has eigenvalue $\varepsilon\in\{+1,-1\}$; then
-$\Tr(E_\varepsilon(H)|\psi\rangle\langle\psi|)=1$ and
-$\Tr(E_{-\varepsilon}(H)|\psi\rangle\langle\psi|)=0$. Since
+is a channel. The Hermitian operator $K(H)$ has norm one, so it admits a unit
+eigenvector $|\psi\rangle$ with eigenvalue $\varepsilon\in\{+1,-1\}$; for
+that vector one effect has expectation one and the other expectation
+zero. Since
 $E_\pm(-H)=E_\mp(H)$, the outputs of $\Phi^H$ and $\Phi^{-H}$ on the input
 $|\psi\rangle\langle\psi|$ are $\sigma_\varepsilon$ and
 $\sigma_{-\varepsilon}$, which are orthogonal, so their trace distance is
 $2$; the diamond distance is therefore exactly $2$ by the diameter bound.
-The map $H\mapsto H/\|H\|_\infty$ is continuous on the Euclidean unit
-sphere of $\Herm_0(A)\cong\mathbb R^{d_A^2-1}$, so the construction gives a
-continuous image of $S^{d_A^2-2}$ with antipodal diamond distance $2$;
-equatorial restriction supplies every smaller index.
+Normalisation $H\mapsto H/\|H\|_\infty$ is continuous away from zero,
+hence on the compact unit sphere of $\Herm_0(A)\cong\mathbb R^{d_A^2-1}$;
+the antipodal images thus form a continuous sphere with diamond distance
+$2$, and coordinate equators supply every smaller index.
 \end{proof}
 
 \begin{theorem}[Full-direction antipodal sphere]
@@ -1284,72 +1284,15 @@ exists a continuous map $h:S^r\to\Chan(A,B)$ such that
 \|h(u)-h(-u)\|_\diamond\ge\frac2{d_A}
 \qquad\forall u\in S^r.
 \]
-Consequently $\alpha_r(\Chan(A,B))\ge1/d_A$ for all $0\le r<D$. When
-$d_A=1$ the separation is $2$, hence $\alpha_r=1$ for all $r<D_{1,B}$,
-consistent with the exact replacement profile. This is the $n=1$ case of
+Consequently $\alpha_r(\Chan(A,B))\ge1/d_A$ for all $0\le r<D$. If
+$d_A=1$ the separation equals $2$, so $\alpha_r=1$ for all $r<D_{1,B}$,
+matching the exact replacement profile. This is the $n=1$ case of
 the corresponding instrument theorem in the companion
 paper~\cite{CompanionInstruments}.
 \end{theorem}
 
 \begin{proof}
-Identify channels with their normalized Choi operators
-$J\in\Herm(A_0\otimes B)$, $J\ge0$, $\Tr_BJ=I_{A_0}/d_A$. The direction
-space $\mathcal V=\{Z\in\Herm(A_0\otimes B):\Tr_BZ=0\}$ has real dimension
-$D$. Equip $\mathcal V$ with a Euclidean norm and let
-$S(\mathcal V)\cong S^{D-1}$ be its unit sphere; equatorial restriction
-supplies every smaller index. Fix $\tau_0=I_B/d_B$. For $Z\in S(\mathcal V)$
-write the Jordan decomposition $Z=Z_+-Z_-$ with $Z_+,Z_-\ge0$,
-$Z_+Z_-=0$; functional calculus makes $Z\mapsto Z_+$ continuous. Since
-$\Tr_BZ=0$,
-\[
-\Tr_BZ_+=\Tr_BZ_-.
-\]
-Let $t=\Tr Z_+=\Tr Z_-$. We claim $t>0$: if $t=0$ then $Z_+=0$, so
-$Z=-Z_-\le0$; but then $\Tr Z=0$ forces $Z=0$, contradicting
-$Z\in S(\mathcal V)$. Define the normalized states
-\[
-\Theta_+=\frac{Z_+}{t},\qquad\Theta_-=\frac{Z_-}{t},
-\]
-which have orthogonal supports and share the same $A_0$-marginal
-\[
-\mu:=\Tr_B\Theta_+=\Tr_B\Theta_-.
-\]
-If $d_A=1$ the marginal condition is automatic and we set
-$J^+(Z)=\Theta_+$, $J^-(Z)=\Theta_-$. Otherwise put $\lambda=1/d_A$. Since
-$\mu$ is a state on $A_0$, $\mu\le I_{A_0}$, hence
-$\lambda\mu\le I_{A_0}/d_A$. Define the correction state
-\[
-\nu=\frac{\frac{I_{A_0}}{d_A}-\lambda\mu}{1-\lambda}
-=\frac{I_{A_0}-\mu}{d_A-1}\ge0,
-\qquad\Tr\nu=1,
-\]
-and set
-\[
-J^+(Z)=\lambda\Theta_++(1-\lambda)\nu\otimes\tau_0,\qquad
-J^-(Z)=\lambda\Theta_-+(1-\lambda)\nu\otimes\tau_0.
-\]
-Both $J^\pm(Z)$ are positive with $A_0$-marginal
-\[
-\lambda\mu+(1-\lambda)\nu=\frac{I_{A_0}}{d_A},
-\]
-so each is the normalized Choi operator of a channel; let $h(Z)$ be the
-channel with Choi operator $J^+(Z)$. For $-Z$ the positive and negative
-parts are interchanged while $t$ and $\mu$ are unchanged, so $\nu$ is
-unchanged and $h(-Z)$ has Choi operator $J^-(Z)$. The Choi difference is
-\[
-J^+(Z)-J^-(Z)=\lambda(\Theta_+-\Theta_-)
-\]
-(with $\lambda=1$ when $d_A=1$), and since $\Theta_+,\Theta_-$ are states
-with orthogonal supports,
-\[
-\|J^+(Z)-J^-(Z)\|_1=2\lambda=\frac2{d_A}.
-\]
-By \eqref{eq:choi-diamond},
-$\|h(Z)-h(-Z)\|_\diamond\ge\|J^+(Z)-J^-(Z)\|_1=2/d_A$. Finally,
-$Z\mapsto Z_+$ is continuous and $t=\Tr Z_+$ is continuous and strictly
-positive on the compact unit sphere, hence bounded away from zero there;
-so $Z\mapsto J^+(Z)$ is continuous. Equatorial restriction proves the
-theorem for all $0\le r\le D-1$.
+This is the $n=1$ specialisation of the proof of the full-direction theorem for instruments in the companion paper~\cite{CompanionInstruments}, obtained by deleting the flag register; the general argument is recorded there in full, and the resulting channel-level construction is as follows. Let $\mathcal V=\{Z\in\Herm(A_0\otimes B):\Tr_BZ=0\}$ be the direction space, of real dimension $D$, equipped with a Euclidean norm and unit sphere $S(\mathcal V)\cong S^{D-1}$. For $Z\in S(\mathcal V)$ write the Jordan decomposition $Z=Z_+-Z_-$; since $\Tr_BZ=0$, the partial traces of $Z_+$ and $Z_-$ agree, and $t:=\Tr Z_+=\Tr Z_-$ is positive: $t=0$ would give $Z=-Z_-\le0$, and $\Tr Z=0$ then forces $Z=0$. Set $\Theta_\pm=Z_\pm/t$ and $\mu=\Tr_B\Theta_+=\Tr_B\Theta_-$; the states $\Theta_+$ and $\Theta_-$ have orthogonal supports and common $A_0$-marginal $\mu$. If $d_A=1$ set $J^\pm(Z)=\Theta_\pm$. If $d_A\ge2$, set $\lambda=1/d_A$, $\nu=(I_{A_0}-\mu)/(d_A-1)\ge0$, and $J^\pm(Z)=\lambda\Theta_\pm+(1-\lambda)\nu\otimes(I_B/d_B)$. In both cases $J^\pm(Z)\ge0$ and $\Tr_BJ^\pm(Z)=\lambda\mu+(1-\lambda)\nu=I_{A_0}/d_A$, so $J^\pm(Z)$ are normalised Choi operators of channels; let $h(Z)$ be the channel with Choi operator $J^+(Z)$. Under the flag deletion the remaining verification in the companion proof applies verbatim: $h(-Z)$ has Choi operator $J^-(Z)$; the antipodal Choi difference $J^+(Z)-J^-(Z)=\lambda(\Theta_+-\Theta_-)$ has trace norm $2\lambda=2/d_A$, which by \eqref{eq:choi-diamond} gives the claimed diamond separation; and $Z\mapsto J^+(Z)$ is continuous because $Z\mapsto Z_+$ is continuous and $t$ is bounded away from zero on the compact sphere. Restricting to coordinate equators covers all smaller dimensions $r$.
 \end{proof}
 
 \begin{proposition}[Observable--replacement join]
@@ -1479,7 +1422,7 @@ Then
 0,&r\ge D_{A,B}.
 \end{cases}
 \]
-If $d_A=1$, the observable and join terms are invalid and
+When $d_A=1$ the observable and join terms are vacuous and
 $L_{1,B}=d_B^2-2=D_{1,B}-1$, so the middle range is empty. Since
 $d_B\min\{d_A,d_B\}\ge2$ and $d_A\ge1$, one has $0<\gamma_{A,B}\le1$, so
 the displayed envelope is non-increasing. Each component is certified by
@@ -1538,18 +1481,17 @@ exact reconstruction at and above $D_{A,B}$.
 \begin{remark}[Output preparation and dynamical response]
 The breakpoint $L_{A,B}+1$ separates two input-dependent scales. A single
 output density operator carries $d_B^2-1$ affine parameters, while an
-input-dependent channel carries $d_A^2(d_B^2-1)$. The first regime
-($r\le L_{A,B}$) is obstructed both by preparing and recording an output
-state --- which forces the value one up to $d_B^2-2$ --- and by
-input-dependent effect readout, where the observable sphere
+input-dependent channel carries $d_A^2(d_B^2-1)$. Up to $L_{A,B}$, error one is forced by two effects: preparing and
+recording an output state alone obstructs the range up to $d_B^2-2$, and
+input-dependent effect readout --- the observable sphere
 (Theorem~\ref{thm:observable-channel}) and its join with the replacement
-sphere (Proposition~\ref{prop:join-channel}) force the value one beyond the
-output-state range whenever $d_A^2\ge4d_B-5$, in particular for every
-square system of dimension at least four. The second regime concerns the
-additional dependence of the output on the input operator, where the
-globally optimal centred ball and the full-direction section certify
-$\gamma_{A,B}=\max\{\rhodep(A,B),1/d_A\}$; for $d_A\le d_B$ the
-input-dependent term dominates and $\gamma_{A,B}=1/d_A$. The two scales
+sphere (Proposition~\ref{prop:join-channel}) --- extends the obstruction
+whenever $d_A^2\ge4d_B-5$, in particular for every square system of
+dimension at least four. Beyond $L_{A,B}$, what remains to be resolved is
+the dependence of the output on the input operator; there the globally
+optimal centred ball and the full-direction section certify
+$\gamma_{A,B}=\max\{\rhodep(A,B),1/d_A\}$, and for $d_A\le d_B$ the
+input-dependent term dominates, so $\gamma_{A,B}=1/d_A$. The two scales
 distinguish output-state complexity from input-dependent process response;
 they do not imply a decomposition theorem for optimal physical encoders.
 \end{remark}
