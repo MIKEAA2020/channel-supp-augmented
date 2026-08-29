@@ -409,3 +409,115 @@ Two further candidates were checked and deliberately skipped:
 With this, every paragraph of every earlier version is accounted for: present,
 strengthened, or deliberately removed with a recorded reason. No further content
 from earlier drafts remains unimplemented.
+
+---
+
+## 8. Round-two material (uploaded during the version sweep): adjudication and implementation
+
+During the deeper verification pass, the user uploaded a second audit round to the remote
+(`gpt round two/`, commits 53ce80b..9b8d8ea): three audits (`deepseek audit.txt`,
+`gpt audit 2.txt`, `qwen audit.txt`), two independent resolutions of the global in-radius
+open problem (`deepseek open problem.txt`, `qwen open problem.txt`), a changelog
+(`glm.txt`), and two restructured candidate papers (`glm_CORRECTED_SYNTHESIS_PAPER.tex`
+and `.tex2`; the second equals the first plus the global in-radius block). Each file was
+read in full and adjudicated against the synthesis on merit, order-unbiased.
+
+### 8.1 The global in-radius open problem is resolved (both round-two proofs correct)
+
+Both submissions prove: for nd_B>1, sup_{centres} rho(centre) = rho(I_*) = 2/(nd_B s).
+- deepseek/glm proof: the in-radius functional is concave (Minkowski identity for
+  centrally symmetric balls + convexity of the body) and 1-Lipschitz (ball nesting);
+  it is G=U(B) x S_n invariant; the Haar barycentre of every orbit is I_*; Jensen for
+  concave functions gives rho(I_*) >= rho(I_0). Verified step by step: correct.
+- qwen proof: even simpler "ball transfer" — if I_0 + rB ⊆ Inst then g(I_0 + rB) =
+  gI_0 + rB ⊆ Inst for all g, and averaging pointwise (convexity + closedness of Inst,
+  barycentre I_*) gives I_* + rB ⊆ Inst, so r <= rho(I_*). Verified: correct.
+Implemented as Lemma lem:inradius-concave (concavity + Lipschitz, full proof), Theorem
+thm:global-inradius (Jensen proof), and Remark rem:duality (concave-convex duality of
+the two radii; optimality of the ball term among centred-ball certificates; Lipschitz
+robustness rho_n - epsilon near I_*; uniqueness not addressed). Consequences carried
+through the paper: rem:exact-vs-certified now lists the global in-radius among the exact
+items (together with the diameter, the constant-code width, the d_A=1 full profile, and
+the collapse case, which the round-two audits noted were missing from the exact list);
+the terminology remark now covers four radius notions; rem:global-inradius and
+rem:physical-origin updated; abstract updated.
+
+### 8.2 The observable-replacement join gap (confirmed, fixed)
+
+glm and qwen independently identify the same defect, which the line-by-line check
+confirmed was present in the synthesis: Prop prop:join is stated for maps into flagged
+STATES (hence for replacement-instrument spheres), but Cor cor:join-dimension applied it
+to the observable sphere, which is a family of input-dependent instruments, not flagged
+states (its components are X -> Tr(E_+-(H)X) sigma). The certified value L_join (e.g.
+L=8 for (3,2,2)) therefore rested on an invalid invocation. Fixed with:
+- Prop prop:join-inst (instrument-level join with replacement spheres): hypothesis (i)
+  requires the flagged outputs of the input-dependent family to be supported on
+  A_0 (x) W on every input; the proof uses the witness input attaining the input-dependent
+  separation 2, on which the replacement part also attains 2 (input-independent), and
+  additivity of the trace norm across the orthogonal supports W, W^perp. Verified correct.
+- Remark rem:join-one-observable: why at most one input-dependent sphere can enter
+  (separating inputs of two input-dependent families need not coincide).
+- Cor cor:join-dimension rewritten: explicit W_obs in both cases (span{|b0>(x)|1>,|b0>(x)|2>}
+  for n>=2; span{|phi+>,|phi->} for n=1), explicit per-block complement, and the
+  N_join formula derived as the dimension of flag-block-diagonal Hermitian operators
+  supported on the complement (fixing the earlier ambiguity).
+The values L_join survive with a now-valid proof; no envelope value changed.
+
+### 8.3 Round-two audit points implemented (small rigor fixes)
+
+From gpt audit 2 and qwen audit (mathematical/rigor items only):
+- observable proof: eigenvalue epsilon in {+1,-1} handled explicitly; "continuous
+  image, no injectivity asserted" added to the theorem.
+- convex-projection proof: norm specified (restriction of the instrument diamond norm
+  on aff(F)); barycentre estimate given in that norm; r=D case handled before k>=1;
+  Helly case-split clarified.
+- pinching proofs: reconstruction defined componentwise (I~_k = P_B o I_k, flagged
+  channel (P_B (x) id) o Ihat); explicit conjugate block pinching P_{A0bar} defined;
+  I_* shown to be a relative interior point of both pinned bodies; pinching bounds
+  stated for all r with the r>D case delegated to the zero-error theorem.
+- covering proof: reference dimension d_A recorded explicitly; convexity of R_inst
+  written with the variable identified.
+- spectral lemma: b = dim W <= s justified (rank of a partial trace of a pure state
+  equals its Schmidt rank).
+- prop:gap item 1: pinching inadmissibility at r=0 made explicit (all pinching
+  thresholds are positive).
+- full-direction proof: states P,Q renamed Theta_+-,Theta_- (no clash with
+  projectors); flag-block diagonality of the filler justified; the diamond-norm
+  domination displayed as an inequality.
+- def:upper: ranges 1<=ell_out<=d_B, 1<=k_in<=d_A stated.
+- cor:intrinsic: trivial case written as beta_q=0; radial/full-direction choice made
+  explicit in both bracket and intrinsic proofs.
+- cor:scaling: "every admissible upper bound" scoped to the terms of def:upper;
+  boundary cases c=d_B^2 and c=d_A^2 d_B^2 flagged as unclaimed.
+- def:beta-best: 0 < gamma <= 1 verification added; revision meta-comment removed.
+- rem:barrier: net argument made precise with explicit constants (volume estimate,
+  D log_2(r_0/eps) bits, eps < r_0/2) and an explicit heuristic caveat (not used in
+  proofs, does not rule out continuous encodings); "exactly D coordinates" rephrased
+  to avoid overclaiming for discontinuous encoders.
+- prop:diameter: forward use of the replacement isometry replaced by a direct
+  witness argument.
+- terminology: "replacement face" -> "replacement body" (a face claim was
+  unjustified); "real linear direction space" stated; compactness/convexity of the
+  body recorded; delta_r^c(K;L) defined fully; \Herm_0 macro defined; b<=s
+  justification as above.
+- tables/figure now referenced in the text; Table tab:comparison caption carries the
+  non-singleton regime qualification; channel specialisation records the singleton case.
+- appendix divergence proof: Lambda_j decomposition stated as compression +
+  measure-and-prepare with the trace bookkeeping.
+
+### 8.4 Deliberate non-implementations (round two)
+
+- gpt audit 2, item K (coind typography): cosmetic; current rendering is unambiguous.
+- Margin-protruding displays and grammar notes: no compiler is available in the
+  workspace to verify layout; the structural validations (refs, environments, parity)
+  all pass.
+- deepseek's stylistic expansions (abstract rephrase, extra explanatory sentences in
+  already-rigorous proofs): the current text already contains the requested
+  justifications in compact form.
+- The two GLM candidate papers contain no further content beyond the synthesis plus
+  the items above (verified by full structural inventory: same theorem set; paper 2
+  adds exactly the global in-radius block already adopted).
+
+With this, every file in the repository has been adjudicated; the synthesis now
+contains, in validated form, every mathematically correct contribution of all
+thirteen audit documents and all manuscript versions.
