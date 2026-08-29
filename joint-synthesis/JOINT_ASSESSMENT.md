@@ -684,3 +684,110 @@ All structural checks pass after the pass (labels resolve, environments balance,
 dollar parity, no duplicate labels, no residual meta-language). The paper now
 carries 2 figures (3 panels + 1 schematic) and 3 tables, all referenced in the
 text.
+
+## 11. Task 9: content-loss audit, style and terminology pass, literature grounding, and pedagogical enhancements
+
+Four-part request, adjudicated as follows. No item was accepted or rejected
+without a check against the paper.
+
+### 11.1 Content-loss audit (part 1)
+
+- The 46 deleted lines of the formalisation commit (cdb057b) were reviewed one
+  by one against their replacements: all are deliberate formalisation
+  replacements (revision-history header, defensive/meta clauses, "naive",
+  figure cosmetics), with no substantive mathematics dropped.
+- The 60 deleted lines of the round-two commit (dfb7ab5) and the deletions of
+  the deeper sweep (2f8fc54) were reviewed the same way: all are documented
+  replacements (global-in-radius resolution, join-gap fix, proof completions).
+  No content loss, no over-condensation.
+- Environment inventory across 0ec4115 -> dfb7ab5 -> 4db9bb4 -> cdb057b -> HEAD:
+  59 -> 65 -> 65 -> 65 -> 66 statement environments. The only titles absent
+  from the earliest inventory are the three documented renames (three radius
+  notions -> four; strengthened envelope -> certified envelope; orthogonal
+  join retitled); every round-two addition (global in-radius, concavity,
+  duality, join instances, one-observable remark, join-dimension corollary,
+  pinching-certified, two-machinery remarks) is present.
+- Constant and example values re-verified in the current text (2/(nd_B s),
+  D = d_A^2(nd_B^2-1), (2,2,2)/(3,2,2)/(2,1,2) data, threshold values 56/29,
+  34/18, r_out = 12, r_in = 14). All intact.
+
+### 11.2 Style, syntax, and terminology pass (part 2)
+
+Scripted scans (doubled words, trailing whitespace, \epsilon, -ize/-yse forms,
+Sec./iff/w.r.t., quote pairing, dash conventions) returned no violations.
+Terminology unification applied:
+
+- "flag-block diagonal" -> "flag-block-diagonal" at 6 sites (the paper uses
+  the compound adjectivally throughout, matching "block-diagonal").
+- "flagged replacement body/sphere/instruments" -> "replacement
+  body/sphere/instruments" at 4 sites: the flag is part of the replacement
+  construction itself, so the double modifier was redundant; the definition
+  (Section 4, flagged states \tau in S_flag(B x C_n)) is unchanged.
+- "separation-two regime" -> "regime of antipodal separation 2" (single use).
+- The terminology remark now records the abbreviation "centred in-radius"
+  explicitly at its first use of the short form.
+- Syntax repair: the preamble line \newcommand{\Herm_0}{...} is tokenised as
+  a second definition of \Herm and is rejected by current LaTeX kernels
+  ("Command \Herm already defined"). It is redundant: every use of \Herm_0
+  in the body occurs in math mode and expands to \Herm followed by a literal
+  subscript. The line was removed; the paper now compiles (pdflatex, two
+  passes, zero errors, zero warnings).
+- Typesetting: the summary table exceeded the text width (overfull 28.6pt);
+  column widths rebalanced. Three single-line displays wider than the text
+  block were converted to align* with aligned continuation lines. Remaining
+  overfull boxes are <= 12.7pt, i.e. within the 25mm margin.
+
+### 11.3 Literature grounding (part 3)
+
+Five non-decorative citations added, each at the exact point it supports:
+
+1. Chiribella-D'Ariano-Perinotti, Quantum circuit architecture (PRL 2008) -
+   cited where instruments are said to model "the nodes of quantum networks"
+   (the comb formalism), alongside the existing instruments citations.
+2. Aharonov-Kitaev-Nisan, Quantum circuits with mixed states (STOC 1998) -
+   the diamond norm was introduced there; cited at its first use, before the
+   existing Watrous reference for the d_A-dimension bound.
+3. Helstrom, Quantum Detection and Estimation Theory (1976) - cited in the
+   operational remark, where the 1/4-discrimination formula is an instance of
+   the Holevo-Helstrom theorem for binary state discrimination.
+4. Pinkus, n-Widths in Approximation Theory (Springer 1985) - cited in the
+   widths section lead-in: the defined widths are continuous-encoding
+   analogues of Kolmogorov n-widths.
+5. Kubicki-Palazuelos-Perez-Garcia, Resource quantification for the
+   no-programing theorem (PRL 2019) - cited in the appendix discussion, which
+   previously cited only the asymptotic scaling result of
+   Yang-Renner-Chiribella; the PRL paper supplies the quantitative
+   program-dimension lower bounds in the approximate case.
+
+The bibliography now has 15 entries, each cited at least once; all \cite keys
+resolve. No citation was added for mere decoration; no further grounding was
+found to be merited.
+
+### 11.4 Pedagogical enhancements (part 4)
+
+Three non-decorative additions, all tied to proof structure:
+
+1. In the proof of the spectral lemma (lem:spectral): one paragraph on the
+   double role of the entangled input - its Schmidt support W selects the
+   subspace on which the negative eigenvalue is read out (amplified by the
+   factor d_A/b by the normalised-Choi convention), and the same state is the
+   admissible reference-assisted input that turns the trace-norm bound into a
+   diamond-norm bound. This explains why the input dimension enters the
+   denominator of the spectral bound.
+2. In the lower-bounds section lead-in: one operational sentence - an
+   antipodal sphere is a compact family of instruments whose members come in
+   pairs at large instrument-diamond distance, and Borsuk-Ulam forces a pair
+   to share a latent code.
+3. New remark rem:gamma-mechanisms after rem:breakpoints: why the
+   intermediate floor gamma = max{rho_n, 1/d_A} is the correct combination,
+   with the geometric origin of each term (local ball vs global sphere), the
+   mixing-weight reading of 1/d_A tied to the tunable-lambda remark, and the
+   trade-off threshold n ~ 2 d_A / (d_B min{d_A,d_B}) - below which the ball
+   term dominates, above which 1/d_A is the floor (in particular 1/d_A for
+   every n >= 2 whenever d_A <= d_B). The threshold was verified against the
+   paper's worked examples: (2,2,2) -> 1/2, (3,2,2) -> 1/3, (2,3,1) -> 1/2,
+   matching the stored gamma values.
+
+All new text follows the formal, changelog-free style of the Task 8 pass.
+The paper compiles cleanly (pdflatex, zero warnings), all labels resolve, all
+15 bibitems are cited, and the structural checks of Section 10 pass.

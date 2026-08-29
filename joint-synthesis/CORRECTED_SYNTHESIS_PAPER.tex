@@ -23,7 +23,6 @@
 
 \newcommand{\Lin}{\mathrm{L}}
 \newcommand{\Herm}{\mathrm{Herm}}
-\newcommand{\Herm_0}{\mathrm{Herm}_0}
 \newcommand{\Sstate}{\mathcal{S}}
 \newcommand{\Chan}{\mathrm{Chan}}
 \newcommand{\Inst}{\mathrm{Inst}}
@@ -62,7 +61,7 @@ and the global covering radius is exactly
 R_{\mathrm{inst}}(\mathcal I_*)
 =2\left(1-\frac{1}{n d_B\min\{d_A,d_B\}}\right),
 \]
-with $\mathcal I_*$ an optimal centre and the diameter of the body exactly $2$; the same value is also the \emph{global} in-radius: no other centre of the body carries a larger relative ball. The flagged replacement body has exact antipodal profile
+with $\mathcal I_*$ an optimal centre and the diameter of the body exactly $2$; the same value is also the \emph{global} in-radius: no other centre of the body carries a larger relative ball. The replacement body has exact antipodal profile
 \[
 \alpha_r(\RepInst_n(A,B))=
 \begin{cases}
@@ -98,7 +97,7 @@ and for $r\ge D_{A,B}^{(n)}$ exact decoding may be chosen continuously via Eucli
 \section{Introduction}
 \label{sec:intro}
 
-Quantum instruments are the natural generalisation of quantum channels to finite-outcome statistics: a collection of completely positive, trace-nonincreasing maps whose sum is a channel. They describe both the probability of an outcome and the conditional post-measurement state, and they model finite-outcome measurements and adaptive protocols~\cite{DaviesLewis1970,Ozawa1984,ChiribellaEtAl2009Instruments}.
+Quantum instruments are the natural generalisation of quantum channels to finite-outcome statistics: a collection of completely positive, trace-nonincreasing maps whose sum is a channel. They describe both the probability of an outcome and the conditional post-measurement state, and they model finite-outcome measurements, adaptive protocols, and the nodes of quantum networks~\cite{DaviesLewis1970,Ozawa1984,ChiribellaEtAl2009Instruments,ChiribellaEtAl2008Combs}.
 
 The question treated here is the same as for channels: can the compact convex body of $n$-outcome instruments between $A$ and $B$ be encoded continuously into a low-dimensional latent space and decoded with uniformly small error? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
 
@@ -145,7 +144,7 @@ By block diagonality (the trace norm of a block-diagonal operator is the sum of 
 =\sup_{\rho\in\Sstate(A_0\otimes A)}
 \sum_{k=1}^n\|(\id_{A_0}\otimes\Delta_k)(\rho)\|_1.
 \]
-A reference system of input dimension $d_A$ suffices for the diamond norm~\cite{Watrous2018}. The summands are the unconditional, generally subnormalised outcome contributions. The body $\Inst_n(A,B)$ is compact and convex: convexity follows from the convexity of the completely positive cone and the affine normalisation constraints, and compactness from positivity together with the summed marginal condition, which bounds every Choi block.
+The diamond norm was introduced in~\cite{AharonovKitaevNisan1998}; a reference system of input dimension $d_A$ suffices for it~\cite{Watrous2018}. The summands are the unconditional, generally subnormalised outcome contributions. The body $\Inst_n(A,B)$ is compact and convex: convexity follows from the convexity of the completely positive cone and the affine normalisation constraints, and compactness from positivity together with the summed marginal condition, which bounds every Choi block.
 \end{definition}
 
 \begin{remark}[Operational meaning]
@@ -155,7 +154,7 @@ For two instruments $\mathcal I,\mathcal J$ with equal prior probabilities, the 
 p_{\mathrm{succ}}
 =\frac12+\frac14\,\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}},
 \]
-i.e.\ the advantage over random guessing is $\tfrac14\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}$ (a standard instance of the diamond norm's role in channel discrimination~\cite{Watrous2018}). Thus every radius and width stated in the instrument diamond norm has a direct single-shot discrimination interpretation, up to this conventional factor of $1/4$.
+i.e.\ the advantage over random guessing is $\tfrac14\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}$ (an instance of the Holevo--Helstrom theorem for binary state discrimination~\cite{Helstrom1976}, applied to the flagged outputs). Thus every radius and width stated in the instrument diamond norm has a direct single-shot discrimination interpretation, up to this conventional factor of $1/4$.
 \end{remark}
 
 The ambient affine space and its direction space are
@@ -265,7 +264,7 @@ For a traceless Hermitian operator $Y=Y_+-Y_-$ one has $\Tr Y_+=\Tr Y_-=\tfrac12
 \|Y\|_1\ge-2\langle v,k_0|Y|v,k_0\rangle
 =\frac{2d_A}{b}\lambda\ge\frac{2d_A}{s}\lambda.
 \]
-The state $|\omega_W\rangle\langle\omega_W|$ is admissible in the instrument diamond-norm optimisation, so $\|\vD\|_{\diamond,\mathrm{inst}}\ge\|Y\|_1$, and rearranging proves the claim.
+The state $|\omega_W\rangle\langle\omega_W|$ is admissible in the instrument diamond-norm optimisation, so $\|\vD\|_{\diamond,\mathrm{inst}}\ge\|Y\|_1$, and rearranging proves the claim. The entangled input thus plays two roles at once: its Schmidt support $W$ selects the subspace on which the negative eigenvalue of the perturbation is read out, the normalised-Choi convention amplifying it by the factor $d_A/b$; and the same state is an admissible reference-assisted input, so the resulting trace-norm bound on $Y$ is automatically a lower bound in the instrument diamond norm. This double role is the reason the input dimension appears in the denominator of the spectral bound: a perturbation can distribute its negativity across all $d_A$ Choi coordinates, while the entangled input concentrates it back onto the $b$-dimensional Schmidt support of the witness, amplifying the negative eigenvalue by the factor $d_A/b$.
 \end{proof}
 
 \begin{theorem}[Instrument diamond ball]
@@ -560,7 +559,7 @@ Theorem~\ref{thm:global-inradius} is the mirror image of the covering-radius sym
 \section{Antipodal certificates and the lower envelope}
 \label{sec:lower}
 
-The certified lower bounds rest on a single topological device, the antipodal profile of the body: an antipodally separated sphere inside the body forces every compression with that many latent dimensions to err. This section builds three such spheres --- the flagged replacement sphere, the full-direction sphere, and the observable sphere, the first and the third then combined by an instrument-level join --- and combines them into the certified lower envelope $\beta_r^{\mathrm{best},(n)}$.
+The certified lower bounds rest on a single topological device, the antipodal profile of the body: an antipodally separated sphere inside the body forces every compression with that many latent dimensions to err. In operational terms, each such sphere is a compact family of instruments in which every member is paired with an antipode at large instrument-diamond distance (maximal, $2$, for the replacement, observable, and joined constructions; $2/d_A$ for the full-direction sphere), and Borsuk--Ulam forces some paired members to share a latent code, so no reconstruction can serve both without error. This section builds three such spheres --- the replacement sphere, the full-direction sphere, and the observable sphere, the first and the third then combined by an instrument-level join --- and combines them into the certified lower envelope $\beta_r^{\mathrm{best},(n)}$.
 
 Throughout this section, instruments are identified with their normalised flagged Choi operators, a compact convex subset of a finite-dimensional real vector space. All constructed maps are finite-dimensional and continuous in Choi trace norm or operator norm; by norm equivalence on this finite-dimensional space, this is equivalent to continuity in the instrument diamond norm, which is the metric used in the definition of the antipodal profile. The two notions of continuity are therefore used interchangeably.
 
@@ -575,7 +574,7 @@ with the instrument diamond metric when $K\subseteq\Inst_n(A,B)$.
 
 \begin{remark}[Terminology for the four radius notions]
 \label{rem:radius-terminology}
-Four distinct radius-like quantities are used throughout this paper, always written with their qualifiers: (i) the \emph{centred relative in-radius} $\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)$, the largest relative ball about a fixed centre that is contained in the body; (ii) the \emph{global in-radius} $\sup_{\mathcal I_0}\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)$, which by Theorem~\ref{thm:global-inradius} equals the centred in-radius at $\mathcal I_*$; (iii) the \emph{worst-case covering radius} $R_{\mathrm{inst}}(\Psi)$, the maximal distance from a centre to the body; and (iv) the \emph{antipodal profile} $\alpha_r$, a width-like sequence of sphere index $r$, which is not the radius of any ball. In what follows the unqualified word ``radius'' is not used. Figure~\ref{fig:radius-notions} sketches the four notions.
+Four distinct radius-like quantities are used throughout this paper, always written with their qualifiers: (i) the \emph{centred relative in-radius} $\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)$, henceforth abbreviated to the centred in-radius, the largest relative ball about a fixed centre that is contained in the body; (ii) the \emph{global in-radius} $\sup_{\mathcal I_0}\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)$, which by Theorem~\ref{thm:global-inradius} equals the centred in-radius at $\mathcal I_*$; (iii) the \emph{worst-case covering radius} $R_{\mathrm{inst}}(\Psi)$, the maximal distance from a centre to the body; and (iv) the \emph{antipodal profile} $\alpha_r$, a width-like sequence of sphere index $r$, which is not the radius of any ball. In what follows the unqualified word ``radius'' is not used. Figure~\ref{fig:radius-notions} sketches the four notions.
 \end{remark}
 
 \begin{figure}[t]
@@ -674,7 +673,7 @@ and $\Tr_A(\xi)$ is a state, so the trace norm equals $\|\tau-\sigma\|_1$ by mul
 
 \begin{theorem}[Perfectly separated replacement instruments]
 \label{thm:replacement-profile}
-Assume $nd_B>1$. Flagged replacement instruments contain a continuous image of $S^{nd_B^2-2}$ whose antipodes have instrument-diamond distance two, and consequently
+Assume $nd_B>1$. Replacement instruments contain a continuous image of $S^{nd_B^2-2}$ whose antipodes have instrument-diamond distance two, and consequently
 \[
 \alpha_r(\Inst_n(A,B))=1\qquad(0\le r\le nd_B^2-2).
 \]
@@ -702,7 +701,7 @@ For the replacement family above this range, Lemma~\ref{lem:replacement-isometry
 
 \begin{remark}[In-radius versus antipodal profile]
 \label{rem:inradius-vs-alpha}
-$\rho_n=2/(nd_Bs)$ certifies a centrally symmetric norm ball in the full direction space $\mathfrak V_{A,B}^{(n)}$, while the sphere $S^{nd_B^2-2}$ via $X\mapsto X_+/\Tr X_+$ certifies a non-linear, antipodally $2$-separated sphere in the flagged replacement body. There is no contradiction between $\rho_n<1$ and $\alpha_r=1$ for $r\le nd_B^2-2$: these are different geometric mechanisms (a ball radius versus an antipodal profile) acting on different subsets of the body. The ball bound governs the intermediate regime, while the replacement sphere governs the small-index regime.
+$\rho_n=2/(nd_Bs)$ certifies a centrally symmetric norm ball in the full direction space $\mathfrak V_{A,B}^{(n)}$, while the sphere $S^{nd_B^2-2}$ via $X\mapsto X_+/\Tr X_+$ certifies a non-linear, antipodally $2$-separated sphere in the replacement body. There is no contradiction between $\rho_n<1$ and $\alpha_r=1$ for $r\le nd_B^2-2$: these are different geometric mechanisms (a ball radius versus an antipodal profile) acting on different subsets of the body. The ball bound governs the intermediate regime, while the replacement sphere governs the small-index regime.
 \end{remark}
 
 \begin{theorem}[Full-direction antipodal sphere]
@@ -721,7 +720,7 @@ Identify instruments with their normalised flagged Choi operators
 J\in\Herm(A_0\otimes B\otimes C_n),\qquad J\ge0,\qquad
 \Tr_{B\otimes C_n}J=\frac{I_{A_0}}{d_A},
 \]
-flag-block diagonal in $C_n$. The direction space
+flag-block-diagonal in $C_n$. The direction space
 \[
 \mathcal V=\big\{Z\in\Herm(A_0\otimes B\otimes C_n)_{\mathrm{flag}}:\Tr_{B\otimes C_n}Z=0\big\}
 \]
@@ -729,7 +728,7 @@ has real dimension $D$. Equip $\mathcal V$ with a Euclidean norm and let $S(\mat
 \[
 \tau_0=\frac{I_B}{d_B}\otimes\frac{I_{C_n}}n.
 \]
-For $Z\in S(\mathcal V)$ write the Jordan decomposition $Z=Z_+-Z_-$ with $Z_+,Z_-\ge0$, $Z_+Z_-=0$; functional calculus preserves flag-block diagonality. Since $\Tr_{B\otimes C_n}Z=0$,
+For $Z\in S(\mathcal V)$ write the Jordan decomposition $Z=Z_+-Z_-$ with $Z_+,Z_-\ge0$, $Z_+Z_-=0$; functional calculus preserves flag-block-diagonality. Since $\Tr_{B\otimes C_n}Z=0$,
 \[
 \Tr_{B\otimes C_n}Z_+=\Tr_{B\otimes C_n}Z_-.
 \]
@@ -752,7 +751,7 @@ and set
 J^+(Z)=\lambda\Theta_++(1-\lambda)\nu\otimes\tau_0,\qquad
 J^-(Z)=\lambda\Theta_-+(1-\lambda)\nu\otimes\tau_0.
 \]
-Both $J^\pm(Z)$ are positive and flag-block diagonal --- the $\Theta_\pm$ summands inherit flag-block diagonality from $Z$ through the Jordan decomposition, and the correction term $\nu\otimes\tau_0$ is flag-block diagonal because $\tau_0$ is diagonal in the fixed flag basis --- with $A_0$-marginal
+Both $J^\pm(Z)$ are positive and flag-block-diagonal --- the $\Theta_\pm$ summands inherit flag-block-diagonality from $Z$ through the Jordan decomposition, and the correction term $\nu\otimes\tau_0$ is flag-block-diagonal because $\tau_0$ is diagonal in the fixed flag basis --- with $A_0$-marginal
 \[
 \lambda\mu+(1-\lambda)\nu=\frac{I_{A_0}}{d_A},
 \]
@@ -912,7 +911,7 @@ If $N_{\mathrm{join}}\ge2$, then
 \end{corollary}
 
 \begin{proof}
-The observable sphere $h:S^{d_A^2-2}\to\Inst_n(A,B)$ of Theorem~\ref{thm:observable} is continuous and has antipodal instrument-diamond distance $2$; on every input $\rho$, each outcome component of its flagged output is a positive operator on $A_0$ tensored with $\sigma\otimes|k\rangle\langle k|$, $k\in\{1,2\}$ (respectively with $\sigma_+$ or $\sigma_-$ when $n=1$), and the remaining outcomes vanish, so all flagged outputs are supported on $A_0\otimes W_{\mathrm{obs}}$, i.e.\ hypothesis (i) of Proposition~\ref{prop:join-inst} holds with $W=W_{\mathrm{obs}}$. The per-block complement $W_{\mathrm{obs}}^{\perp}$ is itself flag-block diagonal, and the Jordan construction of Theorem~\ref{thm:replacement-profile}, applied to the traceless part of the real vector space of flag-block-diagonal Hermitian operators supported on $W_{\mathrm{obs}}^{\perp}$, produces a continuous sphere $\tau:S^{N_{\mathrm{join}}-2}\to\Sstate_{\mathrm{flag}}(B\otimes C_n)$ of states supported on $W_{\mathrm{obs}}^{\perp}$ with $\|\tau(v)-\tau(-v)\|_1=2$; the condition $N_{\mathrm{join}}\ge2$ is exactly nonemptiness of this sphere. Proposition~\ref{prop:join-inst} joins the two spheres into a continuous map
+The observable sphere $h:S^{d_A^2-2}\to\Inst_n(A,B)$ of Theorem~\ref{thm:observable} is continuous and has antipodal instrument-diamond distance $2$; on every input $\rho$, each outcome component of its flagged output is a positive operator on $A_0$ tensored with $\sigma\otimes|k\rangle\langle k|$, $k\in\{1,2\}$ (respectively with $\sigma_+$ or $\sigma_-$ when $n=1$), and the remaining outcomes vanish, so all flagged outputs are supported on $A_0\otimes W_{\mathrm{obs}}$, i.e.\ hypothesis (i) of Proposition~\ref{prop:join-inst} holds with $W=W_{\mathrm{obs}}$. The per-block complement $W_{\mathrm{obs}}^{\perp}$ is itself flag-block-diagonal, and the Jordan construction of Theorem~\ref{thm:replacement-profile}, applied to the traceless part of the real vector space of flag-block-diagonal Hermitian operators supported on $W_{\mathrm{obs}}^{\perp}$, produces a continuous sphere $\tau:S^{N_{\mathrm{join}}-2}\to\Sstate_{\mathrm{flag}}(B\otimes C_n)$ of states supported on $W_{\mathrm{obs}}^{\perp}$ with $\|\tau(v)-\tau(-v)\|_1=2$; the condition $N_{\mathrm{join}}\ge2$ is exactly nonemptiness of this sphere. Proposition~\ref{prop:join-inst} joins the two spheres into a continuous map
 \[
 S^{(d_A^2-2)+(N_{\mathrm{join}}-2)+1}=S^{d_A^2+N_{\mathrm{join}}-3}\longrightarrow\Inst_n(A,B)
 \]
@@ -962,10 +961,15 @@ When $L_{A,B}^{(n)}=D_{A,B}^{(n)}-1$ the middle range is empty (this is always t
 The two breakpoints of the envelope have a direct resource interpretation. A flagged output state has $nd_B^2-1$ affine parameters, while an input-dependent instrument has $d_A^2(nd_B^2-1)$. The first regime ($r\le L_{A,B}^{(n)}$) is already obstructed by preparing and recording one classical--quantum output state --- augmented by the observable constructions, which obstruct input-dependent effect readout even when the output state is fixed. The second regime concerns the additional dependence of all outcome branches on the input operator. Increasing the number of outcomes therefore has two opposite effects: it linearly enlarges the global representation space, while dividing the local positivity margin of the uniform instrument by $n$.
 \end{remark}
 
+\begin{remark}[Two mechanisms behind the intermediate floor]
+\label{rem:gamma-mechanisms}
+The intermediate floor $\gamma_{A,B}^{(n)}=\max\{\rho_n,1/d_A\}$ combines two certificates of different geometric origin, and the maximum is the correct combination because each term is individually a valid lower bound on every width in the intermediate regime. The term $\rho_n=2/(nd_Bs)$ is a local statement: a ball of radius $\rho_n$ about the uniform instrument exists, and the antipodal pairs inside a centrally symmetric ball certify error at least $\rho_n$ via the radial map (Corollary~\ref{cor:intrinsic}); it decays with $n$ because the uniform trace budget is split among $n$ outcomes. The term $1/d_A$ is a global statement: a sphere spanning all $D_{A,B}^{(n)}$ directions of the body exists whose antipodes are separated by $2/d_A$ (Theorem~\ref{thm:full-direction}); the value $1/d_A$ is the largest mixing weight at which two orthogonal flagged Choi states with a common input marginal can be completed to instruments uniformly over all directions, the direction-dependent optimum $1/(d_A\|\mu(Z)\|_\infty)$ of Remark~\ref{rem:tunable-lambda} collapsing to $1/d_A$ exactly at the maximally mixed marginal. The two terms trade off at $n\approx2d_A/(d_B\min\{d_A,d_B\})$: below this threshold the ball term dominates the maximum, above it the input-dimension term $1/d_A$ is the floor; in particular, whenever $d_A\le d_B$ the floor is $1/d_A$ for every $n\ge2$. This is the geometric reason the intermediate obstruction carries an $n$-independent component.
+\end{remark}
+
 \section{Compression widths: upper bounds and exact thresholds}
 \label{sec:widths}
 
-The spheres of the preceding section certify that certain widths are large; this section supplies the matching upper bounds and the exact threshold where the width collapses to zero. The two sides bracket every intermediate width in an explicit interval.
+The spheres of the preceding section certify that certain widths are large; this section supplies the matching upper bounds and the exact threshold where the width collapses to zero. The two sides bracket every intermediate width in an explicit interval. The widths defined below are continuous-encoding analogues of the classical Kolmogorov $n$-widths of a compact set in a normed space~\cite{Pinkus1985}, with the linear subspaces of the classical theory replaced by arbitrary continuous images of $\mathbb R^r$.
 
 \begin{convention}[Continuous encoding, unrestricted decoding]
 \label{conv:decoder}
@@ -986,13 +990,13 @@ For compact metric $K\subseteq L$ we also use $\delta_r^{\mathrm c}(K;L)$, the a
 \begin{remark}[Decoder codomain does not weaken the lower bounds]
 \label{rem:decoder-codomain}
 Since $\RepInst_n(A,B)\subset\Inst_n(A,B)\subset\mathfrak A_{A,B}^{(n)}$, and the triangle inequality $\|h(u)-\Psi\|_{\diamond,\mathrm{inst}}+\|h(-u)-\Psi\|_{\diamond,\mathrm{inst}}\ge\|h(u)-h(-u)\|_{\diamond,\mathrm{inst}}$ holds for every $\Psi$ in the ambient vector space $\bigoplus_k\Lin(A,B)$, the lower bounds of Corollaries~\ref{cor:intrinsic} and \ref{cor:euclidean} (stated below) are proved for decoders with values in the full affine space $\mathfrak A_{A,B}^{(n)}$ --- a strictly stronger statement than for instrument-valued decoders. Hence
-\[
+\begin{align*}
 \beta_r^{\mathrm{best},(n)}(A,B)
-\le\delta_r^{\mathrm c}(\Inst_n(A,B);\mathfrak A_{A,B}^{(n)})
-\le\delta_r^{\mathrm c}(\Inst_n(A,B);\Inst_n(A,B))
+&\le\delta_r^{\mathrm c}\big(\Inst_n(A,B);\mathfrak A_{A,B}^{(n)}\big)\\
+&\le\delta_r^{\mathrm c}\big(\Inst_n(A,B);\Inst_n(A,B)\big)
 =\delta_{r,\mathrm{inst}}^{\diamond}(A,B)
 \le U_r^{(n)}(A,B).
-\]
+\end{align*}
 Allowing unphysical affine decoders cannot circumvent the certified lower envelope; and because the optimal constant-code centre $\mathcal I_*$ is itself an instrument (Theorem~\ref{thm:covering}), the constant-code width coincides over both codomains (Corollary~\ref{cor:constant-code}), so every upper bound of this paper is admissible with a physical instrument decoder.
 \end{remark}
 
@@ -1278,24 +1282,24 @@ because $D_n+1=d_A^2(nd_B^2-1)+1\ge nd_B^2\ge nd_Bs$; hence $U_0=R_n$, and with 
 
 \begin{corollary}[Asymptotic positivity--dimension product]
 \label{cor:asymptotic}
-\[
+\begin{align*}
 \Pi_n:=D_{A,B}^{(n)}\,\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)
-=d_A^2(nd_B^2-1)\frac{2}{nd_B\min\{d_A,d_B\}}
-\ \longrightarrow\ 
+&=d_A^2(nd_B^2-1)\frac{2}{nd_B\min\{d_A,d_B\}}\\
+&\ \longrightarrow\ 
 \Pi_\infty:=\frac{2d_A^2d_B}{\min\{d_A,d_B\}}
 =2d_A\max\{d_A,d_B\}
-\]
+\end{align*}
 as $n\to\infty$. Thus the product has a finite large-$n$ limit despite the linear growth of the affine dimension and the $1/n$ decay of the centred radius; the convergence is from below, with the exact finite-$n$ formula displayed in the proof below.
 \end{corollary}
 
 \begin{proof}
 The limit follows from the displayed explicit formula:
-\[
+\begin{align*}
 \Pi_n=\frac{2d_A^2(nd_B^2-1)}{nd_B\min\{d_A,d_B\}}
-=\frac{2d_A^2d_B}{\min\{d_A,d_B\}}-\frac{2d_A^2}{nd_B\min\{d_A,d_B\}}
-\xrightarrow[n\to\infty]{}\frac{2d_A^2d_B}{\min\{d_A,d_B\}}
+&=\frac{2d_A^2d_B}{\min\{d_A,d_B\}}-\frac{2d_A^2}{nd_B\min\{d_A,d_B\}}\\
+&\xrightarrow[n\to\infty]{}\frac{2d_A^2d_B}{\min\{d_A,d_B\}}
 =2d_A\max\{d_A,d_B\}.
-\]
+\end{align*}
 \end{proof}
 
 \begin{corollary}[Scaling with the number of outcomes]
@@ -1303,7 +1307,7 @@ The limit follows from the displayed explicit formula:
 Fix $d_A,d_B$ and consider latent dimensions $r_n$ with $r_n/n\to c$.
 \begin{enumerate}[leftmargin=*,itemsep=2pt]
 \item If $c<d_B^2$, then $r_n\le nd_B^2-2\le L_{A,B}^{(n)}$ eventually, so $\beta_{r_n}^{\mathrm{best},(n)}=1$ for all large $n$: the certified lower bound saturates at its maximal value $1$ already through flagged output preparation (in particular, for every fixed $r$ one has $\delta_{r,\mathrm{inst}}^{\diamond}\ge1$ for all large $n$).
-\item If $d_B^2<c<d_A^2d_B^2$, then eventually $L_{A,B}^{(n)}<r_n<D_{A,B}^{(n)}$ (since $L_{A,B}^{(n)}=nd_B^2+O(1)$ and $D_{A,B}^{(n)}=nd_A^2d_B^2+O(1)$), so the certified lower bound is $\beta_{r_n}^{\mathrm{best},(n)}=\gamma_{A,B}^{(n)}\to1/d_A$ --- a constant independent of $n$, strictly stronger than the $1/n$-decaying ball bound --- while every term of the certified upper envelope (Definition~\ref{def:upper}) remains at least $1$; the certified bracket therefore has asymptotic length at least $1-1/d_A$ in this regime.
+\item If $d_B^2<c<d_A^2d_B^2$, then eventually $L_{A,B}^{(n)}<r_n<D_{A,B}^{(n)}$, since $L_{A,B}^{(n)}=nd_B^2+O(1)$ and $D_{A,B}^{(n)}=nd_A^2d_B^2+O(1)$. The certified lower bound is then $\beta_{r_n}^{\mathrm{best},(n)}=\gamma_{A,B}^{(n)}\to1/d_A$, an $n$-independent constant strictly stronger than the $1/n$-decaying ball bound, while every term of the certified upper envelope (Definition~\ref{def:upper}) remains at least $1$; the certified bracket therefore has asymptotic length at least $1-1/d_A$ in this regime.
 \item If $c>d_A^2d_B^2$, then $r_n\ge D_{A,B}^{(n)}$ eventually and $\delta_{r_n,\mathrm{inst}}^{\diamond}=0$ exactly.
 \end{enumerate}
 The boundary cases $c=d_B^2$ and $c=d_A^2d_B^2$ are left to a more refined analysis. Thus the number of outcomes linearly enlarges the parameter count needed for exact reconstruction while dividing the centred positivity margin by $n$, and the intermediate obstruction carries a constant, $n$-independent component $1/d_A$.
@@ -1313,14 +1317,14 @@ The boundary cases $c=d_B^2$ and $c=d_A^2d_B^2$ are left to a more refined analy
 \label{rem:barrier}
 For $r<D_{A,B}^{(n)}$ every admissible term of the certified upper envelope (Definition~\ref{def:upper}) is at least $1$ (Proposition~\ref{prop:floor}). Consequently the three constructions --- constant codes, linear/convex projection with Helly selection, and balanced block pinching --- cannot achieve error $\varepsilon<1$ in the intermediate regime $L_{A,B}^{(n)}<r<D_{A,B}^{(n)}$. The bound therefore concerns these specific constructions rather than all possible codes; nonlinear manifold encodings or other decoder families are not excluded.
 
-It is natural to ask whether either of two further tools lowers the certified upper bounds below one in the intermediate regime; neither does. (i) \emph{Covering-number encodings.} If the body contains a diamond ball of radius $r_0$ (which exists by full affine dimension and norm equivalence), then an $\varepsilon$-net of the body in the instrument diamond norm has size $N(\varepsilon)\ge(r_0/\varepsilon)^{D}$ by the volume estimate, so a net-based code needs at least $D\log_2(r_0/\varepsilon)$ bits, which exceeds $D$ bits for every $\varepsilon<r_0/2$. The affine encoding achieves error $0$ with $D$ Euclidean coordinates, and Theorem~\ref{thm:zero-error} shows that $D$ coordinates are also necessary among continuous encoders; this comparison with discrete net-based codes is informal and does not by itself rule out other continuous low-dimensional encodings. (ii) \emph{Orthogonal joins of full-body spheres.} These are precisely the constructions already absorbed into $\beta_r^{\mathrm{best},(n)}$ in Section~\ref{sec:lower}; they certify the value $1$ up to $L_{A,B}^{(n)}$ and cannot extend the separation-two regime beyond it. The complete picture is summarised in Table~\ref{tab:summary}.
+It is natural to ask whether either of two further tools lowers the certified upper bounds below one in the intermediate regime; neither does. (i) \emph{Covering-number encodings.} If the body contains a diamond ball of radius $r_0$ (which exists by full affine dimension and norm equivalence), then an $\varepsilon$-net of the body in the instrument diamond norm has size at least $(r_0/\varepsilon)^{D}$ by the volume estimate; a net-based code thus needs at least $D\log_2(r_0/\varepsilon)$ bits, exceeding $D$ bits for every $\varepsilon<r_0/2$. The affine encoding achieves error $0$ with $D$ Euclidean coordinates, and Theorem~\ref{thm:zero-error} shows that $D$ coordinates are also necessary among continuous encoders; this comparison with discrete net-based codes is informal and does not by itself rule out other continuous low-dimensional encodings. (ii) \emph{Orthogonal joins of full-body spheres.} These are precisely the constructions already absorbed into $\beta_r^{\mathrm{best},(n)}$ in Section~\ref{sec:lower}; they certify the value $1$ up to $L_{A,B}^{(n)}$ and cannot extend the regime of antipodal separation $2$ beyond it. The complete picture is summarised in Table~\ref{tab:summary}.
 \end{remark}
 
 \begin{table}[t]
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{p{3.5cm}p{2.3cm}p{2.7cm}p{2.5cm}p{4.6cm}}
+\begin{tabular}{p{3.0cm}p{2.2cm}p{2.6cm}p{2.4cm}p{4.4cm}}
 \toprule
 Regime & Index range & Certified lower $\beta_r^{\mathrm{best},(n)}$ & Certified upper $U_r^{(n)}$ & Status \\
 \midrule
@@ -1347,7 +1351,7 @@ The following explicit consequences summarise the main results at the boundaries
 \]
 with covering radius $2(1-1/(d_B\min\{d_A,d_B\}))$ and zero-error threshold $d_A^2(d_B^2-1)$. For $d_B=1$ the channel body is the singleton trace functional of Remark~\ref{rem:degenerate}. (All normalisations are those of Remark~\ref{rem:choi-convention}.)
 
-\item \textbf{POVM case $d_B=1$, $n\ge2$.} Every instrument has the form $\mathcal I_k(X)=\Tr(E_kX)$ with $E_k\ge0$, $\sum_kE_k=I_A$ (Remark~\ref{rem:povm}). The centred in-radius is $\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)=2/n$, the flagged replacement sphere has dimension $n-2$, and the affine dimension is $d_A^2(n-1)$.
+\item \textbf{POVM case $d_B=1$, $n\ge2$.} Every instrument has the form $\mathcal I_k(X)=\Tr(E_kX)$ with $E_k\ge0$, $\sum_kE_k=I_A$ (Remark~\ref{rem:povm}). The centred in-radius is $\rho_{\diamond,\mathrm{inst}}(\mathcal I_*)=2/n$, the replacement sphere has dimension $n-2$, and the affine dimension is $d_A^2(n-1)$.
 
 \item \textbf{Input-independent case $d_A=1$.} The map
 \[
@@ -1382,7 +1386,7 @@ Here $D=28$, $L_{\mathrm{rep}}=6$, $L_{\mathrm{obs}}=2$, $N_{\mathrm{join}}=2$, 
 0,&r\ge28.
 \end{cases}
 \]
-The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $r=0$ and $34/18\approx1.889$ at $r=11$, both above $1.75$; balanced two-sector output pinching gives $1$ at $r_{\mathrm{out}}=d_A^2(nQ_2(d_B)-1)=4(2\cdot2-1)=12$ (here $Q_2(2)=2$); input pinching enters only at $r_{\mathrm{in}}=Q_2(d_A)(nd_B^2-1)=2(8-1)=14$, outside the plotted range. Hence on $0\le r\le13$ the verified upper envelope is $1.75$ for $0\le r<12$ and $1$ for $12\le r\le13$. At $r=0$ the exact width is $1.75$ and the exact gap is $0.75=1-\rho_n$. The envelope is plotted in Figure~\ref{fig:envelope}(a), and Table~\ref{tab:thresholds} collects the threshold data for several parameter triples (its $(3,2,2)$ row corresponds to Figure~\ref{fig:envelope}(b)).
+The upper envelope: $R_n=1.75$; the convex bound equals $56/29\approx1.931$ at $r=0$ and $34/18\approx1.889$ at $r=11$, both above $1.75$; balanced two-sector output pinching gives $1$ at $r_{\mathrm{out}}=d_A^2(nQ_2(d_B)-1)$, which evaluates to $4(2\cdot2-1)=12$ (here $Q_2(2)=2$); input pinching enters only at $r_{\mathrm{in}}=Q_2(d_A)(nd_B^2-1)$, which evaluates to $2(8-1)=14$, outside the plotted range. Hence on $0\le r\le13$ the verified upper envelope is $1.75$ for $0\le r<12$ and $1$ for $12\le r\le13$. At $r=0$ the exact width is $1.75$ and the exact gap is $0.75=1-\rho_n$. The envelope is plotted in Figure~\ref{fig:envelope}(a), and Table~\ref{tab:thresholds} collects the threshold data for several parameter triples (its $(3,2,2)$ row corresponds to Figure~\ref{fig:envelope}(b)).
 \end{example}
 
 \begin{figure}[t]
@@ -1582,7 +1586,7 @@ a CPTP map $\Lin(M)\to\Lin(M_j)$: the first term is the compression onto the $P_
 
 \begin{remark}[Scope of the no-programming obstruction]
 \label{rem:scope}
-The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. Optimal asymptotic program-cost scaling for approximate universal unitary programming is established in~\cite{YangRennerChiribella2020}; the compactness corollary above records the qualitative divergence consequence needed for motivation.
+The result forbids a scheme that is simultaneously exact, deterministic, universal over the unitary promise class, and finite-dimensional. It does not forbid approximate, probabilistic, restricted-family, infinite-dimensional, or unbounded-register schemes, nor schemes with an externally supplied classical description. A finite classical program register is still a finite-dimensional program and is not exempt. Storing a Choi operator as a mathematical state is also distinct from evaluating the represented channel with one fixed CPTP processor. Optimal asymptotic program-cost scaling for approximate universal unitary programming is established in~\cite{YangRennerChiribella2020}, and quantitative lower bounds on the program dimension in the approximate case are obtained in~\cite{KubickiPalazuelosPerezGarcia2019}; the compactness corollary above records the qualitative divergence consequence needed for motivation.
 \end{remark}
 
 \begin{thebibliography}{99}
@@ -1593,14 +1597,29 @@ M.-D. Choi, \emph{Completely positive linear maps on complex matrices}, Linear A
 \bibitem{Jamiolkowski1972}
 A.~Jamio{\l}kowski, \emph{Linear transformations which preserve trace and positive semidefiniteness of operators}, Rep. Math. Phys. \textbf{3}, 275--278 (1972).
 
+\bibitem{KubickiPalazuelosPerezGarcia2019}
+A.~M. Kubicki, C. Palazuelos, and D. P\'erez-Garc\'ia, \emph{Resource quantification for the no-programing theorem}, Phys. Rev. Lett. \textbf{122}, 080505 (2019).
+
 \bibitem{DaviesLewis1970}
 E.~B. Davies and J.~T. Lewis, \emph{An operational approach to quantum probability}, Commun. Math. Phys. \textbf{17}, 239--260 (1970).
+
+\bibitem{AharonovKitaevNisan1998}
+D. Aharonov, A. Kitaev, and N. Nisan, \emph{Quantum circuits with mixed states}, in Proceedings of the Thirtieth Annual ACM Symposium on Theory of Computing (STOC 1998), ACM, New York, 1998, pp.~20--30.
 
 \bibitem{Ozawa1984}
 M. Ozawa, \emph{Quantum measuring processes of continuous observables}, J. Math. Phys. \textbf{25}, 79--87 (1984).
 
+\bibitem{Pinkus1985}
+A. Pinkus, \emph{$n$-Widths in Approximation Theory}, Ergebnisse der Mathematik und ihrer Grenzgebiete \textbf{7}, Springer, Berlin, 1985.
+
 \bibitem{ChiribellaEtAl2009Instruments}
 G. Chiribella, G.~M. D'Ariano, and P. Perinotti, \emph{Realization schemes for quantum instruments}, J. Math. Phys. \textbf{50}, 042101 (2009).
+
+\bibitem{ChiribellaEtAl2008Combs}
+G. Chiribella, G.~M. D'Ariano, and P. Perinotti, \emph{Quantum circuit architecture}, Phys. Rev. Lett. \textbf{101}, 060401 (2008).
+
+\bibitem{Helstrom1976}
+C.~W. Helstrom, \emph{Quantum Detection and Estimation Theory}, Mathematics in Science and Engineering \textbf{123}, Academic Press, New York, 1976.
 
 \bibitem{Watrous2018}
 J. Watrous, \emph{The Theory of Quantum Information}, Cambridge University Press (2018).
