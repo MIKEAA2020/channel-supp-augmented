@@ -107,9 +107,9 @@ and for $r\ge D_{A,B}^{(n)}$ exact decoding may be chosen continuously via Eucli
 
 Quantum instruments are the natural generalisation of quantum channels to finite-outcome statistics: a collection of completely positive, trace-nonincreasing maps whose sum is a channel. They describe both the probability of an outcome and the conditional post-measurement state, and they model finite-outcome measurements and adaptive protocols~\cite{DaviesLewis1970,Ozawa1984,ChiribellaEtAl2009Instruments}.
 
-The question treated here is the same as for channels: can the compact convex body of $n$-outcome instruments between $A$ and $B$ be encoded continuously into a low-dimensional latent space and decoded with uniformly small error? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has two regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. At larger dimensions, the full input-dependent instrument body imposes a ball bound scaling as $1/n$, alongside a full-direction antipodal obstruction that is independent of $n$.
+The question treated here is the same as for channels: can the compact convex body of $n$-outcome instruments between $A$ and $B$ be encoded continuously into a low-dimensional latent space and decoded with uniformly small error? Throughout, we adopt the standard asymmetric convention: the \emph{encoder is continuous} and the \emph{decoder is unrestricted} (Convention~\ref{conv:decoder}); where a continuous decoder is additionally available we say so explicitly. The answer has three regimes. At small latent dimension, input-independent preparation of a flagged output state already forces error one. In an intermediate range, the width is bracketed between a certified lower and a certified upper envelope: a centred-ball bound scaling as $1/n$ --- which Theorem~\ref{thm:global-inradius} shows is the best centred-ball certificate at any centre --- plus a full-direction antipodal obstruction contributing an $n$-independent component $1/d_A$, against upper bounds that never sink below one. From the affine dimension on, exact reconstruction holds, even with a continuous decoder.
 
-The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences. Which quantities are determined \emph{exactly}, and which only by \emph{certified bounds}, is stated once in Remark~\ref{rem:exact-vs-certified} and maintained throughout. A separate physical question --- whether an abstract code can be realised by a fixed programmable processor --- is addressed in Appendix~\ref{app:no-programming}: exact finite-dimensional evaluation of all unitary channels is impossible, and vanishing error forces unbounded program dimension. This separates \emph{representational} dimension from \emph{programmable} evaluation; the main theorems do not rely on the appendix.
+The main contribution of this paper is the exact affine geometry of the instrument body and its compression consequences: the affine dimension, the centred and global in-radii, the covering radius, and the diameter are determined exactly, with the uniform depolarising instrument turning out to be an optimal centre simultaneously for the in-radius and the covering radius (a concave--convex duality, Theorem~\ref{thm:global-inradius} and Remark~\ref{rem:duality}). Which quantities are determined \emph{exactly}, and which only by \emph{certified bounds}, is stated once in Remark~\ref{rem:exact-vs-certified} and maintained throughout. A separate physical question --- whether an abstract code can be realised by a fixed programmable processor --- is addressed in Appendix~\ref{app:no-programming}: exact finite-dimensional evaluation of all unitary channels is impossible, and vanishing error forces unbounded program dimension. This separates \emph{representational} dimension from \emph{programmable} evaluation; the main theorems do not rely on the appendix.
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -211,11 +211,13 @@ The following statements are exact: (i) the affine dimension $D_{A,B}^{(n)}$; (i
 
 \begin{remark}[Notation]
 \label{rem:notation}
-To avoid collisions, ranks are denoted $r_R$, the number of input pinching blocks by $k_{\mathrm{in}}$, the number of output pinching blocks by $\ell_{\mathrm{out}}$, the latent dimension by $r$ (or $q$ for general latent spaces), the covering radius by $R$, input or support subspaces by $W$, and the reference system in the covering arguments by $E$.
+To avoid collisions, the following symbols are used consistently: ranks are denoted $r_E$, the number of input pinching blocks by $k_{\mathrm{in}}$, the number of output pinching blocks by $\ell_{\mathrm{out}}$, the latent dimension by $r$ (or $q$ for general latent spaces), the covering radius by $R$, input or support subspaces by $W$, and the reference system in the covering arguments by $E$.
 \end{remark}
 
 \section{Exact affine and metric parameters}
 \label{sec:exact-geometry}
+
+This section determines the affine dimension, the centred in-radius at the uniform instrument, the global in-radius, the covering radius, and the diameter of the instrument body, all exactly.
 
 \begin{proposition}[Affine dimension of the instrument body]
 \label{prop:dimension}
@@ -355,18 +357,18 @@ Each Choi block of the uniform instrument has positivity margin $1/(nd_Ad_B)$, w
 
 \begin{remark}[Global in-radius]
 \label{rem:global-inradius}
-Theorem~\ref{thm:exact-radius} determines the largest ball centred at $\mathcal I_*$. The global in-radius
+Theorem~\ref{thm:exact-radius} determines the largest ball centred at $\mathcal I_*$. The stronger question --- the global in-radius
 \[
 \sup_{\mathcal I_0\in\Inst_n(A,B)}\rho_{\diamond,\mathrm{inst}}(\mathcal I_0)
 \]
-is determined by Theorem~\ref{thm:global-inradius} (after Theorem~\ref{thm:covering} below): the in-radius is a concave function of the centre, so the same symmetrisation that makes $\mathcal I_*$ optimal for the covering radius makes it optimal for the in-radius, and the supremum equals $\rho_n=2/(nd_Bs)$. In particular no re-centring of the radial construction below can certify more than $\rho_n$ from a centred ball.
+over all centres --- is settled by Theorem~\ref{thm:global-inradius} (placed after Theorem~\ref{thm:covering}, whose symmetrisation machinery it uses): the in-radius is a concave function of the centre, so the same Haar averaging that makes $\mathcal I_*$ optimal for the covering radius makes it optimal for the in-radius, and the supremum equals $\rho_n=2/(nd_Bs)$.
 \end{remark}
 
 \begin{lemma}[Bipartite domination for instrument blocks]
 \label{lem:domination}
-Let $\sigma_{EB}\ge0$ be subnormalised, with $\rho_E=\Tr_B\sigma_{EB}$ and $r_R=\rank\rho_E$. Then
+Let $\sigma_{EB}\ge0$ be subnormalised, with $\rho_E=\Tr_B\sigma_{EB}$ and $r_E=\rank\rho_E$. Then
 \[
-\sigma_{EB}\le\min\{r_R,d_B\}\,\rho_E\otimes I_B.
+\sigma_{EB}\le\min\{r_E,d_B\}\,\rho_E\otimes I_B.
 \]
 \end{lemma}
 
@@ -375,13 +377,13 @@ If $\rho_E=0$ there is nothing to prove. Otherwise let $E_0=\supp\rho_E$, so tha
 \[
 Z=(\rho_E^{-1/2}\otimes I_B)\sigma_{EB}(\rho_E^{-1/2}\otimes I_B).
 \]
-Then $Z\ge0$ and $\Tr_BZ=I_{E_0}$. Write $Z=\sum_\alpha|K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|$ with $\sum_\alpha K_\alpha^\dagger K_\alpha=I_{E_0}$ in the vectorisation convention $|K\rangle\!\rangle=\sum_i|\overline i\rangle\otimes K|i\rangle$. For a unit vector $|v\rangle\in E_0\otimes B$ let $V:E_0\to B$ be the corresponding matrix of rank $b\le\min\{r_R,d_B\}$. Using $|\Tr M|^2\le\rank(M)\|M\|_2^2$ with $M=K_\alpha V^\dagger$ of rank at most $b$,
+Then $Z\ge0$ and $\Tr_BZ=I_{E_0}$. Write $Z=\sum_\alpha|K_\alpha\rangle\!\rangle\langle\!\langle K_\alpha|$ with $\sum_\alpha K_\alpha^\dagger K_\alpha=I_{E_0}$ in the vectorisation convention $|K\rangle\!\rangle=\sum_i|\overline i\rangle\otimes K|i\rangle$. For a unit vector $|v\rangle\in E_0\otimes B$ let $V:E_0\to B$ be the corresponding matrix of rank $b\le\min\{r_E,d_B\}$. Using $|\Tr M|^2\le\rank(M)\|M\|_2^2$ with $M=K_\alpha V^\dagger$ of rank at most $b$,
 \[
 \langle v|Z|v\rangle
 =\sum_\alpha|\Tr(V^\dagger K_\alpha)|^2
 \le b\sum_\alpha\Tr(VK_\alpha^\dagger K_\alpha V^\dagger)=b.
 \]
-Thus $Z\le\min\{r_R,d_B\}I_{E_0\otimes B}$, and conjugation by $\rho_E^{1/2}\otimes I_B$ proves the claim.
+Thus $Z\le\min\{r_E,d_B\}I_{E_0\otimes B}$, and conjugation by $\rho_E^{1/2}\otimes I_B$ proves the claim.
 \end{proof}
 
 \begin{theorem}[Exact instrument covering radius]
@@ -564,6 +566,8 @@ Theorem~\ref{thm:global-inradius} is the mirror image of the covering-radius sym
 
 \section{Antipodal certificates and the lower envelope}
 \label{sec:lower}
+
+The certified lower bounds rest on a single topological device, the antipodal profile of the body: an antipodally separated sphere inside the body forces every compression with that many latent dimensions to err. This section builds three such spheres --- the flagged replacement sphere, the full-direction sphere, and the observable sphere, the last two joined by an instrument-level construction --- and combines them into the certified lower envelope $\beta_r^{\mathrm{best},(n)}$.
 
 Throughout this section, instruments are identified with their normalised flagged Choi operators, a compact convex subset of a finite-dimensional real vector space. All constructed maps are finite-dimensional and continuous in Choi trace norm or operator norm; by norm equivalence on this finite-dimensional space, this is equivalent to continuity in the instrument diamond norm, which is the metric used in the definition of the antipodal profile. The two notions of continuity are therefore used interchangeably.
 
@@ -925,6 +929,8 @@ The two breakpoints of the envelope have a direct resource interpretation. A fla
 \section{Compression widths: upper bounds and exact thresholds}
 \label{sec:widths}
 
+The spheres of the preceding section certify that certain widths are large; this section supplies the matching upper bounds and the exact threshold where the width collapses to zero. The two sides bracket every intermediate width in an explicit interval.
+
 \begin{convention}[Continuous encoding, unrestricted decoding]
 \label{conv:decoder}
 Throughout the compression-width results, an encoder is required to be continuous while the decoder is unrestricted unless explicitly stated otherwise. This convention is essential for the Helly-type upper bounds; where a continuous decoder is available we state this separately.
@@ -1003,7 +1009,7 @@ If $q\ge D_{A,B}^{(n)}$, then $\beta_q^{\mathrm{best},(n)}(A,B)=0$ and the claim
 \[
 h(u)=\mathcal I_*+\rho_n\frac{u}{\|u\|_{\diamond,\mathrm{inst}}}
 \]
-on an auxiliary Euclidean sphere $S^q\subset W$ (the denominator is nonzero on the Euclidean unit sphere, and finite-dimensional norm equivalence makes the normalisation continuous). Theorem~\ref{thm:ball} makes the radial map instrument-valued with antipodal separation $2\rho_n$, and Theorem~\ref{thm:full-direction} independently supplies a map with separation $2/d_A$; choose the radial map when $\rho_n\ge1/d_A$ and the full-direction map otherwise, so that the chosen map has antipodal separation $2\gamma_{A,B}^{(n)}$. In both regimes, if the two latent codes $\operatorname{Enc}(h(u))$ and $\operatorname{Enc}(h(-u))$ were distinct for every $u$, then $u\mapsto(\operatorname{Enc}(h(u)),\operatorname{Enc}(h(-u)))$ would be an equivariant map $S^q\to F_2(Y)$, contradicting the coindex hypothesis. An antipodal pair therefore has one code; the decoder returns one reconstruction for it, and the triangle inequality gives half the separation, namely $\beta_q^{\mathrm{best},(n)}(A,B)$.
+on an auxiliary Euclidean sphere $S^q\subset W$ (the denominator $\|u\|_{\diamond,\mathrm{inst}}$ is a continuous and strictly positive function on the compact Euclidean sphere, so the normalisation is continuous). Theorem~\ref{thm:ball} makes the radial map instrument-valued with antipodal separation $2\rho_n$, and Theorem~\ref{thm:full-direction} independently supplies a map with separation $2/d_A$; choose the radial map when $\rho_n\ge1/d_A$ and the full-direction map otherwise, so that the chosen map has antipodal separation $2\gamma_{A,B}^{(n)}$. In both regimes, if the two latent codes $\operatorname{Enc}(h(u))$ and $\operatorname{Enc}(h(-u))$ were distinct for every $u$, then $u\mapsto(\operatorname{Enc}(h(u)),\operatorname{Enc}(h(-u)))$ would be an equivariant map $S^q\to F_2(Y)$, contradicting the coindex hypothesis. An antipodal pair therefore has one code; the decoder returns one reconstruction for it, and the triangle inequality gives half the separation, namely $\beta_q^{\mathrm{best},(n)}(A,B)$.
 \end{proof}
 
 \begin{corollary}[Continuous instrument-compression hierarchy]
@@ -1277,6 +1283,8 @@ Two candidate tools, however, do \emph{not} break the barrier, and it is worth r
 \section{Specialisations, examples, and explicit trade-off}
 \label{sec:specialisations}
 
+The following explicit consequences summarise the main results at the boundaries of the parameter space --- channels ($n=1$), POVMs ($d_B=1$), and input-independent instruments ($d_A=1$) --- together with the explicit trade-off between outcome number and local robustness and the worked example used for the figures and tables.
+
 \begin{itemize}[leftmargin=*,itemsep=3pt]
 \item \textbf{Channel case $n=1$.} The instrument body reduces to the channel body, and Theorem~\ref{thm:exact-radius} gives, for $d_B>1$,
 \[
@@ -1305,7 +1313,7 @@ because the input is one-dimensional. Hence all state-space results transfer, an
 \]
 The centred in-radius is still $2/(nd_B)$ (since $s=\min\{1,d_B\}=1$) as a radius of the body inside its affine hull, but it plays no role in the antipodal profile, which is governed by the lower-dimensional replacement structure of the body.
 
-\item \textbf{$1/n$ suppression versus $n$-fold growth.} The centred in-radius at the uniform centre scales as $1/n$ for fixed $d_B$, while the affine dimension $D_{A,B}^{(n)}=d_A^2(nd_B^2-1)$ grows linearly in $n$. Thus more outcomes increase the number of parameters needed for exact reconstruction but reduce the local robustness of the uniform instrument; the full-direction bound $\alpha_r\ge1/d_A$ shows that a part of the intermediate obstruction is independent of $n$.
+\item \textbf{$1/n$ suppression versus $n$-fold growth.} The centred in-radius at the uniform centre scales as $1/n$ for fixed $d_B$, while the affine dimension $D_{A,B}^{(n)}=d_A^2(nd_B^2-1)$ grows linearly in $n$: more outcomes increase the parameter count for exact reconstruction but reduce local robustness, with the precise trichotomy of Corollary~\ref{cor:scaling}.
 \end{itemize}
 
 \begin{example}[$d_A=d_B=2$, $n=2$]

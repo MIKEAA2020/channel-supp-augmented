@@ -521,3 +521,68 @@ From gpt audit 2 and qwen audit (mathematical/rigor items only):
 With this, every file in the repository has been adjudicated; the synthesis now
 contains, in validated form, every mathematically correct contribution of all
 thirteen audit documents and all manuscript versions.
+
+---
+
+## 9. Final residual sweep and structural polish pass (fourth pass)
+
+### Q1 — Remaining audit points worth implementing
+
+The full adjudication ledger was re-verified: all 45 rows carry status **V** (validated
+and implemented), so no ledger point remains open. The deliberate non-implementations
+were re-adjudicated one more time with fresh eyes and confirmed as skips:
+- coind typography (gpt audit 2, item K): cosmetic; current rendering is unambiguous.
+- chatgpt #22 (attribute the abstract's replacement profile to the isometry lemma):
+  abstracts should not cite lemma numbers; the attribution is in the body.
+- final.txt's "flagged-state picture" remark: its content is exactly the
+  replacement isometry + rem:breakpoints + the d_A=1 specialisation.
+- A separate POVM (d_B=1) proposition (P5): already a full case of
+  thm:exact-radius; a second statement would duplicate.
+- final.txt Table 2 (status column): fully carried by rem:exact-vs-certified,
+  prop:gap, and prop:floor, which state certainty per item more precisely.
+- deepseek's stylistic expansions: the justifications are present in compact form.
+
+Three micro-items WERE implemented from this sweep's own findings (below).
+
+### Q2 — Deep scan: remnants, redundancy, clarity, flow
+
+**Remnants.** Scripted scans found: no duplicated sentences; no undefined
+user-macro suspects; every \cite key matches a \bibitem (multi-key cites verified);
+one \appendix; no leftover pre-rename symbols (S_A, P_S, \rho_R, R_0, \zeta_R,
+\id_R, \overline S, \beta^\star, "replacement face", "block-positive",
+\|\Phi\otimes id\|). One genuine leftover WAS found and fixed: the rank symbol
+**r_R** (subscript R from the old reference-system name, colliding with the
+covering radius R) — renamed to **r_E** in the domination lemma and the notation
+remark, which now opens with an explicit symbol list.
+
+**Redundancy.** Three deduplications:
+- rem:global-inradius trimmed to a pure pointer to thm:global-inradius (the
+  mechanism and consequences live in thm/lem/rem:duality; the re-centring
+  sentence was a duplicate of rem:duality's first by-product).
+- The specialisations bullet "1/n suppression versus n-fold growth" no longer
+  restates cor:scaling's trichotomy verbatim; it now cross-references it.
+- The corrected radial-map parenthetical (continuity follows from the norm
+  being continuous and strictly positive on the compact Euclidean sphere; the
+  old "finite-dimensional norm equivalence" reason was the wrong justification
+  and is gone, while the valid norm-equivalence uses in the section preamble
+  and the barrier remark are kept).
+
+**Conceptual clarity and flow.** The following bridges and lead-ins were added
+or rewritten (all content already present elsewhere; no new claims):
+- Introduction rewritten around the actual three-regime answer, with the
+  global in-radius previewed (the optimal centred-ball certificate at any
+  centre) and the concave-convex duality announced.
+- sec:exact-geometry now opens with a one-sentence menu of its five exact
+  parameters (matching its actual contents).
+- sec:lower now opens with a conceptual bridge: the antipodal profile as the
+  single topological device behind the lower bounds, and the three spheres it
+  combines (continuity convention kept as the second paragraph).
+- sec:widths opens with the matching bridge: lower certificates versus upper
+  bounds meeting in the bracket.
+- sec:specialisations recovers final.txt's lead-in ("The following explicit
+  consequences summarise...") adapted to the boundary cases it actually lists.
+- The appendix already carried its independence paragraph; verified.
+
+**Validation.** All structural checks pass on the final text (1,514 lines):
+every \ref resolves, every environment balances, dollar parity holds, no
+duplicated sentences, no leftover symbols. Committed with this section.
