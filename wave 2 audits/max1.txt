@@ -1,0 +1,676 @@
+## Verdict
+
+After two full line‑level passes (re‑deriving every displayed identity, recomputing every numerical example, table entry and plot coordinate, and checking every cross‑reference and symbol convention), **I found no mathematical error and no numerical inconsistency**. All nontrivial constants cross‑check (see ledger below). What remains is a short list of *scoping/notation/exposition* flaws, none of which propagates into a wrong statement.
+
+---
+
+## Flaws and internal inconsistencies found
+
+**1. Lemma `lem:inradius-concave` is the one statement that is ill‑defined in the degenerate case, yet carries no hypothesis.**
+Remark `rem:degenerate` assigns $\rho_{\diamond,\mathrm{inst}}=+\infty$ when $n=d_B=1$. In that case the Lipschitz bound $|\rho(\mathcal I_0)-\rho(\mathcal I_1)|\le\|\mathcal I_0-\mathcal I_1\|$ reads $|\infty-\infty|\le 0$, and the concavity inequality involves $\infty$‑arithmetic. The global convention in `rem:degenerate` ("all nontrivial statements assume $nd_B>1$") technically covers this, but this lemma is precisely the place where the convention is *load‑bearing* rather than cosmetic (Theorem `thm:global-inradius` invokes it only under $nd_B>1$, so nothing downstream breaks). Suggested fix: prepend "Assume $nd_B>1$" to the lemma.
+
+**2. Remark `rem:notation` overclaims symbol consistency.**
+It reserves $W$ for "input or support subspaces" and $E$ for "the reference system in the covering arguments", but:
+- In Proposition `prop:join-inst` and Corollary `cor:join-dimension`, $W$ and $W_{\mathrm{obs}}$ denote **output–flag** subspaces of $B\otimes C_n$ (defensible as "support" subspaces of flagged outputs, but they are not input subspaces, and `prop:join-inst`'s $W$ lives in the output space);
+- the Appendix uses $E$ as the **input** system of the programming task, colliding with the reserved meaning (defensible since the appendix is declared logically independent, but the collision is real);
+- `thm:exact-radius` uses $W_A$ where `thm:covering` uses $W$ (harmless variant).
+So "used consistently" is slightly stronger than the practice.
+
+**3. Unremarked conjugation flip between `lem:spectral` and `thm:exact-radius`.**
+The lemma builds $|\omega_W\rangle=\frac1{\sqrt b}\sum_j|e_j\rangle_{A_0}|\overline e_j\rangle_A$, while the theorem builds $|\omega_{W_A}\rangle=\frac1{\sqrt s}\sum_a|\overline e_a\rangle_{A_0}|e_a\rangle_A$. Both are correct in their roles (in the theorem the $A_0$‑support is $\overline W_A$, and $\Tr_B P_j=P_{\overline W_A}/s$ checks out), but which tensor factor carries the conjugate basis swaps without comment; a reader re‑deriving the marginal identities must notice this themselves.
+
+**4. One‑step justification omitted in `prop:gap`, item 1.**
+The chain $D_n+1\ge nd_B^2\ge nd_Bs$ uses $nd_B\ge s=\min\{d_A,d_B\}$ (true because $nd_B\ge d_B\ge s$), which is never stated. Correct but silent.
+
+**5. Minor expository tangles (no logical content).**
+- The section `sec:lower` intro sentence ("builds three such spheres — … the first and the third then combined by an instrument‑level join — and combines them into…") is syntactically doubled.
+- `rem:exact-vs-certified` and `rem:global-inradius` forward‑reference `thm:global-inradius`; this is *flagged as intentional* in `rem:global-inradius`, so it is a style choice, not a defect.
+- Figure `fig:envelope`(a) stops at $r=13$ with $r_{\mathrm{in}}=14$ "outside the plotted range": consistent with Example `ex:222`, but the reader must trust the text for $r\ge14$.
+
+---
+
+## Consistency ledger (recomputed and confirmed)
+
+- **Dimension/radius/covering:** $D=d_A^2(nd_B^2-1)$; $\rho_n=2/(nd_Bs)$; $R_n=2-\rho_n$; $\rho_n+R_n=2$; diameter $2$ — mutually consistent, and the witness eigenvalues $1/(nd_Ad_B)-t's/(2d_A)$ (channel case) and $1/(nd_A)-t'/(2d_A)$ (POVM case) match the claimed maximality at $t=2/(nd_Bs)$, $2/n$.
+- **Spectral lemma factor:** $Y=\frac{d_A}{b}(P_W\otimes I)X(P_W\otimes I)$, $\|Y\|_1\ge\frac{2d_A}{b}\lambda$ ⇒ $\lambda\le\frac{s}{2d_A}\|\vD\|$: correct, including the Schmidt‑rank bound $b\le s$.
+- **Domination lemma:** vectorisation convention yields $\sum_\alpha K_\alpha^\dagger K_\alpha=I$ and $\langle v|Z|v\rangle=\sum_\alpha|\Tr(V^\dagger K_\alpha)|^2\le b$: correct.
+- **Covering proof:** $\sigma\le nd_Bs\,(\rho_E\otimes I_B/d_B\otimes I_{C_n}/n)$ and $a-b\le 1-1/K$: correct; Haar/permutation barycentre $=\mathcal I_*$ uses $\sum_j\Tr\Psi_j(X)=\Tr X$: correct.
+- **Spheres/joins:** $S^{nd_B^2-2}$, $S^{d_A^2-2}$, join dimension $(d_A^2-2)+(N_{\mathrm{join}}-2)+1=d_A^2+N_{\mathrm{join}}-3$; $N_{\mathrm{join}}=2(d_B-1)^2+(n-2)d_B^2$ ($n\ge2$), $(d_B-2)^2$ ($n=1$): all consistent with `prop:join`, `prop:join-inst`.
+- **Examples/tables/figures:** $(2,2,2)$: $D=28$, $L_{\mathrm{rep}}=6$, $L_{\mathrm{obs}}=2$, $N_{\mathrm{join}}=2$, $L_{\mathrm{join}}=3$, $L=6$, $\gamma=1/2$, $R_n=1.75$, $r_{\mathrm{out}}=12$, $r_{\mathrm{in}}=14$, $56/29$, $34/18$ — all match Table `tab:thresholds` and Fig (a). $(3,2,2)$: $D=63$, $L=8$, $\gamma=1/3$, steps at $21$ ($4/3$, $Q_3(3)=3$) and $27$ ($Q_2(2)=2\Rightarrow9\cdot3$) — match Fig (b). $(2,3,1)$: $D=32$, $L_{\mathrm{rep}}=7$, $N_{\mathrm{join}}=1$ invalid, $L=7$, $\gamma=1/2$. $(2,1,2)$: $D=4$, $L=2$, $\gamma=1$, collapse — match Fig (c) and `thm:collapse` (case enumeration $nd_Bs=2$ is complete).
+- **Envelope logic:** $\beta$ non‑increasing; $U_r\ge1$ for $r<D$ (one‑block thresholds equal $D$); $U_0=R_n$; zero‑error threshold $r\ge D$ with continuous decoder; scaling trichotomy limits $L=nd_B^2+O(1)$, $D=nd_A^2d_B^2+O(1)$, $\gamma\to1/d_A$; $\Pi_\infty=2d_A\max\{d_A,d_B\}$ from below — all consistent.
+- **Appendix:** mixed‑program reduction, orthogonality of supports, and the subsequence‑independent‑of‑$U$ compactness argument are sound.
+
+**Bottom line:** the only actionable items are (1) adding the $nd_B>1$ hypothesis to Lemma `lem:inradius-concave`, (2) softening the consistency claim in Remark `rem:notation` (or renaming the appendix's $E$ and the join's $W$), (3) a sentence noting the conjugate‑basis flip between `lem:spectral` and `thm:exact-radius`, and (4) the one‑line justification $nd_B\ge s$ in `prop:gap`. Everything else is internally consistent.
+
+## 1. Does the work merit genuine physical intuition?
+
+Yes, because its central objects are already physically meaningful:
+
+- an **instrument** is a physical device that takes a quantum input, produces a quantum output, and records a classical outcome;
+- the **flagged channel** packages the instrument into a single channel with a classical flag;
+- the **instrument diamond norm** is exactly the operational distinguishability of two instruments in single-use discrimination with reference assistance;
+- the **compression width** asks how many real parameters are needed to describe/reconstruct all instruments up to a given worst-case error;
+- the **uniform depolarizing instrument** is a natural maximum-ignorance or maximally symmetric center;
+- the **pinching bounds** correspond physically to forgetting coherence between coarse-grained input or output sectors.
+
+These are not decorative interpretations. They explain *why* the chosen definitions are the right ones.
+
+However, the paper currently tends to place such intuition in remarks after the formalism. The improvement would be to make the intuition **structural**, not ornamental: it should help the reader understand the constants, the constructions, and the proof strategies.
+
+---
+
+## 2. Where non-superficial physical insight would genuinely help
+
+The following are examples of intuition that would be genuinely valuable, because each explains a formal result rather than merely decorating it.
+
+### 2.1. Instruments as “black boxes with classical memory”
+
+A useful guiding picture is:
+
+> An instrument is a black box: you feed it a quantum state, it returns a quantum state and tells you which outcome occurred. Compressing instruments means asking how many real coordinates are needed so that a decoder can reproduce the full input–output behavior, including the outcome statistics and outcome-conditioned states.
+
+This makes the compression problem physically concrete. It also clarifies why the flagged channel is the right object: the flag is not an afterthought; it is part of the observable behavior.
+
+This intuition would help early in the paper, before the affine-space definitions.
+
+---
+
+### 2.2. Diamond norm as discrimination advantage
+
+The paper already states the discrimination formula:
+
+\[
+p_{\mathrm{succ}}
+=
+\frac12+\frac14\|\mathcal I-\mathcal J\|_{\diamond,\mathrm{inst}}.
+\]
+
+This is one of the strongest physical anchors in the paper. It should be emphasized more strongly as the reason the geometry is being done in the instrument diamond norm rather than, say, Hilbert–Schmidt norm or trace norm on Choi operators alone.
+
+A good nondecorative explanatory point would be:
+
+> The instrument diamond norm measures the largest single-use operational advantage an experimenter can obtain when trying to tell two instruments apart, allowing arbitrary ancillary systems. Therefore every lower bound on a compression width is also a statement about unavoidable failure in reconstructing physically distinguishable devices.
+
+This connects the abstract width \(\delta_r\) to device discrimination and tomography-like tasks.
+
+---
+
+### 2.3. The uniform instrument as the symmetric center
+
+The uniform depolarizing instrument
+
+\[
+(\mathcal I_*)_k=\frac{1}{n}\Omega_{A,B}
+\]
+
+has a clear operational meaning:
+
+> It ignores the input, outputs the maximally mixed state, and distributes the total probability uniformly among all outcomes.
+
+It is the most featureless instrument compatible with the dimensions. The Haar-averaging arguments show that this featurelessness is not accidental: it is the unique barycenter forced by output-unitary and outcome-permutation symmetry.
+
+This is a genuinely meaningful insight:
+
+> The same symmetry that makes the uniform instrument the least informative center also makes it optimal both for containing balls and for covering the body.
+
+The paper already hints at this in the concave–convex duality remark, but the physical meaning could be stated more cleanly:
+
+- in-radius: how much arbitrary physical perturbation can be added before leaving the set of valid instruments;
+- covering radius: how far the most adversarial physical instrument can be from the featureless center;
+- the equality \(\rho+R=2\) is a special metric complementarity for this body, not a universal physical law.
+
+The paper is careful about this, but the intuition could still be highlighted.
+
+---
+
+### 2.4. The \(1/n\) radius as a positivity budget split
+
+The exact centered radius
+
+\[
+\rho_n=\frac{2}{nd_B\min\{d_A,d_B\}}
+\]
+
+has a clear physical explanation:
+
+> At the uniform instrument, each outcome block receives only a \(1/n\) share of the total positivity budget. A perturbation that moves weight from one outcome to another hits the positivity boundary sooner when there are more outcomes.
+
+This is much better than simply saying “there is a \(1/n\) factor.” It gives a physical picture:
+
+- the instrument is a collection of positive Choi blocks;
+- the sum of the blocks is fixed by trace preservation;
+- more outcomes mean each block is thinner;
+- thinner blocks are easier to make negative.
+
+This intuition is already partially present in the “physical origin of the radius” remark, but it could be made more central.
+
+---
+
+### 2.5. The \(1/d_A\) intermediate floor as an input-marginal obstruction
+
+The intermediate lower bound
+
+\[
+\gamma_{A,B}^{(n)}
+=
+\max\left\{\frac{2}{nd_Bs},\frac{1}{d_A}\right\}
+\]
+
+combines two different physical mechanisms. This is one of the paper’s most interesting conceptual points.
+
+A clear interpretation would be:
+
+- The \(\rho_n\) term is **local**: it comes from the positivity margin around the uniform instrument.
+- The \(1/d_A\) term is **global**: it comes from the existence of a full-dimensional sphere of instruments whose antipodes are separated by \(2/d_A\).
+
+The \(1/d_A\) factor itself has a Choi-state explanation:
+
+> Two orthogonal flagged Choi states can be mixed into valid instruments only with a weight limited by the requirement that they share the same input marginal. The worst case occurs when that common marginal is pure, forcing the mixing weight down to \(1/d_A\).
+
+This is a genuinely nontrivial insight and should not be buried only in a remark. It explains why the intermediate obstruction does not simply vanish as \(n\to\infty\).
+
+---
+
+### 2.6. Antipodal spheres as collision arguments for compression
+
+The Borsuk–Ulam idea is topological, but it has a clean operational translation:
+
+> If a continuous encoder maps a sphere of instruments into too small a latent space, some antipodal pair must receive the same code. But if that antipodal pair is far apart in instrument diamond norm, a single decoder output cannot reconstruct both well. Therefore compression must fail.
+
+This is one of the best pedagogical opportunities in the paper. The formalism of antipodal profiles, coindex, and deleted products may be intimidating. A short intuitive explanation would help:
+
+- Antipodal pair: two instruments constructed as opposites.
+- Continuous encoder: cannot separate all antipodal pairs if the latent space is too small.
+- Decoder: must choose one reconstruction for the shared code.
+- Triangle inequality: if the two instruments are distance \(2a\), one error is at least \(a\).
+
+This intuition is not decorative; it is the conceptual core of the lower bounds.
+
+---
+
+### 2.7. Replacement, observable, and full-direction spheres as different physical resources
+
+The paper constructs several lower-bound spheres. Their physical distinctions are worth explaining explicitly.
+
+| Construction | Physical character | What it obstructs |
+|---|---|---|
+| Replacement sphere | Input-independent preparation of flagged output states | Compression of output-state/flag information |
+| Observable sphere | Input-dependent measurement effects steering the classical flag | Compression of input-dependent outcome behavior |
+| Full-direction sphere | Perturbations across all affine directions of the instrument body | Compression of the full direction space |
+| Join construction | Combines orthogonal output-flag resources with one input-dependent resource | Larger-dimensional obstruction |
+
+This table would be pedagogically valuable. It prevents the constructions from seeming arbitrary.
+
+In particular, the join construction has a nice interpretation:
+
+> Replacement instruments separate antipodes on every input, because their output flag is independent of the input. An observable sphere may require a special input to witness separation. Therefore one can safely join many replacement-type spheres, but only one input-dependent observable sphere, because the witnessing input must be common.
+
+This is exactly the kind of nondecorative intuition that clarifies the technical restriction in the join.
+
+---
+
+### 2.8. Pinching upper bounds as coarse-graining/decoherence
+
+The upper bounds from pinching also have a natural meaning:
+
+> To approximately represent an instrument, one may discard coherences between chosen input or output blocks. The cost is exactly the diamond-norm distance between the identity and the pinching map.
+
+For output pinching:
+
+> We forget coherences between output sectors and keep only block-diagonal output behavior.
+
+For input pinching:
+
+> We forget coherences between input sectors before the instrument acts.
+
+The exact pinching norm
+
+\[
+\|\id-\mathcal P_H\|_\diamond=2\left(1-\frac{1}{\ell}\right)
+\]
+
+then becomes interpretable: with \(\ell\) blocks, discarding off-diagonal coherence leaves a bounded worst-case error. This is a clean physical coarse-graining picture.
+
+---
+
+### 2.9. The collapse case as a minimal nontrivial device
+
+The collapse case \(nd_Bs=2\) is pedagogically important. It includes:
+
+- two-outcome POVMs on arbitrary input dimension;
+- trivial-input qubit channels.
+
+The exact width is then a step function:
+
+\[
+\delta_r=
+\begin{cases}
+1, & r<D,\\
+0, & r\ge D.
+\end{cases}
+\]
+
+This has a nice interpretation:
+
+> In the smallest nontrivial regimes, any positive amount of latent dimension below the full affine dimension is useless for worst-case reconstruction; the device family is already too topologically obstructed. Only full affine coordinates achieve exact reconstruction.
+
+This could be used as a “toy model” early in the paper to motivate the general theory.
+
+---
+
+### 2.10. The appendix: representational dimension versus programmable evaluation
+
+The appendix on no-programming is physically meaningful, but currently somewhat detached. Its conceptual point is important:
+
+> There is a difference between storing a mathematical description of a channel and physically implementing it with a fixed processor.
+
+This distinction is genuinely insightful:
+
+- The main paper asks: how many parameters are needed to represent an instrument?
+- The appendix asks: can a finite program register make a fixed processor exactly implement all unitary channels?
+
+The answer is no. This gives a useful contrast:
+
+> Representational complexity and programmable implementation complexity are different resources.
+
+This should be stated explicitly at the start of the appendix, not only at the end.
+
+---
+
+## 3. Pedagogical enhancements that would materially improve the paper
+
+Yes, the paper would benefit significantly from pedagogical improvements. It is technically dense, and many readers will struggle not because the mathematics is wrong, but because the architecture is demanding.
+
+Here are the most valuable improvements.
+
+---
+
+### 3.1. Add a one-page “operational guide” before the formal definitions
+
+Something concise, not decorative:
+
+- What is an instrument?
+- Why flag it?
+- Why use the diamond norm?
+- What is being compressed?
+- What does the width \(\delta_r\) mean operationally?
+- What do lower and upper envelopes certify?
+
+This could be a subsection titled something like:
+
+> “Operational meaning of the compression problem”
+
+or
+
+> “What the quantities measure.”
+
+This would greatly lower the entry barrier.
+
+---
+
+### 3.2. Add a dictionary between physical objects and mathematical objects
+
+A small table would be extremely helpful:
+
+| Physical notion | Mathematical object |
+|---|---|
+| Instrument | tuple of CP trace-nonincreasing maps |
+| Outcome record | classical flag \(C_n\) |
+| Full observable behavior | flagged channel \(\widehat{\mathcal I}\) |
+| Physical perturbation direction | element of \(\mathfrak V_{A,B}^{(n)}\) |
+| Operational distinguishability | instrument diamond norm |
+| Valid physical body | \(\Inst_n(A,B)\) |
+| Latent description | continuous encoder into \(\mathbb R^r\) |
+| Reconstruction rule | decoder into instruments or affine space |
+| Worst-case reconstruction error | compression width \(\delta_{r,\mathrm{inst}}^\diamond\) |
+
+This would make the paper much more accessible.
+
+---
+
+### 3.3. State proof ideas before long proofs
+
+Several proofs are technically compact but conceptually rich. Short “proof idea” paragraphs would help.
+
+For example:
+
+#### Lemma `lem:spectral`
+
+Proof idea:
+
+> A negative Choi eigenvalue can be detected by feeding the perturbation a maximally entangled state supported on the Schmidt subspace where the negativity occurs. The diamond norm lower-bounds the resulting trace-norm output, giving a spectral bound.
+
+#### Theorem `thm:covering`
+
+Proof idea:
+
+> Every instrument output is dominated by a multiple of the uniform output. This domination controls trace distance. Symmetry then shows the uniform center is optimal.
+
+#### Theorem `thm:full-direction`
+
+Proof idea:
+
+> Split a traceless direction into positive and negative parts. These give orthogonal Choi states with the same input marginal. Add a common correction state to make both into valid instruments.
+
+#### Proposition `prop:convex`
+
+Proof idea:
+
+> Projecting onto latent coordinates leaves convex fibres of bounded dimension and diameter. Helly’s theorem selects a point in each fibre that is uniformly close to all points in that fibre.
+
+These short summaries would not dumb down the paper; they would improve comprehension.
+
+---
+
+### 3.4. Add a self-contained Borsuk–Ulam/coindex primer
+
+The lower-bound machinery relies on Borsuk–Ulam and coindex. Many readers in quantum information will know the intuition but not the coindex formalism.
+
+A short appendix or subsection would help:
+
+- statement of Borsuk–Ulam;
+- antipodal maps;
+- deleted product \(F_2(Y)\);
+- coindex definition;
+- why injection into \(\mathbb R^r\) implies \(\operatorname{coind}F_2(Y)\le r-1\);
+- how collision forces compression error.
+
+This would make Section `sec:lower` much more readable.
+
+---
+
+### 3.5. Use more toy examples
+
+The paper already has Example `ex:222`, but more small examples would help.
+
+Good candidates:
+
+#### Two-outcome qubit POVMs
+
+\[
+d_A=2,\quad d_B=1,\quad n=2.
+\]
+
+This is the collapse case. It is simple and exact. It could be used as a running example.
+
+#### Qubit channels
+
+\[
+d_A=d_B=2,\quad n=1.
+\]
+
+This connects to known channel geometry.
+
+#### Replacement instruments
+
+\[
+d_A=1.
+\]
+
+Here the body is just a flagged state space. This is the simplest exact case.
+
+#### Many-outcome POVMs
+
+\[
+d_B=1,\quad n\ge2.
+\]
+
+This illustrates the \(1/n\) radius directly.
+
+A “toy cases” subsection before the general theory would help orient readers.
+
+---
+
+### 3.6. Add diagrams for the main geometric ideas
+
+The existing figures are useful, but additional schematic diagrams could be highly beneficial.
+
+Useful diagrams:
+
+1. **Instrument body with centered ball, covering ball, and diameter.**  
+   The current figure begins this, but could be expanded.
+
+2. **Antipodal collision.**  
+   A sphere mapped into latent space; two antipodal points collide; decoder must choose one reconstruction.
+
+3. **Replacement sphere.**  
+   Jordan decomposition \(X=X_+-X_-\) into two orthogonal flagged states.
+
+4. **Join construction.**  
+   Orthogonal subspaces \(W_i\) carrying separate spheres, combined into a larger sphere.
+
+5. **Pinching.**  
+   Input/output block decomposition and removal of off-diagonal coherences.
+
+These would be genuinely pedagogical, not decorative, if tied to specific theorems.
+
+---
+
+### 3.7. Separate “exact” and “certified” results more visibly
+
+The paper already has Remark `rem:exact-vs-certified` and Table `tab:summary`, but this distinction is crucial and should be made unavoidable.
+
+Possible improvements:
+
+- Put a boxed statement early:  
+  “The following quantities are determined exactly…”
+- Use different typography in theorem titles:  
+  “Exact centered radius” versus “Certified lower envelope.”
+- In the table, visually distinguish exact rows from certified rows.
+- Avoid saying “the width is known” when only a bracket is known.
+
+This will prevent readers from overinterpreting certified bounds as exact results.
+
+---
+
+### 3.8. Clarify decoder conventions
+
+The convention “continuous encoder, unrestricted decoder” is important but subtle. It should be repeated at the point of use, especially in:
+
+- Definition `def:width`;
+- Corollary `cor:bracket`;
+- Theorem `thm:zero-error`;
+- Proposition `prop:convex`.
+
+A small table could help:
+
+| Encoder | Decoder | Meaning |
+|---|---|---|
+| continuous | unrestricted | main width \(\delta_r\) |
+| continuous | continuous | stronger variant, discussed only where relevant |
+| arbitrary | arbitrary | not the main notion; lower bounds often still apply |
+
+The paper already mentions this, but the issue is easy to miss.
+
+---
+
+## 4. Content-level improvements beyond pedagogy
+
+These are not just stylistic; they would make the paper stronger.
+
+---
+
+### 4.1. Localize assumptions
+
+The global convention “assume \(nd_B>1\)” is efficient, but it can hide edge cases. Some statements, especially Lemma `lem:inradius-concave`, should state the assumption locally.
+
+Recommended:
+
+- Add “Assume \(nd_B>1\)” to Lemma `lem:inradius-concave`.
+- In degenerate-case remarks, explicitly say which results fail or become trivial.
+- For statements that remain true in the degenerate case, say so.
+
+This improves precision without adding much length.
+
+---
+
+### 4.2. Fix notation collisions
+
+The notation remark claims consistent usage, but there are small collisions:
+
+- \(W\) is used for input/support subspaces and also for output-flag subspaces in the join construction.
+- \(E\) is reserved for reference systems in covering arguments but used as an input system in the appendix.
+
+Possible fixes:
+
+- Use \(F\) or \(W_{\mathrm{flag}}\) for output-flag subspaces.
+- Use \(S\) or \(P\) for the program/input system in the appendix.
+- Or weaken the notation remark from “used consistently” to “used with the following primary conventions.”
+
+This is minor but would reduce reader friction.
+
+---
+
+### 4.3. Reduce forward references where possible
+
+There are forward references to Theorem `thm:global-inradius` before it appears. The paper acknowledges this, but it still increases cognitive load.
+
+Options:
+
+- Move the global in-radius theorem earlier if possible.
+- Or provide a short “preview theorem” statement when it is first mentioned.
+- Or mark forward references clearly as “proved later in Section X.”
+
+---
+
+### 4.4. Add a “main results in one page” subsection
+
+A compact summary would be valuable. Something like:
+
+1. Affine dimension:
+   \[
+   D=d_A^2(nd_B^2-1).
+   \]
+
+2. Centered and global in-radius:
+   \[
+   \rho_n=\frac{2}{nd_B\min\{d_A,d_B\}}.
+   \]
+
+3. Covering radius:
+   \[
+   R_n=2-\rho_n.
+   \]
+
+4. Diameter:
+   \[
+   \diam=2.
+   \]
+
+5. Constant-code width:
+   \[
+   \delta_0=R_n.
+   \]
+
+6. Zero-error threshold:
+   \[
+   \delta_r=0 \iff r\ge D.
+   \]
+
+7. Collapse case:
+   \[
+   nd_Bs=2 \implies \delta_r=1\text{ for }r<D.
+   \]
+
+8. Certified intermediate bracket:
+   \[
+   \gamma_{A,B}^{(n)}
+   \le
+   \delta_r
+   \le
+   U_r^{(n)}.
+   \]
+
+This would help readers keep the architecture in mind.
+
+---
+
+### 4.5. Strengthen the connection to quantum device characterization
+
+The paper need not become applied, but it could briefly explain why these bounds matter conceptually:
+
+- They quantify how many real parameters are required to describe quantum instruments up to operational error.
+- They show that outcome flags create both extra dimension and extra fragility.
+- They identify regimes where low-dimensional compression is impossible.
+- They separate exact geometric thresholds from certified but potentially nonoptimal bounds.
+
+This could be placed in the introduction or conclusion.
+
+---
+
+### 4.6. Add a short comparison to related notions of dimension
+
+The paper mentions Kolmogorov widths, but a short comparative paragraph could help:
+
+- affine dimension: exact parameter count;
+- metric entropy/net dimension: discrete coding;
+- Kolmogorov width: linear approximation;
+- present width: continuous nonlinear encoding with unrestricted decoding;
+- antipodal profile: topological obstruction.
+
+This would position the contribution more clearly.
+
+---
+
+## 5. What should not be added
+
+Equally important: the paper should avoid adding vague physical language that does not explain a theorem.
+
+Not useful:
+
+- generic statements about “the quantum nature of measurement”;
+- appeals to wavefunction collapse;
+- thermodynamic analogies unless directly quantified;
+- uncertainty-principle rhetoric;
+- speculation about experimental noise unless tied to the metric being used;
+- overclaiming that the exact complementarity \(\rho+R=2\) is a universal physical principle.
+
+The paper is already careful not to overclaim. That discipline should be preserved.
+
+---
+
+## 6. Highest-priority improvements
+
+If one wanted to improve the paper with minimal but meaningful changes, I would prioritize the following.
+
+### Priority 1: Precision fixes
+
+1. Add \(nd_B>1\) assumption to Lemma `lem:inradius-concave`.
+2. Resolve or soften the notation-consistency claim in Remark `rem:notation`.
+3. Explicitly note the conjugation convention switch between Lemma `lem:spectral` and Theorem `thm:exact-radius`.
+4. Add the missing one-line justification \(nd_B\ge s\) in Proposition `prop:gap`.
+
+### Priority 2: Pedagogical orientation
+
+5. Add a short “operational meaning of the problem” subsection early.
+6. Add a notation/object dictionary.
+7. Add proof-idea paragraphs before the major proofs.
+8. Add a short Borsuk–Ulam/coindex primer.
+
+### Priority 3: Conceptual synthesis
+
+9. Expand the physical interpretation of the two breakpoints \(L_{A,B}^{(n)}\) and \(\gamma_{A,B}^{(n)}\).
+10. Add a table distinguishing replacement, observable, full-direction, and join spheres.
+11. Add one or two toy cases early, especially the two-outcome POVM collapse.
+12. Integrate the appendix’s representational-versus-programmable distinction more explicitly.
+
+---
+
+## Overall judgment
+
+The work **does merit genuine, nondecorative physical intuition**, but the right kind is **operational and geometric**, not speculative. Its central quantities already have clean physical meanings:
+
+- diamond norm as discrimination advantage;
+- positivity as physical validity;
+- affine dimension as parameter count;
+- radius as robustness margin;
+- covering radius as worst-case representational distance;
+- antipodal spheres as topological obstructions to compression;
+- pinching as coarse-graining.
+
+The paper would also benefit substantially from **pedagogical enhancements**, especially better orientation, proof ideas, toy examples, and a clearer separation between exact and certified results.
+
+The most important point is this:
+
+> The paper does not need more physics language. It needs more physically grounded explanation of the mathematics it already has.
+
