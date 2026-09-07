@@ -1,0 +1,11 @@
+# [sorted from 'wave 2 audits/audit 2.txt' L336-345] Source model: gemini. Target: channel paper. Type: first-half verification summary.
+
+gemini:
+I have thoroughly read and checked the first half at line-level (from the preliminaries through to the break at Proposition~\ref{prop:fixed-marginal-chebyshev}).
+
+### Summary of Line-Level Check on First Half:
+* **Definitions & Metric Widths (Section 1):** The fiber-radius characterization ($\delta_r^{\mathrm c} = \nu_r$), Borsuk--Ulam antipodal profile lower bounds, deleted-product coindex $\operatorname{coind}_{\mathbb Z_2} F_2(Y)$, Helly-based convex projection bound $\frac{D-r}{D-r+1}\Delta$, and stable Lipschitz bounds are mathematically verified and consistent.
+* **Choi Conventions & Dimension (Section 2):** Normalized convention $\Tr_B \widehat{J}_\Phi = I_{A_0}/d_A$, ambient affine dimension $D_{A,B} = d_A^2(d_B^2 - 1)$, and operator-norm relations are fully aligned.
+* **In-Radius & Variational Parameters (Section 3):** The centered in-radius $\rhodep(A,B) = \frac{2}{d_B \min\{d_A, d_B\}}$, the spectral bound $\Gamma_{A,B} = \frac{s}{2d_A}$, and the identity distance $\|\mathcal I - \Omega_d\|_\diamond = 2(1 - 1/d^2)$ are algebraically sound.
+* **Spheres, Joins, and Chebyshev Geometry (Section 4):** The replacement sphere ($S^{d_B^2-2}$), Clifford sections ($S^{2\lfloor\log_2 d\rfloor}$), observable sphere ($S^{d_A^2-2}$), full-direction sphere ($2/d_A$ separation), observable--replacement join ($d_A^2 + (d_B-2)^2 - 3$), Haar-symmetrized global in-radius optimality, and Chebyshev radius complementarity ($R + \rho = 2$) are fully verified.
+* **Endpoint Note:** The text cuts off mid-statement at the hypotheses of Proposition~\ref{prop:fixed-marginal-chebyshev} (Fixed-marginal Chebyshev center).

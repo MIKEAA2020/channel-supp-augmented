@@ -1,0 +1,60 @@
+# [sorted from 'wave 2 audits/audit 2.txt' L26-84] Source model: claude. Target: channel paper. Type: line-level audit (A: 10 confirmed issues; B: 6 items to verify; C: cross-paper consistency).
+
+claude:
+Read in full. Holding the consolidated verdict until the second half arrives (several statements point into Appendices and later sections). Below is the line-level log for this half, split into (A) issues I can confirm now, (B) items whose status depends on the second half, and (C) consistency notes against the instrument paper.
+
+## A. Issues confirmed from this half
+
+**A1. Proposition (Profile properties), item 5 — hidden hypothesis.**
+The proof fixes "every $h:S^r\to K$" and compares $d_0$- and $d_1$-separations, which presupposes that $C(S^r,K)$ is the same class for both metrics. Uniform closeness $|d_0-d_1|\le\varepsilon$ does not imply topological equivalence. Add: "$d_0,d_1$ induce the same topology on $K$" (true in every intended application, e.g. equivalent norms on a finite-dimensional body).
+
+**A2. Remark (Effective Schmidt rank) — misplaced and partly undefined.**
+It essentially repeats the paragraph preceding it, sits between the sentence "The following spectral certificate gives…" and the subsection that sentence refers to, and cites "the witness $V_0,V_1:S_A\to B$" with $S_A$ never defined in the main text. Either merge into the preceding paragraph or move after the appendix proof is referenced.
+
+**A3. Proposition (Observable–replacement join) — hypothesis should be $d_B\ge4$.**
+For $d_B=3$, $W_2^\perp$ is one-dimensional, $\Herm_0(W_2^\perp)=\{0\}$, and the "sphere" $S^{(d_B-2)^2-2}=S^{-1}$ is empty; the displayed map $h_{\mathrm{rep}}$ does not exist. The formula $L_{\mathrm{join}}=d_A^2+1-3=L_{\mathrm{obs}}$ happens to coincide with the observable range, so no numerical damage, but the proof as written is vacuous there. The companion paper correctly requires $N_{\mathrm{join}}=(d_B-2)^2\ge2$ and marks $(2,3,1)$ "join invalid". Align the hypothesis (and Definition of $L_{\mathrm{join}}$) with $d_B\ge4$, or state that for $d_B=3$ the join reduces to the observable sphere. Also, the proof's exposing-input argument assumes $0<\lambda<1$; the endpoints $\lambda\in\{0,1\}$ need one sentence each.
+
+**A4. Theorem (Channel reconstruction lower envelope), proof — misattribution.**
+"the radial map … combined with the globally optimal centred ball of Theorem [global in-radius] gives $\rhodep$": the *existence* of the ball $\overline B^{\rm rel}_\diamond(\Omega,\rhodep)\subseteq\Chan$ is Theorem (Exact depolarizing-centered in-radius); the global theorem only says re-centering cannot enlarge it. Same slip appears in the Definition of the envelope ("certified by … Theorem global-inradius").
+
+**A5. Theorem (Global in-radius), proof — two small gaps.**
+(i) The halfspace characterization is stated "about an interior point" but then concavity is used on all of $K$; it is fine (boundary points get value $0$), but say so. (ii) Jensen for the Haar integral of a concave function needs continuity/measurability of $\rho_\diamond$ along the orbit; the instrument paper supplies Lipschitz continuity, this paper only asserts concavity. One sentence (e.g. concave functions on a finite-dimensional convex body are continuous on the relative interior; boundary handled by the orbit being contained in $K$ and monotone limits) or a cross-reference fixes it.
+
+**A6. Figure (Replacement-family geometry) — several inconsistencies.**
+- "$s=2$ gives $\alpha_r=1$ for $0\le r\le3\lfloor d_B/2\rfloor-1$": here $s$ is a block size, clashing with $s=\min\{d_A,d_B\}$ used everywhere else.
+- Nodes "$B\otimes C_n$: flag-diagonal $nd_B^2$ dim": $n$ and $C_n$ are never defined in this paper.
+- Caption attributes the Jordan construction $X\mapsto X_+/\Tr X_+$ to Lemma (replacement isometry); it is Theorem (Perfectly separated replacement family).
+- Caption: "$\ge2\min\rho_i$" with $\rho_i$ undefined (pending appendix Proposition join, see B3).
+- $R=\sum(b_i^2-1)-1$ collides with the covering radius $R(\Psi)$ introduced later; $r_{\mathrm{out}},r_{\mathrm{in}}$ are forward references.
+- The sentence opening the Clifford subsection, "whereas the block-join construction above", refers to a construction that is only in the appendix (the figure is not a construction).
+
+**A7. Proposition (Euclidean recovery), proof — garbled sentence.**
+"then by the generalized Borsuk–Ulam theorem (…) applied to $\kappa\circ h$ gives, for every $h$…" — dangling clause; delete "then by" or "gives".
+
+**A8. Remark (Output preparation and dynamical response).**
+"separates two input-dependent scales": the first scale ($d_B^2-1$, output state) is input-*independent*; that is the whole point of the remark. Rephrase.
+
+**A9. Notation overloads (cosmetic but real).**
+$V$: direction space $V_{A,B}$, $V=\Herm_0(B)$, unitaries $V\in\mathrm U(B)$, isometries $V_0,V_1$. $R$: covering radius $R(\Psi)$, sectional radius $R_r(K)$, Helly radius $R_y$, join dimension $R$ in the figure. $s$: Euclidean dimension in §1 vs $\min\{d_A,d_B\}$ later. $\sigma_u$: Clifford states (Cor. Clifford-exact) vs join-sphere states (Prop. join). Theorem (Contained-ball profile) defines $\|\cdot\|_E$ and never uses it.
+
+**A10. Minor.** Theorem (Full-direction) restates "Assume $d_B>1$" although $d_B>1$ is global; harmless. Proposition (Unitary-promise zero-error coordinate bound): the caveat is fine, but note that for $d=2$ the bound is not sharp: $\mathrm{PU}(2)\cong\mathbb{RP}^3$ does not embed in $\mathbb R^4$ (Hantzsche), so $r\ge5>d^2$.
+
+## B. Items to verify against the second half
+
+**B1. Unitary Clifford family (Theorem Clifford, second sentence; Corollary unitary-promise; Corollary perfect-separation).** The main text says the unitaries are "built from these anticommuting generators on $C$, extended by the identity on $C^\perp$". If the appendix takes $U_u=H_u\oplus I_{C^\perp}$, then for $d$ a power of two ($C=H$) one has $U_{-u}=-U_u$, so $\mathcal U_{U_u}=\mathcal U_{U_{-u}}$ and the antipodal distance is $0$, not $2$ — this would break $\pi_{\mathrm U}(d)\ge2\lfloor\log_2 d\rfloor$ exactly at $d=2,4,8,\dots$ A family such as $U_u=\exp(i\pi H_u/4)$ does work ($U_u^\dagger U_{-u}=\exp(-i\pi H_u/2)=-iH_u$ maps $(|+\rangle+|-\rangle)/\sqrt2$ to an orthogonal vector). I need the appendix to see which is used.
+
+**B2. Appendix proof of the exact in-radius.** The nontrivial direction is $\Gamma_{A,B}\le s/(2d_A)$ when $d_A>d_B$ (the trace-zero lemma only gives $1/2$). Expect the Schmidt-support argument of the companion's Lemma (Instrument spectral bound); will check the $d_A/b$ amplification step.
+
+**B3. Appendix Proposition join.** The figure's "$\ge2\min\rho_i$" suggests a general per-block-separation version; will check the statement/proof and the treatment of $b_i=1$ blocks (formula $\sum(b_i^2-1)-1$ silently treats them as empty spheres).
+
+**B4. Appendix proof of the Chebyshev radius** and its use of Lemma (Bipartite domination); the main-text statement $R(\Omega)=2(1-1/(d_Bs))$ is consistent with Corollary (Identity vs depolarizing) at $d_A=d_B$.
+
+**B5. Undefined symbols used ahead of the appendix:** $\sigma_u,H_u,P_C,p$ in Corollary (Clifford-exact); $\rhodep$ macro; $\TPHP$ is defined only inside Theorem (hierarchy) but used in the Chebyshev theorem.
+
+**B6. Preamble definitions** ("complete retained code", averaged vs sampled transcript) are not used in this half; presumably for the physical-coding sections.
+
+## C. Consistency with the instrument paper (at $n=1$)
+
+Matches: $D_{A,B}$, $\rhodep=2/(d_Bs)$, $R(\Omega)=2-\rhodep$, $\gamma_{A,B}=\max\{\rhodep,1/d_A\}$, $L_{\mathrm{rep}},L_{\mathrm{obs}}$, the convex-projection constant ($\Delta=2$), the codomain convention (channel- vs $\TPHP$-valued decoders), the observable sphere now correctly uses *pure* $\sigma_\pm$, and the full-direction sphere is identical.
+
+Mismatch: the join validity condition ($d_B\ge3$ here vs $N_{\mathrm{join}}\ge2$, i.e. $d_B\ge4$, there) — see A3.

@@ -1,0 +1,29 @@
+# [sorted from 'wave 2 audits/audit 1.txt' L362-389] Source model: qwen. Target: instruments paper. Type: consistency verification (no flaws found; 4 minor observations).
+
+qwen:
+minor stylistic/dependency observations.
+
+### 1. Mathematical Consistency
+*   **Definitions & Notation:** The normalized Choi convention ($\Tr_B \hat{J}_\Phi = I_{A_0}/d_A$) is established in Section 1 and applied consistently in all subsequent proofs (e.g., Theorem 1, Theorem 2). The distinction between the direction space $\mathfrak V$ and the affine space $\mathfrak A$ is maintained correctly.
+*   **Dimensional Analysis:** The affine dimension formula $D_{A,B}^{(n)} = d_A^2(nd_B^2-1)$ is derived correctly in Proposition 1 and used consistently in Theorem 3, Corollary \ref{cor:asymptotic}, and the tables.
+*   **Radius & Covering:** The relationship $\rho + R = 2$ (Corollary \ref{cor:complementarity}) is algebraically verified and holds for the derived values $\rho = \frac{2}{nd_Bs}$ and $R = 2(1 - \frac{1}{nd_Bs})$.
+*   **Limits & Special Cases:**
+    *   **Degenerate Case ($n=d_B=1$):** Correctly identified as a singleton with dimension 0 and infinite radius in Remark \ref{rem:degenerate}, and explicitly excluded from the main theorems (which assume $nd_B > 1$).
+    *   **Channel Limit ($n=1$):** All formulas reduce correctly to the channel results cited as "Ref.~\cite{CompanionChannels}" (e.g., Dimension becomes $d_A^2(d_B^2-1)$).
+    *   **Collapse Case ($nd_Bs=2$):** Theorem \ref{thm:collapse} correctly identifies the condition where the lower and upper bounds meet at 1.
+
+### 2. Logical Flow & Dependencies
+*   **Theorem Dependencies:** The proofs reference earlier Lemmas and Theorems correctly. For instance, Theorem 2 (Exact Radius) relies on Lemma 1 (Spectral Bound) and Theorem 1 (Ball Inclusion). Theorem 3 (Covering) relies on Lemma 2 (Domination).
+*   **Borsuk-Ulam Applications:** The topological arguments for the antipodal profile (Section 3) correctly apply the Borsuk-Ulam theorem to the specific dimensions of the constructed spheres (Replacement, Full-direction, Observable).
+*   **Convexity Arguments:** The use of Jensen's inequality for the optimality of the uniform instrument (Theorem \ref{thm:global-inradius}) correctly leverages the concavity of the in-radius (Lemma \ref{lem:inradius-concave}) and convexity of the covering radius.
+
+### 3. LaTeX & Formatting
+*   **Macros:** The text uses custom macros (e.g., `\Jhat`, `\Sstate`, `\Lin`, `\Herm`, `\vD`, `\Inst`). These are not defined in the snippet but are used consistently. In a complete document, these must be defined in the preamble.
+*   **Citations:** The placeholder `\cite{CompanionChannels}` is used consistently to refer to the sibling/companion paper on channels. Other citations (Choi, Jamiołkowski, Watrous, etc.) are standard.
+*   **Figures & Tables:** The TikZ code for Figure \ref{fig:envelope} is syntactically correct for the `pgfplots` package. The data in Table \ref{tab:thresholds} matches the calculations in Example \ref{ex:222}.
+
+### 4. Minor Observations (Not Flaws)
+*   **Macro Definitions:** As noted, commands like `\Jhat` and `\Sstate` require definition in the main file preamble.
+*   **"CompanionChannels":** The text relies heavily on results from "Ref.~\cite{CompanionChannels}". While internally consistent, this implies the current text is part of a larger project. The reductions to $n=1$ are explicitly checked against this reference, which is good practice.
+*   **Phrasing:** In Proposition 1 proof, "The tuple of $\mathcal I_*$ has every block..." is slightly informal but mathematically unambiguous.
+*   **Remark \ref{rem:degenerate}:** The statement that the in-radius is $+\infty$ relies on the convention that a ball of radius $\rho$ in a zero-dimensional space is just the center point. This is standard in convex geometry but worth ensuring the target journal's conventions align.

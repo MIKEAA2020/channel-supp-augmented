@@ -1,0 +1,11 @@
+# [sorted from 'wave 2 audits/audit 2.txt' L346-354] Source model: grok. Target: channel paper. Type: cross-companion consistency check + 3 minor notes.
+
+grok:
+The manuscript (channel companion) is internally consistent across both halves and with the instrument companion. Conventions (normalised Choi, diamond with reference of dimension \(d_A\), flag-free \(n=1\) specialisation, TPHP versus Chan) are applied uniformly. Affine dimensions, pinching thresholds \(Q_\ell\), spectral/variational formulae for \(\rho_\diamond(\Omega_{A,B})=2/(d_B s)\), covering radius \(2-\rho\), Borsuk–Ulam/Helly/packing arguments, hybrid Lipschitz estimates, and the IC finite-sample bound all close exactly. Degenerate cases (\(d_B=1\) excluded, \(d_A=1\) reducing to states, Clifford \(q=\lfloor\log_2 d\rfloor\), join degeneracy at \(d_B=3\)) are handled without contradiction. Exact statements are cleanly separated from certified envelopes, and the query-independent bottleneck (final-code dimension, not \(N\)) is correctly isolated from tomography sample complexity and from fixed-processor programming.
+
+Minor observations that do not affect correctness:
+- The observable–replacement join (Proposition join-channel) is stated for \(d_B\ge3\), but the replacement sphere on \(W_2^\perp\) exists only for \(d_B\ge4\); at \(d_B=3\) the claimed index collapses to the observable index already proved separately, so the statement remains true.
+- Figure replacement-join retains an \(n\)-outcome flag register \(C_n\) (instrument language); it is captioned as an analogue and does not enter any channel theorem.
+- Placement of conjugate bars in the in-radius witness is compatible with the vectorisation convention used in the domination lemma.
+
+All listed exact results (fibre-radius characterisation, replacement profile, centred/global in-radius, Chebyshev radius, zero-error threshold, Clifford sections, compactness floor \(\gamma_{m,d}>0\)) follow from the proofs as written. The constructive upper envelope, packing estimates, and adaptive-network continuity are correctly scoped as non-exact.

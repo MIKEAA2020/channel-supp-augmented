@@ -1,0 +1,1398 @@
+# [sorted from 'wave 2 audits/audit 1.txt' L711-2106] Source model: gemini. Target: instruments paper. Type: line-level audit (unicode-mangled encoding; ~9 findings + verification double-check + full re-audit).
+
+gemini:
+1. Section 1: Preliminaries & Definitions
+Typo / redundant phrasing in Definition 1 (Operational diamond formula):
+
+Line:
+∥
+\vD
+∥
+⋄
+,
+i
+n
+s
+t
+=
+sup
+⁡
+ρ
+∈
+\Sstate
+(
+A
+0
+⊗
+A
+)
+∑
+k
+=
+1
+n
+∥
+(
+\id
+A
+0
+⊗
+Δ
+k
+)
+(
+ρ
+)
+∥
+1
+∥\vD∥ 
+⋄,inst
+​
+ =sup 
+ρ∈\Sstate(A 
+0
+​
+ ⊗A)
+​
+ ∑ 
+k=1
+n
+​
+ ∥(\id 
+A 
+0
+​
+ 
+​
+ ⊗Δ 
+k
+​
+ )(ρ)∥ 
+1
+​
+ 
+Remark: The reference space is denoted 
+A
+0
+A 
+0
+​
+  here, but in Theorem~\ref{thm:covering} and Remark~\ref{rem:notation} it is called 
+E
+E. While 
+A
+0
+≃
+A
+A 
+0
+​
+ ≃A has input dimension 
+d
+A
+d 
+A
+​
+  (which suffices by Watrous), using 
+A
+0
+A 
+0
+​
+  both as the specific canonical Choi partner and as an arbitrary reference state register creates a mild collision with the Choi definition 
+∣
+ω
+A
+⟩
+∈
+A
+0
+⊗
+A
+∣ω 
+A
+​
+ ⟩∈A 
+0
+​
+ ⊗A. In Theorem~\ref{thm:covering}, the text switches to 
+σ
+E
+B
+σ 
+EB
+​
+  and 
+E
+E. It is preferable to use 
+E
+E consistently for auxiliary reference systems.
+Remark~\ref{rem:degenerate} (Supremum convention for singleton):
+
+Line: "...and, because every relative ball is the singleton, the centred relative in-radius is 
++
+∞
++∞ under the supremum convention."
+Issue: When 
+n
+=
+d
+B
+=
+1
+n=d 
+B
+​
+ =1, the direction space is 
+V
+=
+{
+0
+}
+V={0}. For any 
+ρ
+≥
+0
+ρ≥0, 
+B
+‾
+⋄
+,
+i
+n
+s
+t
+r
+e
+l
+(
+I
+0
+,
+ρ
+)
+=
+{
+I
+0
++
+0
+}
+=
+{
+I
+0
+}
+⊆
+\Inst
+1
+(
+A
+,
+C
+)
+B
+  
+⋄,inst
+rel
+​
+ (I 
+0
+​
+ ,ρ)={I 
+0
+​
+ +0}={I 
+0
+​
+ }⊆\Inst 
+1
+​
+ (A,C). Thus the set 
+{
+ρ
+≥
+0
+:
+B
+‾
+⊆
+\Inst
+}
+{ρ≥0: 
+B
+ ⊆\Inst} is 
+[
+0
+,
+∞
+)
+[0,∞), whose supremum is indeed 
++
+∞
++∞. However, saying the in-radius is 
++
+∞
++∞ contradicts later formulas (like 
+ρ
+n
+=
+2
+/
+(
+n
+d
+B
+s
+)
+=
+2
+/
+1
+=
+2
+ρ 
+n
+​
+ =2/(nd 
+B
+​
+ s)=2/1=2 if one blindly plugged in 
+n
+=
+d
+B
+=
+s
+=
+1
+n=d 
+B
+​
+ =s=1). The exclusion 
+n
+d
+B
+>
+1
+nd 
+B
+​
+ >1 covers this, but explicitly adding "(where the formula 
+2
+/
+(
+n
+d
+B
+s
+)
+2/(nd 
+B
+​
+ s) does not apply)" prevents confusion.
+2. Section 2: Exact Affine and Metric Parameters
+Theorem~\ref{thm:ball} Proof (Eigenvalue of flagged Choi operator):
+Line: "Every eigenvalue of the flagged Choi operator of 
+I
+∗
+I 
+∗
+​
+  equals 
+1
+/
+(
+n
+d
+A
+d
+B
+)
+1/(nd 
+A
+​
+ d 
+B
+​
+ )."
+Issue: The flagged Choi operator is 
+\Jhat
+I
+∗
+^
+=
+∑
+k
+=
+1
+n
+I
+A
+0
+⊗
+B
+n
+d
+A
+d
+B
+⊗
+∣
+k
+⟩
+⟨
+k
+∣
+=
+I
+A
+0
+⊗
+B
+⊗
+C
+n
+n
+d
+A
+d
+B
+\Jhat 
+I 
+∗
+​
+ 
+​
+ 
+​
+ =∑ 
+k=1
+n
+​
+  
+nd 
+A
+​
+ d 
+B
+​
+ 
+I 
+A 
+0
+​
+ ⊗B
+​
+ 
+​
+ ⊗∣k⟩⟨k∣= 
+nd 
+A
+​
+ d 
+B
+​
+ 
+I 
+A 
+0
+​
+ ⊗B⊗C 
+n
+​
+ 
+​
+ 
+​
+ . While this is indeed an identity on 
+A
+0
+⊗
+B
+⊗
+C
+n
+A 
+0
+​
+ ⊗B⊗C 
+n
+​
+  with all eigenvalues equal to 
+1
+/
+(
+n
+d
+A
+d
+B
+)
+1/(nd 
+A
+​
+ d 
+B
+​
+ ), the proof later says: (truncated)
+)$, which is positive, with the unit vector supporting 
+P
+0
+P 
+0
+​
+  a zero eigenvector because 
+P
+0
+P
+1
+=
+0
+P 
+0
+​
+ P 
+1
+​
+ =0."*
+
+Note: In Proposition 2.1, the text carefully distinguishes "positive definite" from "positive semidefinite". Here, an operator with a zero eigenvalue is called "positive" rather than "positive semidefinite". While common in physics literature, it is slightly imprecise given the earlier distinction.
+Table 2 "Origin" Column Formula for Full-Direction Sphere:
+
+In Table 2, the origin for the full-direction sphere is listed as:
+"Jordan decomposition plus correction state 
+ν
+=
+(
+I
+A
+0
+−
+μ
+)
+/
+(
+d
+A
+−
+1
+)
+ν=(I 
+A 
+0
+​
+ 
+​
+ −μ)/(d 
+A
+​
+ −1)".
+Note: If 
+d
+A
+=
+1
+d 
+A
+​
+ =1, the denominator 
+d
+A
+−
+1
+d 
+A
+​
+ −1 is zero. Theorem 3.6 explicitly handles 
+d
+A
+=
+1
+d 
+A
+​
+ =1 without a correction state (
+λ
+=
+1
+,
+ν
+λ=1,ν not needed). The table entry omits the proviso 
+d
+A
+≥
+2
+d 
+A
+​
+ ≥2 or the 
+d
+A
+=
+1
+d 
+A
+​
+ =1 caveat.
+Slight Collision / Shift in Reference System Notation (
+A
+0
+A 
+0
+​
+  vs. 
+E
+E):
+
+In Section 1 (Preliminaries), 
+A
+0
+≃
+A
+A 
+0
+​
+ ≃A is fixed as the reference system for the Choi operator and diamond norm:
+$\|\vD\|_{\diamond,\mathrm{inst}} = \sup_{\rho \in \Sstate(A_0 \otimes A)} \dots$
+In Theorem 2.4 (POVM case) and Theorem 2.7 (Covering radius), the reference system is denoted 
+E
+E. Remark 1.7 explicitly justifies this: "the reference system in the covering arguments by 
+E
+E", but in Theorem 2.4 it is used outside covering arguments (POVM witness). This is minor, but worth flagging for consistency.
+"Exact gap" terminology in Proposition 4.18(1):
+
+Proposition 4.18(1) states: "At 
+r
+=
+0
+r=0 the width is exactly 
+R
+n
+R 
+n
+​
+ , so the exact gap is 
+R
+n
+−
+1
+=
+1
+−
+ρ
+n
+R 
+n
+​
+ −1=1−ρ 
+n
+​
+ ."
+Without context, calling 
+R
+n
+−
+1
+R 
+n
+​
+ −1 "the exact gap" might sound as if the width itself has an uncertainty gap of 
+R
+n
+−
+1
+R 
+n
+​
+ −1, when in fact the width is known exactly (
+δ
+0
+=
+R
+n
+δ 
+0
+​
+ =R 
+n
+​
+ ), and 
+R
+n
+−
+1
+R 
+n
+​
+ −1 is the gap between the certified lower bound (
+β
+0
+=
+1
+β 
+0
+​
+ =1) and the true width / upper bound (
+U
+0
+=
+R
+n
+U 
+0
+​
+ =R 
+n
+​
+ ). Clarifying this phrasing avoids confusion.
+Let's double-check all other equations, proofs, and definitions:
+
+Lemma 2.2: Spectral bound proof - checked, fully correct.
+Theorem 2.3: Ball inclusion - checked, fully correct.
+Theorem 2.4: Exact in-radius - checked, fully correct.
+Lemma 2.6: Bipartite domination - checked, Cauchy-Schwarz on singular values / Schmidt vectors is solid.
+Theorem 2.7: Covering radius - checked, optimal center via Haar average over 
+U
+(
+B
+)
+×
+S
+n
+U(B)×S 
+n
+​
+  is solid.
+Proposition 2.8: Diameter - checked.
+Lemma 2.10: In-radius concavity - checked, Minkowski sum of balls is solid.
+Theorem 2.11: Global in-radius - checked, concavity + Jensen over orbit is solid.
+Theorem 3.5: Replacement sphere - checked, Jordan decomposition on traceless subspace is solid.
+Theorem 3.6: Full-direction sphere - checked, correction state 
+ν
+ν is positive semidefinite and valid.
+Theorem 3.9: Observable sphere - checked, 
+H
+/
+∥
+H
+∥
+∞
+H/∥H∥ 
+∞
+​
+  has 
+±
+1
+±1 eigenvalue, 
+E
++
+,
+E
+−
+E 
++
+​
+ ,E 
+−
+​
+  orthogonal on eigenvector.
+Proposition 3.10 & 3.11: Joins - checked, orthogonal supports make trace norm additive.
+Corollary 3.12: Join dimension - checked, dimensions of 
+W
+o
+b
+s
+⊥
+W 
+obs
+⊥
+​
+  match.
+Definition 3.14: 
+L
+A
+,
+B
+(
+n
+)
+L 
+A,B
+(n)
+​
+  - checked.
+Definition 3.15: 
+β
+r
+b
+e
+s
+t
+,
+(
+n
+)
+β 
+r
+best,(n)
+​
+  - checked.
+Theorem 4.7: Zero-error threshold - checked, projection onto compact convex set is continuous.
+Proposition 4.8: Convex projection - checked, Helly's theorem application is standard and solid.
+Theorem 4.11: Pinching - checked, dimensions of pinched bodies 
+r
+o
+u
+t
+(
+n
+)
+r 
+out
+(n)
+​
+  and 
+r
+i
+n
+(
+n
+)
+r 
+in
+(n)
+​
+  are rigorously derived.
+Definition 4.13: Upper envelope - checked.
+Proposition 4.14: Error-one floor - checked.
+Corollary 4.19: Positivity-dimension product - checked, 
+Π
+∞
+=
+2
+d
+A
+max
+⁡
+{
+d
+A
+,
+d
+B
+}
+Π 
+∞
+​
+ =2d 
+A
+​
+ max{d 
+A
+​
+ ,d 
+B
+​
+ }.
+Corollary 4.20: Scaling trichotomy - checked.
+Example 5.1 & Table 3: All numeric calculations independently verified.
+Appendix A: No-programming theorem for mixed states and compactness argument for vanishing error - checked, mathematically sound.
+The findings are clear, well-categorized, line-referenced, and explained with exact mathematical reasoning. I will structure the response clearly:
+
+Executive Summary
+Critical Flaws & Internal Inconsistencies
+Mathematical Imprecisions & Misleading Phrasing
+Minor Notational & Typographical Observations
+Positive Verification of Core TheoremsHere is a thorough, line-level audit of the text, detailing internal inconsistencies, mathematical and grammatical flaws, and precision issues.
+1. Critical Inconsistencies & Mathematical Flaws
+A. Direct Contradiction in Table 1 Caption vs. Table Contents & Proposition 4.18
+Location: Caption of Table 1 (page 13) vs. Table 1 Row 1 & Proposition 4.18(1).
+The Text:
+"The lower and upper envelopes coincide at 
+r
+=
+0
+r=0, in the collapse case, and from 
+r
+=
+D
+A
+,
+B
+(
+n
+)
+r=D 
+A,B
+(n)
+​
+  on; in the intermediate regime only the certified bracket is determined."
+
+The Flaw: The lower and upper envelopes do not coincide at 
+r
+=
+0
+r=0 (except in the collapse case 
+n
+d
+B
+s
+=
+2
+nd 
+B
+​
+ s=2).
+At 
+r
+=
+0
+r=0, the lower envelope is 
+β
+0
+b
+e
+s
+t
+,
+(
+n
+)
+=
+1
+β 
+0
+best,(n)
+​
+ =1.
+The upper envelope is 
+U
+0
+(
+n
+)
+=
+R
+n
+=
+2
+(
+1
+−
+1
+n
+d
+B
+s
+)
+U 
+0
+(n)
+​
+ =R 
+n
+​
+ =2(1− 
+nd 
+B
+​
+ s
+1
+​
+ ).
+When 
+n
+d
+B
+s
+>
+2
+nd 
+B
+​
+ s>2, 
+R
+n
+>
+1
+R 
+n
+​
+ >1, leaving an explicit gap of 
+R
+n
+−
+1
+=
+1
+−
+ρ
+n
+>
+0
+R 
+n
+​
+ −1=1−ρ 
+n
+​
+ >0.
+In fact, Row 1 of Table 1 explicitly states: "exact gap 
+R
+n
+−
+1
+=
+1
+−
+ρ
+n
+R 
+n
+​
+ −1=1−ρ 
+n
+​
+ ", and Proposition 4.18(1) confirms this gap.
+Correction: What coincides at 
+r
+=
+0
+r=0 is the true width and the upper envelope (
+δ
+0
+,
+i
+n
+s
+t
+⋄
+=
+U
+0
+(
+n
+)
+=
+R
+n
+δ 
+0,inst
+⋄
+​
+ =U 
+0
+(n)
+​
+ =R 
+n
+​
+ ), not the lower and upper envelopes. The caption should read:
+"The true width is known exactly at 
+r
+=
+0
+r=0 (where it equals the upper envelope 
+R
+n
+R 
+n
+​
+ ), in the collapse case, and from 
+r
+=
+D
+A
+,
+B
+(
+n
+)
+r=D 
+A,B
+(n)
+​
+  on..."
+
+B. Misplaced / Erroneous Figure Callout in Theorem 4.17
+Location: Section 4, Theorem 4.17 (page 11).
+The Text:
+"This occurs for (i) arbitrary-input two-outcome POVMs (
+d
+B
+=
+1
+,
+n
+=
+2
+d 
+B
+​
+ =1,n=2, any 
+d
+A
+d 
+A
+​
+ ), where 
+D
+A
+,
+1
+(
+2
+)
+=
+d
+A
+2
+D 
+A,1
+(2)
+​
+ =d 
+A
+2
+​
+ , and (ii) trivial-input qubit channels (
+d
+A
+=
+1
+,
+n
+=
+1
+,
+d
+B
+=
+2
+d 
+A
+​
+ =1,n=1,d 
+B
+​
+ =2), where 
+D
+1
+,
+2
+(
+1
+)
+=
+3
+D 
+1,2
+(1)
+​
+ =3 (see Figure~\ref{fig:envelope}(c))."
+
+The Flaw: The callout (see Figure 2(c)) is placed immediately after case (ii) (
+d
+A
+=
+1
+,
+n
+=
+1
+,
+d
+B
+=
+2
+d 
+A
+​
+ =1,n=1,d 
+B
+​
+ =2, where 
+D
+=
+3
+D=3). However, Figure 2(c) explicitly plots case (i) with 
+d
+A
+=
+2
+,
+d
+B
+=
+1
+,
+n
+=
+2
+d 
+A
+​
+ =2,d 
+B
+​
+ =1,n=2, where 
+D
+(
+n
+)
+=
+4
+D 
+(n)
+ =4:
+Title: "(c) 
+d
+A
+=
+2
+d 
+A
+​
+ =2, 
+d
+B
+=
+1
+d 
+B
+​
+ =1, 
+n
+=
+2
+n=2: exact collapse (
+n
+d
+B
+s
+=
+2
+nd 
+B
+​
+ s=2)" with 
+D
+(
+n
+)
+=
+4
+D 
+(n)
+ =4 marked on the plot.
+
+Correction: Move the callout to reference case (i) or rephrase:
+"...(i) arbitrary-input two-outcome POVMs (
+d
+B
+=
+1
+,
+n
+=
+2
+d 
+B
+​
+ =1,n=2, any 
+d
+A
+d 
+A
+​
+ ), where 
+D
+A
+,
+1
+(
+2
+)
+=
+d
+A
+2
+D 
+A,1
+(2)
+​
+ =d 
+A
+2
+​
+  (illustrated for 
+d
+A
+=
+2
+d 
+A
+​
+ =2 in Figure~\ref{fig:envelope}(c)), and (ii) trivial-input qubit channels..."
+
+C. Inconsistent "Lower-Dimensional" Description in Section 5
+Location: Section 5, Bullet 3 (Input-independent case 
+d
+A
+=
+1
+d 
+A
+​
+ =1, page 12).
+The Text:
+"...governed by the lower-dimensional replacement structure of the body."
+
+The Flaw: When 
+d
+A
+=
+1
+d 
+A
+​
+ =1, every instrument is a replacement instrument (as explicitly stated in the same bullet: 
+\Inst
+n
+(
+C
+,
+B
+)
+≅
+\Sstate
+f
+l
+a
+g
+(
+B
+⊗
+C
+n
+)
+\Inst 
+n
+​
+ (C,B)≅\Sstate 
+flag
+​
+ (B⊗C 
+n
+​
+ ), and in Corollary 4.16: "When 
+d
+A
+=
+1
+d 
+A
+​
+ =1 every instrument is a replacement instrument"). Its real affine dimension is 
+n
+d
+B
+2
+−
+1
+=
+D
+1
+,
+B
+(
+n
+)
+nd 
+B
+2
+​
+ −1=D 
+1,B
+(n)
+​
+ . Thus, the replacement family is not a "lower-dimensional" sub-structure—it is the entire body.
+Correction: Change to:
+"...which is governed by the replacement structure of the body (which encompasses the entire body when 
+d
+A
+=
+1
+d 
+A
+​
+ =1)."
+
+2. Semantic & Mathematical Imprecisions
+A. Grammatical Misalignment in Theorem 2.7 Proof (Covering Radius Lower Bound)
+Location: Section 2, Proof of Theorem 2.7, second paragraph (page 4).
+The Text:
+"On a maximally entangled input of Schmidt rank 
+s
+s supported on 
+W
+W, the flagged output of 
+I
+I is pure, whereas the uniform instrument emits the maximally mixed state on the 
+n
+d
+B
+s
+nd 
+B
+​
+ s-dimensional support of that output..."
+
+The Issue: Grammatically, "the 
+n
+d
+B
+s
+nd 
+B
+​
+ s-dimensional support of that output" refers back to the flagged output of 
+I
+I. But the output of 
+I
+I is a rank-one pure state, so its support is 
+1
+1-dimensional.
+Correction: Clarify the reference:
+"...whereas the uniform instrument emits the maximally mixed state on the 
+n
+d
+B
+s
+nd 
+B
+​
+ s-dimensional subspace containing that pure output (namely 
+W
+E
+⊗
+B
+⊗
+C
+n
+W 
+E
+​
+ ⊗B⊗C 
+n
+​
+ )..." or *"...on the 
+n
+d
+B
+s
+nd 
+B
+​
+ s-dimensional support of the uniform instrument's output

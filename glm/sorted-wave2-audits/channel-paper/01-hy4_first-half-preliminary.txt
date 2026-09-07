@@ -1,0 +1,27 @@
+# [sorted from 'wave 2 audits/audit 2.txt' L1-25] Source model: hy4. Target: channel paper. Type: first-half preliminary audit (5 items tracked pending second half).
+
+hy4:
+I have read the provided **first half** line-by-line (from the preamble through the truncated Proposition “Fixed-marginal Chebyshev center”). I will **wait for the second half** before delivering the complete line-level audit for flaws/internal inconsistencies and before giving any final assessment of physical intuition, pedagogical enhancements, or other improvements.
+
+Preliminary status after this first half:
+
+- The core theoretical chain is present and, in the provided text, appears internally consistent and correctly proved:
+  - fiber-radius characterization \(\delta^{\mathrm c}=\nu\) and the factor-two comparison with \(\mu_r\);
+  - antipodal profile \(\alpha_r\le\mu_r\le\delta_r^{\mathrm c}\le2\mu_r\);
+  - deleted-product/coindex intrinsic latent obstruction;
+  - contained-ball/sectional-radius certificates and the Helly convex-projection upper bound;
+  - channel Choi/diamond conventions, the variational in-radius \(\Gamma_{A,B}=s/(2d_A)\) and \(\rho_\diamond(\Omega)=2/(d_Bs)\);
+  - replacement, observable, full-direction, and joined antipodal sections;
+  - the certified lower envelope \(\beta_r(A,B)\) and the Chebyshev-radius results.
+
+- Forward references are currently acceptable but must be re-checked once the appendices/second half arrive:
+  - Theorem~\ref{thm:global-inradius-channel} uses the Haar barycentre \(\int T_V(\Phi_0)\,dV=\Omega_{A,B}\), whose computation is deferred to the proof of Theorem~\ref{thm:depolarizing-chebyshev}.
+  - The Clifford construction (Theorem~\ref{thm:clifford}), the exact in-radius proof, the Chebyshev-radius proof, and the partition sections are referenced to appendices not yet provided.
+
+Minor items to track now (to be resolved in the complete review after the second half):
+
+1. The preamble defines the “complete retained code” and distinguishes an averaged (deterministic) code state from a single-run sampled transcript, but this distinction is not yet used in the first half. Watch for whether it becomes operational later (e.g., in sampled/latent-code sections).
+2. Figure~\ref{fig:replacement-join}’s caption already mentions pinching thresholds \(r_{\mathrm{out}},r_{\mathrm{in}}\) and a special case “\(s=2\)” before those objects are defined in the main text; verify consistency and that no symbol clash occurs (especially with \(s=\min\{d_A,d_B\}\) used elsewhere).
+3. In Corollary~\ref{cor:id-dep}, the expression \(\operatorname{Tr}_H|J|=2(1-1/d^2)I_H\) should be explicitly identified as the partial trace over the **output** copy; both \(A_0\) and \(B\) are denoted \(H\) there, so the convention should be stated to avoid ambiguity.
+4. For the Clifford/unitary family, the parameters \(p=2^q\), the state \(\sigma_u=(I+H_u)/p\), and the claim \(\|H_u\|_1=p\) are deferred to the appendix; confirm they are fully specified and that \(\sigma_u\) is trace-one and positive.
+5. Ensure the notation \(\operatorname{coind}_{\mathbb Z_2}F_2(Y)\) is used consistently when the subscript is suppressed.

@@ -1,0 +1,199 @@
+# [sorted from 'wave 2 audits/audit 1.txt' L2107-end] Source model: gemini. Target: instruments paper. Type: executive assessment + line-level verification + physical insights + pedagogy.
+
+gemini:
+### Executive Assessment
+
+The mathematical architecture of the text is **exceptionally rigorous, internally consistent, and technically sound**. Every proposition, lemma, and theorem—including the Choi normalization conventions, the spectral bounds, the Borsuk–Ulam topological obstructions, the Helly-type affine decoders, the balanced-pinching dimension counts, and the exact collapse cases—has been checked at line level. The parameters, table values, figure captions, and TikZ/PGFPlots coordinates match with zero numerical or dimensional discrepancy.
+
+Beyond its mathematical correctness, the manuscript tackles a fundamental problem at the intersection of quantum information, convex geometry, and algebraic topology: **the representational complexity of quantum instruments**. 
+
+Below is a detailed line-level audit, followed by genuine, nonsuperficial physical insights and pedagogical enhancements that can elevate the manuscript from a sequence of technical proofs to an illuminating treatise on quantum measurement geometry.
+
+---
+
+### Part 1. Line-Level Forensic Audit & Technical Verifications
+
+#### 1. Choi Normalization & Marginal Constraints (Section 1)
+* **Convention:** $\Jhat_\Phi = (\id_{A_0}\otimes\Phi)(|\omega_A\rangle\langle\omega_A|)$ where $|\omega_A\rangle = \frac{1}{\sqrt{d_A}}\sum_j |j\rangle_{A_0}|j\rangle_A$.
+* **Trace-Preserving Condition:** $\Tr_B \Jhat_\Phi = I_{A_0}/d_A$.
+* **Verification:** If $\Phi$ is trace-preserving, $\Tr_B \Jhat_\Phi = \Tr_B [ (\id \otimes \Phi)(|\omega_A\rangle\langle\omega_A|) ] = \frac{1}{d_A} \sum_{i,j} |i\rangle\langle j| \Tr(\Phi(|i\rangle\langle j|)) = \frac{1}{d_A}\sum_i |i\rangle\langle i| = I_{A_0}/d_A$. The factor of $1/d_A$ is consistently carried through all affine equations, the direction space $\mathfrak V_{A,B}^{(n)}$, and the marginal bounds.
+
+#### 2. Affine Dimension Count (Proposition 2.1)
+* **Count:** $D_{A,B}^{(n)} = d_A^2(nd_B^2 - 1)$.
+* **Verification:** The ambient space of $n$ Hermitian matrices on $A_0 \otimes B$ has real dimension $n(d_A d_B)^2 = nd_A^2 d_B^2$. The affine constraint $\sum_{k=1}^n \Tr_B \Jhat_{\mathcal I_k} = I_{A_0}/d_A$ maps onto $\Herm(A_0)$, which has real dimension $d_A^2$. Surjectivity is proven by placing $H \otimes I_B / d_B$ in the first block and $0$ elsewhere. Thus, exactly $d_A^2$ constraints are independent:
+  $$\dim_{\mathbb R} = nd_A^2 d_B^2 - d_A^2 = d_A^2(nd_B^2 - 1).$$
+  Because $\mathcal I_*$ has strictly positive definite Choi blocks, it is a relative interior point, so the positive cone introduces no additional affine constraints.
+
+#### 3. Instrument Spectral Bound (Lemma 2.2)
+* **Bound:** $\max\{0, \lambda_{\max}(-X)\} \le \frac{s}{2d_A}\|\vD\|_{\diamond,\mathrm{inst}}$, where $s = \min\{d_A, d_B\}$.
+* **Line Check:**
+  1. $X_{k_0}|v\rangle = -\lambda |v\rangle$ with $\lambda = \lambda_{\max}(-X) > 0$.
+  2. Schmidt rank of $|v\rangle$ satisfies $b = \dim W \le \min\{d_A, d_B\} = s$.
+  3. The maximally entangled state on $W$ satisfies $|\omega_W\rangle = \frac{\sqrt{d_A}}{\sqrt{b}}(P_W \otimes I_A)|\omega_A\rangle$.
+  4. The induced output is $Y = \frac{d_A}{b}(P_W \otimes I_{B \otimes C_n})X(P_W \otimes I_{B \otimes C_n})$.
+  5. Direction constraint $\sum_k \Tr_B X_k = 0 \implies \Tr Y = 0$.
+  6. Testing on $|v, k_0\rangle$ yields $\langle v, k_0|Y|v, k_0\rangle = -\frac{d_A}{b}\lambda$.
+  7. For any traceless Hermitian operator $Y$, $\|Y\|_1 = 2\Tr Y_+ \ge -2\langle w|Y|w\rangle$. Thus $\|Y\|_1 \ge \frac{2d_A}{b}\lambda \ge \frac{2d_A}{s}\lambda$.
+  8. Rearranging gives $\lambda \le \frac{s}{2d_A}\|Y\|_1 \le \frac{s}{2d_A}\|\vD\|_{\diamond,\mathrm{inst}}$.
+* **Status:** Mathematically flawless. The double role of $|\omega_W\rangle$ is rigorous.
+
+#### 4. Sharpness Witnesses for Centred In-Radius (Theorem 2.4)
+* **Case $d_B > 1$:** The witness uses two isometries $V_0, V_1: W_A \to B$ with $\Tr(V_0^\dagger V_1) = 0$. The resulting rank-one projectors $P_0, P_1$ satisfy $\Tr(P_0 P_1) = 0$ and $\Tr_B P_0 = \Tr_B P_1 = P_{\overline W_A}/s$. At $t = \frac{2}{nd_Bs}$, the perturbed block has an exact zero eigenvalue supported on $P_0$. For $t' > t$, the eigenvalue is $\frac{1}{nd_Ad_B} - t'\frac{s}{2d_A} < 0$.
+* **Case $d_B = 1, n \ge 2$ (POVMs):** The witness shifts a rank-one effect $P$ between outcomes 1 and 2: $\Delta_1 = -\frac{1}{2}\mathcal F$, $\Delta_2 = +\frac{1}{2}\mathcal F$. Here $\|\vD\|_{\diamond,\mathrm{inst}} = 1$. The first block becomes $\frac{I_{A_0} - P^{\mathsf T}}{nd_A}$, which hits zero at $t = 2/n$, precisely matching $\frac{2}{nd_Bs}$ since $d_B = s = 1$.
+* **Status:** Fully verified.
+
+#### 5. Bipartite Domination (Lemma 2.6)
+* **Step Check:**
+  $$\langle v|Z|v\rangle = \sum_\alpha |\Tr(V^\dagger K_\alpha)|^2 \le b \sum_\alpha \Tr(V K_\alpha^\dagger K_\alpha V^\dagger) = b \Tr(V I_{E_0} V^\dagger) = b.$$
+* **Crucial detail:** Setting $M = K_\alpha V^\dagger$ maps $B \to B$. Its rank is at most $\rank(V) \le b$. The Cauchy–Schwarz inequality on Hilbert–Schmidt operators gives $|\Tr M|^2 \le \rank(M)\|M\|_2^2 \le b \Tr(V K_\alpha^\dagger K_\alpha V^\dagger)$. Because $\Tr_B Z = I_{E_0}$, the sum $\sum_\alpha K_\alpha^\dagger K_\alpha = I_{E_0}$ sits on the *inside*, summing cleanly to $I_{E_0}$. The algebra is completely solid.
+
+#### 6. Observable–Replacement Join Dimension (Corollary 3.14 & Table 3)
+* **Dimension check for $n \ge 2$:**
+  $$W_{\mathrm{obs}} = \operatorname{span}\{|b_0\rangle \otimes |1\rangle, |b_0\rangle \otimes |2\rangle\} \implies \dim W_{\mathrm{obs}}^\perp = 2(d_B - 1)^2 + (n - 2)d_B^2 =: N_{\mathrm{join}}.$$
+* The traceless subspace of $W_{\mathrm{obs}}^\perp$ has dimension $N_{\mathrm{join}} - 1$, whose unit sphere has dimension $N_{\mathrm{join}} - 2$.
+* Joining $S^{d_A^2 - 2}$ with $S^{N_{\mathrm{join}} - 2}$ produces a sphere of dimension:
+  $$(d_A^2 - 2) + (N_{\mathrm{join}} - 2) + 1 = d_A^2 + N_{\mathrm{join}} - 3 =: L_{\mathrm{join}}.$$
+* **Numerical Cross-Check with Table 3:**
+  * $(2,2,2)$: $N_{\mathrm{join}} = 2(1)^2 + 0 = 2 \ge 2 \implies L_{\mathrm{join}} = 4 + 2 - 3 = 3$. Correct.
+  * $(3,2,2)$: $N_{\mathrm{join}} = 2(1)^2 + 0 = 2 \ge 2 \implies L_{\mathrm{join}} = 9 + 2 - 3 = 8$. Correct.
+  * $(2,3,1)$: $n=1 \implies N_{\mathrm{join}} = (3-2)^2 = 1 < 2 \implies$ Invalid. Correct.
+  * $(2,1,2)$: $d_B=1 \implies N_{\mathrm{join}} = 2(0) + 0 = 0 < 2 \implies$ Invalid. Correct.
+
+#### 7. Input/Output Pinching Dimensions (Theorem 4.11 & Definition 4.13)
+* **Output Pinching:** $\bigoplus_j B_j \implies$ constraints live in $\Herm(A_0)$, dimension $d_A^2$. Ambient dimension $nd_A^2 \sum_j b_j^2$. Direction space dimension:
+  $$r_{\mathrm{out}}^{(n)} = d_A^2\Big(n\sum_j b_j^2 - 1\Big).$$
+* **Input Pinching:** $\bigoplus_i A_i \implies$ constraints live in $\bigoplus_i \Herm(\overline A_i)$, dimension $\sum_i a_i^2$. Ambient dimension $nd_B^2 \sum_i a_i^2$. Direction space dimension:
+  $$r_{\mathrm{in}}^{(n)} = \Big(\sum_i a_i^2\Big)(nd_B^2 - 1).$$
+* Both formulas are exact, and their balanced versions $Q_\ell(d)$ properly minimize the squared partition sums.
+
+---
+
+### Part 2. Internal Consistency Checks Across the Manuscript
+
+1. **Figure 2(a) vs Example 5.1:**
+   * Parameters: $d_A=d_B=2, n=2$.
+   * $D=28$, $L^{(n)}=6$, $\rho_n=1/4$, $\gamma=1/2$, $R_n=1.75$.
+   * $r_{\mathrm{out}} = 4(2 \cdot 2 - 1) = 12$ with error $2(1 - 1/2) = 1$.
+   * $r_{\mathrm{in}} = 2(2 \cdot 4 - 1) = 14$ (outside plot).
+   * In Figure 2(a), the blue curve steps down from $1$ to $0.5$ at $r=7$ (since $L=6$). The red curve steps down from $1.75$ to $1$ at $r=12$. Every coordinate and label matches perfectly.
+2. **Figure 2(b) vs Text:**
+   * Parameters: $d_A=3, d_B=2, n=2$.
+   * $D=63$, $L^{(n)}=8$ (from $L_{\mathrm{join}}=8$).
+   * Intermediate floor: $\gamma = \max\{1/4, 1/3\} = 1/3 \approx 0.333$.
+   * Step thresholds: Input pinching with $k_{\mathrm{in}}=3$ gives $r_{\mathrm{in}} = 3(7) = 21$ with value $2(1 - 1/3) = 4/3 \approx 1.333$. Output pinching with $\ell_{\mathrm{out}}=2$ gives $r_{\mathrm{out}} = 9(3) = 27$ with value $1$.
+   * In Figure 2(b), the red curve steps at $r=21$ ($1.75 \to 1.333$) and at $r=27$ ($1.333 \to 1$). Blue curve steps at $r=9$ ($1 \to 0.333$). Completely consistent.
+3. **Figure 2(c) vs Theorem 4.17:**
+   * Parameters: $d_A=2, d_B=1, n=2 \implies nd_Bs = 2 \cdot 1 \cdot 1 = 2$.
+   * Collapse occurs: width is 1 for $0 \le r < 4$, and 0 for $r \ge 4$. Perfectly rendered.
+
+---
+
+### Part 3. Deep Physical Intuition & Conceptual Insights
+
+The mathematics in the text is solid, but the physical narrative can be significantly enriched. The following genuine, nonsuperficial physical mechanisms underlie the mathematical phenomena and should be explicitly integrated into the discussion:
+
+```
+                  ┌─────────────────────────────────────────────────────────┐
+                  │             TOTAL TRACE BUDGET = 1                      │
+                  └──────────────────────────┬──────────────────────────────┘
+                                             │
+                      ┌──────────────────────┴──────────────────────┐
+                      ▼                                             ▼
+       ┌──────────────────────────────┐              ┌──────────────────────────────┐
+       │   CLASSICAL BRANCH DILUTION  │              │    QUANTUM ENTANGLEMENT      │
+       │    Each outcome branch gets  │              │        AMPLIFICATION         │
+       │    weight ~ 1/n              │              │    Negative perturbation     │
+       │    Positivity margin ~ 1/n   │              │    concentrated on Schmidt   │
+       │                              │              │    subspace: factor d_A / s  │
+       └──────────────┬───────────────┘              └──────────────┬───────────────┘
+                      │                                             │
+                      └──────────────────────┬──────────────────────┘
+                                             ▼
+                              Centred In-Radius: ρ_n = 2 / (n d_B s)
+```
+
+#### 1. The Physical Duality Behind the Centred In-Radius: Classical Dilution vs. Quantum Entanglement Amplification
+In Theorem 2.4, the in-radius is determined as:
+$$\rho_{\diamond,\mathrm{inst}}(\mathcal I_*) = \frac{2}{nd_Bs}.$$
+This formula encapsulates a fundamental trade-off between classical probability distribution and quantum coherence:
+* **Classical Dilution ($1/n$ factor):** A quantum instrument distributes a normalized unit of probability across $n$ measurement branches. The uniform depolarising instrument allocates exactly $1/n$ of this probability to each outcome. A worst-case perturbation does not disperse evenly; it concentrates its entire negativity on a *single* branch. Because that branch only possesses a background positivity buffer of $1/(nd_Ad_B)$, it can be driven negative by an extremely small perturbation when $n$ is large.
+* **Quantum Entanglement Amplification ($s/d_A$ factor):** A perturbation in Choi space can be spread across all $d_A$ coordinates of the input space. However, when an adversary probes the instrument using a maximally entangled state $|\omega_W\rangle$ supported on a Schmidt subspace of dimension $b \le s = \min\{d_A, d_B\}$, the entanglement acts as an active lens: it concentrates the perturbation back onto an $s$-dimensional subspace, amplifying the local spectral negativity by a factor of $d_A/s$.
+* **The Positivity Budget:** The ratio of the local positivity buffer $\frac{1}{nd_Ad_B}$ to the maximal negative eigenvalue readable by an entangled witness $\frac{s}{2d_A}$ gives the exact radius:
+  $$\frac{1/(nd_Ad_B)}{s/(2d_A)} = \frac{2}{nd_Bs}.$$
+This makes it clear to the reader that the $1/n$ scaling is not a technical artifact, but a direct consequence of splitting a conserved probability current among $n$ detector clicks.
+
+---
+
+#### 2. The Intermediate Floor $\gamma = \max\{\rho_n, 1/d_A\}$ as an Irreducible Quantum Marginal Bottleneck
+Why does the certified lower envelope refuse to decay to zero when $n \to \infty$?
+* While the ball radius $\rho_n \to 0$ as $n \to \infty$ (due to branch dilution), the global antipodal certificate provides an $n$-independent floor:
+  $$\gamma_{A,B}^{(n)} \ge \frac{1}{d_A}.$$
+* **Physical Origin:** Even if the instrument has a continuum of classical outcomes ($n \to \infty$), the quantum system entering the apparatus has a finite Hilbert space dimension $d_A$, which caps its quantum information capacity at $\log_2 d_A$.
+* When constructing an antipodal pair of instruments that span all $D_{A,B}^{(n)}$ directions (Theorem 3.7), the directional perturbation $Z = Z_+ - Z_-$ has orthogonal positive and negative components. To turn these components into legitimate instruments, one must adjust their marginal on the input space $A_0$ to equal the trace-preserving condition $I_{A_0}/d_A$.
+* If the perturbation produces a pure marginal $\mu = |\psi\rangle\langle\psi|$ on $A_0$, the largest fraction of this perturbation that can be accommodated before violating the operator inequality $\lambda \mu \le I_{A_0}/d_A$ is strictly $\lambda = 1/d_A$.
+* **Insight:** The floor $1/d_A$ represents the **quantum marginal bottleneck**: no matter how many classical outcomes an instrument records, the quantum input state is conserved, and completing an unnormalized instrument perturbation requires an isotropic trace-padding whose cost is set entirely by the input dimension $d_A$.
+
+---
+
+#### 3. Metric Complementarity ($\rho_n + R_n = 2$) as Spectral Flatness of Extremal Channels
+In generic convex geometry, the in-radius $\rho$ and Chebyshev covering radius $R$ of a body satisfy $\rho + R \le \diam$ or are completely decoupled (e.g., for an $\ell_1$-ball in $\mathbb R^D$, $\rho = 1/\sqrt{D}$ while $R = 1$ and $\diam = 2$, so $\rho + R \to 1 \ne 2$).
+* For the instrument body, Corollary 2.9 proves the exact equality:
+  $$\rho_{\diamond,\mathrm{inst}}(\mathcal I_*) + R_{\mathrm{inst}}(\mathcal I_*) = 2 = \diam_{\diamond,\mathrm{inst}}(\Inst_n(A,B)).$$
+* **Physical Origin:** The depolarising instrument $\mathcal I_*$ is the unique maximally mixed state in the Choi representation. The extremal points that maximize the distance from $\mathcal I_*$ (the covering radius witness) and the extremal directions along which $\mathcal I_*$ first loses complete positivity (the in-radius witness) are generated by the **same physical mechanisms: rank-one isometric channels**.
+* For any rank-one isometric channel $\Phi$, its flagged output on a maximally entangled state of Schmidt rank $s$ is a pure state $|\Psi\rangle\langle\Psi|$. On the support of this pure state (which has dimension $K = nd_Bs$), the uniform instrument $\mathcal I_*$ outputs the completely flat, maximally mixed density operator $\frac{1}{K} I_K$.
+* The trace distance between a pure state and the completely flat state on its $K$-dimensional support is analytically:
+  $$\tfrac{1}{2}\|\sigma_{\mathrm{pure}} - \tfrac{1}{K}I_K\|_1 = 1 - \frac{1}{K} = 1 - \frac{1}{nd_Bs}.$$
+* Multiplying by 2 yields the covering radius $R_n = 2(1 - \frac{1}{nd_Bs})$. Meanwhile, the positivity threshold along the ray toward $-\Phi$ is reached when the background eigenvalue $1/K$ is cancelled, which occurs at distance $\rho_n = 2/K = \frac{2}{nd_Bs}$.
+* Their sum is identically $2(1 - 1/K) + 2/K = 2$. Thus, metric complementarity is an operational signature of the **spectral flatness of the depolarising channel on the transmission subspace of an isometry**.
+
+---
+
+#### 4. The Single-Observable Limitation in the Join Construction
+In Proposition 3.12 and Remark 3.13, the join construction combines *one* observable sphere with replacement spheres, but cannot combine two observable spheres.
+* **Physical Insight:** An observable sphere requires an **active, state-selective probe**: to distinguish $\mathcal I^H$ from $\mathcal I^{-H}$, one must feed the instrument a specific eigenstate $|\psi\rangle$ of the observable $H$.
+* A replacement instrument, by contrast, is **completely passive**: it erases its input and prepares a flagged state $\tau$. It exhibits maximal separation on *any* input state $\rho$.
+* When joining an observable sphere with replacement spheres across orthogonal output subspaces $W_{\mathrm{obs}} \oplus W_{\mathrm{obs}}^\perp$, whatever input state $|\psi\rangle$ is chosen to probe the observable $H$ simultaneously and automatically excites the replacement component at full distance.
+* If one attempted to join *two* distinct observable spheres $H_1$ and $H_2$, they would require non-commuting input eigenstates $|\psi_1\rangle \ne |\psi_2\rangle$. A single-shot input state cannot simultaneously be an eigenstate of two incompatible observables, so the joint separation would collapse below 2. This is a direct manifestation of **quantum measurement incompatibility / complementarity** restricting topological sphere embeddings.
+
+---
+
+#### 5. All-or-Nothing Rigidity in Binary Quantum Measurements ($nd_Bs = 2$)
+Theorem 4.17 shows that when $nd_Bs = 2$, the compression width collapses:
+$$\delta_{r,\mathrm{inst}}^\diamond = 1 \quad \forall r < D_{A,B}^{(n)}, \qquad \delta_{r,\mathrm{inst}}^\diamond = 0 \quad \forall r \ge D_{A,B}^{(n)}.$$
+* This regime covers **all 2-outcome POVMs on any Hilbert space** ($d_B=1, n=2 \implies s=1, nd_Bs=2$), as well as single-qubit states ($d_A=1, n=1, d_B=2 \implies$ the Bloch ball).
+* **Physical Insight:** For any binary measurement—whether on a qubit, a qutrit, or a 1000-dimensional system—the continuous compression width exhibits an **extreme topological threshold**:
+  * You cannot achieve an error $\varepsilon < 1$ with *any* continuous encoding into fewer than $d_A^2$ real parameters.
+  * Attempting to compress the space of 2-outcome POVMs by even a single real dimension ($r = d_A^2 - 1$) immediately incurs the maximum possible non-trivial error ($1$), which is no better than guessing a fixed constant measurement!
+  * Binary quantum measurements possess no compressible "intermediate features": their topological antipodal separation fills the entire subcritical affine envelope.
+
+---
+
+### Part 4. Pedagogical Enhancements & Polishing Recommendations
+
+1. **Clarify the Factor of $1/4$ in Remark 1.3:**
+   * Many readers in quantum information are accustomed to the trace distance $D(\rho, \sigma) = \frac{1}{2}\|\rho - \sigma\|_1$, where the Holevo–Helstrom success probability is $p_{\mathrm{succ}} = \frac{1}{2} + \frac{1}{2} D$.
+   * Add a brief sentence explicitly reminding the reader:
+     $$\text{Advantage} = p_{\mathrm{succ}} - \frac{1}{2} = \frac{1}{2}\Big\|\frac{1}{2}\widehat{\mathcal I} - \frac{1}{2}\widehat{\mathcal J}\Big\|_\diamond = \frac{1}{4}\|\widehat{\mathcal I} - \widehat{\mathcal J}\|_\diamond.$$
+     This removes any hesitation regarding the $1/4$ vs $1/2$ convention.
+
+2. **Explicit Transition from $Y$ to the Diamond Norm in Lemma 2.2:**
+   * In Lemma 2.2, add one line making the block-diagonal trace norm expansion explicit:
+     $$\|Y\|_1 = \sum_{k=1}^n \|(\id_{A_0} \otimes \Delta_k)(|\omega_W\rangle\langle\omega_W|)\|_1 \le \sup_{\rho \in \Sstate(A_0 \otimes A)} \sum_{k=1}^n \|(\id_{A_0} \otimes \Delta_k)(\rho)\|_1 = \|\vD\|_{\diamond,\mathrm{inst}}.$$
+     This makes the jump from $\|Y\|_1$ to $\|\vD\|_{\diamond,\mathrm{inst}}$ immediate and transparent.
+
+3. **Helly's Decoder vs. Continuous Reconstruction:**
+   * In Remark 4.9 (Nonconstructive Helly decoder), emphasize the operational contrast:
+     * Helly's theorem ensures that an *unrestricted* decoder can select the Chebyshev center of each data-compatible fiber $F_y = f^{-1}(y)$ to achieve error $\le \frac{2(D-r)}{D-r+1}$.
+     * However, because Chebyshev centers of convex bodies do not in general depend continuously on the slice parameters $y$, this Helly decoder cannot be assumed continuous.
+     * By contrast, Theorem 4.7 proves that at the critical threshold $r = D$, a continuous decoder *does* exist via the metric projection $\Pi_C$.
+
+4. **Summary Checklist for Final Proofs:**
+   * [x] Affine dimension $D_{A,B}^{(n)} = d_A^2(nd_B^2 - 1)$ verified.
+   * [x] Spectral bound $\frac{s}{2d_A}\|\vD\|_{\diamond,\mathrm{inst}}$ verified.
+   * [x] Exact centred radius $\rho_n = \frac{2}{nd_Bs}$ verified.
+   * [x] Covering radius $R_n = 2(1 - \frac{1}{nd_Bs})$ verified.
+   * [x] Metric complementarity $\rho_n + R_n = 2$ verified.
+   * [x] Observable–replacement join dimension $L_{\mathrm{join}} = d_A^2 + N_{\mathrm{join}} - 3$ verified.
+   * [x] Input and output balanced-pinching dimensions verified.
+   * [x] Exact collapse step function for $nd_Bs=2$ verified.
+   * [x] All TikZ/PGFPlots curves and tick labels verified against formulas.

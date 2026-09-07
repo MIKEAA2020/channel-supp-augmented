@@ -1,0 +1,77 @@
+# [sorted from 'wave 2 audits/audit 2.txt' L261-335] Source model: qwen. Target: channel paper. Type: full audit verdict ('sound, no substantive errors'; 4 polish items) + physical/pedagogical assessment.
+
+qwen:
+I have now read the complete manuscript (both halves) line-by-line. Below is the consolidated audit for flaws/internal inconsistencies, followed by a focused assessment of physical intuition, pedagogical value, and concrete improvements.
+
+---
+## I. Line-Level Audit: Flaws & Internal Consistency
+
+**Verdict:** The manuscript is mathematically rigorous, internally consistent, and free of substantive errors. Definitions, theorems, and proofs align correctly across both halves. Notation is stable, forward/backward references resolve properly, and the topological, metric, and quantum-informational layers are correctly coupled.
+
+### Minor technical/stylistic points worth polishing
+1. **Redundant phrasing in Theorem~\ref{thm:block-pinching-upper} proof:**  
+   `Define the decoder as above on the encoder image and set it equal to that fixed channel outside.` appears twice in close succession. Remove the duplicate sentence.
+2. **Vectorization convention reminder in Appendix~\ref{app:chebyshev-radius-proof}:**  
+   The proof states `with the column-vectorization convention fixed above, namely $|K\rangle\rangle=\sum_i|\bar i\rangle_R\otimes K|i\rangle_B$ so that $\Tr_B|K\rangle\rangle\langle\langle K|=K^\dagger K$`. This is correct, but since $R$ and $B$ are both labeled $H$ in Corollary~\ref{cor:id-dep}, add a one-line clarification that the partial trace is always over the **output** factor of the Choi operator to prevent ambiguity in square-system examples.
+3. **Tightness remark for Theorem~\ref{thm:sampled-achievability}:**  
+   The bound $\frac{d_A\sqrt{d_Ad_B}}{\eta\sqrt N}$ is an existence guarantee and can exceed the diameter $2$ for small $N$ or small $\eta$. The text notes this, but adding `For practical tomography, replace the crude norm-conversion factor $d_A\sqrt{d_Ad_B}$ with the optimal state-tomography constant $O(\sqrt{d_Ad_B})$ from~\cite{HaahEtAl2017} to obtain a tighter finite-sample guarantee.` would align it better with modern tomography literature.
+4. **Coindex notation consistency:**  
+   The manuscript occasionally suppresses the $\mathbb Z_2$ subscript in $\operatorname{coind}_{\mathbb Z_2}F_2(Y)$. Add a single sentence after Definition~\ref{def:coindex}: `Henceforth the subscript $\mathbb Z_2$ is omitted when the antipodal action is clear.` to match later usage.
+
+No logical gaps, misapplied theorems, or contradictory statements were found. The topological arguments (Borsuk--Ulam, deleted product, fiber radii), metric estimates (diamond norm, pinching, hybrid Lipschitz), and quantum constructions (Clifford sections, IC-POVM, programming packing) are all correctly executed and mutually consistent.
+
+---
+## II. Physical Intuition & Operational Content
+
+**Verdict:** The work absolutely merits genuine, non-decorative physical insight. It does not merely dress topology in quantum notation; it resolves a concrete operational question: *What is the fundamental memory/representation cost of a quantum channel or instrument, independent of tomography sample complexity or specific processor architectures?*
+
+### What works exceptionally well physically
+1. **Complete retained code unification:** By treating quantum memory, classical transcripts, side registers, and postselected branches as points in a single topological latent space, the paper cleanly separates *representational dimension* from *query complexity* and *processor implementability*. This is a conceptually valuable distinction often blurred in the literature.
+2. **Query-independence of the bottleneck:** The hybrid Lipschitz estimate (Proposition~\ref{prop:physical-continuity}) shows that adaptive queries, entanglement across slots, and coherent control only affect the encoder's Lipschitz constant, not its topological degree. This correctly formalizes the physical intuition that *no amount of clever querying can compress a channel into a smaller memory without loss*.
+3. **Abstract vs. physical decoder separation:** The manuscript carefully distinguishes unrestricted mathematical decoders (which achieve exact representation at $r=D_{A,B}$) from fixed CPTP processors (which obey no-programming and packing bounds). This prevents the common misconception that exact Euclidean parametrization implies exact physical programmability.
+4. **Sampling evades topology by growing the alphabet:** The finite-sample section correctly shows that randomized transcripts circumvent the fixed-dimension topological obstruction because the effective simplex dimension grows with $N$, and the decoder operates on empirical frequencies rather than a continuous low-dimensional map. This is a physically precise resolution of the apparent tension between topological lower bounds and $O(N^{-1/2})$ tomography.
+
+---
+## III. Pedagogical Enhancements & Concrete Improvements
+
+The mathematics is publication-ready. The following enhancements would significantly improve physical readability and pedagogical impact without altering any proofs.
+
+### 1. Add a "Physical Dictionary" remark
+After Definition~\ref{def:width} or Figure~\ref{fig:dependency}, insert a short mapping:
+> **Physical interpretation of the mathematical objects.**  
+> - Latent space $Y$ / dimension $r$: effective memory degrees of freedom available at reconstruction time.  
+> - Continuous encoder $f$: any physical preparation, query network, or measurement protocol that depends continuously on the unknown channel.  
+> - Fiber $f^{-1}(y)$: the set of channels indistinguishable under the retained code $y$.  
+> - Fiber radius $\rad_X(f^{-1}(y))$: optimal worst-case reconstruction error for code $y$ with an unrestricted decoder.  
+> - Antipodal profile $\alpha_r(K)$: largest guaranteed distinguishability that survives any continuous compression into $r$ dimensions.  
+> - Deleted-product coindex: topological collision threshold of the memory alphabet; if $r$ exceeds it, some antipodal pair must share a code.  
+> This dictionary separates representational limits (topology/dimension) from implementation limits (Lipschitz constants, processor constraints, sample complexity).
+
+### 2. Clarify why sampling bypasses the topological bound
+The current text handles this correctly but briefly. Add a remark after Theorem~\ref{thm:sampled-transcript}:
+> **Why finite sampling evades the fixed-dimension obstruction.** The topological lower bounds apply to continuous encoders into a *fixed* latent space. A length-$N$ sampled transcript does not define such a map: its outcome distribution lives in a simplex whose dimension grows with $N$, and each realization is discrete. The encoder $p(\cdot|\Phi)$ is continuous, but the decoder acts on empirical frequencies whose resolution improves as $N^{-1/2}$. Thus sampling trades topological compression for statistical resolution, which is why tomography can achieve vanishing error while fixed-memory representation cannot.
+
+### 3. Strengthen the query-independence physical message
+After Theorem~\ref{thm:query-independent}, add:
+> **Operational consequence.** Adaptivity, entangled probes, and coherent control across $N$ queries cannot reduce the memory dimension required for a target worst-case error. They only improve the encoder's stability (the factor $N$ in Proposition~\ref{prop:physical-continuity}) or enable better constant factors in statistical estimation. The dimensional bottleneck is intrinsic to the channel body itself.
+
+### 4. Explicitly contrast with known program-dimension results
+In Section~\ref{sec:codes}, briefly situate the packing bounds relative to asymptotic programming results:
+> The present bounds address *fixed finite program dimension* and *worst-case diamond error*. They complement the asymptotic program-cost scaling $\sim d^2/\varepsilon^2$ for approximate universal unitary programming~\cite{YangRennerChiribella2020} by providing nonasymptotic, dimension-explicit floors that hold even for discontinuous program assignments. The topological bounds further show that continuity of the program encoder imposes strictly stronger constraints than mere compactness.
+
+### 5. Minor figure/table improvements
+- **Figure~\ref{fig:comb-complete-code}:** The caption is dense. Split it into two sentences: one describing the comb structure, one explicitly listing what counts as "complete code" and why postselection/discarding preserves continuity.
+- **Table~\ref{tab:resource-models}:** Add a column `Topological constraint` with entries like `coindex $\le r-1$`, `embdim $\le r$`, `fixed processor $\implies$ packing floor`, to make the mathematical/physical mapping immediate.
+
+---
+## IV. Final Assessment
+
+**Does the work merit genuine physical intuition and pedagogical value?**  
+Yes. It provides a clean, mathematically rigorous framework that separates three often-conflated resources in quantum information:
+1. **Representational dimension** (topological/memory bottleneck),
+2. **Query/sample complexity** (statistical resolution),
+3. **Physical programmability** (fixed-processor constraints).
+
+The results are not decorative mathematics; they answer concrete operational questions about quantum memory, channel compression, adaptive learning, and programmable processors. The pedagogical enhancements above would make these distinctions immediately accessible to quantum information readers without diluting the mathematical precision.
+
+**Recommendation:** The manuscript is mathematically sound and conceptually strong. Implement the minor polish points and the 3–4 short physical/pedagogical remarks outlined above, and it will be ready for submission to a high-tier quantum information or mathematical physics venue.

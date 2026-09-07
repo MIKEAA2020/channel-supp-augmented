@@ -1,0 +1,1557 @@
+# [sorted from 'wave 2 audits/max2.txt' (whole file)] Source model: 'max' (per filename). Target: channel paper. Type: single deep audit; claims LaTeX compile errors (false positive), one proof edge case (valid), minor items + consistency checks + pedagogy.
+
+## Overall verdict
+
+**real flaws and inconsistencies**, mostly in three categories:
+
+1. **LaTeX/figure syntax errors** that will prevent compilation.
+2. **One genuine proof-edge-case gap** in the observable–replacement join proposition for \(d_B=3\).
+3. **Minor notation, scoping, and exposition issues** that should be cleaned up.
+
+Below is the detailed report.
+
+---
+
+# 1. LaTeX / compilation flaws
+
+## 1.1 Multiple TikZ figures use `ode` instead of `\node`
+
+This occurs in at least three figures and is a hard compilation problem.
+
+### Figure `fig:dependency`
+
+The code contains lines such as:
+
+```latex
+ode[box] (source) {Source geometry\\$\alpha_r(K)$ and $\mu_r(K)$};
+ode[box,right=16mm of source] (latent) {Latent topology\\ ...};
+ode[box,below=13mm of source] (fiber) {Exact decoder optimization\\ ...};
+```
+
+These should be:
+
+```latex
+\node[box] (source) {Source geometry\\$\alpha_r(K)$ and $\mu_r(K)$};
+\node[box,right=16mm of source] (latent) {Latent topology\\ ...};
+\node[box,below=13mm of source] (fiber) {Exact decoder optimization\\ ...};
+```
+
+The same problem appears later in the same figure:
+
+```latex
+ode[box,below=14mm of midlower, text width=48mm] (floor) {...};
+```
+
+which should be `\node`.
+
+### Figure `fig:replacement-join`
+
+Many lines begin with `ode` instead of `\node`, for example:
+
+```latex
+ode[block, minimum width=56mm, minimum height=30mm] (B) at (0,-10mm) {...};
+ode[smallblock, fill=blue!8] (B1) at (-14mm,-8mm) {$B_1$};
+ode at (B.south) [below=1mm, font=\scriptsize] {$b_i=\dim B_i$};
+```
+
+All such occurrences need to be corrected to `\node`.
+
+### Figure `fig:comb-complete-code`
+
+Again:
+
+```latex
+ode[box] (E0) at (0,0) {$\mathcal E_0$};
+ode[slot, right=5mm of E0] (Phi1) {$\Phi_1$};
+ode[box, right=5mm of Phi1] (E1) {$\mathcal E_1$};
+```
+
+should all be `\node`.
+
+### Severity
+
+**High.** Unless there is an undefined macro `ode` in the preamble, these figures will not compile.
+
+---
+
+## 1.2 Possible ambiguity in the fiber-radius notation `u_r`
+
+In Definition `def:fiber-widths`, the text says:
+
+```latex
+For $Y=\mathbb R^r$, write $
+u_r(K;X)$.
+```
+
+and later:
+
+```latex
+\delta^{\mathrm c}(K;Y,X)=
+u(K;Y,X).
+```
+
+If this is merely a line break before `u`, then it is fine, but it is visually ambiguous and could be misread as `\nu` or as an accidental control sequence. The notation is also not strongly distinguished from ordinary text.
+
+### Recommended fix
+
+Define a macro and use it consistently, for example:
+
+```latex
+\newcommand{\fiberu}{u}
+```
+
+or better, use a named operator:
+
+```latex
+\newcommand{\fiberwidth}{\operatorname{u}}
+```
+
+and write:
+
+```latex
+\delta_r^{\mathrm c}(K;X)=\fiberwidth_r(K;X).
+```
+
+### Severity
+
+**Low to medium.** Not a mathematical error if it is only a line-break artifact, but it is a notation clarity issue.
+
+---
+
+# 2. Mathematical proof gap / edge-case inconsistency
+
+## 2.1 Proposition `prop:join-channel` is not proved for \(d_B=3\)
+
+The proposition states:
+
+> Assume \(d_A\ge 2\) and \(d_B\ge 3\). Then
+> \[
+> \alpha_r(\Chan(A,B))=1
+> \qquad(0\le r\le d_A^2+(d_B-2)^2-3).
+> \]
+
+The proof uses the observable sphere supported on a two-dimensional subspace
+
+\[
+W_2=\operatorname{span}\{|\varphi_+\rangle,|\varphi_-\rangle\},
+\]
+
+and then applies the Jordan replacement construction on the orthogonal complement \(W_2^\perp\), whose dimension is \(d_B-2\).
+
+The proof says:
+
+> The Jordan construction ... restricted to \(\Herm_0(W_2^\perp)\subseteq \Herm_0(B)\), gives a continuous map
+> \[
+> h_{\mathrm{rep}}:S^{(d_B-2)^2-2}\to\Sstate(W_2^\perp)
+> \]
+> whose antipodes have orthogonal supports.
+
+But if \(d_B=3\), then
+
+\[
+\dim W_2^\perp = 1,
+\]
+
+so
+
+\[
+\dim \Herm_0(W_2^\perp)=1^2-1=0,
+\]
+
+and the “sphere”
+
+\[
+S^{(d_B-2)^2-2}=S^{-1}
+\]
+
+is empty. The Jordan construction does not supply a nonempty replacement sphere in that case.
+
+### Why this matters
+
+For \(d_B=3\), the claimed range becomes
+
+\[
+d_A^2+(1)^2-3=d_A^2-2,
+\]
+
+which is exactly the range already supplied by the observable sphere theorem. Thus the statement is still true, but **not because of the join construction**; it follows from Theorem `thm:observable-channel` alone.
+
+The proof as written does not cover this edge case.
+
+### Recommended fix
+
+Either:
+
+1. Change the hypothesis of Proposition `prop:join-channel` to \(d_B\ge 4\); or
+2. Add a sentence such as:
+
+> For \(d_B=3\), the displayed range reduces to \(d_A^2-2\), which is already contained in the observable-sphere range of Theorem `thm:observable-channel`; the join construction is needed only for \(d_B\ge4\).
+
+### Related inconsistency in Definition `def:channel-envelope`
+
+The envelope definition sets
+
+\[
+L_{\mathrm{join}}=
+\begin{cases}
+d_A^2+(d_B-2)^2-3,&d_A\ge2,\ d_B\ge3,\\
+-1,&\text{otherwise}.
+\end{cases}
+\]
+
+This is harmless for the value of the envelope because for \(d_B=3\), \(L_{\mathrm{join}}=L_{\mathrm{obs}}\). But the certification sentence says the components are certified by Proposition `prop:join-channel`, which, as written, does not actually prove the \(d_B=3\) case by the join method.
+
+### Severity
+
+**Medium.** The theorem statement remains true, but the proof has an edge-case gap.
+
+---
+
+# 3. Minor mathematical and exposition issues
+
+## 3.1 Forward reference in Theorem `thm:global-inradius-channel`
+
+The proof of Theorem `thm:global-inradius-channel` says:
+
+> The Haar barycentre of \(\Phi_0\) under this action is
+> \[
+> \int T_V(\Phi_0)\,dV=\Omega_{A,B},
+> \]
+> computed in the proof of Theorem `thm:depolarizing-chebyshev`.
+
+But Theorem `thm:depolarizing-chebyshev` appears later.
+
+This is not logically wrong, but it makes the proof less self-contained.
+
+### Recommended fix
+
+Insert the one-line computation directly:
+
+\[
+\int_{\mathrm U(B)} V\Phi_0(X)V^\dagger\,dV
+=
+\frac{\Tr(\Phi_0(X))}{d_B}I_B
+=
+\frac{\Tr X}{d_B}I_B
+=
+\Omega_{A,B}(X).
+\]
+
+### Severity
+
+**Low.**
+
+---
+
+## 3.2 Lemma `lem:mixed-no-programming` uses extremality of unitary channels without citation
+
+The proof states:
+
+> A unitary channel is extreme in the convex set of channels, so every term of positive weight programs that same unitary.
+
+This is standard, but the draft does not cite or prove it.
+
+### Recommended fix
+
+Add a short parenthetical citation or one-sentence justification, e.g.:
+
+> Unitary channels are extreme points of the convex set of CPTP maps; hence a convex decomposition of a unitary channel into channels is trivial.
+
+### Severity
+
+**Low.**
+
+---
+
+## 3.3 “Informationally complete” wording in Proposition `prop:one-query-injective`
+
+The proposition says:
+
+> there is a one-query measurement (an informationally complete POVM, cf. Scott) whose outcome-probability map ... is a continuous affine injection from \(\Chan(A,B)\) into the classical probability simplex.
+
+The POVM constructed has \(D_{A,B}+1\) outcomes and is informationally complete **for the affine hull of the channel body**, not necessarily for the full output state space of dimension \(d_A d_B\).
+
+This is probably intended, but the phrase “informationally complete” without qualification could be misread.
+
+### Recommended fix
+
+Say:
+
+> an informationally complete POVM for the channel affine hull
+
+or
+
+> a POVM whose outcome probabilities separate points of \(\Chan(A,B)\).
+
+### Severity
+
+**Low.**
+
+---
+
+## 3.4 The finite-sample bound can exceed the diameter
+
+Theorem `thm:sampled-achievability` gives
+
+\[
+\sup_{\Phi\in\Chan(A,B)}
+\mathbb E_\Phi
+\|\widehat\Phi_N-\Phi\|_\diamond
+\leq
+\frac{d_A\sqrt{d_Ad_B}}{\eta\sqrt N}.
+\]
+
+For small \(N\) or very small \(\eta\), the right-hand side may exceed the diameter \(2\). The proof mentions that the bound may be capped at \(2\), but the displayed theorem statement does not include the cap.
+
+### Recommended fix
+
+Either display the safer bound
+
+\[
+\min\left\{2,\frac{d_A\sqrt{d_Ad_B}}{\eta\sqrt N}\right\},
+\]
+
+or add immediately after the display:
+
+> The bound is to be interpreted as trivially capped at the diameter \(2\).
+
+### Severity
+
+**Low.** It does not affect the asymptotic content.
+
+---
+
+## 3.5 Figure `fig:comb-complete-code` caption refers to a corollary before it is stated
+
+The caption says:
+
+> The \(N\) slots are filled with the unknown channel (or \(\Phi_j\) for heterogeneous sensitivity Corollary `cor:heterogeneous-slots`).
+
+But the corollary appears after the figure and the following proposition.
+
+This is a minor forward reference. It is not wrong, but it can be disorienting.
+
+### Recommended fix
+
+Either move the figure after Corollary `cor:heterogeneous-slots`, or change the caption to:
+
+> ... see Corollary `cor:heterogeneous-slots` below.
+
+### Severity
+
+**Low.**
+
+---
+
+## 3.6 Proposition `prop:structured-coindex` rank-\(k\) stratum wording
+
+The proposition says:
+
+> Let \(\mathcal S_k(\mathbb C^m)\) denote the Hausdorff manifold of density operators on \(\mathbb C^m\) of rank exactly \(k\) ... It is noncompact for \(1\le k<m\) but Hausdorff, and coindex definition only requires Hausdorff.
+
+This is essentially correct, but the wording “Hausdorff manifold” may raise eyebrows because the rank-\(k\) stratum is a smooth manifold but not closed in the full state space. The coindex argument only needs a local manifold chart, so the proof is fine.
+
+### Recommended fix
+
+A clearer phrasing would be:
+
+> The rank-\(k\) stratum is a smooth manifold of dimension \(2mk-k^2-1\); it is noncompact for \(1\le k<m\), but Hausdorffness is sufficient for the deleted-product coindex.
+
+### Severity
+
+**Low.**
+
+---
+
+# 4. Internal consistency checks that pass
+
+To make clear that the above are localized issues, here are the main nontrivial checks I recomputed and confirmed.
+
+## 4.1 Fiber-radius and antipodal lower-bound chain
+
+The identities and inequalities
+
+\[
+\delta^{\mathrm c}(K;Y,X)=u(K;Y,X),
+\]
+
+\[
+\mu_r(K)
+\le
+\delta_r^{\mathrm c}(K;X)
+\le
+2\mu_r(K),
+\]
+
+and
+
+\[
+\alpha_r(K)
+\le
+\mu_r(K)
+\]
+
+are mutually consistent. The Borsuk–Ulam argument correctly gives
+
+\[
+\delta_r^{\mathrm c}(K;X)\ge \alpha_r(K).
+\]
+
+The factor-of-two relationship between fiber radius and fiber diameter is correctly handled.
+
+---
+
+## 4.2 Euclidean coindex bound
+
+If \(Y\) injects continuously into \(\mathbb R^s\), then
+
+\[
+\operatorname{coind}_{\mathbb Z_2}F_2(Y)\le s-1
+\]
+
+is correctly proved by the normalized difference map. The special case \(s=0\) is correctly treated.
+
+The equality for convex bodies with nonempty interior is also correct, and it justifies the exact coindex values:
+
+\[
+\operatorname{coind}F_2(\Sstate(M))=m^2-2,
+\]
+
+\[
+\operatorname{coind}F_2(\Chan(A,B))=D_{A,B}-1,
+\]
+
+\[
+\operatorname{coind}F_2(\operatorname{Rep}(A,B))=d_B^2-2.
+\]
+
+---
+
+## 4.3 Channel dimension
+
+The affine dimension
+
+\[
+D_{A,B}=d_A^2(d_B^2-1)
+\]
+
+is correct: Hermitian operators on \(A_0\otimes B\) have real dimension \(d_A^2d_B^2\), and the trace-preservation constraint imposes \(d_A^2\) independent real equations.
+
+---
+
+## 4.4 Exact centered in-radius
+
+The values
+
+\[
+\Gamma_{A,B}=\frac{s}{2d_A},
+\qquad
+s=\min\{d_A,d_B\},
+\]
+
+and
+
+\[
+\rho_\diamond(\Omega_{A,B})
+=
+\frac{2}{d_Bs}
+\]
+
+are consistent with the variational formula
+
+\[
+\rho_\diamond(\Omega_{A,B})
+=
+\frac{1}{d_Ad_B\Gamma_{A,B}}.
+\]
+
+The case distinction
+
+\[
+\rho_\diamond(\Omega_{A,B})
+=
+\begin{cases}
+2/(d_Ad_B),&d_A\le d_B,\\
+2/d_B^2,&d_A>d_B
+\end{cases}
+\]
+
+is also correct.
+
+The spectral certificate
+
+\[
+\overline B^{\mathrm{rel}}_\diamond\left(\Omega_{A,B},\frac{2}{d_Ad_B}\right)\subseteq\Chan(A,B)
+\]
+
+correctly equals the exact radius when \(d_A\le d_B\) and is strictly weaker when \(d_A>d_B\).
+
+---
+
+## 4.5 Chebyshev radius and complementarity
+
+The exact covering radius
+
+\[
+R(\Omega_{A,B})
+=
+2\left(1-\frac{1}{d_Bs}\right)
+=
+2-\rho_\diamond(\Omega_{A,B})
+\]
+
+is consistent with the domination argument in the appendix.
+
+The identity
+
+\[
+\rho_\diamond(\Omega_{A,B})+R(\Omega_{A,B})=2
+\]
+
+follows algebraically and is correctly described as special to this body.
+
+---
+
+## 4.6 Replacement family
+
+The replacement isometry
+
+\[
+\|\mathcal R_\sigma-\mathcal R_\tau\|_\diamond
+=
+\|\sigma-\tau\|_1
+\]
+
+is correct.
+
+The replacement profile
+
+\[
+\alpha_r(\operatorname{Rep}(A,B))
+=
+\begin{cases}
+1,&0\le r\le d_B^2-2,\\
+0,&r\ge d_B^2-1
+\end{cases}
+\]
+
+is consistent with the Jordan construction \(X\mapsto X_+/\Tr X_+\) and Borsuk–Ulam cutoff in affine dimension \(d_B^2-1\).
+
+The centered state-space radius \(2/d_B\) used in Lemma `lem:replacement` is correct.
+
+---
+
+## 4.7 Qubit example
+
+For \(d_A=d_B=2\):
+
+\[
+D_{2,2}=2^2(2^2-1)=12.
+\]
+
+\[
+\rhodep(2,2)=\frac{2}{2\cdot 2}=\frac12.
+\]
+
+\[
+\delta_0^\diamond(2,2)=2-\frac12=\frac32.
+\]
+
+The lower envelope is:
+
+\[
+\beta_r=
+\begin{cases}
+1,&0\le r\le2,\\
+1/2,&3\le r\le11,\\
+0,&r\ge12.
+\end{cases}
+\]
+
+The upper envelope is:
+
+\[
+U_r=
+\begin{cases}
+3/2,&0\le r\le3,\\
+1,&4\le r\le11,\\
+0,&r=12.
+\end{cases}
+\]
+
+The output-pinching threshold is
+
+\[
+r_{\mathrm{out}}
+=
+d_A^2(Q_2(2)-1)
+=
+4(2-1)=4,
+\]
+
+so the drop at \(r=4\) is correct.
+
+The convex-projection bound at \(r=3\) is
+
+\[
+\frac{2(12-3)}{12-3+1}
+=
+\frac{18}{10}
+=
+1.8,
+\]
+
+so the constant-code bound \(1.5\) is indeed tighter. All numbers in Example `ex:qubit` and Figure `fig:qubit-envelope` are consistent.
+
+---
+
+## 4.8 Pinching thresholds and balanced partitions
+
+The balanced partition formula
+
+\[
+Q_\ell(d)=(\ell-t)m^2+t(m+1)^2,
+\qquad
+d=m\ell+t,\quad 0\le t<\ell,
+\]
+
+is correctly used.
+
+The output-pinching threshold
+
+\[
+r_{\mathrm{out}}=d_A^2\left(\sum_j b_j^2-1\right)
+\]
+
+and input-pinching threshold
+
+\[
+r_{\mathrm{in}}
+=
+\left(\sum_i a_i^2\right)(d_B^2-1)
+\]
+
+are consistent with the affine dimension counts in Theorem `thm:block-pinching-upper`.
+
+The special two-sector output-pinching bound
+
+\[
+\delta_r^\diamond(A,B)\le1
+\]
+
+for
+
+\[
+r\ge
+d_A^2\left(
+\left\lfloor\frac{d_B}{2}\right\rfloor^2+
+\left\lceil\frac{d_B}{2}\right\rceil^2-1
+\right)
+\]
+
+is correct.
+
+---
+
+## 4.9 Abstract quantum-state memory threshold
+
+The exact abstract threshold
+
+\[
+m^2-1\ge D_{A,B}
+\]
+
+is consistent with Proposition `prop:memory-sharpness`.
+
+Thus
+
+\[
+m_{\min}
+=
+\left\lceil\sqrt{D_{A,B}+1}\right\rceil
+\]
+
+is correct.
+
+The necessary condition for error strictly below \(1\),
+
+\[
+m\ge d_B,
+\]
+
+is also consistent with the replacement-sphere obstruction.
+
+---
+
+## 4.10 Classical–quantum code dimension
+
+For block-diagonal states
+
+\[
+\bigoplus_{j=1}^c \rho_j,
+\]
+
+the affine dimension
+
+\[
+\sum_{j=1}^c m_j^2-1
+\]
+
+is correct. The equal-block case \(cm^2-1\) follows.
+
+The output-size necessity
+
+\[
+\sum_j m_j^2\ge d_B^2
+\]
+
+for error below \(1\) is consistent.
+
+---
+
+## 4.11 Physical programming bounds
+
+The positivity statement
+
+\[
+\gamma_{m,d}>0
+\]
+
+is correctly proved by compactness plus orthogonality of exact program supports.
+
+The program-state separation inequality
+
+\[
+\|\rho_i-\rho_j\|_1
+\ge
+\|\Phi_i-\Phi_j\|_\diamond-2\varepsilon
+\]
+
+is correct.
+
+The packing bound
+
+\[
+\gamma_{m,d}
+\ge
+\max\left\{0,
+\frac{\Delta}{2}
+-
+\frac{2}{L^{1/n}-1}
+\right\},
+\qquad
+n=m^2-1,
+\]
+
+is correctly derived in the appendix using disjoint trace-norm balls and volume scaling.
+
+The Weyl-channel estimate
+
+\[
+\gamma_{m,d}
+\ge
+\max\left\{0,
+1-
+\frac{2}{d^{2/(m^2-1)}-1}
+\right\}
+\]
+
+is consistent with \(L=d^2\) and \(\Delta=2\).
+
+The qubit-specific tetrahedral bound
+
+\[
+\gamma_{2,2}
+\ge
+1-\frac12\sqrt{\frac83}
+\]
+
+is correctly derived from the average pairwise squared distance of four Bloch vectors.
+
+---
+
+## 4.12 Adaptive query and postselection bounds
+
+The hybrid Lipschitz estimate
+
+\[
+\|\rho_R^{(N)}(\Phi)-\rho_R^{(N)}(\Psi)\|_1
+\le
+N\|\Phi-\Psi\|_\diamond
+\]
+
+is standard and correctly proved.
+
+The postselection normalization bound
+
+\[
+\left\|
+\frac{\sigma(\Phi)}{p(\Phi)}
+-
+\frac{\sigma(\Psi)}{p(\Psi)}
+\right\|_1
+\le
+\frac{2N}{p_0}
+\|\Phi-\Psi\|_\diamond
+\]
+
+is algebraically correct.
+
+The query-independent bottleneck
+
+\[
+\inf_N \inf_{\mathcal C^{(N)}} \inf_{\operatorname{Dec}_N}
+\sup_\Phi
+\|\operatorname{Dec}_N(\rho_R^{(N)}(\Phi))-\Phi\|_\diamond
+\ge
+\beta_{m^2-1}(A,B)
+\]
+
+follows correctly from continuity of the final code and the source–latent obstruction.
+
+---
+
+## 4.13 Sampled transcript obstruction and IC upper bound
+
+The sampled-transcript lower bound
+
+\[
+\sup_x \mathcal E(x)\ge \alpha_{c-1}(K)
+\]
+
+for a \(c\)-symbol transcript alphabet is correctly proved by Borsuk–Ulam on the probability simplex \(\Delta(T)\subset\mathbb R^{c-1}\).
+
+The one-query injective probability map into \(\Delta_{D_{A,B}}\) is correctly constructed using a POVM with \(D_{A,B}+1\) outcomes.
+
+The finite-sample upper bound
+
+\[
+O(N^{-1/2})
+\]
+
+with constant
+
+\[
+\frac{d_A\sqrt{d_Ad_B}}{\eta}
+\]
+
+is consistent with the multinomial covariance estimate and the Choi-to-diamond norm bound.
+
+---
+
+# 5. Summary of recommended corrections
+
+## High priority
+
+1. **Fix all TikZ figure syntax errors**: replace `ode[...]` with `\node[...]` in Figures `fig:dependency`, `fig:replacement-join`, and `fig:comb-complete-code`.
+
+2. **Fix the \(d_B=3\) edge case in Proposition `prop:join-channel`**:
+   - either restrict the join proposition to \(d_B\ge4\),
+   - or explicitly state that for \(d_B=3\) the result follows from the observable sphere and the join proof is not needed.
+
+## Medium priority
+
+3. **Clarify the certification of \(L_{\mathrm{join}}\)** in Definition `def:channel-envelope`: for \(d_B=3\), the value is redundant with \(L_{\mathrm{obs}}\).
+
+4. **Make the fiber-radius notation unambiguous**. Define a macro for \(u_r\) or use \(\operatorname{u}_r\).
+
+## Low priority
+
+5. In Theorem `thm:global-inradius-channel`, include the Haar-average computation directly instead of forward-referencing Theorem `thm:depolarizing-chebyshev`.
+
+6. In Lemma `lem:mixed-no-programming`, add a citation or one-sentence justification for extremality of unitary channels.
+
+7. In Proposition `prop:one-query-injective`, say “informationally complete for the channel affine hull” rather than simply “informationally complete.”
+
+8. In Theorem `thm:sampled-achievability`, either cap the displayed bound at \(2\) or state immediately that the bound is trivially capped by the diameter.
+
+9. Move Figure `fig:comb-complete-code` or adjust its caption to avoid a forward reference to Corollary `cor:heterogeneous-slots`.
+
+---
+
+## Final assessment
+
+The draft is mathematically coherent in its central claims. The only genuine proof defect I found is the **\(d_B=3\) edge case in the observable–replacement join proposition**. The remaining issues are primarily **typographical, notational, or expository**. Once the TikZ syntax errors and the join edge case are fixed, the internal consistency of the paper should be clean.
+
+# 1. What kind of physical intuition is genuinely merited?
+
+The paper’s central quantities already have clean operational meanings. These should be emphasized because they explain *why* the mathematics is being done, not merely decorate it.
+
+---
+
+## 1.1. Channels as physical devices to be represented
+
+The most basic physical intuition is:
+
+> A channel is a physical input–output device. Compressing a channel means giving a decoder enough latent information to reproduce the device’s observable action up to some worst-case diamond-norm error.
+
+This is nondecorative because it explains the definition
+
+\[
+\delta_r^{\mathrm c}(K;X)
+=
+\inf_{f:K\to\mathbb R^r\text{ continuous}}
+\inf_{g:\mathbb R^r\to X}
+\sup_{x\in K}
+d(g(f(x)),x).
+\]
+
+The encoder is a description, the decoder is a reconstruction rule, and the width is the minimal worst-case operational reconstruction error.
+
+The paper should make clear that the choice of **continuous encoder** is not a technical ornament: without encoder continuity, a purely set-theoretic injection can give exact reconstruction, as the draft itself notes. Continuity is what turns the problem into a geometric/topological compression problem rather than a cardinality trick.
+
+---
+
+## 1.2. Diamond norm as single-use discrimination
+
+The use of diamond norm is physically well motivated:
+
+\[
+p_{\mathrm{err}}
+=
+\frac12-\frac14\|\Phi-\Psi\|_\diamond
+\]
+
+for equally likely channels. This should be highlighted as the reason the whole geometry is developed in diamond norm rather than Hilbert–Schmidt or trace norm on Choi operators alone.
+
+A good nondecorative explanation would be:
+
+> Lower bounds on the reconstruction width are not merely geometric; they say that some pair of channels cannot be assigned distinct low-dimensional codes without forcing an operational discrimination failure. If two perfectly distinguishable channels receive the same code, a single decoder output cannot reproduce both.
+
+This connects the antipodal/Borsuk–Ulam machinery directly to channel discrimination.
+
+---
+
+## 1.3. Replacement channels: obstruction without coherent dynamics
+
+One of the paper’s most valuable physical insights is that the strongest small-dimensional obstruction already comes from **replacement channels**:
+
+\[
+\mathcal R_\sigma(X)=\operatorname{Tr}(X)\sigma.
+\]
+
+These channels discard the input and prepare an output state. They are entanglement-breaking and input-independent. Yet they produce a sphere of dimension \(d_B^2-2\) with antipodal distance two.
+
+This is a genuinely important conceptual point:
+
+> The obstruction to low-dimensional representation does not initially come from coherent quantum dynamics, entanglement preservation, or reversible evolution. It already appears in the problem of continuously labeling a high-dimensional family of output states.
+
+This should be emphasized because it prevents readers from overinterpreting the lower bounds as solely a consequence of “quantum process complexity.” The replacement family shows that even the most boring channels have nontrivial representational dimension.
+
+---
+
+## 1.4. Clifford/unitary sections: obstruction survives reversible dynamics
+
+The Clifford construction has a different and complementary physical message:
+
+> Even if the source is restricted to unitary channels, there are still continuous families whose antipodes are perfectly distinguishable.
+
+The anticommuting Pauli-string construction yields a sphere \(S^{2q}\), where \(q=\lfloor \log_2 d\rfloor\), with antipodal diamond distance two. This is physically meaningful because unitary channels are reversible, coherent, and non-entanglement-breaking.
+
+The intuition worth stating is:
+
+> Replacement channels show that output-state complexity alone creates obstruction. Clifford unitary sections show that reversible coherent dynamics also contain perfectly separated antipodal families, so the obstruction is not removed by restricting to physically “clean” unitary promises.
+
+This contrast is one of the paper’s strongest conceptual features and deserves more prominence.
+
+---
+
+## 1.5. The depolarizing channel as the symmetric center
+
+The depolarizing channel
+
+\[
+\Omega_{A,B}(X)=\operatorname{Tr}(X)\frac{I_B}{d_B}
+\]
+
+is not merely a convenient example. It is the featureless, maximally noisy, output-unitarily invariant center of the channel body.
+
+Its optimality for both the centered in-radius and the Chebyshev covering radius has a clean symmetry explanation:
+
+> Averaging any trace-preserving map over output unitary conjugation gives the depolarizing channel. Because the relevant geometric functionals are convex or concave, this Haar barycenter is optimal.
+
+This is a meaningful physical/geometric insight:
+
+- For the covering radius, convexity says the averaged center cannot be worse than the original center.
+- For the in-radius, concavity says the averaged center cannot be worse than the original center.
+
+The paper already has these arguments, but the conceptual message could be stated more sharply:
+
+> The completely noisy channel is optimal because it is the unique fixed point of the output-unitary symmetry. Its lack of structure makes it the best universal reference.
+
+---
+
+## 1.6. The effective Schmidt rank \(s=\min\{d_A,d_B\}\)
+
+The exact centered radius
+
+\[
+\rho_\diamond(\Omega_{A,B})
+=
+\frac{2}{d_B\min\{d_A,d_B\}}
+\]
+
+has a clean interpretation:
+
+> The extremal perturbation is witnessed by a maximally entangled probe whose Schmidt rank cannot exceed both the input and output dimensions. Thus the effective robustness scale is controlled by \(s=\min\{d_A,d_B\}\), not by the full input dimension alone.
+
+This is physically nontrivial. When \(d_A>d_B\), extra input dimensions do not make the depolarizing channel more fragile, because the witness can be supported on an output-sized input subspace.
+
+A good explanatory sentence would be:
+
+> The output system limits how much entanglement can be used to expose a loss of positivity. Once the input is large enough to support an output-sized entangled probe, increasing the input further does not shrink the centered in-radius.
+
+This is a useful insight and should not be buried only in the proof.
+
+---
+
+## 1.7. Local positivity versus global affine geometry
+
+The intermediate lower bound
+
+\[
+\gamma_{A,B}
+=
+\max\left\{
+\rhodep(A,B),
+\frac{1}{d_A}
+\right\}
+\]
+
+combines two distinct mechanisms:
+
+1. **Local positivity obstruction**:  
+   The centered ball around the depolarizing channel gives radius \(\rhodep(A,B)\).
+
+2. **Global full-direction obstruction**:  
+   The full-direction sphere gives antipodal separation \(2/d_A\).
+
+This distinction is conceptually important:
+
+> One mechanism is local: how much diamond perturbation can be added before complete positivity is lost. The other is global: how far apart can antipodal channels be made while still spanning the affine direction space.
+
+The fact that these two mechanisms combine into a maximum is a genuine insight. It explains why the intermediate lower bound need not decay like the centered radius. For example, when \(d_A\le d_B\) and \(d_B\ge3\),
+
+\[
+\gamma_{A,B}=1/d_A,
+\]
+
+so the obstruction has an input-dimension component independent of the depolarizing positivity budget.
+
+This should be explained clearly because it is one of the paper’s more subtle conceptual points.
+
+---
+
+## 1.8. Pinching as physical coarse-graining
+
+The upper bounds from input and output pinching also have a natural physical interpretation:
+
+- **Output pinching** discards coherences between selected output sectors.
+- **Input pinching** discards coherences between selected input sectors before the channel acts.
+
+The diamond-norm error
+
+\[
+\|\operatorname{id}-\mathcal P_H\|_\diamond
+=
+2\left(1-\frac{1}{\ell}\right)
+\]
+
+quantifies the worst-case loss of inter-sector coherence.
+
+This is nondecorative because it gives an operational meaning to the constructive upper bounds:
+
+> The upper envelopes are not arbitrary approximation schemes. They correspond to physically implementable coarse-grainings that forget selected quantum coherences while retaining block-diagonal behavior.
+
+This should be stated explicitly, and the draft partly does so, but the connection to the resource cost of retaining coherent sectors could be made sharper.
+
+---
+
+## 1.9. Complete retained code: side information cannot be hidden
+
+One of the paper’s most important conceptual contributions is the principle of the **complete retained code**:
+
+> Every classical transcript, measurement outcome, quantum register, reference system, or side register available to the decoder counts toward the latent code.
+
+This is a strong and physically meaningful convention. It prevents artificial loopholes in which one claims a small memory register while implicitly allowing large side information.
+
+This principle deserves a prominent explanation:
+
+> Adaptive query protocols can generate complicated side information, but if the final decoder has access to that side information, then it is part of the latent space. The lower bounds depend only on the topological dimension or embedding dimension of the complete final code, not on the number of queries used to generate it.
+
+This is one of the best nondecorative insights in the paper.
+
+---
+
+## 1.10. Query count does not remove the final-code bottleneck
+
+The adaptive-query section has a clear physical message:
+
+> More queries can improve estimation accuracy, but they do not remove the topological obstruction associated with the final retained code.
+
+The hybrid Lipschitz estimate
+
+\[
+\|\rho_R^{(N)}(\Phi)-\rho_R^{(N)}(\Psi)\|_1
+\le
+N\|\Phi-\Psi\|_\diamond
+\]
+
+shows continuity and quantifies sensitivity, but the lower bounds are independent of \(N\). This is conceptually important:
+
+> Query complexity and representational dimension are different resources. A finite-query protocol can make the final code depend smoothly on the unknown channel, but once the final code lives in a low-dimensional latent space, Borsuk–Ulam collisions still occur.
+
+This distinction between sample/query complexity and representational dimension is one of the paper’s central messages and should be highlighted.
+
+---
+
+## 1.11. Sampled transcript versus probability law
+
+The distinction between a sampled transcript and its channel-dependent probability law is another valuable operational clarification.
+
+The paper correctly distinguishes:
+
+- the **probability law** \(p(\cdot|\Phi)\in\Delta(T)\), which is a deterministic latent object;
+- the **sampled transcript** \(t\in T\), which is a random variable.
+
+This is physically important:
+
+> One sample from a distribution is not the same information as the distribution itself. Lower bounds based on the simplex dimension apply to the law; finite-sample upper bounds require repeated sampling.
+
+The one-query informationally complete POVM and the \(O(N^{-1/\!2})\) reconstruction bound illustrate the transition from representational encoding to statistical estimation. This is a meaningful physical/statistical insight and should be presented carefully.
+
+---
+
+## 1.12. Physical programs are more restrictive than abstract codes
+
+The physical-programming section introduces a genuinely different resource model:
+
+- Abstract latent code: density operator as exact symbol.
+- Physical program: density operator fed into a fixed CPTP processor.
+
+The no-programming theorem and the positive finite-programming lower bound say:
+
+> A finite-dimensional program register cannot exactly implement all unitary channels through one fixed processor. More generally, fixed finite program dimension imposes a positive worst-case programming error.
+
+This is a valuable physical insight and separates the paper’s abstract zero-error threshold from physical programmability.
+
+The draft already says this, but the conceptual distinction could be made even clearer:
+
+> The Euclidean zero-error threshold answers a representational question: how many real coordinates are needed to label channels exactly? It does not answer the engineering question: can a fixed finite quantum processor execute the labeled channel? Those are different problems.
+
+This is important because readers might otherwise conflate exact abstract encoding with physical universality.
+
+---
+
+# 2. Pedagogical enhancements that would materially improve the paper
+
+Yes, the paper would benefit substantially from pedagogical improvements. It is dense and theorem-driven. The mathematics is coherent, but the reader must work hard to keep track of the relationships among widths, profiles, coindices, envelopes, and resource models.
+
+The following enhancements would be genuinely useful, not decorative.
+
+---
+
+## 2.1. Add a one-page operational guide early
+
+Before the formal definitions, add a short subsection such as:
+
+> “What is being compressed, and what do the quantities mean?”
+
+It could briefly explain:
+
+- channel body \(\Chan(A,B)\);
+- encoder \(f\) as continuous description;
+- decoder \(g\) as unrestricted reconstruction rule;
+- width \(\delta_r\) as worst-case reconstruction error;
+- antipodal profile \(\alpha_r\) as guaranteed separable pairs;
+- coindex as collision obstruction in the latent space;
+- \(\beta_r\) as certified lower envelope;
+- \(U_r\) as constructive upper envelope.
+
+This would greatly reduce the entry barrier.
+
+---
+
+## 2.2. Add a dictionary of objects
+
+A small table would be extremely helpful:
+
+| Concept | Mathematical object | Operational meaning |
+|---|---|---|
+| Channel | CPTP map \(\Phi\) | physical device |
+| Channel body | \(\Chan(A,B)\) | all valid devices |
+| Latent code | \(Y\), often \(\mathbb R^r\) or \(\Sstate(M)\) | description space |
+| Encoder | continuous \(f:K\to Y\) | description rule |
+| Decoder | arbitrary \(g:Y\to X\) | reconstruction rule |
+| Width | \(\delta_r^{\mathrm c}\) | worst-case reconstruction error |
+| Fiber | \(f^{-1}(y)\) | channels sharing one code |
+| Fiber radius | \(\operatorname{rad}_X\) | best reconstruction error for that code |
+| Antipodal profile | \(\alpha_r\) | guaranteed separated pairs |
+| Coindex | \(\operatorname{coind}F_2(Y)\) | collision-avoidance capacity of latent space |
+
+This would make the abstract machinery much easier to internalize.
+
+---
+
+## 2.3. Add proof sketches before long proofs
+
+Several proofs are conceptually rich but technically compressed. Short proof sketches would help.
+
+Examples:
+
+### Fiber-radius characterization
+
+Proof idea:
+
+> Since the decoder has no regularity, each encoder fiber can be optimized independently. The best reconstruction for a fiber is its radius. The width is therefore the minimal possible maximum fiber radius.
+
+### Antipodal lower bound
+
+Proof idea:
+
+> If the encoder maps a sphere into a latent space with insufficient coindex, some antipodal pair must collide. Since the two source points are far apart, one decoder output cannot reconstruct both.
+
+### Contained-ball profile
+
+Proof idea:
+
+> A ball inside the source contains radial spheres of antipodal separation \(2\rho\). These spheres give immediate lower bounds on the profile.
+
+### Chebyshev radius
+
+Proof idea:
+
+> Every channel output is dominated by a multiple of the depolarizing output. This domination controls trace distance. Output-unitary symmetry then makes the depolarizing channel optimal as a center.
+
+### Full-direction sphere
+
+Proof idea:
+
+> Decompose a traceless Choi direction into positive and negative parts. These give orthogonal states with a common input marginal. Add a common correction state to obtain two valid channels whose separation is controlled by the mixing weight.
+
+### Program packing
+
+Proof idea:
+
+> Approximate programs for well-separated target channels must be separated in trace norm. Disjoint trace-norm balls in the program space cannot all fit inside the bounded state space unless the approximation error is large.
+
+These sketches would improve comprehension without reducing rigor.
+
+---
+
+## 2.4. Add a short Borsuk–Ulam/coindex primer
+
+The paper relies heavily on Borsuk–Ulam and deleted-product coindex. Many readers will know the intuition but not the coindex formalism.
+
+A short subsection or appendix would help:
+
+- state Borsuk–Ulam;
+- define deleted product \(F_2(Y)\);
+- define coindex;
+- explain equivariant maps;
+- prove the Euclidean injection bound;
+- explain why collisions force reconstruction error.
+
+This would make Section 1 much more accessible.
+
+---
+
+## 2.5. Use toy examples earlier
+
+The paper has a good qubit example near the end, but simpler toy cases earlier would help orient the reader.
+
+Useful examples:
+
+### Replacement body as state space
+
+For \(d_A=1\), channels from \(\mathbb C\) to \(B\) are just states. Then the channel body is \(\Sstate(B)\), and the replacement profile is the full-body profile.
+
+This is the simplest exact case.
+
+### Qubit replacement sphere
+
+For \(d_B=2\), the replacement sphere is essentially the Bloch sphere: traceless Hermitian \(X\) maps to the pure state supported on its positive eigenspace. Antipodal \(X\) and \(-X\) give orthogonal pure states.
+
+This gives a concrete picture of the Jordan construction.
+
+### Unitarty qubit channels
+
+For qubit unitary channels, \(\UChan(\mathbb C^2)\simeq \mathrm{PU}(2)\simeq \mathrm{SO}(3)\). This can help readers visualize why exact embedding into \(\mathbb R^3\) is impossible and why at least four coordinates are needed.
+
+### \(d_A>d_B\) radius regime
+
+A small example with \(d_A=3\), \(d_B=2\) would illustrate why the centered radius becomes \(2/d_B^2\) and stops depending on \(d_A\).
+
+---
+
+## 2.6. Separate exact and certified results more visibly
+
+The paper already distinguishes exact statements from constructive bounds, but this distinction is crucial and should be made unavoidable.
+
+Recommendations:
+
+- Use theorem titles such as “Exact centered in-radius” versus “Certified lower envelope.”
+- In tables, visually distinguish exact rows from certified rows.
+- Remind the reader that \(\beta_r\) is not generally the exact width.
+- Emphasize that the positive full-body widths below \(D_{A,B}\) remain open.
+
+The draft already includes remarks to this effect, but they could be made more prominent.
+
+---
+
+## 2.7. Clarify the two decoder targets \(\Chan(A,B)\) and \(\TPHP(A,B)\)
+
+The paper defines both:
+
+\[
+\delta_r^\diamond(A,B)
+=
+\delta_r^{\mathrm c}(\Chan(A,B);\Chan(A,B))
+\]
+
+and
+
+\[
+\widetilde\delta_r^\diamond(A,B)
+=
+\delta_r^{\mathrm c}(\Chan(A,B);\TPHP(A,B)).
+\]
+
+This is mathematically natural, but readers may miss the reason for allowing unphysical trace-preserving decoders.
+
+A clear explanation would be:
+
+> Allowing decoders into the ambient affine space strengthens lower bounds, because the decoder has more freedom. If a lower bound holds even for affine decoders, it certainly holds for channel-valued decoders. Upper bounds are nevertheless constructed with channel-valued decoders whenever possible.
+
+This should be stated near the definitions.
+
+---
+
+## 2.8. Emphasize the role of encoder continuity
+
+The paper contains the important remark that without encoder continuity, set-theoretic injection gives exact reconstruction. This point is central and should not be buried.
+
+It could be elevated to a standalone subsection or remark:
+
+> The obstruction is topological, not cardinality-based. The channel body has continuum cardinality, so without continuity one could inject it into a line. Continuity is what makes low-dimensional encoding impossible.
+
+This is one of the paper’s key conceptual clarifications.
+
+---
+
+## 2.9. Improve figures and fix syntax
+
+The existing figures are conceptually useful, but several have LaTeX syntax errors and could be improved pedagogically.
+
+Recommended fixes:
+
+- Replace all occurrences of `ode[...]` with `\node[...]`.
+- Ensure required TikZ libraries are loaded: `positioning`, `calc`, `fit`, `backgrounds`, `arrows.meta`.
+- Add a simple figure for the Borsuk–Ulam collision idea.
+- Add a figure contrasting the averaged code state and a sampled transcript.
+- Add a schematic of the replacement sphere on the Bloch ball.
+- In the qubit envelope plot, annotate exact points and the open gap more explicitly.
+
+Figures should be used to explain the logic, not merely illustrate it.
+
+---
+
+# 3. Content-level improvements beyond pedagogy
+
+These are not merely stylistic; they would strengthen the paper.
+
+---
+
+## 3.1. Fix the \(d_B=3\) edge case in the observable–replacement join
+
+Proposition `prop:join-channel` assumes \(d_B\ge3\), but the proof uses a replacement sphere on \(W_2^\perp\), whose dimension is \(d_B-2\). For \(d_B=3\), this complement is one-dimensional, and the trace-zero Hermitian space on it is zero-dimensional. The sphere \(S^{(d_B-2)^2-2}=S^{-1}\) is empty.
+
+The statement remains true for \(d_B=3\) because the claimed range reduces to the observable-sphere range, but the join proof does not cover that case.
+
+Recommended fix:
+
+- state the join proposition for \(d_B\ge4\), or
+- add a sentence: for \(d_B=3\), the bound follows from the observable sphere alone.
+
+This is the main mathematical edge-case issue.
+
+---
+
+## 3.2. Make the fiber-radius notation unambiguous
+
+The notation
+
+\[
+u_r(K;X)
+\]
+
+appears in places where line breaks can make it look like `\nu_r` or an accidental control sequence. Define a macro such as:
+
+```latex
+\newcommand{\fiberwidth}{\operatorname{u}}
+```
+
+and use `\fiberwidth_r(K;X)` consistently.
+
+This is a small but valuable clarity fix.
+
+---
+
+## 3.3. Include the Haar-average computation locally
+
+The proof of Theorem `thm:global-inradius-channel` refers to the Haar barycenter computation in a later theorem. It would be clearer to include the one-line computation directly:
+
+\[
+\int_{\mathrm U(B)} V\Phi_0(X)V^\dagger dV
+=
+\frac{\operatorname{Tr}(\Phi_0(X))}{d_B}I_B
+=
+\Omega_{A,B}(X).
+\]
+
+This removes a forward reference and makes the proof self-contained.
+
+---
+
+## 3.4. Add a citation or justification for extremality of unitary channels
+
+Lemma `lem:mixed-no-programming` uses the fact that unitary channels are extreme points of the convex set of channels. This is standard, but a citation or one-sentence justification would improve completeness.
+
+---
+
+## 3.5. Clarify “informationally complete” in the one-query POVM
+
+The POVM in Proposition `prop:one-query-injective` is informationally complete for the affine hull of the channel body, not necessarily for the full output state space.
+
+Better wording:
+
+> a POVM whose outcome probabilities separate points of \(\Chan(A,B)\)
+
+or
+
+> an informationally complete POVM for the channel affine hull.
+
+This avoids ambiguity.
+
+---
+
+## 3.6. Cap the finite-sample bound by the diameter
+
+The finite-sample bound
+
+\[
+\frac{d_A\sqrt{d_Ad_B}}{\eta\sqrt N}
+\]
+
+can exceed the diamond diameter \(2\) for small \(N\) or very small \(\eta\). The proof mentions this, but the theorem statement could display the cap explicitly:
+
+\[
+\min\left\{
+2,
+\frac{d_A\sqrt{d_Ad_B}}{\eta\sqrt N}
+\right\}.
+\]
+
+This is a minor precision improvement.
+
+---
+
+## 3.7. Clarify rank-\(k\) stratum wording
+
+Proposition `prop:structured-coindex` refers to the rank-\(k\) density operators as a Hausdorff manifold. This is essentially correct, but it would be clearer to say:
+
+> The rank-\(k\) stratum is a smooth manifold of dimension \(2mk-k^2-1\); it is noncompact for \(1\le k<m\), but Hausdorffness is sufficient for the deleted-product coindex.
+
+This avoids potential confusion about noncompactness.
+
+---
+
+## 3.8. Forward references in figures and captions
+
+Some figures refer to results stated later, such as the comb figure caption referring to Corollary `cor:heterogeneous-slots`. This is not fatal, but it can be disorienting.
+
+Possible fixes:
+
+- move the figure after the corollary;
+- change the caption to “see Corollary ... below”;
+- or introduce the result briefly before the figure.
+
+---
+
+# 4. What should not be added
+
+Equally important: the paper should avoid adding vague physical rhetoric. The following would not improve the paper:
+
+- generic claims about “the quantum nature of information”;
+- appeals to wavefunction collapse;
+- thermodynamic analogies unless quantitatively tied to the model;
+- uncertainty-principle language;
+- speculation about experimental noise unless connected to the diamond-norm model;
+- overclaiming that the exact complementarity \(\rho+R=2\) is a universal physical law.
+
+The paper is already careful in this respect, and that discipline should be preserved.
+
+---
+
+# 5. Highest-priority improvements
+
+If one wanted to improve the paper efficiently, I would prioritize the following.
+
+## Priority 1: Technical correctness and compilation
+
+1. Fix all TikZ `ode[...]` errors to `\node[...]`.
+2. Fix the \(d_B=3\) edge case in Proposition `prop:join-channel`.
+3. Make the fiber-radius notation unambiguous.
+4. Ensure required TikZ libraries are loaded.
+
+## Priority 2: Conceptual orientation
+
+5. Add a short operational guide near the beginning.
+6. Add a dictionary of main objects.
+7. Add proof sketches before the longest proofs.
+8. Add a Borsuk–Ulam/coindex primer.
+
+## Priority 3: Physical interpretation
+
+9. Emphasize the replacement-channel obstruction as input-independent output-state complexity.
+10. Contrast replacement and Clifford unitary obstructions.
+11. Explain the depolarizing channel as the symmetry-optimal center.
+12. Explain \(s=\min\{d_A,d_B\}\) as effective entanglement rank.
+13. Clarify the two mechanisms behind \(\gamma_{A,B}\).
+14. Highlight the complete-retained-code principle and query-independence.
+
+## Priority 4: Pedagogical examples
+
+15. Add early toy examples: \(d_A=1\), qubit replacement sphere, qubit unitary channels.
+16. Expand the existing qubit envelope example with annotations.
+17. Add a simple example illustrating \(d_A>d_B\) radius saturation.
+
+## Priority 5: Minor precision
+
+18. Cite or justify extremality of unitary channels.
+19. Clarify “informationally complete” for the channel affine hull.
+20. Cap the finite-sample bound at the diameter.
+21. Soften forward references in proofs and captions.
+
+---
+
+# 6. Overall judgment
+
+The work **does merit genuine physical intuition and pedagogical enhancement**, but the right additions are not decorative. They should explain:
+
+- why diamond norm is the operationally correct metric;
+- why replacement channels already force a strong obstruction;
+- why unitary Clifford sections show the obstruction persists for reversible dynamics;
+- why the depolarizing channel is the natural optimal center;
+- why \(s=\min\{d_A,d_B\}\) controls local robustness;
+- why the lower envelope has two mechanisms;
+- why pinching gives physically meaningful upper bounds;
+- why adaptive query count does not evade final-code dimension;
+- why sampled transcripts differ from probability laws;
+- why abstract exact encoding differs from physical programmability.
+
+The paper already contains many of these insights in remarks and proofs. The main improvement would be to **organize and elevate them** so that they guide the reader rather than appearing only after the formal machinery.
+
+In one sentence:
+
+> The paper would be significantly strengthened by adding precise operational interpretations of its geometric constants and by improving pedagogical navigation, while avoiding any decorative or speculative physics not directly tied to the theorems.
