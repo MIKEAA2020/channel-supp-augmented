@@ -1,0 +1,185 @@
+
+==============================================================================
+A. E2 page of B_3 = Fl_3/C_3 (document Milestone 1a, lines 13-152)
+==============================================================================
+P = [[0, -1], [1, -1]] , P4 = [[-1, 1], [-1, 0]] , N = 0 on both (matches document)
+q=0:  {0: 'Z', 1: '0', 2: 'Z/3', 3: '0', 4: 'Z/3'}
+q=2:  {0: '0', 1: 'Z/3', 2: '0', 3: 'Z/3'}
+q=4:  {0: '0', 1: 'Z/3', 2: '0', 3: 'Z/3'}
+VERDICT A: E2-page CONFIRMED (agrees with Wave 8b).
+
+==============================================================================
+B. C_3 orbits on the GKM graph (document Milestone 1b, lines 155-234)
+==============================================================================
+GKM graph: 6 vertices, 9 edges; vertex orbits: 2 (sizes [3, 3]); edge orbits: 3 (sizes [3, 3, 3])
+VERDICT B: '2 vertex orbits, 3 edge orbits, 9 = 3*3 invariant 2-spheres' CONFIRMED.
+
+==============================================================================
+C. Honest equivariant CW models and quotient SNF (document lines 284-495)
+==============================================================================
+(S^2 model) H_* = ['Z', '0', 'Z']   expected [Z, 0, Z]
+checks: H_*(S^2), chain equivariance, antipodal degree -1 : PASS
+H_*(RP^2) by honest quotient SNF = ['Z', 'Z/2', '0']   expected [Z, Z/2, 0]
+C.1 honest pipeline reproduces H_*(RP^2) = (Z, Z/2, 0): PASS
+
+product CW ranks C_0..C_4 = [4, 8, 12, 8, 4]  (4, 8, 12, 8, 4 cells)
+(S^2 x S^2 model) H_* = ['Z', '0', 'Z^2', '0', 'Z']   expected [Z, 0, Z^2, 0, Z]
+checks: H_*(S^2 x S^2), T^4 = I, chain-level equivariance : PASS
+H_4 cycle direction (should map to -itself under T): [[1], [1], [1], [1]]
+T acts by -1 on the top class: PASS (M non-orientable)
+
+*** H_*(M) by the HONEST equivariant quotient SNF ***
+   H_*( (S^2 x S^2)/C_4 ) = ['Z', 'Z/4', '0', 'Z/2', '0']
+document claims: H_4(M) = Z/2 (lines 420-429) and H_2(M) = Z/2 (line 482);  H^4(M;Z) = Z/2 (line 313-319).
+expected truth: H_0 = Z, H_1 = Z/4 (pi_1 = C_4), H_2 = 0, H_3 = Z/2 (PD: H_3 = H^1(M;Z~) = Z/2), H_4 = 0 (non-orientable).
+
+==============================================================================
+D. CLSS pages of RP^2 and M (document lines 374-495 diagnosis)
+==============================================================================
+D.1  CLSS of S^2 -> RP^2 (free C_2 = antipodal):
+   q=0:  {0: 'Z', 1: '0', 2: 'Z/2', 3: '0', 4: 'Z/2'}
+   q=2:  {0: '0', 1: 'Z/2', 2: '0', 3: 'Z/2', 4: '0'}
+   H^3(RP^2;Z) = 0 (closed 2-manifold) and the only total-3 term is E2^{1,2} = Z/2,
+   so 0 = H^3 = ker(d_3: E3^{1,2} -> E3^{4,0})   =>   d_3 injective.
+   H^4(RP^2;Z) = 0 = E_infty^{4,0} = (Z/2)/im(d_3)  =>  d_3 surjective.
+   ==> d_3^{RP^2}: Z/2 -> Z/2 is an ISOMORPHISM (nonzero).
+
+   Twisted (Z~) page: E2^{p,2} = H^p(C_2; H^2(S^2) (x) eps) = H^p(C_2; Z):
+   q=0 (eps): {0: '0', 1: 'Z/2', 2: '0', 3: 'Z/2'}
+   q=2 (Z):   {0: 'Z', 1: '0', 2: 'Z/2', 3: '0'}
+   E2^{0,2} = Z, E2^{3,0} = H^3(C_2; eps) = Z/2, H^3(RP^2;Z~) = 0
+   ==> the twisted transgression d_3: Z -> Z/2 is SURJECTIVE (nonzero);
+   by the classical k-invariant/transgression theorem (Spanier) this
+   measures k_2(RP^2) = generator != 0 in H^3(C_2; Z_sign) = Z/2.
+
+D.2  CLSS of S^2 x S^2 -> M (free C_4):
+   T_* on H_2: J = [[0, -1], [1, 0]] (conjuate to the document's [[0,1],[-1,0]]); N = 0
+   q=0: {0: 'Z', 1: '0', 2: 'Z/4', 3: '0', 4: 'Z/4'}
+   q=2: {0: '0', 1: 'Z/2', 2: '0', 3: 'Z/2'}
+   q=4: {0: '0', 1: 'Z/2', 2: '0', 3: 'Z/2'}
+
+   HOMOLOGICAL page coinvariants: E2_{0,2} = H_0(C_4; H_2(S^2xS^2)) = Z/2
+                             E2_{0,4} = H_0(C_4; H_4(S^2xS^2)) = Z/2
+   THE DOCUMENT'S 'H_2(M) = Z/2' AND 'H_4(M) = Z/2' ARE EXACTLY THESE
+   TWO E2_{0,q} TERMS (coinvariants of the fiber homology), NOT the
+   homology of the quotient.  In the true CLSS they are killed by
+   differentials (d_3: E3_{3,0} -> E3_{0,2} resp. d_5: E5_{5,0} -> E5_{0,4}).
+   Honest SNF above gives the actual H_*(M); compare.
+
+   Coefficients check (PD/UCT): H^1(M;Z~) = H^1(C_4; eps) = Z/2 = H_3(M) by PD.
+   H^4(M;Z) = Ext(H_3, Z) = Z/2 = E_infty^{4,0} = (Z/4)/d_3(Z/2) =>
+   im(d_3) = 2Z/4Z, i.e. d_3: E3^{1,2} = Z/2 -> E3^{4,0} = Z/4 is
+   INJECTIVE (nonzero) -- the document's own target, now derived by
+   the correct route.
+
+==============================================================================
+E. Test cases BO(2) vs B(Pin(2)) (Wave 8c Section E correction)
+==============================================================================
+Both fit the fibration  BS^1 -> E -> BC_2  with conjugation on H^2(BS^1):
+  O(2)  = S^1 x| C_2  (split: reflection squares to 1)      E = BO(2)
+  Pin(2)= S^1 .C_2 binary-dihedral (j^2 = -1, non-split)     E = B Pin(2)
+E2 page (identical for both; modules H^q(BS^1): q=0: Z, q=2: Z_sign, q=4: Z):
+  q=0:  {0: 'Z', 1: '0', 2: 'Z/2', 3: '0', 4: 'Z/2'}
+  q=2:  {0: '0', 1: 'Z/2', 2: '0', 3: 'Z/2', 4: '0'}
+  q=4:  {0: 'Z', 1: '0', 2: 'Z/2', 3: '0', 4: 'Z/2'}
+
+  H^3(BO(2);Z):  the Bockstein of w_2 is nonzero because
+       rho(beta(w_2)) = Sq^1(w_2) = w_1 w_2  !=  0   in F_2[w_1,w_2]
+  (rank 2 => w_3 = 0).  Also H^{odd}(BO(2);Q) = 0, so H^3 is 2-torsion.
+  Hence H^3(BO(2);Z) = Z/2 = ker(d_3: E3^{1,2}=Z/2 -> E3^{4,0}=Z/2)
+  ==>  d_3^{BO(2)} = 0.                        [textbook facts, cited]
+
+  H^3(B Pin(2);Z):  use the fibration  RP^2 -> B Pin(2) -> BSU(2)
+  (fiber SU(2)/Pin(2) = S^2/<antipodal> = RP^2; base simply connected).
+  E2^{p,q} = H^p(BSU(2); H^q(RP^2;Z)),  H^q(RP^2) = (Z, 0, Z/2).
+  Total-degree-3 entries: (3,0)=H^3(BSU(2))=0, (2,1)=0, (1,2)=H^1(BSU(2);Z/2)=0,
+  (0,3)=0.   ==>  H^3(B Pin(2);Z) = 0.
+  Hence 0 = ker(d_3) with source Z/2   ==>  d_3^{B Pin(2)} = ISO (nonzero).
+
+  ==> Wave 8c Section E's 'the CLSS d_3 is ZERO in both cases' is
+      WRONG in the B Pin(2) case; its refutation of
+      'd_3^{1,2} = <alpha cup k_2>' is WITHDRAWN.
+      Corrected status: formula unproven; CONSISTENT in both test cases
+      (k_2(BO(2)) = 0 split <-> d_3 = 0;  k_2(Pin(2)) = Bockstein != 0
+       <-> d_3 = iso) and in the RP^2 case (k_2 = gen, d_3 = iso).
+
+==============================================================================
+F. RP^2 counterexample to 'Borel preserves the 2-type' (document lines 264-280, 721-735)
+==============================================================================
+
+  The 2-Postnikov map  f : S^2 -> K(Z,2) = BS^1  IS weakly equivariant:
+  both  (f o a)^* u  and  (conj o f)^* u  pull the generator u to -x in
+  H^2(S^2) (a^* x = -x since the antipodal has degree -1; conj^* u = -u).
+  So 'equivariant up to homotopy' (document's hypothesis) HOLDS here.
+
+  But IF that promoted to a Borel map  RP^2 = Borel(S^2) -> Borel(BS^1) =
+  B(S^1 x|_conj C_2) = BO(2)  (i.e. P_2 RP^2 = P_2 BO(2), the document's
+  reduction pattern), then Serre-SS naturality would force
+       d_3^{RP^2} = d_3^{BO(2)}.
+  Sections D and E give   d_3^{RP^2} = iso  (H^3(RP^2) = 0)   but
+                         d_3^{BO(2)} = 0    (H^3(BO(2)) = Z/2).
+  CONTRADICTION  ==>  P_2(RP^2) != P_2(BO(2)).
+
+  The missing ingredient is full coherence of the equivariance, which
+  exists iff k_2(RP^2) = k_2(BO(2)) -- i.e. iff the very bit one wants to
+  compute is already answered.  (Note P_2(RP^2) ~ P_2(B Pin(2)) is the
+  consistent matching: both k_2 = generator, both d_3 = iso.)
+
+  CONSEQUENCE: the document's reduction
+       P_2 B_3  =  P_2 B(T^2 x| C_3),   d_3^{B_3} = d_3^{BT^2-Borel}
+  (lines 264-280, 721-735, asserted 'rigorous') is the SAME fallacy: the
+  weak equivariance of Fl_3 -> K(Z^2,2) does not produce a Borel map
+  unless k_2(B_3) = k_2(B(T^2 x| C_3)) = 0 (split Borel side), which is
+  equivalent to the qutrit bit itself.  THE REDUCTION IS CIRCULAR.
+  The subsequent 'split section kills the k_3-cocycle' computation
+  (lines 822-872) then computes k_3 of the WRONG space (the split Borel
+  side), and the final boxes (lines 899-1002) do not follow.
+
+
+==============================================================================
+FINAL VERDICTS ON 'deepseek response_quantum.txt'
+==============================================================================
+ * Milestone 1a: E2 page (lines 13-152)
+     -> CORRECT (machine-confirmed; = Wave 8b).
+
+ * Milestone 1b: GKM orbits (lines 155-234)
+     -> CORRECT incl. honest caveat (machine-confirmed).
+
+ * 2-Postnikov reduction P_2B_3 = P_2B(T^2 x| C_3) 'rigorous' (lines 264-280, 721-735)
+     -> UNSOUND/CIRCULAR -- refuted by the RP^2/BO(2) counterexample (Sec. F).
+
+ * Prototype target: d_3 on M forced nonzero, H^4(M) = Z/2 (lines 284-330)
+     -> CORRECT (derived here by the right route: PD/UCT + CLSS).
+
+ * Prototype 'cellular model' + 'Exact SNF check' (lines 374-495)
+     -> INVALID: no equivariant CW with those vanishing quotient boundaries exists; outputs 'H_4 = Z/2', 'H_2 = Z/2' are the CLSS E2_{0,4}, E2_{0,2} coinvariant terms, not H_*(M). Honest SNF (Sec. C) gives the true answer. The inference 'H^4 ~ H_4' is also wrong (UCT).
+
+ * Branch 'computation' (lines 659-689)
+     -> Not a computation: prints two hardcoded dictionaries.
+
+ * Formula d_3(alpha) = <alpha cup k_3> used throughout (lines 529, 648, 782, 819)
+     -> UNPROVEN (and the repo's Wave 8c 'refutation' is itself corrected here: formula stands as open, consistent in all testable cases).
+
+ * 'Split section kills the k_3-cocycle' (lines 822-872)
+     -> Computes k_3 of the split Borel side B(T^2 x| C_3) -- not of B_3; the transfer step to B_3 is the broken/circular reduction. (The cocycle vanishing on the split Borel side itself is plausible.)
+
+ * Boxed conclusions H^4(B_3)=Z/3, delta_2(qutrit)=4/3, H^3(B_4;Z~)=Z/2, delta_1(ququart)=3/2 (lines 899-1002)
+     -> UNSUPPORTED.  Both bits remain OPEN.  Numerical evidence (Wave 8a) still favors both, but no proof exists.
+
+STATUS AFTER THIS AUDIT: delta_2(qutrit) and delta_1(ququart) are
+STILL OPEN.  The honest route remains the C_d-equivariant chain model
+of Fl_d (or an equivalent certified computation of k_2(B_d)).
+
+WAVE 9 audit script complete.
+
+==============================================================================
+G. Cross-consistency checks of the honest computation
+==============================================================================
+Homological q=0 row  H_p(C_4; Z) = {0: 'Z', 1: 'Z/4', 2: '0', 3: 'Z/4', 4: '0', 5: 'Z/4'}
+  H_2(M) = 0 forces d_3: E3_{3,0} = H_3(C_4;Z) = Z/4 -> E3_{0,2} = Z/2 SURJECTIVE (kills the document's 'H_2' term);
+  H_4(M) = 0 forces d_5: E5_{5,0} = H_5(C_4;Z) = Z/4 -> E5_{0,4} = Z/2 SURJECTIVE (kills the document's 'H_4' term).
+
+Euler characteristic from honest H_*(M): 1 ;  chi(S^2 x S^2)/4 = 4/4 = 1  MATCH
+Euler characteristic of RP^2 from honest H_*: 1 (expected 1) MATCH
+
+All machine results in this audit are exact (no floating point).
