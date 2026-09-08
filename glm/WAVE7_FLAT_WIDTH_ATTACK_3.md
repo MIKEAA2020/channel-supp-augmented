@@ -1,0 +1,64 @@
+# Wave 7 — The Flat-Width Attack, Part 3: the Equal-Value Basis and the Bottom Index
+
+**Date:** 2026-09-08. **Author:** GLM (this assistant).
+**Mandate:** the two residual items of the flat-width programme — close the `con:coord-flat` flat direction for `d_B ≥ 3` where it is exposed (the state-space cases `(n, d_B) = (1, 3)` and `(1, 4)` at `r = 1`), under the standing policy of elevating mathematics, applying all changes as new versions (v6), and never regressing a claim.
+
+**Outcome in one line:** both residual state-space cases are **closed in the negative direction** — the qutrit state space has `δ₁ = 4/3` **exactly**, the ququart has `δ₁ ≥ 4/3` (bracket `[4/3, 3/2]`), so the flat direction of `con:coord-flat` **fails at `r = 1` for every `d_B ≥ 3`** — and the bottom index `r = 1` is now **classified completely** for `d_A = 1` (Corollary `cor:bottom-dichotomy`); the conjecture is corrected by the clause `(d_B ≤ 2 or r ≥ 2)`, and every surviving `d_B ≥ 3` flatness question is **gated** by the state-space widths through the new concentration gate (Lemma `lem:slice-gate`), the smallest gating unknown being `δ₂` of the qutrit.
+
+**Deliverables:** `manuscript uploads v6/instruments-paper-revised6.{txt,pdf}` and `manuscript uploads v6/main-article-revised6.{txt,pdf}` (new versions; all earlier versions untouched), produced by `scripts` outside the repo: `edit_v6.py` (15 tagged edits) with the replacement block `wave7_block.tex`, verified by `verify_wave7.py` (numerics) and `audit_v6.py` (static integrity).
+
+---
+
+## 1. The key theorem: equal-value orthonormal bases (Theorem `thm:equal-basis`)
+
+> **Theorem.** Let `V` be a three-dimensional complex Hilbert space and let `f : P(V) → ℝ` be continuous. Then `V` admits an orthonormal basis `(ψ₁, ψ₂, ψ₃)` with `f([ψ₁]) = f([ψ₂]) = f([ψ₃])`.
+
+This is the missing "triple tie" on the pure states of a qutrit. Note it is a genuinely nonlinear statement: for *linear* `f(ρ) = Tr(Hρ)` it is Schur–Horn (the constant diagonal `(Tr H/3)(1,1,1)` is majorised by the spectrum, so some ONB realises it); for arbitrary continuous `f` no convexity or spectral order is available, and the proof is topological.
+
+**Proof (as in the manuscript).** Realise the complete flag manifold as `Fl = {(ℓ₁, ℓ₂) ∈ P(V)² : ℓ₁ ⊥ ℓ₂}` with third line `ℓ₃ = (ℓ₁ ⊕ ℓ₂)^⊥`, and let `c(ℓ₁, ℓ₂) = (ℓ₂, ℓ₃)`. Then `c³ = id`, `c` has no fixed point, and `Fl = U(3)/U(1)³` is connected and simply connected (in `π₁(U(1)³) = ℤ³ → π₁(U(3)) = ℤ` the inclusion is `(a,b,d) ↦ a+b+d`, surjective). With `g = f∘p₁`, `h = g − g∘c` and `H = (h, h∘c)`: the telescoping identity `h + h∘c + h∘c² ≡ 0` gives `H∘c = TH` with `T = [[0,1],[−1,−1]]` (order 3, det 1, eigenvalues `e^{±2πi/3}`, conjugate over ℝ to the 120° rotation `R`); and `H(x) = 0` exactly at the wanted triple ties. If `H` never vanished, the normalised `Ĥ : Fl → S¹` would satisfy `Ĥ∘c = ω Ĥ` (`ω = e^{2πi/3}`), i.e. it would be a nowhere-vanishing section of the line bundle `L = (Fl × ℂ)/(x,z) ~ (cx, ωz)` over `B = Fl/⟨c⟩` (a free quotient, so `π₁ B = ℤ/3`). That forces `c₁(L) = 0`; but `L` is the pullback along the classifying map `κ : B → B(ℤ/3)` of the faithful-character bundle over `B(ℤ/3)`, whose `c₁` is the generator of `H²(B(ℤ/3); ℤ) ≅ ℤ/3`, and the Cartan–Leray spectral sequence of the free cover shows `H²(B; ℤ) ≅ ℤ/3` with `κ*` an isomorphism — the key inputs being `H¹(Fl) = 0` and the vanishing of the `ℤ/3`-invariants of `H²(Fl) ≅ ℤ³/ℤ(1,1,1)` under the coordinate 3-cycle (a vector with `Pv − v ∈ ℤ(1,1,1)` has `3k = 0`, hence `k = 0`, hence is itself invariant-only in the trivial class). So `c₁(L) ≠ 0`, contradiction; `H` vanishes somewhere. ∎
+
+The flag-order idea (cycling the lines of a flag rather than points of a simplex) is what upgrades the pair ties that Borsuk–Ulam gives for free into a *triple* tie: the telescoping identity is the algebraic reflection of the 3-cycle, and the `ℤ/3`-character Chern class is the obstruction that converts it into a zero.
+
+## 2. Corollaries: the bottom index is classified
+
+* **State-space bottom widths (Theorem `thm:state-nonflat`).** For `d_B ≥ 3` (identified with the state space `D(B)` at `n = 1`): `δ₁ ≥ 4/3`, with equality at `d_B = 3`; at `d_B = 4` the width lies in `[4/3, 3/2]`. Proof: restrict the encoder to the pure states of any 3-dimensional subspace `V ⊆ B`, apply `thm:equal-basis`, and use the vertex bound on the fibre — for the decoder output `c ⪰ 0`, `Tr c = 1`, the three ties satisfy `Σᵢ ⟨ψᵢ|c|ψᵢ⟩ = Tr(cP_V) ≤ 1`, so some `i` has `⟨ψᵢ|c|ψᵢ⟩ ≤ 1/3`, and `‖ψᵢψᵢ* − c‖₁ = 2Tr X₊ ≥ 2⟨ψᵢ|X|ψᵢ⟩ ≥ 4/3`. Upper bounds are the constant decoder `I/d_B`: `2(1 − 1/d_B)`, i.e. `4/3` at `d_B = 3` (exact) and `3/2` at `d_B = 4` (bracket).
+* **Complete bottom-width classification (Corollary `cor:bottom-dichotomy`).** For `d_A = 1`, `nd_B > 2`: `δ₁ = 1` ⟺ `nd_B ≤ 4` and `d_B ≤ 2`; `δ₁ ≥ 4/3` otherwise, exact at `(5, 1)`, `(1, 3)`, `(2, 3)`; the ququart and the classical six-outcome simplex sit in `[4/3, 3/2]`. This subsumes and closes the two cases Wave 6 left bracketed in `[1, 2(1−1/d_B)]`.
+* **Corrected conjecture (`con:coord-flat`).** `δ_r = 1 ⟺ nd_B ≤ 2r+2 and (d_B ≤ 2 or r ≥ 2)`. The obstruction side (`nd_B ≥ 2r+3 ⟹ δ_r ≥ 4/3`) is unchanged and proved for all `d_B`; the flat side is proved for `d_B ∈ {1,2}` and **refuted at `r = 1` for every `d_B ≥ 3`** — the pre-correction form predicted `δ₁ = 1` on the one-outcome bodies with `nd_B ≤ 4`, i.e. exactly the qutrit and ququart state spaces. The refutation is recorded in the conjecture's status note.
+* **Concentration gate (Lemma `lem:slice-gate`).** If an `n`-outcome input-independent instance is flat at `r` (`δ_r = 1`), then the one-outcome body at the same output dimension satisfies `δ_r(D(B)) ≤ 1`: restrict the encoder to the slot-1-concentrated instruments `j(ρ) = (ρ, 0, …, 0)` and pad the first decoder block by the trace slack `1 − Tr g₁(t) = Σ_{k≥2} Tr g_k(t)` against a fixed state (the padding is needed because the width's decoder codomain is the body itself; the slack reassembles exactly into the tail blocks' trace norms, so the restricted pair errs by ≤ 1). Consequence: **every flat instance at output dimension `d_B` requires `δ_r(D(ℂ^{d_B})) ≤ 1`** — the state-space widths are the gating unknowns, the smallest being `δ₂` of the qutrit.
+* **Channel paper (open problem 1).** The residual "flat value survives for `d_B ∈ {3,4}`" is closed: flat fails for every `d_B ≥ 3` at the bottom index — the qutrit channel state space exactly at `4/3`, the ququart in `[4/3, 3/2]`.
+
+## 3. The ququart: why `[4/3, 3/2]` is where this wave stops
+
+The natural route to pin `δ₁(D(ℂ⁴)) = 3/2` is the four-flag statement: *every continuous `f : P(ℂ⁴) → ℝ` admits an ONB quadruple with all four values equal*. The 4-cycle programme mirrors the qutrit proof: on `Fl₄ = U(4)/U(1)⁴` (ordered ONBs) with the free coordinate 4-cycle, the telescoping triple `H = (h, h∘c, h∘c²)` satisfies `H∘c = TH` with `T` of order 4, det −1, eigenvalues `i, −1, −i`; if `H` never vanished, the normalised map `F₄ → S²` would be equivariant against the orthogonal 4-cycle `R̃ = diag(R_{π/2}, −1)`, i.e. a section of the `S²`-bundle `E = F₄ ×_{C₄} S² → B₄ = Fl₄/⟨c⟩` with orientation character `ρ(c) = det R̃ = −1`, obstructed by the twisted Euler class `e(E) ∈ H³(B₄; ℤ̃_ρ)`.
+
+Two of the three pieces are proved:
+
+* **The universal obstruction is nonzero.** `E` is the pullback of the universal bundle `ξ_univ = EC₄ ×_{C₄} ℝ³ → BC₄` along the classifying map, and `e(ξ_univ) ≡ w₃(ξ_univ) (mod 2)`. The representation splits as (realification of the order-4 character `χ(c) = i`) ⊕ (sign character), so `w(ξ_univ) = (1 + u²)(1 + u) = 1 + u + u² + u³` in `H*(BC₄; ℤ/2) = ℤ/2[u]` (`u` the `H¹` generator; `w₂(realification of χ) = c₁(χ) mod 2` and `c₁(χ)` is the generator of `H²(C₄; ℤ) = ℤ/4`). Hence `w₃ = u³ ≠ 0`, `e(ξ_univ)` is the generator of `H³(C₄; ℤ̃) = ℤ/2` (computed from `ker N / im(c−1)` with `N` acting by `0` and `c − 1` by `−2`): there is no `C₄`-equivariant map `EC₄ → S²` of this type.
+* **The group-cohomology entry is clean.** The Cartan–Leray page for `H³(B₄; ℤ̃_ρ)` has exactly two possibly nonzero total-degree-3 entries: `E₂^{3,0} = H³(C₄; ℤ̃) = ℤ/2` and `E₂^{1,2} = H¹(C₄; H²(Fl₄) ⊗ ℤ̃)`, and the latter **vanishes** (the sign-twisted 4-cycle module `ℤ⁴/ℤ(1,1,1,1)` has `ker(1 − σ + σ² − σ³) = im(−σ − 1)`, both equal to the index-2-sublattice `{a + c = b + d}` — the cycle lattice of the 4-cycle graph).
+
+What is *not* settled is the pullback: a single Cartan–Leray differential `d₃ : E₃^{0,2} = ℤ → E₃^{3,0} = ℤ/2` (the transgression of the anti-invariant class `(1, −1, 1, −1)` of `H²(Fl₄)`) could kill `H³(B₄; ℤ̃_ρ)` and with it `e(E) = κ*e(ξ_univ)`. Determining that differential (equivalently, whether `π* : H²(B₄; ℤ̃) → H²(Fl₄; ℤ)` hits the generator or only its double) is the precise remaining obstacle, and we could not close it within this wave; the manuscript therefore claims only the proved bracket `[4/3, 3/2]`, and open problem (v) poses closing the ququart explicitly. Two documented soft facts frame the problem: for *linear* encoders the four-flag tie holds by Schur–Horn (`(Tr H/4)(1,1,1,1) ≺ λ(H)`), so **no linear encoder beats `3/2` on the ququart** — the open case is genuinely nonlinear; and Borsuk–Ulam on the Stiefel manifold gives orthogonal *pairs* of ties at every dimension, which is what keeps the general lower bound at the triple value `4/3`.
+
+## 4. Numerical verification (`scripts/verify_wave7.py`)
+
+* **V1 PASS:** for the projection encoder `f = |⟨ψ|φ⟩|²` on the qutrit, the Fourier ONB ties all three values at exactly `1/3` (the analytic instance of the theorem).
+* **V2:** flag-variance minimisation over `U(3)` for four families of random continuous `f` (linear, quadratic, projection, mixed-with-sine): worst-of-4 minimum variance `~1e-5 … 1e-4` and falling with search effort — consistent with the theorem's exact zero.
+* **V3 PASS:** the `H`-map machinery verified exactly: `H(cx) = T H(x)` with `T = [[0,1],[−1,−1]]`, `T³ = I`, on all sampled flags, all families.
+* **V4 PASS:** for random PSD trace-one `c` and random ONB triples, `max_i ‖ψᵢψᵢ* − c‖₁ ≥ 4/3` always; the Chebyshev radius of three orthogonal pure states over diagonal centres is `1.3400` on a `1/200` grid (limit `4/3`), attained at `(1/3, 1/3, 1/3)`.
+* **V5 PASS:** the constant decoder gives `max_ρ ‖ρ − I/d‖₁ = 2(1 − 1/d)` exactly at pure states (`4/3` at `d = 3`, `3/2` at `d = 4`) — both ends of the state-space brackets.
+* **V6:** orthogonal pair ties found for all families (Borsuk–Ulam sanity).
+* **V7 (informational):** ququart 4-way variance over `Fl₄`: `5.5e-4` for linear `f` (Schur–Horn), `2.9e-2` for quadratic `f` — no counterexample known, no claim made.
+
+## 5. Status after Wave 7
+
+| question | status |
+|---|---|
+| `δ₁(D(ℂ³))` (qutrit state space, `(1,3)` at `r = 1`) | **`4/3` exactly** (`thm:equal-basis` + vertex bound; constant decoder) |
+| `δ₁(D(ℂ⁴))` (ququart, `(1,4)` at `r = 1`) | **refuted flat**; bracket `[4/3, 3/2]`; linear encoders provably ≥ `3/2`; exact value open |
+| `δ₁` for all other `(n, d_B)`, `d_A = 1` | **classified** (`cor:bottom-dichotomy`): flat iff `nd_B ≤ 4`, `d_B ≤ 2`; else `≥ 4/3`, exact at `(5,1)`, `(1,3)`, `(2,3)` |
+| `con:coord-flat` | corrected to include `(d_B ≤ 2 or r ≥ 2)`; obstruction side unchanged (all `d_B`); flat side proved `{1,2}`, refuted at `r = 1`, `d_B ≥ 3` |
+| flat direction, `d_B ≥ 3`, `r ≥ 2` | **gated**: requires `δ_r(D(ℂ^{d_B})) ≤ 1` (`lem:slice-gate`); smallest unknown: `δ₂` of the qutrit |
+| channel open problem 1 | residual `d_B ∈ {3,4}` closed in the negative direction |
+
+**Open after this wave:** (i) the ququart `δ₁` (four-flag statement; the `d₃` transgression identified as the exact hinge, §3); (ii) `δ₂` of the qutrit and the state-space flat threshold `r*(d_B)` — the gate is one-sided: flatness requires `δ_r(D) ≤ 1`, and whether any `r ≤ d² − 2` passes is open (at the top index the replacement-sphere flatness of `cor:top-subcritical` lives at the instrument level, not the state level); (iii) the exact sub-diagonal widths of Waves 5–6 (classical `[2(q−1)/q, 2(n−2r−1)/(n−2r+2)]`, qubit `[4/3, 2−1/k]`); (iv) non-prime-power refinements of Tverberg; (v) the affine-decoder variant below the diagonal.
+
+**Correction made before commit (recorded):** the concentration gate's proof as first drafted used the raw first decoder block `g₁` as a one-outcome decoder; since `Tr g₁ ≤ 1` it is not body-valued under `def:width`. The committed proof pads `g₁` by the trace slack against a fixed state and reassembles the slack into the tail blocks' trace norms (§2), which closes the gap without changing the statement. The gap was found by this wave's own audit; no earlier committed version contained the flawed proof (v6 is the first version carrying the lemma).
