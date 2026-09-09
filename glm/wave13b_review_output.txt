@@ -1,0 +1,60 @@
+========================================================================
+[C1] real orthogonal O  =>  D = O^2 has all three triangles degenerate
+========================================================================
+  all 30 trials: |slack| <= 1e-10 and (h12,h13,h23) is a bijection: True
+  observed bijection patterns: [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)]
+  => the orthostochastic locus is 3-dim and lies on 3 walls at once.
+
+========================================================================
+[C2] wall slacks in the CKM domain vanish ONLY at delta in {0,pi}
+========================================================================
+  tested 86460 (theta,delta) points; degenerate ones: 180; away from {0,pi,2pi}: 0
+  max distance of a degenerate point to the real sheets {0,pi,2pi}: 0.00e+00
+  => all 9 walls of U3 are exactly the real sheets delta in {0,pi};
+     no non-real 1-degenerate wall points exist in int B3.
+
+========================================================================
+[C3] CKM inversion: two branches over interior, one over real locus
+========================================================================
+  20/20 Haar points: two CKM branches (+-delta) both reconstruct D to 1e-12, J flips sign
+  => fibre of Fl3 -> U3 over an interior point is TWO T^2's (two Jarlskog sheets).
+  20/20 real-orthostochastic points: |cos delta| = 1 (single branch, the fold)
+  => over the walls the fibre is ONE T^2 (the fold), as the spec says;
+     over the interior it is TWO T^2's (spec defect #1).
+
+========================================================================
+[C4] the three wall gradients at a real point are parallel (rank<=1)
+========================================================================
+  worst rank of the 3x4 gradient stack over 10 real points: 1  (needs <= 1 for tangency)
+  => the three walls are mutually TANGENT along the 3-dim real locus;
+     pairwise intersections are 3-dim (not 'corner 2-loci'), and the
+     triple loci are 3-dim (not 6 isolated points). Spec defect #2.
+
+========================================================================
+[C5] J(U P_sigma) = J(U) exactly (c preserves the Jarlskog sheet)
+========================================================================
+  max |J(UP) - J(U)| over 30 Haar samples: 3.47e-17
+  => the c-action preserves each Jarlskog sheet (sheets are c-invariant
+     4-cells; the t0-twist lives on the fibres over the flat points).
+
+========================================================================
+[C6] Wave-12b 'corner' of W(12|1)&W(13|2): actually on the 3rd wall,
+     and it moves in a 3-parameter family (dimension 3, not 2)
+========================================================================
+  found real O with pattern (h12,h13,h23)=(1,2,3):
+  O = [[-0.1885, -0.9752, 0.1159], [0.6041, -0.0221, 0.7966], [0.7743, -0.2202, -0.5933]]
+  wall residuals at D=O^2:  E(12|1)=-1.11e-16  E(13|2)=-1.53e-16  E(23|3)=-1.82e-17
+  => the point is on THREE walls: Wave-12b's 'corner' solutions are
+     real-locus points (all three triangles degenerate).
+  random 3-parameter theta-perturbations staying on ALL THREE walls: 172/200 (|dtheta|~0.02)
+  => the 'corner'/'triple' locus is 3-dimensional; the Wave-12b/13
+     stratification (18 corner 2-cells, 6 triple points) is refuted.
+
+========================================================================
+REVIEW VERDICT INPUTS: C1-C6 all as predicted.
+Spec defect #1 (fatal): interior fibre is 2xT^2 (two Jarlskog sheets),
+   not T^2 -- the single-top-cell design builds half the space.
+Spec defect #2 (fatal): the walls are exactly the orthostochastic locus;
+   wall pair intersections are 3-dim tangent overlaps, not 2-cells;
+   triples are 3-dim regions, not 6 points; no 'rook corner' strata.
+========================================================================
