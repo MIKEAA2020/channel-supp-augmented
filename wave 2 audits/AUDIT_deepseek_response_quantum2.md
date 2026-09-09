@@ -130,3 +130,24 @@ arithmetic, and the boxed quotient output is the cohomology of the desired answe
 the homology slots, failing π₁, Poincaré duality, and the UCT along the way. The boxed
 conclusion δ₂(D(ℂ³)) = 4/3 is **UNSUPPORTED**; the qutrit bit (and the ququart bit) remain
 **OPEN**, with the level-3 cellulation (1896 cells) documented as the honest remaining route.
+
+---
+
+## 5. Addendum (recorded after the machine audit): the transition-cocycle layer
+
+For the honest 1896-cell build (next session), one further structural point must be
+recorded. The c-equivariance of the face trivializations cannot make *all* codim-1
+interface maps identity-on-fiber-cells: the c-action on the (c-fixed) interior face is
+(D, s) ↦ (Dσ, s·t₀) in any single interior trivialization, while the equivariant
+basepoint choices on the non-fixed faces make the c-action identity-on-fibers there; the
+compatibility at the interior↔facet interfaces then forces the transition functions to
+differ by t₀-powers along the c-orbit of a facet (g, g−t₀, g+t₀). The level-3 fiber
+cellulation absorbs this exactly (it is t₀-invariant, so translated cells are again
+cells and all coefficients stay ±1), but the boundary-operator implementation must apply
+the T₀-permutation at the t₀-carrying interface classes, not the identity. Equivalently:
+the torus-fibration Fl₃ → Birkhoff has translation monodromy t₀ (the same 3-torsion
+F₀P_σ = diag(1,ω,ω²)F₀), and the quotient complex inherits it. The verification battery
+(d² = 0, H\*(Fl₃) = (ℤ,0,ℤ²,0,ℤ²,0,ℤ) with exact torsion check, T³ = I, dT = Td,
+1+T+T² = 0 on H₂, degree +1 on H₆, then the orbit-complex SNF against H₀ = ℤ,
+H₁ = ℤ/3, H₄ = ℤ/3, H₅ = 0, H₆ = ℤ) is the certification gate; only after all of it
+passes may H₂(B₃) be read off as the qutrit bit.
