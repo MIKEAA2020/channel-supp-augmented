@@ -1,0 +1,107 @@
+
+==============================================================================
+PART I: base face lattice of Bo_3 (49 faces, f = 6,15,18,9,1)
+==============================================================================
+faces: 49   f-vector [6, 15, 18, 9, 1]   (interior id 4)
+all 48 proper faces are simplices: OK
+fiber types: vertices(pt)=6, sphere-edges(S1)=9, one-block(T2)=34
+sphere-edges = the 9 E_{ak} = conv(P,P') with P,P' agreeing at (a,k): OK
+face c-orbits: 1 fixed (interior) + 16 free orbits of 3
+sigma-map det on the affine 4-space: +1 (interior T-sign)
+interior boundary signs eps_Phi computed geometrically for 9 facets
+eps_{Phi sigma} = eps_Phi * s(Phi) for all 9 facets: OK
+[t+    0.1s] Part I done
+
+==============================================================================
+PART II: level-3 fiber cellulations (S1: 3+3, T2: 9+27+18 = 54 cells)
+==============================================================================
+fiber cellulation boundaries: d^2 = 0 OK;  cells: T2 9+27+18, S1 3+3
+grid translations by thirds act as permutations of the 54 cells: OK
+[t+    0.1s] Part II done
+
+==============================================================================
+PART III: the 1896 cells and the boundary operator d
+==============================================================================
+cells: 1896   per-degree [6, 81, 351, 675, 576, 189, 18]   chi = +6
+boundary operator built: 8262 nonzero column entries
+BATTERY: d^2 = 0 exactly: PASS
+[t+    0.1s] Part III done
+
+==============================================================================
+PART IV: c-action on cells, T^3 = I, dT = Td, freeness
+==============================================================================
+BATTERY: T^3 = I (with sign product +1): PASS
+BATTERY: c acts freely on the 1896 cells (no fixed cell): PASS
+BATTERY: T preserves cell degrees: PASS
+BATTERY: dT = Td exactly: PASS
+[t+    0.1s] Part IV done
+
+==============================================================================
+PART IV-bis: unistochastic feasibility audit of the base strata
+==============================================================================
+face-BARYCENTER feasibility (dim, fiber-type, feasible):
+   dim 0  type pt   feasible=True  : 6 faces
+   dim 1  type S1   feasible=True  : 9 faces
+   dim 1  type T2   feasible=False : 6 faces
+   dim 2  type T2   feasible=False : 18 faces
+   dim 3  type T2   feasible=True  : 9 faces
+   dim 4  type T2   feasible=True  : 1 faces
+edge-generic-point feasibility (type, feasible):
+   type S1   feasible=True  : 18 edge-points
+   type T2   feasible=False : 12 edge-points
+=> the 6 six-cycle edges and the 18 triangles are INFEASIBLE (all points);
+=> facets are feasible only on the 2-dim equality locus; only interior,
+   9 sphere-edges, 6 vertices (+ facet equality loci) carry nonempty fibers.
+[t+    0.1s] Part IV-bis done
+
+==============================================================================
+PART V: H_*(Fl_3) - Betti (mod large primes) + torsion audit (mod-p UCT)
+==============================================================================
+Fl_3: chain ranks [0, 5, 76, 273, 401, 171, 18]
+Fl_3: Betti  b = [1, 0, 2, 1, 4, 0, 0]
+Fl_3: mod- 2 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3: mod- 3 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3: mod- 5 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3: mod- 7 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3: mod-11 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3: mod-13 Betti [1, 0, 2, 1, 4, 0, 0]   -> torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+
+==============================================================================
+BATTERY FAILURE -> THE RECORDED 1896-CELL SPEC IS REFUTED
+==============================================================================
+H_*(built complex; Q)  = [1, 0, 2, 1, 4, 0, 0]   (torsion summands: {2: [0, 0, 0, 0, 0, 0, 0], 3: [0, 0, 0, 0, 0, 0, 0], 5: [0, 0, 0, 0, 0, 0, 0], 7: [0, 0, 0, 0, 0, 0, 0], 11: [0, 0, 0, 0, 0, 0, 0], 13: [0, 0, 0, 0, 0, 0, 0]})
+H_*(Fl_3; Q) required = [1, 0, 2, 0, 2, 0, 1]   with H_6 = Z (closed 6-manifold).
+
+The chain-level battery PASSED in full (1896 cells (6,81,351,675,576,189,18),
+chi = 6, d^2 = 0 exactly, T^3 = I, c free on cells, dT = Td exactly):
+the built complex is a genuine C_3-equivariant chain complex -- but it is NOT
+a model of Fl_3, because the BASE stratification of the recorded spec is
+geometrically infeasible:
+
+ROOT CAUSE (unistochastic feasibility, machine-checked):
+ * six-cycle edges conv(P, P_sigma): every interior point has a row pair whose
+   orthogonality constraint is  sqrt(t(1-t)) e^{i phi} = 0  with t in (0,1) --
+   IMPOSSIBLE.  The 'T^2 fibers over 6 six-cycle edges' are EMPTY.
+ * the 18 triangular 2-faces: each contains a row pair sharing exactly ONE
+   nonzero column: constraint  m e^{i phi} = 0 with m > 0 -- IMPOSSIBLE.
+ * the 9 facets: the row pair adjacent to the zero entry shares two columns;
+   feasibility forces the equality  D_{a'k'} D_{bk'} = D_{a''k''} D_{bk''}
+   (which is why the barycenter, by symmetry, tests feasible) -- the feasible
+   set is a codim-1 equality LOCUS (2-dim, T^2 fibers); the open 3-dim facet
+   relint of the spec carries NO fiber.
+ Nonempty fibers over the Birkhoff base exist only over: the interior 4-cell
+ (T^2), the 9 sphere-edges (S^1), the 6 vertices (pt), and the 2-dim facet
+ equality loci (T^2).  The image of pi: Fl_3 -> Bo_3 is the UNISTOCHASTIC
+ region U_3, bounded by the 9 curved fold-walls  {m_i = m_j + m_k} (row-pair
+ triangle degenerations, T^2 fibers), not by the Birkhoff facets.  The
+ Wave 9/10 machine checks verified the face lattice and HALL (doubly
+ stochastic) feasibility -- never the unistochastic (triangle-inequality)
+ side; that gap propagated into the recorded spec.
+
+CONSEQUENCE: the 1896-cell orbit-complex SNF below would compute the
+homology of the WRONG space, so it is skipped.  The qutrit bit REMAINS OPEN.
+The honest decisive route (recorded for the next session): cellulate the
+unistochastic region (the wall arrangement W_{(ab),i}:  m^{(ab)}_i =
+m^{(ab)}_j + m^{(ab)}_k, 9 walls, S_3 x S_3 symmetric, T^2-fibers, fold type),
+with the SAME level-3 fiber cellulations, the SAME t0/twist layer and the
+SAME battery; then the orbit-complex SNF settles H_2(B_3).
