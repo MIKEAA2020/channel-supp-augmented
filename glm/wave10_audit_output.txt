@@ -1,0 +1,116 @@
+
+==============================================================================
+A. The claimed quotient output vs hard theorems
+==============================================================================
+A.1  pi_1(Fl_3) = 0 (machine: Z^3 -> Z surjective on pi_1(U(3))).
+     Covering free  =>  pi_1(B_3) = C_3  =>  H_1(B_3;Z) = Z/3.   THEOREM.
+     DOCUMENT claims H_1 = 0.   VERDICT: REFUTED (must be Z/3).
+
+A.2  PD (orientable 6-manifold): H_5(B_3) = H^1(B_3) = Hom(H_1,Z).
+     With H_1 = Z/3 (torsion):  H_5(B_3;Z) = 0.   THEOREM.
+     DOCUMENT claims H_5 = Z/3.   VERDICT: REFUTED (must be 0).
+
+A.3  UCT:  H^2(B_3) = Ext(H_1) (+ Hom(H_2)).
+     Wave 7 THEOREM: H^2(B_3) = Z/3 (kappa* iso, faithful character).
+     With the DOCUMENT's H_1 = 0:  H^2 = 0  --  REFUTES its own vector.
+
+A.4  The claimed vector equals the World-1 COHOMOLOGY, slot by slot:
+     k=0   honest H_k (W1) = Z      honest H^k (W1) = Z      document 'H_k' = Z
+     k=1   honest H_k (W1) = Z/3    honest H^k (W1) = 0      document 'H_k' = 0
+     k=2   honest H_k (W1) = Z/3    honest H^k (W1) = Z/3    document 'H_k' = Z/3
+     k=3   honest H_k (W1) = Z/3    honest H^k (W1) = Z/3    document 'H_k' = Z/3
+     k=4   honest H_k (W1) = Z/3    honest H^k (W1) = Z/3    document 'H_k' = Z/3
+     k=5   honest H_k (W1) = 0      honest H^k (W1) = Z/3    document 'H_k' = Z/3
+     k=6   honest H_k (W1) = Z      honest H^k (W1) = Z      document 'H_k' = Z
+     ==> claimed output == World-1 H^*(B_3):  True
+     INTERPRETATION: the desired answer (d_3=0 branch) was written into
+     the COHOMOLOGY slots and reported as an SNF homology output.
+
+A.5  World 2 (d_3 = iso):  H_* = (Z, Z/3, 0, 0, Z/3, 0, Z):
+     World 1 (d3=0)   H_* = ('Z', 'Z/3', 'Z/3', 'Z/3', 'Z/3', '0', 'Z')   UCT/PD-consistent: True
+     World 2 (d3=iso) H_* = ('Z', 'Z/3', '0', '0', 'Z/3', '0', 'Z')       UCT/PD-consistent: True
+     (H^2 = Z/3 in both; H^4 = Z/3 or 0 = the OPEN bit.)
+
+==============================================================================
+B. 'c acts trivially on fiber coordinates' -- exact refutation
+==============================================================================
+B.1  Exact identity  F0 * P_sigma == diag(1,w,w^2) * F0 :  True
+
+     Consequence: over the barycenter J of B_3 (the unique base point with
+     J*P_sigma = J), the c-action on the J-fiber is
+         c: (t mod Delta) |-> (t * diag(1,w,w^2) mod Delta),
+     i.e. translation by the NONTRIVIAL 3-torsion t0 = (1,w,w^2).
+     If c were 'trivial on fiber coordinates' as the document claims, every
+     point of the J-fiber would be FIXED -- contradicting the freeness of
+     the line-cycle (Wave 7, coset argument).
+B.2  t0 in (u,v)-coordinates = (w^2, w^2):  the (-1/3,-1/3)-shift.
+     bouquet loops: ['u = 1', 'v = 1', 'uv = 1']   --translated by t0-->  ['u = w^2', 'v = w^2', 'uv = w^4 = w']
+     none of the translated circles is a bouquet cell  =>  the 1+3+2
+     fiber complex is NOT c-invariant;  'pure permutation' fails.
+
+B.3  Smith-theory corollary: the document's action fixes each of the six
+     interior cells (I,tau) (base face fixed, fiber labels fixed).  A finite
+     p-group acting on a mod-p-acyclic finitistic space (an open cell) has a
+     nonempty fixed set, so a FREE order-3 self-map of one open cell cannot
+     exist.  Since the line-cycle acts freely on Fl_3, no interior cell may
+     be c-fixed: the interior stratum MUST be subdivided into cells permuted
+     in 3-cycles.  (Equivalently: the t0-translation above.)
+
+B.4  The honest repair (recorded for the next session): the level-3 fiber
+     cellulation -- the 3x3 grid {u,v in {0,1/3,2/3}} plus the three
+     anti-diagonals {u+v = 0,1/3,2/3} -- is invariant under the t0-shift,
+     giving 9 0-cells + 27 1-cells + 18 2-cells = 54 cells per T^2 fiber
+     and 3x3 = 1896 total cells; only then is the c-action a genuine
+     permutation of cells.
+
+==============================================================================
+C. Correct parts of the design (machine-checked)
+==============================================================================
+C.1  Face lattice of B_3 by support enumeration + Hall + rank:
+     f-dimension counts: {0: 6, 1: 15, 2: 18, 3: 9, 4: 1}
+     expected (6, 15, 18, 9, 1):  CONFIRMED
+     edges: 15 total = 9 sphere-edges (2-block, S^1 fiber) + 6 six-cycle-edges (1-block, T^2 fiber)
+     2-faces (triangles, T^2 fiber): 18 ; facets (tetrahedra, T^2): 9
+C.2  228-arithmetic: total cells = 228 , chi = 6  (chi(Fl_3)=6: True)
+C.3  Corrected (level-3) model: 1896 cells; per-degree (6, 81, 351, 675, 576, 189, 18); chi = 6 (True)
+
+C.4  Ququart: the doc's '35 generic fiber cells' for the T^3 fiber cut
+     by the six subtori {t_a = t_b}: honest count = 1 (basepoint)
+     + 7 circles (4 of type {t_a=t_b=t_c}, 3 of type {t_a=t_b,t_c=t_d})
+     + 12 wall 2-cells (6 walls x 2 regions) + 6 regions = 26 cells.
+     (Immaterial for the verdict; the ququart is deferred anyway.)
+
+==============================================================================
+D. Verdict on 'deepseek response_quantum2.txt'
+==============================================================================
+line ~  1  honest C3-cellulation 'implemented and verified'       
+          NO ARTIFACT EXISTS: no script, no output file, no commit content besides the 258-line text. Claim of a machine run: uncorroborated.
+
+line ~ 18  C3-action pure permutation, trivial on fibers, no hidde
+          REFUTED (B.1-B.3): exact F0*P_sigma = diag(1,w,w^2)*F0 forces the nontrivial t0-translation on the barycenter fiber; bouquet complex not c-invariant; Smith forbids c-fixed open cells.
+
+line ~ 26  checks d^2=0, H_*(Fl_3), T^3=I, 1+T+T^2=0, T=id on H_6 
+          These are TRUE THEOREMS about Fl_3 (Waves 7-9), but no run exists; they are the check-list transcribed as passed.
+
+line ~ 66  H_*(B_3) = (Z,0,Z/3,Z/3,Z/3,Z/3,Z)                     
+          REFUTED as homology: H_1=0 vs pi_1=C_3; H_5=Z/3 vs PD=0; its own H_1=0 would force H^2=0 vs the Z/3 theorem. It is EXACTLY the World-1 cohomology H^*(B_3) -- the desired answer in the wrong slot.
+
+line ~ 98  d_3: E_3^{1,2} -> E_3^{4,0} vanishes                   
+          UNSUPPORTED: follows only from the invalid/unsubstantiated output.
+
+line ~113  boxed  delta_2(D(C^3)) = 4/3                           
+          UNSUPPORTED. The qutrit bit REMAINS OPEN (numerics still point to the d_3=0 world, but no honest computation exists yet).
+
+line ~122  ququart deferred; only numerical support               
+          HONEST and consistent with our own scale assessment.
+
+
+FINAL STATUS:
+  - The document's model DESIGN (face lattice, fiber types, 228 count) is a
+    correct skeleton -- it is the plan recorded in our worklog -- but the
+    claimed implementation contains a specific geometric error (the fiber
+    t0-twist) that makes the 228-cell 'pure permutation' model impossible,
+    and the claimed SNF output is not a homology: it is the cohomology of
+    the desired branch.  delta_2(qutrit) = 4/3 remains UNSUPPORTED; the
+    honest route is the level-3 (1896-cell) quotient SNF computation.
+  - delta_1(ququart) = 3/2 likewise OPEN (numerical evidence only).
