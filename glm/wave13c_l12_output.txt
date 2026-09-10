@@ -1,0 +1,59 @@
+
+==============================================================================
+PART I: level-12 fibre cellulations (T2: 864, S1: 24)
+==============================================================================
+fibre cellulations: d^2=0 OK; q-cocycle OK; twelfth-translations are permutations: OK
+  (t0^2 = (8,8) twelfths: 3*(8,8)=(24,24)=0 mod 12 -> order 3, free)
+[t+    0.0s] Part I done
+
+==============================================================================
+PART II: the 14910 cells + free-cell boundary layer
+==============================================================================
+pins doubled; kappa - t all EVEN (mod-2 obstruction dissolved); orbit sums 0 mod 12: OK
+cells: 14910  degrees [6, 108, 1404, 4752, 5472, 2592, 576]  chi=+6
+BATTERY G1: cell counts + chi: PASS  (level-12, 12x12 fibres)
+[t+    0.0s] cells built
+
+==============================================================================
+PART III: the rho-gauged constraint system -- sign-parameterized (v3)
+==============================================================================
+v4 system: 148 equations, 87 variables
+
+==============================================================================
+THE LEVEL-12 OBSTRUCTION (machine-pinned, this session)
+==============================================================================
+The v4 sheet-layer system (cleanly derived: natural free layer,
+rho-gauged T-map kappa_eff = kappa + rho_c - rho, SB/co-sign-correct
+sheet equivariance, natural closures/corners) is INCONSISTENT mod 3.
+
+WITNESS (mod 3, from the IIS of both the v2 sign-variants and v4):
+  the closure tree (mixed-F) + the wall-corner transverse equalities
+  force all six tau_{si,R} of each sheet to ONE constant;
+  the equivariance (E1) on the shared R-cells then demands, for the
+  SAME rho-difference:
+     rho_5 - rho_0 =  t_+ - kappa   (sheet +)
+     rho_5 - rho_0 =  t_- - kappa   (sheet -)
+  whose difference is t_+ - t_- = t0 = (4,4) twelfths = (1,1) mod 3.
+  => 0 = 4 = (1,1) mod 3: FALSE. No rho-assignment, tau-choice, or
+  sign convention can absorb it: the R-cells are shared between the
+  sheets and their fibre translations are single-valued.
+
+STRUCTURE: this is the THIRD member of the obstruction ladder:
+  level  6: Z/2 obstruction (kappa - t odd)   -> dissolved at L=12;
+  level 12: Z/3 obstruction (t_+ - t_- = t0 = L/3 != 0 mod 3)
+            -> dissolves iff L = 0 mod 9;
+  the half-turn pins need L = 0 mod 4  =>  LCM(4,9) = 36:
+  LEVEL 36 (census ~132,900 cells) or a sheet-dependent R-gauging
+  (the [g] seam jump: per-sheet fibre grids on the seam cells,
+  splitting the shared R-cell rho's into two sheets' worth).
+
+CERTIFIED THIS RUN (all machine, exact):
+  G1 PASS (14910 cells (6,108,1404,4752,5472,2592,576), chi=6);
+  level-12 fibre cellulations: d^2=0, q-cocycle, translations;
+  all doubled pins: kappa - t even (the level-6 Z/2 gate dissolved);
+  kappa orbit sums = 0 mod 12; natural free-cell layer d^2=0 exact;
+  the inherited v2 equation (4) type bug (rvar on F-indices) found
+  and fixed; the v2/v3/v4 systems' IIS witnesses machine-extracted.
+
+delta_2(qutrit) = 4/3 REMAINS OPEN. G3-G9 + orbit SNF NOT run
+(the sheet boundary is not yet defined). Honest stop.
