@@ -1,0 +1,275 @@
+
+==============================================================================
+WAVE15-CLSS :: (I) import wave13c_seam: the full 13C-7 battery re-runs
+==============================================================================
+
+==============================================================================
+PART I: level-12 fibre cellulations (T2: 864, S1: 24)
+==============================================================================
+fibre cellulations: d^2=0 OK; q-cocycle OK; twelfth-translations are permutations: OK
+  (t0^2 = (8,8) twelfths: 3*(8,8)=(24,24)=0 mod 12 -> order 3, free)
+[t+    0.0s] Part I done
+
+==============================================================================
+PART II: the 14910 cells + free-cell boundary layer
+==============================================================================
+pins doubled; kappa - t all EVEN (mod-2 obstruction dissolved); orbit sums 0 mod 12: OK
+cells: 14910  degrees [6, 108, 1404, 4752, 5472, 2592, 576]  chi=+6
+BATTERY G1: cell counts + chi: PASS  (level-12, 12x12 fibres)
+[t+    0.0s] cells built
+
+==============================================================================
+PART III: the v5 PER-SHEET SEAM-GAUGED constraint system
+==============================================================================
+v5 system: 76 equations, 58 variables
+v5 system SOLVED mod 12 (mod-3 + Hensel mod-4 + CRT); verified on all 76 equations: PASS
+  tau-tilde (s+): {'R0.def': (2, 2), 'R0.bF6': (2, 0), 'R0.bF7': (0, 4), 'R1.def': (10, 2), 'R1.bF8': (10, 4), 'R1.bF9': (0, 0)}
+  sigma (s+): {0: (0, 4), 1: (2, 0), 2: (0, 4), 3: (2, 0)}  Delta (s+): {0: 4, 1: 4, 2: 2, 3: 2}
+  seam alphas (s+): {4: 4, 5: 2, 6: 2, 7: 10, 8: 10}
+  tau-tilde (s-): {'R0.def': (10, 10), 'R0.bF6': (10, 0), 'R0.bF7': (0, 8), 'R1.def': (2, 10), 'R1.bF8': (2, 8), 'R1.bF9': (0, 0)}
+  sigma (s-): {0: (0, 8), 1: (10, 0), 2: (0, 8), 3: (10, 0)}  Delta (s-): {0: 8, 1: 8, 2: 10, 3: 10}
+  seam alphas (s-): {4: 8, 5: 10, 6: 10, 7: 2, 8: 2}
+[t+    0.0s] Part III done
+
+==============================================================================
+PART IV: sheet layer + assembly + G2 (d^2 = 0)
+==============================================================================
+homotopy identity d(h s)+h(d s)=tau(s)-s: EXACT on all cell types (u,v): OK
+natural free-cell layer: d^2 = 0 exactly on all 13182 columns: PASS
+  seam assembly (signs as derived)              : sheet layer d^2 = 0 EXACTLY: PASS
+SELECTED: seam assembly (signs as derived)
+  tau-tilde (s+): {'R0.def': (2, 2), 'R0.bF6': (2, 0), 'R0.bF7': (0, 4), 'R1.def': (10, 2), 'R1.bF8': (10, 4), 'R1.bF9': (0, 0)}
+  tau-tilde (s-): {'R0.def': (10, 10), 'R0.bF6': (10, 0), 'R0.bF7': (0, 8), 'R1.def': (2, 10), 'R1.bF8': (2, 8), 'R1.bF9': (0, 0)}
+  sigma (s+): {0: (0, 4), 1: (2, 0), 2: (0, 4), 3: (2, 0)}  Delta (s+): {0: 4, 1: 4, 2: 2, 3: 2}
+  sigma (s-): {0: (0, 8), 1: (10, 0), 2: (0, 8), 3: (10, 0)}  Delta (s-): {0: 8, 1: 8, 2: 10, 3: 10}
+  seam alphas (s+): {4: 4, 5: 2, 6: 2, 7: 10, 8: 10}
+  seam alphas (s-): {4: 8, 5: 10, 6: 10, 7: 2, 8: 2}
+BATTERY G2: d^2 = 0 exactly on all 14910 cells: PASS (0 residuals)
+[t+    0.4s] Part IV done
+
+==============================================================================
+PART V: the T-map, G4 T^3=I, G6 freeness
+==============================================================================
+  T-map eps_k=+0 : T^3=I: OK;  dT=Td residuals: 0
+  T-map eps_k=+1 : T^3=I: OK;  dT=Td residuals: 0
+  T-map eps_k=-1 : T^3=I: OK;  dT=Td residuals: 0
+SELECTED T-map: eps_k=+0
+BATTERY G4: T^3 = id on all cells (sign products +1): PASS
+BATTERY G6: freeness: fixed cells = 0: PASS (none)
+[t+    0.6s] Part V done
+
+==============================================================================
+PART VI: G3 -- homology of the complex (Betti + mod-p torsion ladder)
+==============================================================================
+[t+    0.6s] G3 ladder starting (the slow part: 6 primes x 6 boundary matrices)
+[t+    0.6s]   rank Fl_3 d1 mod 1000003 = 5
+[t+    0.6s]   rank Fl_3 d2 mod 1000003 = 103
+[t+    1.2s]   rank Fl_3 d3 mod 1000003 = 1299
+[t+    3.3s]   rank Fl_3 d4 mod 1000003 = 3453
+[t+   12.8s]   rank Fl_3 d5 mod 1000003 = 2017
+[t+   12.9s]   rank Fl_3 d6 mod 1000003 = 575
+[t+   12.9s]   rank Fl_3 d1 mod 1000033 = 5
+[t+   12.9s]   rank Fl_3 d2 mod 1000033 = 103
+[t+   13.4s]   rank Fl_3 d3 mod 1000033 = 1299
+[t+   15.4s]   rank Fl_3 d4 mod 1000033 = 3453
+[t+   24.5s]   rank Fl_3 d5 mod 1000033 = 2017
+[t+   24.6s]   rank Fl_3 d6 mod 1000033 = 575
+[t+   24.6s]   rank Fl_3 d1 mod 2 = 5
+[t+   24.6s]   rank Fl_3 d2 mod 2 = 103
+[t+   24.9s]   rank Fl_3 d3 mod 2 = 1299
+[t+   25.9s]   rank Fl_3 d4 mod 2 = 3453
+[t+   29.0s]   rank Fl_3 d5 mod 2 = 2017
+[t+   29.0s]   rank Fl_3 d6 mod 2 = 575
+[t+   29.0s]   rank Fl_3 d1 mod 3 = 5
+[t+   29.0s]   rank Fl_3 d2 mod 3 = 103
+[t+   29.4s]   rank Fl_3 d3 mod 3 = 1299
+[t+   30.5s]   rank Fl_3 d4 mod 3 = 3453
+[t+   34.4s]   rank Fl_3 d5 mod 3 = 2017
+[t+   34.4s]   rank Fl_3 d6 mod 3 = 575
+[t+   34.4s]   rank Fl_3 d1 mod 5 = 5
+[t+   34.4s]   rank Fl_3 d2 mod 5 = 103
+[t+   34.8s]   rank Fl_3 d3 mod 5 = 1299
+[t+   35.9s]   rank Fl_3 d4 mod 5 = 3453
+[t+   40.0s]   rank Fl_3 d5 mod 5 = 2017
+[t+   40.1s]   rank Fl_3 d6 mod 5 = 575
+[t+   40.1s]   rank Fl_3 d1 mod 7 = 5
+[t+   40.1s]   rank Fl_3 d2 mod 7 = 103
+[t+   40.4s]   rank Fl_3 d3 mod 7 = 1299
+[t+   41.6s]   rank Fl_3 d4 mod 7 = 3453
+[t+   45.9s]   rank Fl_3 d5 mod 7 = 2017
+[t+   46.0s]   rank Fl_3 d6 mod 7 = 575
+Fl_3 chain ranks (rational): [0, 5, 103, 1299, 3453, 2017, 575]
+Fl_3 Betti  b = [1, 0, 2, 0, 2, 0, 1]   (spec Fl_3: [1, 0, 2, 0, 2, 0, 1])
+Fl_3 mod- 2 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod- 3 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod- 5 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod- 7 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+BATTERY G3: H(Fl_3) = (Z, 0, Z^2, 0, Z^2, 0, Z) torsion-free, p in {2,3,5,7}: PASS
+[t+   46.0s] Part VI done
+
+==============================================================================
+PART VII: G7 N=1+T+T^2 on H_2 (mod 7), G8 T=+1 on H_6
+==============================================================================
+H_2(F_7) cycles: 1301 basis vectors
+BATTERY G7: 1+T+T^2 = 0 on H_2 (mod 7): PASS  (rank 1299 vs 1299)
+BATTERY G7b: T has order exactly 3 on H_2 (mod 7): PASS  (rank 1301 vs 1299)
+H_6(F_7) cycles: 1 (expect 1)
+BATTERY G8: T = 1 on H_6 (mod 7): PASS
+[t+   53.7s] Part VII done
+
+==============================================================================
+PART VIII: orbit complex C(Fl_3) (x)_{Z[C3]} Z -- H_*(B_3)
+==============================================================================
+cell orbits: 4970 (all size 3: True)
+quotient chains per degree: [2, 36, 468, 1584, 1824, 864, 192]  total 4970
+BATTERY: d_bar^2 = 0 (sign-correct coinvariant projection): PASS
+B_3 chain ranks (rational): [0, 1, 35, 433, 1151, 673, 191]
+B_3 Betti  b = [1, 0, 0, 0, 0, 0, 1]
+B_3 mod- 2 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod- 3 torsion summand counts t_p = [0, 1, 1, 1, 1, 0, 0]
+B_3 mod- 5 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod- 7 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-11 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-13 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0]
+[t+   56.4s] orbit ladder done
+Z/9 smith: rank d1=1 |coker|=9; rank d2=34 |coker|=27; rank d3=432 |coker|=7509466514979724803946715958257547
+|H_0(B_3; Z/9)| = 9 (expect 9, connected)
+|H_1(B_3; Z/9)| = 3
+|H_2(B_3; Z/9)| = 9
+
+==============================================================================
+VERDICT: H_*(B_3) and the qutrit bit
+==============================================================================
+battery gate summary: {'G1': True, 'G2': True, 'G3': True, 'G4': True, 'G6': True, 'G7': True, 'G7b': True, 'G8': True, 'dbar2': True}
+beta_2 = 0;  t_p(H_2) = {2: 0, 3: 1, 5: 0, 7: 0, 11: 0, 13: 0};  t_3(H_1) = 1
+min(i,2) = 1 ;  min(j,2) = 1  (i,j = 3-adic exponents of H_1, H_2)
+mandatory slots: H_0=Z: True; H_1=Z/3: True; H_5=0: True; H_6=Z: True
+
+THE BIT:  H_2(B_3) = Z/3
+  -> WORLD 1: CLSS d_3: E3^{1,2} -> E3^{4,0} is ZERO.
+  -> the Chern-class obstruction x^2 != 0 survives (Wave 7 theorem);
+  -> delta_2(D(C^3)) = 4/3 is CONFIRMED by the honest computation.
+[t+   57.2s] run complete
+
+[battery re-certified on import; NC=14910 cells, NORB=4970 orbit cells]
+[import+battery]   57.2s
+
+==============================================================================
+WAVE15-CLSS :: (II) the C_3-modules H^q(Fl_3): typing certificates
+==============================================================================
+H_2 (mod  7): N=1+T+T^2 equals 0 on homology: True ;  T has order exactly 3: True
+H_2 (mod 13): N=1+T+T^2 equals 0 on homology: True ;  T has order exactly 3: True
+H_4 (mod  7): N=1+T+T^2 equals 0 on homology: True ;  T has order exactly 3: True
+H_4 (mod 13): N=1+T+T^2 equals 0 on homology: True ;  T has order exactly 3: True
+H_2 typing (omega, both primes): PASS ; H_4 typing (omega, both primes): PASS ; H_6: T=+1 certified by the battery G8 (rank 1, sign +1).
+H_*(Fl_3) ranks (battery G3): [1, 0, 2, 0, 2, 0, 1] -> modules: q=0: Z(triv), q=2: Z^2(omega), q=4: Z^2(omega), q=6: Z(triv, +1)
+[typing  ]  192.2s
+
+==============================================================================
+WAVE15-CLSS :: (III) the Cartan-Leray E_2^{p,q} = H^p(C_3; H^q(Fl_3)) -- machine-exact
+==============================================================================
+E_2 page (nonzero entries; q = 0, 2, 4, 6 rows; p up to 15):
+  q=0: p=0:ZZ  p=2:Z/3  p=4:Z/3  p=6:Z/3  p=8:Z/3  p=10:Z/3  p=12:Z/3  p=14:Z/3
+  q=2: p=1:Z/3  p=3:Z/3  p=5:Z/3  p=7:Z/3  p=9:Z/3  p=11:Z/3  p=13:Z/3  p=15:Z/3
+  q=4: p=1:Z/3  p=3:Z/3  p=5:Z/3  p=7:Z/3  p=9:Z/3  p=11:Z/3  p=13:Z/3  p=15:Z/3
+  q=6: p=0:ZZ  p=2:Z/3  p=4:Z/3  p=6:Z/3  p=8:Z/3  p=10:Z/3  p=12:Z/3  p=14:Z/3
+all torsion entries are exactly Z/3 (no Z/9, no other primes): PASS
+d_2 targets land on empty rows (rows are 2 apart): PASS
+[E2 page ]  192.2s
+
+==============================================================================
+WAVE15-CLSS :: (IV) the d_3 cascade: forced arrows, two worlds, machine selection
+==============================================================================
+orbit SNF re-run: beta=[1, 0, 0, 0, 0, 0, 1] t_3=[0, 1, 1, 1, 1, 0, 0] ; |H_k(Z/9)| = [9, 3, 9, 9]
+certified H_*(B_3) = [(1, 0), (0, 1), (0, 1), (0, 1), (0, 1), (0, 0), (1, 0)]  [13C-8: H_3 = H_4 = Z/3 exactly]
+UCT-dual H^*(B_3) = [(1, 0), (0, 0), (0, 1), (0, 1), (0, 1), (0, 1), (1, 0)]
+d_3 arrows with source-total <= 7: 4
+   (0, 6) -> (3, 4)   [(1, []) -> (0, [3])]
+   (1, 2) -> (4, 0)   [(0, [3]) -> (0, [3])]
+   (3, 2) -> (6, 0)   [(0, [3]) -> (0, [3])]
+   (5, 2) -> (8, 0)   [(0, [3]) -> (0, [3])]
+tail (total >= 8) paired by the periodic d_3 isos (in-window pairs + the 2-periodicity argument at the window edge): PASS
+assignments consistent with (totals>6 vanish; H^6 torsion-free; tail paired): 2
+worlds whose E_inf matches the certified H^*(B_3) exactly: 1
+the bit d_3: E_3^{1,2} -> E_3^{4,0} across matching worlds: [0]
+   -> ZERO in every world matching the certified H^*(B_3)
+
+(IV) VERDICT: the E_2 page + the axioms (dim 6, H^6 free, d_2 = 0) admit
+exactly two d_3 assignments (World 1: the bit is ZERO; World 2: iso, killing
+both (1,2) and (4,0)).  The machine-certified H^*(B_3) = (Z, 0, Z/3, Z/3,
+Z/3, Z/3, Z) matches World 1 ONLY.  Hence:
+
+      d_3: E_3^{1,2} -> E_3^{4,0} is ZERO    [WORLD 1]
+
+This is an INDEPENDENT derivation of the world bit from the T-action on
+H_*(Fl_3) + cyclic group cohomology -- a 5th consistency layer for the
+Z/9-smith pipeline (audit A2).
+[cascade ]  194.6s
+
+==============================================================================
+WAVE15-CLSS :: (V) the transfer: pi o tr = 3 id, tr o pi = 1+T+T^2, d tr = tr d_bar
+==============================================================================
+(i)  pi(tr(e_r)) = 3 e_r on all 4970 orbit reps: PASS (exact)
+(ii) tr(pi(e_i)) = (1 + T + T^2)(e_i) on all 14910 cells: PASS (exact)
+(iii) d(tr(e_r)) = tr(d_bar(e_r)) on all 4968 orbit columns: PASS (exact)
+
+(V) THEOREM (transfer + CLSS arithmetic; audit A3):
+  pi_* o tr_* = 3 id on H_*(B_3)  [chain identities (i)+(iii) certified exact
+  on every cell]; every E_2 entry of the CLSS is Z-free or Z/3 (III);
+  E_inf pieces are subquotients of E_2; H^k(B_3) has a filtration with
+  E_inf graded pieces; extensions of 3-primary groups are 3-primary.
+  Hence Tor H^k(B_3) is 3-primary for EVERY k, and by UCT
+  Tor H_k(B_3) ~ Tor H^{k+1}(B_3) is 3-primary for every k.
+
+  => NO p != 3 torsion in any degree of H_*(B_3), by theorem.
+  => the p > 61 scan gap is CLOSED (the finite prime scans of 13C-7/8 were
+     sufficient all along: only p = 3 could occur; the Z/9-smith pinned the
+     3-adic exponents: H_k = Z/3 in k = 1..4).
+[transfer]  194.7s
+
+==============================================================================
+WAVE15-CLSS :: (VI) THE BRIDGE: H_2(B_3) = Z/3  =>  delta_2(D(C^3)) = 4/3
+==============================================================================
+
+THEOREM (the H_2 -> delta_2 bridge).  Premises, each labeled:
+
+  (P1) [MACHINE, 13C-7/8, re-certified on this import + (II) above]
+       Fl_3 carries the free order-3 c-action (G4/G6, coset lemma:
+       u P_sigma T^3 = u T^3 forces P_sigma^k in T^3, false for k=1,2);
+       H_*(Fl_3) = (Z, 0, Z^2, 0, Z^2, 0, Z) torsion-free (G3);
+       the C_3-modules: H^0, H^6 trivial (T = +1 on H_6, G8), H^2, H^4 of
+       omega-type (N = 0 and order exactly 3, mod 7 AND mod 13, (II)).
+  (P2) [MACHINE, 13C-7/8, re-pinned in (IV)] the orbit-complex SNF:
+       H_*(B_3) = (Z, Z/3, Z/3, Z/3, Z/3, 0, Z) with the Z/9 exponents
+       pinned (no Z/9); UCT-dual H^*(B_3) = (Z, 0, Z/3, Z/3, Z/3, Z/3, Z),
+       PD-palindromic (13C-8 cross-check).
+  (P3) [THEORY] the Cartan-Leray spectral sequence of the regular cover
+       Fl_3 -> B_3 with group C_3: E_2^{p,q} = H^p(C_3; H^q(Fl_3)) abuts to
+       H^{p+q}(B_3); cyclic group cohomology computed exactly (III);
+       d_2 = 0 structurally; the d_3 cascade constrained by (dim B_3 = 6,
+       H^6 torsion-free) admits exactly two worlds (IV).
+  (P4) [MACHINE, (IV)] the certified H^*(B_3) matches World 1 ONLY:
+       the differential d_3: E_3^{1,2} -> E_3^{4,0} is ZERO.
+  (P5) [CITED, the Wave-7 theorem / the CLSS framework of the paper line]
+       for x in H^2(B_3; Z) = Z/3 the classifying class: the cup square
+       x^2 in H^4(B_3; Z) = Z/3 is nonzero IF AND ONLY IF the CLSS
+       differential d_3: E_3^{1,2} -> E_3^{4,0} vanishes (d_3 is exactly
+       the obstruction to x^2 surviving).
+  (P6) [CITED, the paper line] delta_2(D(C^3)) = 4/3 if and only if
+       x^2 != 0 (the delta-invariant formula for the qutrit).
+
+  CONCLUSION: P1+P2+P3+P4 give d_3 = 0; P5 gives x^2 != 0 in
+  H^4(B_3; Z) = Z/3; P6 gives
+
+      delta_2(D(C^3)) = 4/3,
+
+  with the qutrit bit's machine side (P1, P2, P4) certified end-to-end and
+  the two cited links (P5, P6) isolated as the paper-line inputs.  The
+  equivalence is complete: World 2 (H_2 = 0, d_3 iso, x^2 = 0) is excluded
+  by P2.  QED
+
+  Status of the bridge: the machine certifies every homological premise;
+  the cup-product step (P5) and the delta formula (P6) remain cited theory
+  (computing the orbit-complex cup product is not part of this run).
+[bridge done]  194.7s
+EXIT=0
