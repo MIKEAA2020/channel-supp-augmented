@@ -1,0 +1,194 @@
+
+==============================================================================
+P1: kappa on the 9 F-cells (sixths)
+==============================================================================
+  kappa(F1{th1=0})         -> (3,3) sixths [n=60 spread 0.000] OK
+  kappa(F2{th1=pi/2})      -> (3,0) sixths [n=60 spread 0.000] OK
+  kappa(F3{th2=0})         -> (3,3) sixths [n=60 spread 0.000] OK
+  kappa(F4{th2=pi/2})      -> (3,0) sixths [n=60 spread 0.000] OK
+  kappa(F5{th3=0})         -> (0,3) sixths [n=60 spread 0.000] OK
+  kappa(F6{d0,D22})        -> (3,0) sixths [n=60 spread 0.000] OK
+  kappa(F7{d0,D31})        -> (3,3) sixths [n=60 spread 0.000] OK
+  kappa(F8{dpi,D21})       -> (0,3) sixths [n=60 spread 0.000] OK
+  kappa(F9{dpi,D32})       -> (0,3) sixths [n=60 spread 0.000] OK
+[t+   0.1s] P1 done
+
+==============================================================================
+P3: kappa on the 6 R-cells (sixths)
+==============================================================================
+  kappa(R0.def)            -> (3,3) sixths [n=60 spread 0.000] OK
+  kappa(R0.bF6)            -> (3,0) sixths [n=60 spread 0.000] OK
+  kappa(R0.bF7)            -> (3,3) sixths [n=60 spread 0.000] OK
+  kappa(R1.def)            -> (0,3) sixths [n=60 spread 0.000] OK
+  kappa(R1.bF8)            -> (0,3) sixths [n=60 spread 0.000] OK
+  kappa(R1.bF9)            -> (3,0) sixths [n=60 spread 0.000] OK
+[t+   0.1s] P3 done
+
+==============================================================================
+P2: kappa on the 9 E-cells (S^1, sixths)
+==============================================================================
+  E(r(0, 1, 2),q(1, 0, 2)) -> kappa_E=0 [n=24 spread 0.000] OK (row a=2)
+  E(r(0, 2, 1),q(1, 0, 2)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=2)
+  E(r(1, 2, 0),q(1, 0, 2)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=2)
+  E(r(0, 1, 2),q(2, 1, 0)) -> kappa_E=0 [n=24 spread 0.000] OK (row a=1)
+  E(r(0, 2, 1),q(2, 1, 0)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=1)
+  E(r(1, 0, 2),q(2, 1, 0)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=1)
+  E(r(0, 1, 2),q(0, 2, 1)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=0)
+  E(r(1, 0, 2),q(0, 2, 1)) -> kappa_E=0 [n=24 spread 0.000] OK (row a=0)
+  E(r(2, 0, 1),q(0, 2, 1)) -> kappa_E=3 [n=24 spread 0.000] OK (row a=0)
+[t+   0.5s] P2 done
+
+==============================================================================
+P4: w(R->F) interface translations (sixths)
+==============================================================================
+  w(R0.def->F5{th3=0})     -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.def->F6{d0,D22})    -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.def->F7{d0,D31})    -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF6->F2{th1=pi/2})  -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF6->F4{th2=pi/2})  -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF6->F6{d0,D22})    -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF7->F1{th1=0})     -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF7->F3{th2=0})     -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R0.bF7->F7{d0,D31})    -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R1.def->F5{th3=0})     -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R1.def->F8{dpi,D21})   -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R1.def->F9{dpi,D32})   -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R1.bF8->F1{th1=0})     -> (3,0) sixths [n=30 spread 0.000] OK
+  w(R1.bF8->F4{th2=pi/2})  -> (3,3) sixths [n=30 spread 0.000] OK
+  w(R1.bF8->F8{dpi,D21})   -> (0,0) sixths [n=30 spread 0.000] OK
+  w(R1.bF9->F2{th1=pi/2})  -> (3,0) sixths [n=30 spread 0.000] OK
+  w(R1.bF9->F3{th2=0})     -> (0,3) sixths [n=30 spread 0.000] OK
+  w(R1.bF9->F9{dpi,D32})   -> (0,0) sixths [n=30 spread 0.000] OK
+[t+   0.5s] P4 done
+
+==============================================================================
+P5: tau(s->R) natural-gauge (near-limit soft conversions, eps=1e-4)
+==============================================================================
+  tau(s+->R0.def  ) = (0,0) [n=24 spread 0.000]
+  tau(s+->R0.bF6  ) = (0,0) [n=24 spread 0.000]
+  tau(s+->R0.bF7  ) = (0,0) [n=24 spread 0.001]
+  tau(s+->R1.def  ) = (0,0) [n=24 spread 0.001]
+  tau(s+->R1.bF8  ) = (0,0) [n=24 spread 0.001]
+  tau(s+->R1.bF9  ) = (0,0) [n=24 spread 0.001]
+  tau(s-->R0.def  ) = (0,0) [n=24 spread 0.000]
+  tau(s-->R0.bF6  ) = (0,0) [n=24 spread 0.000]
+  tau(s-->R0.bF7  ) = (0,0) [n=24 spread 0.000]
+  tau(s-->R1.def  ) = (0,0) [n=24 spread 0.000]
+  tau(s-->R1.bF8  ) = (0,0) [n=24 spread 0.000]
+  tau(s-->R1.bF9  ) = (0,0) [n=24 spread 0.001]
+[t+   0.5s] P5 done
+
+==============================================================================
+P6: gamma-paths sheet->pureF (conversion V(wall-theta, delta) -> V(.,0))
+==============================================================================
+  gamma(s+->F1{th1=0}): slope (+0.1592, +0.0000)/rad, endpoint (+0.436, +0.000) turns
+  gamma(s-->F1{th1=0}): slope (+0.1592, -0.0000)/rad, endpoint (+0.436, -0.000) turns
+  gamma(s+->F2{th1=pi/2}): slope (+0.1592, +0.0000)/rad, endpoint (+0.436, +0.000) turns
+  gamma(s-->F2{th1=pi/2}): slope (+0.1592, -0.0000)/rad, endpoint (+0.436, -0.000) turns
+  gamma(s+->F3{th2=0}): slope (+0.0000, +0.1592)/rad, endpoint (+0.000, +0.436) turns
+  gamma(s-->F3{th2=0}): slope (+0.0000, +0.1592)/rad, endpoint (+0.000, +0.436) turns
+  gamma(s+->F4{th2=pi/2}): slope (+0.1592, -0.1592)/rad, endpoint (+0.436, -0.436) turns
+  gamma(s-->F4{th2=pi/2}): slope (+0.1592, -0.1592)/rad, endpoint (+0.436, -0.436) turns
+  gamma(s+->F5{th3=0}): slope (+0.0000, +0.0000)/rad, endpoint (+0.000, +0.000) turns
+  gamma(s-->F5{th3=0}): slope (+0.0000, +0.0000)/rad, endpoint (+0.000, +0.000) turns
+[t+   0.5s] P6 done
+
+==============================================================================
+P7: F->E interface S^1-shifts (sixths)
+==============================================================================
+  (F,E) incidences: 36
+  F1{th1=0}->E(r(0, 2, 1),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F1{th1=0}->E(r(0, 1, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F1{th1=0}->E(r(0, 1, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F1{th1=0}->E(r(2, 0, 1),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F2{th1=pi/2}->E(r(1, 2, 0),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F2{th1=pi/2}->E(r(1, 0, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F2{th1=pi/2}->E(r(1, 0, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F2{th1=pi/2}->E(r(2, 0, 1),q(0, 2, 1)) shift=3 [n=30 spread 0.000] OK
+  F3{th2=0}->E(r(0, 1, 2),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F3{th2=0}->E(r(0, 1, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F3{th2=0}->E(r(1, 0, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F3{th2=0}->E(r(2, 0, 1),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F4{th2=pi/2}->E(r(0, 2, 1),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F4{th2=pi/2}->E(r(1, 2, 0),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F4{th2=pi/2}->E(r(0, 2, 1),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F4{th2=pi/2}->E(r(2, 0, 1),q(0, 2, 1)) shift=3 [n=30 spread 0.000] OK
+  F5{th3=0}->E(r(0, 1, 2),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F5{th3=0}->E(r(0, 2, 1),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F5{th3=0}->E(r(0, 1, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F5{th3=0}->E(r(1, 0, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F6{d0,D22}->E(r(0, 2, 1),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F6{d0,D22}->E(r(0, 2, 1),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F6{d0,D22}->E(r(1, 0, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F6{d0,D22}->E(r(1, 0, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F7{d0,D31}->E(r(0, 1, 2),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F7{d0,D31}->E(r(0, 2, 1),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F7{d0,D31}->E(r(1, 0, 2),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F7{d0,D31}->E(r(0, 1, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F8{dpi,D21}->E(r(1, 2, 0),q(1, 0, 2)) shift=3 [n=30 spread 0.000] OK
+  F8{dpi,D21}->E(r(0, 1, 2),q(2, 1, 0)) shift=3 [n=30 spread 0.000] OK
+  F8{dpi,D21}->E(r(0, 2, 1),q(2, 1, 0)) shift=0 [n=30 spread 0.000] OK
+  F8{dpi,D21}->E(r(0, 1, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+  F9{dpi,D32}->E(r(0, 1, 2),q(1, 0, 2)) shift=0 [n=30 spread 0.000] OK
+  F9{dpi,D32}->E(r(1, 2, 0),q(1, 0, 2)) shift=3 [n=30 spread 0.000] OK
+  F9{dpi,D32}->E(r(0, 1, 2),q(2, 1, 0)) shift=3 [n=30 spread 0.000] OK
+  F9{dpi,D32}->E(r(1, 0, 2),q(0, 2, 1)) shift=0 [n=30 spread 0.000] OK
+[t+   2.0s] P7 done
+
+==============================================================================
+P8: base orientation signs s_b
+==============================================================================
+  s(F1{th1=0}       ) = -1 (F-Jacobian det -1.00e+00)
+  s(F2{th1=pi/2}    ) = -1 (F-Jacobian det -1.00e+00)
+  s(F3{th2=0}       ) = +1 (F-Jacobian det +6.93e-01)
+  s(F4{th2=pi/2}    ) = +1 (F-Jacobian det +2.95e-01)
+  s(F5{th3=0}       ) = +1 (F-Jacobian det +1.00e+00)
+  s(F6{d0,D22}      ) = +1 (F-Jacobian det +7.53e-01)
+  s(F7{d0,D31}      ) = +1 (F-Jacobian det +3.99e-01)
+  s(F8{dpi,D21}     ) = +1 (F-Jacobian det +1.13e+00)
+  s(F9{dpi,D32}     ) = +1 (F-Jacobian det +2.96e-01)
+  s(R0.def          ) = -1 (R-Jacobian det -9.53e-01)
+  s(R0.bF6          ) = +1 (R-Jacobian det +3.56e-01)
+  s(R0.bF7          ) = -1 (R-Jacobian det -1.02e+00)
+  s(R1.def          ) = -1 (R-Jacobian det -1.16e+00)
+  s(R1.bF8          ) = -1 (R-Jacobian det -8.94e-01)
+  s(R1.bF9          ) = +1 (R-Jacobian det +2.07e+00)
+  s(s+              ) = +1 (sheet-Jacobian det +3.63e-01)
+  s(s-              ) = +1 (sheet-Jacobian det +3.50e-01)
+[t+   2.0s] P8 done
+
+==============================================================================
+P9: consistency relations
+==============================================================================
+(i) w-equivariance: w(cR->cF) = w(R->F) + kappa_F - kappa_R
+   w(R0.def->F5{th3=0}): (np.int64(3), np.int64(0)) vs pred (np.int64(3), np.int64(0)) OK
+   w(R0.def->F6{d0,D22}): (np.int64(0), np.int64(3)) vs pred (np.int64(0), np.int64(3)) OK
+   w(R0.def->F7{d0,D31}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF6->F2{th1=pi/2}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF6->F4{th2=pi/2}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF6->F6{d0,D22}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF7->F1{th1=0}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF7->F3{th2=0}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R0.bF7->F7{d0,D31}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.def->F5{th3=0}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.def->F8{dpi,D21}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.def->F9{dpi,D32}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.bF8->F1{th1=0}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.bF8->F4{th2=pi/2}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.bF8->F8{dpi,D21}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.bF9->F2{th1=pi/2}): (np.int64(3), np.int64(0)) vs pred (np.int64(3), np.int64(0)) OK
+   w(R1.bF9->F3{th2=0}): (np.int64(0), np.int64(0)) vs pred (np.int64(0), np.int64(0)) OK
+   w(R1.bF9->F9{dpi,D32}): (np.int64(3), np.int64(3)) vs pred (np.int64(3), np.int64(3)) OK
+(ii) kappa orbit sums (R and F): expect (0,0) mod 6
+   all orbit sums checked
+(iii) sign products s_b s_cb s_c2b = +1
+   sign products: 0 failures
+(iv) BASE dT = Td with signs (NEW certification)
+   BASE dT = Td (with signs) on all 32 base cells: OK [NEW CERT]
+[t+   2.0s] P9 done
+
+pin data -> wave13c_pin_data.json   (consistency failures: 0)
+
+==============================================================================
+WAVE 13C-2a COMPLETE
+==============================================================================
