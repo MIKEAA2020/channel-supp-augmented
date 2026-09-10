@@ -1,0 +1,48 @@
+
+==============================================================================
+PART I: level-6 fibre cellulations (T2: 216, S1: 12)
+==============================================================================
+fibre cellulations: d^2=0 OK; q-cocycle OK; sixths-translations are permutations: OK
+[t+    0.0s] Part I done
+
+==============================================================================
+PART II: the 3786 cells + free-cell boundary layer
+==============================================================================
+cells: 3786  degrees [6, 54, 378, 1188, 1368, 648, 144]  chi=+6
+BATTERY G1: cell counts + chi: PASS
+[t+    0.0s] cells built
+free-cell layer built: 3354 columns, 14472 nonzero entries
+[t+    0.0s] free layer built
+free-cell d^2 = 0 exactly: PASS  (the pinned w/q interfaces are consistent)
+[t+    0.0s] free d^2 check done
+
+==============================================================================
+PART III: the sheet layer (prisms + constraint system)
+==============================================================================
+constraint system v2: 148 equations, 93 variables
+
+==============================================================================
+THE ASSEMBLY OBSTRUCTION (machine-pinned, this session)
+==============================================================================
+The sheet-layer constraint system (d^2=0 + dT=Td + T^3) is
+INCONSISTENT mod 2 with the natural T-map on the free cells.
+
+WITNESS (mod 2, level 6, re-gauging-invariant since all rho-terms
+enter with coefficient 2 = 0 mod 2):
+  F6-closure:   tau(R0.def)  = tau(R0.bF6)   [d^2=0 through F6]
+  F7-closure:   tau(R0.def)  = tau(R0.bF7)   [d^2=0 through F7]
+  equivariance: tau(R0.bF7) - tau(R0.bF6) = kappa(R0.bF6) - t
+  => 0 = kappa(R0.bF6) - t = (3,0)-(4,4) = (1,0) mod 2: FALSE.
+
+STRUCTURE: the natural kappa jumps across the R0-triple are the
+half-turns (0,3) (odd in u mod 2); the mixed-F corner closures
+demand zero jump. The 2-torsion is a Z/2-valued invariant of the
+level-6 product cellulation: refining to LEVEL 12 makes kappa - t
+even (mod-2 resolved), but a mod-3 residue (1,1) remains, which
+requires the rho re-gauging of the whole complex (the [g] boundary
+constants on R/F/E cells), where the rho's are mod-3 active.
+
+The qutrit bit delta_2 = 4/3 REMAINS OPEN. Deliverables this run:
+level-6 fibre layer certified; free-cell layer d^2=0 exact;
+the assembly obstruction machine-pinned with witness; the
+level-12 + rho-gauging resolution route identified.
