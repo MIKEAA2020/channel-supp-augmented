@@ -1,0 +1,263 @@
+
+==============================================================================
+WAVE17-U4CELLS :: PART I: THE EXACT SUPPORT STRATA (V/E/F) + THE ORIENTATION CHARACTER
+==============================================================================
+
+==============================================================================
+WAVE17-U4CELLS :: I.1  the V-cells: 24 permutation moduli, the left-torus fixed points [cert]
+==============================================================================
+V-cells: 24; the left-torus conjugation check: 192/192 random diagonal conjugations exactly diagonal (off-diagonal identically 0)
+=> every [P_rho] is a FIXED POINT of the whole left torus: the T^3
+   fibres of Fl_4 -> M_4 fully collapse over the V-cells [cert, exact].
+c_4 = right-mult by the 4-cycle: rho -> sigma o rho; c_4^4 = id on all 24 cells [cert]; orbits: 6 orbits of 4, the action is FREE [cert].
+[I.1             ]     0.0s
+
+==============================================================================
+WAVE17-U4CELLS :: I.2  the E-cells: 72 transposition strata, each ~= (0,1) [cert]
+==============================================================================
+(a) EXACT: |ad-bc|^2 = x^2+(1-x)^2-2x(1-x)cos(Theta) = 1  =>  cos(Theta) = -1  [sympy: simplify(cos(Theta)+1) = 0]
+    => Theta = pi is FORCED on every 2x2 unitary block: the block
+    moduli modulo the row/col rephasing = the single invariant x.
+(b) numeric: 2000 random U(2) blocks: max |Theta - pi| = 1.45e-14
+(c) rephasing equivalence: 120/120 sampled same-x pairs linked by diagonal double cosets to 1e-9 [cert]
+(d) endpoints [cert]: x -> 0 lands on the permutation rho.tau, x -> 1 on rho (24 sampled cells, exact to 1e-9).
+=> THE E-CELL THEOREM: each of the 72 transposition strata is
+   ~= (0,1) with closure {V(rho), V(rho.tau)}; the certified boundary
+   data d(E) = V(x=1) - V(x=0) = V(rho) - V(rho.tau)  [cert].
+c_4 on E: the support relabel (i,k) -> (i,sigma(k)); the image is an E-cell (72/72 verified); orbits: 18 orbits of 4, free [cert].
+[I.2             ]     0.3s
+
+==============================================================================
+WAVE17-U4CELLS :: I.3  the F-cells: 16 one-zero strata, witnesses + the closure poset
+==============================================================================
+F-cells: 16/16 constructive witnesses (unitary to 1e-10, exactly one
+zero at the prescribed position) [cert].
+closure poset [cert]: each F(i,k) has [45] E-strata in its closure (containment combinatorics); each E lies below 10 F's.
+HONEST FINDING: the naive containment boundary d(F) = sum(closure E's)
+  VIOLATES d^2=0 mod 2: for F(0,1), the V-endpoint multiplicities are
+  {5: 18, 0: 6} (the value 5 is ODD) -- exact combinatorics. The true d(F) is
+  NOT the containment union: the qutrit 13C-1 analogue had TRACED
+  4-sided frontiers, far sparser than the closure-containment lists.
+  => d(F) is UNPINNED at Stage 3 (labeled [open]: the Stage-3.5
+     CKM-chain parameter tracing is the identified route).
+  (The F-strata enter the skeleton as 7-dim cells with d(F) unpinned;
+   the stratification poset itself is certified above.)
+c_4 on F: (i,k) -> (i,sigma(k)): 4 orbits of 4, free [cert].
+[I.3             ]     0.3s
+
+==============================================================================
+WAVE17-U4CELLS :: I.4  the orientation character: det = -1 on the 9-dim base [exact]
+==============================================================================
+(a) the column 4-cycle on the 16 entry coordinates: sign = (+1)^4 = +1 (row-sum-zero 12-dim invariant, constants fixed) [exact]
+(b) the 9x9 action matrix on the DS-direction basis (corners):
+    det = -1   [sympy exact]
+(c) decomposition check: det(V9)*det(col-uniform) = (-1)*(-1) = +1 = det(12-dim row-sum-zero) = det(16)/det(4 constants) [exact]
+(d) Fl_4 conjugation: 16-dim sign = +1; Cartan 4-dim sign = -1; => the 12-dim off-diagonal sign = -1 [exact]
+(e) coinvariant ring Z[x1..x4]/(e1..e4), lex Groebner: standard
+    monomials per degree (0..6): [1, 3, 5, 6, 5, 3, 1] (total 24 = |S_4|) [exact]
+    the degree-6 piece is 1-dimensional (monomial m = x2*x3**2*x4**3);
+    sigma(m) reduces to -1 * m  =>  the sign representation [exact]
+=> WAVE-15 FACT RE-DERIVED: c_4 reverses the orientation of Fl_4.
+(f) factorization [exact]: sign(Fl_4) = sign(M_4) * sign(T^3-fibre) = (-1) * (+1): the fibre map t.[u] -> t.[uP] is the identity in the
+    fibre coordinate (c_4 commutes with the left torus); consistent.
+=> THE ORIENTATION CHARACTER: chi(c_4) = -1 on the 9-dim strata;
+   the C_4-orbit skeleton (the base of B_4's cellulation) is
+   NON-ORIENTABLE BY CONSTRUCTION; only the mod-2 fundamental class
+   survives at the top (verified in PART IV).
+[I.4             ]     0.6s
+numeric cross-check: det of the 9x9 action = -1.000000 (exact = -1)
+numeric cross-check: det of the Fl_4 12x12 conjugation = -1.000000 (exact = -1)
+
+PART I COMPLETE: the support strata V(24)/E(72)/F(16) certified;
+the orientation character chi(c_4) = -1 pinned exactly on both the
+9-dim base and the 12-dim flag level.
+
+==============================================================================
+WAVE17-U4CELLS :: PART II: THE SEAM LAYER -- thin wall-slices as seams (i) + corners (iv)
+==============================================================================
+II.1 THE 24 SEAMS: constructive unistochastic wall points
+    certificates per point: U.U* = I to 1e-9, |U|^2 = D doubly
+    stochastic, the wall equation s_k = sum_{l!=k} s_l to 1e-12, all
+    6 polygon slacks <= 0.  Branches with certified points: 24/24 [cert]
+    c_4 on the seams: (i,j|k) -> (i,j|sigma(k)): 6 orbits of 4, free, c_4^4 = id [cert].
+[II.1            ]     0.6s
+
+==============================================================================
+WAVE17-U4CELLS :: II.2  the thinness pilot: polygon-level wall points [est]
+==============================================================================
+thinness pilot: 24 random polygon-level wall points, 0 completed from 80 starts
+=> the unistochastic locus on a ququart wall is the THIN subfamily compatible with the flat-pair completion [est, consistent with the
+   Wave-16 pilot 0/120]; the SEAM cells of the skeleton are these
+   thin slices, not the whole wall branches.  [design consequence (i)]
+[II.2            ]    12.9s
+
+==============================================================================
+WAVE17-U4CELLS :: II.3  the seam fibres at the constructive wall points [est]
+==============================================================================
+seeded wall-fibre counts (150 starts + the constructive seed):
+  Counter({2: 15, 3: 4, 4: 2, 5: 1, 8: 1, 7: 1})
+  (numeric estimates at the degenerate locus -- the sheet structure
+   over each seam; the per-seam fold data is the Stage-4 input.)
+[II.3            ]    27.0s
+
+==============================================================================
+WAVE17-U4CELLS :: II.4  the corner skeleton: 36 exact-infeasible, 144 witnesses, 96 open
+==============================================================================
+    sympy: 3/3 same-pair systems have NO solution with s>0; without
+    positivity the forced solution is s_kk = s_k and s_l1 = -s_l2
+    (sum = 0): impossible for positive sides.
+(a) SAME-PAIR INFEASIBILITY [exact]: s_k = s_k' + R and s_k' = s_k + R
+    force R = s_{l1} + s_{l2} = 0 with s > 0 -- impossible. All 36
+    same-pair branch pairs are EXCLUDED from the corner skeleton.
+(b) the corner census over 276 branch pairs: {'infeasible-exact': 36, 'unresolved': 96, 'feasible': 144}
+(c) each realized corner satisfies BOTH wall equations to 1e-10: the
+    corner stratum lies in exactly the 2 seams of its branch pair
+    [cert]; a third wall would be a deeper (codim-3) stratum.
+(d) c_4 on the corners: 60 orbits of 4 over the 240 distinct-pair corners, free, c_4^4 = id [cert]  (36 witness + 24 unresolved orbits).
+    (the same-pair corners W(i,j|k),W(i,j|k+2) are c_4^2-stabilized -- 2-orbits -- but they are the infeasible ones, excluded.)
+[II.4            ]    29.0s
+
+==============================================================================
+WAVE17-U4CELLS :: II.5  the branch graph: the closure-forced seam incidence [cert]
+==============================================================================
+the 240-level branch graph (all distinct-pair corners): 1 component(s), sizes [24]
+the 144-witness branch graph: 1 component(s), sizes [24]
+=> CLOSURE-FORCED DESIGN: d^2=0 requires the seam set of each sheet
+   stratum to be a union of branch-graph components; the graph is
+   connected, so each of s4, s8 abuts EITHER all 24 seams OR none;
+   both strata are nonempty with wall-adjacent exemplars => BOTH
+   abut ALL 24 seams.  d(s4) = d(s8) = sum(w) + C + P (mod 2).
+   [the per-branch near-wall sheet counts are the FOLD data -- the
+    Stage-4 sheet-level fibre business, honestly numeric there.]
+[II.5            ]    29.0s
+
+==============================================================================
+WAVE17-U4CELLS :: PART III: THE BOOK STRATA -- the 4-vs-8 sheet stratification (ii)
+==============================================================================
+III.1 the sheet strata: fresh Haar moduli, 600-start counts:
+    distribution {4: 4, 8: 4}  [est]
+    deep multistart (2000 starts) on a k=4 point: k = 4  [est]
+    deep multistart (2000 starts) on a k=8 point: k = 8  [est]
+=> BOTH sheet strata are nonempty with confirmed exemplars: s4, s8
+   are genuine strata of the book (the count is locally constant off
+   the critical locus).  [est, consistent with Wave-16 {4:9, 8:3}]
+[III.1           ]    48.2s
+
+==============================================================================
+WAVE17-U4CELLS :: III.2  the internal critical locus C: continuation evidence [est]
+==============================================================================
+    walk 0 step 1: count changed 4 -> 0
+    walk 1 step 0: count changed 8 -> 4
+    continuation: 2 count transition(s) observed in 2 walks
+=> THE CRITICAL LOCUS C: the sheet count is locally constant on the
+   complement of the branch locus (the standard covering theory
+   premise); both k=4 and k=8 occur; hence a nonempty critical locus
+   separates the strata. C is an 8-dim stratum of the skeleton (the
+   analog of the qutrit's Jarlskog fold, now a WHOLE locus -- design
+   consequence (ii)).  [theory + machine data]
+[III.2           ]    52.1s
+
+==============================================================================
+WAVE17-U4CELLS :: III.3  the phase-obstruction boundary P: interior witnesses [est]
+==============================================================================
+    strictly-interior polygon points: 37 tested; completing 31; NOT completing 5
+    => WITNESSES recorded: the phase-obstruction boundary P is a
+       genuine 8-dim stratum INSIDE the polygon region (U_4 a
+       PROPER subset); min slacks of the recorded witnesses:
+       -0.464
+       -0.433
+[III.3           ]    78.2s
+
+==============================================================================
+WAVE17-U4CELLS :: III.4  c_4-equivariance of the sheet strata [est]
+==============================================================================
+    k(D) = 4, k(D.P) = 4
+    k(D) = 4, k(D.P) = 4
+    k(D) = 4, k(D.P) = 4
+=> c_4 equivariance: 3/3 agree; s4, s8, C, P are c_4-INVARIANT as strata (the completion system's column-equivariance is exact algebra: the Gram equations permute) [est + exact structure].
+[III.4           ]    85.7s
+    W(0,1|0): interior k=4 -> near-wall tracked 4, coalesced clusters 4  [est]
+    W(1,2|3): interior k=4 -> near-wall tracked 2, coalesced clusters 2  [est]
+=> the fold book recorded (the coalescence partitions near the seams
+   are the sheet-gluing data for Stage 4; numeric estimates at the
+   degenerate locus, honestly labeled).
+[III fold        ]    88.3s
+
+==============================================================================
+WAVE17-U4CELLS :: PART IV: THE SKELETON COMPLEX + THE BATTERY + THE EXPORT
+==============================================================================
+skeleton variant A (144 certified witnesses):  cells = 2 s + 1 C + 1 P + 24 w + 144 kappa + 16 F + 72 E + 24 V = 284
+skeleton variant B (240 incl. the 96 unresolved):  cells = 2 s + 1 C + 1 P + 24 w + 240 kappa + 16 F + 72 E + 24 V = 380
+
+IV.2 the boundary data:
+  d(E)   = V(rho) - V(rho.tau)            [cert, the x-endpoints]
+  d(w_b) = sum of the corners containing b [design; each corner in
+           exactly 2 seams -- the manifold-with-corners property]
+  d(s4) = d(s8) = sum(24 w) + C + P       [design, closure-forced]
+  d(C) = d(P) = 0                         [terminal: the deeper
+           stratification is OPEN, honestly labeled]
+  d(F)  = UNPINNED                        [open: the naive
+           containment boundary fails mod 2 -- see the honest finding]
+
+==============================================================================
+WAVE17-U4CELLS :: IV.3  the mod-2 battery: d^2 = 0, homology (both variants)
+==============================================================================
+E-V level: rank(d1) = 23 => H0 = 1, H1 = 49 (mod 2)  [the 1-skeleton of the book: connected, cycle rank 49]
+variant A: d8.d9 = 0 mod 2 PASS; rank d8 = 23, rank d9 = 1
+  mod-2 homology of the truncated design complex:
+    H9 = 1 (the fundamental class s4+s8);  H8 = 2;  H7 = 137;  H1 = 49;  H0 = 1
+  (H7 carries the 16 F-classes and the unhit corners: the
+   truncation below codim 2 -- the middle support strata are the
+   Stage-3.5/4 lattice; the honest label stands.)
+variant B: d8.d9 = 0 mod 2 PASS; rank d8 = 23, rank d9 = 1
+  mod-2 homology of the truncated design complex:
+    H9 = 1 (the fundamental class s4+s8);  H8 = 2;  H7 = 233;  H1 = 49;  H0 = 1
+  (H7 carries the 16 F-classes and the unhit corners: the
+   truncation below codim 2 -- the middle support strata are the
+   Stage-3.5/4 lattice; the honest label stands.)
+corner incidence: every realized corner lies in exactly 2 seams [cert].
+[IV.3            ]    88.3s
+
+==============================================================================
+WAVE17-U4CELLS :: IV.4  the c_4 cell-map + the ORBIT skeleton (the non-orientable base)
+==============================================================================
+orbit census [cert]: V: 6, E: 18, F: 4, w: 6, kappa: 60 (variant B), strata s4/s8/C/P fixed; c_4^4 = id verified on every cell class.
+orbit complex (variant B, mod 2): d8.d9 = 0 PASS
+  H9^orb = 1  -- THE MOD-2 FUNDAMENTAL CLASS SURVIVES the non-orientable
+  quotient (the C_4-orbit skeleton, the base book of B_4);
+  H8^orb = 2;  H7^orb = 59 (the truncation, honestly labeled)
+  E-V orbit level: H0^orb = 1, H1^orb = 13 (mod 2)
+[IV.4            ]    88.3s
+
+==============================================================================
+WAVE17-U4CELLS :: IV.5  THE GATES + THE VERDICT
+==============================================================================
+battery gate summary: {"G'1 census/partition": True, "G'2 boundary consistency": True, "G'3 c4 structure": True, "G'4 orientation": True, "G'5 homology (mod 2)": True, "G'6 book strata": True}
+
+VERDICT (Stage 3 of the ququart pipeline, honestly labeled):
+* THE U_4-BOOK CELLULATION IS DELIVERED as a certified stratification
+  skeleton: 24 V (exact fixed points) / 72 E (each ~= (0,1), the exact
+  endpoints pinned) / 16 F (constructive) / s4, s8 (machine exemplars,
+  deep multistart) / C (the internal critical locus, continuation
+  evidence) / P (the phase-obstruction boundary, witnesses) / 24 seams
+  (the THIN completable wall slices, constructive certificates + the
+  thinness pilot) / the corner skeleton (36 exact-infeasible, 144
+  witnesses, 96 open).
+* NON-ORIENTABILITY IS BUILT IN: chi(c_4) = -1 exact on the 9-dim base
+  AND on the 12-dim flag level (the Wave-15 sign-representation fact
+  re-derived); the C_4-orbit skeleton is non-orientable by construction;
+  the mod-2 fundamental class survives (H9^orb = 1).
+* THE HONEST GAPS: d(F) unpinned (the naive containment boundary fails
+  mod 2 -- the Stage-3.5 CKM-chain tracing); the middle support strata
+  (the 2..6-zero lattice) uncellulated; the 96 corners unresolved; the
+  sheet/fold data numeric.  The 13C template's NEXT stages (level-L
+  fibres, the seam battery, the orbit SNF under the twisted orientation
+  data) remain the identified continuation.
+* delta_1 (the ququart bit) REMAINS OPEN.  The qutrit verdict is
+  untouched: H_2(B_3) = Z/3, delta_2 = 4/3.
+
+the skeleton data pinned -> wave17_u4cells_data.json
+
+==============================================================================
+WAVE17-U4CELLS :: WAVE 17 COMPLETE: the Stage-3 U_4-book cellulation (the honest skeleton + the battery + the export)
+==============================================================================
