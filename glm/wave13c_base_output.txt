@@ -1,0 +1,93 @@
+
+==============================================================================
+PART B1: labelling + partition check (32 cells)
+==============================================================================
+B1 PASS: 32-cell partition (all strata machine-verified)
+  delta=0 region fractions [0.237 0.379 0.384] (census: .235/.382/.384)
+  delta=3 region fractions [0.238 0.382 0.38 ] (census: .235/.382/.384)
+[t+   1.6s] B1 done
+
+==============================================================================
+PART B2b: d(F) by exact-side tracing + corner blowups
+==============================================================================
+  d(F1{th1=0}    ) = +1*E(r(0, 2, 1),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(0, 1, 2),q(0, 2, 1)) + +1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F2{th1=pi/2} ) = +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(1, 0, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(0, 2, 1)) + -1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F3{th2=0}    ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + +1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F4{th2=pi/2} ) = -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(1, 2, 0),q(1, 0, 2)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + -1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F5{th3=0}    ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 2, 1),q(2, 1, 0)) + -1*E(r(0, 1, 2),q(0, 2, 1)) + +1*E(r(1, 0, 2),q(0, 2, 1))
+  d(F6{d0,D22}   ) = -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + -1*E(r(1, 0, 2),q(0, 2, 1))
+  d(F7{d0,D31}   ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + -1*E(r(0, 1, 2),q(0, 2, 1))
+  d(F8{dpi,D21}  ) = +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + +1*E(r(0, 1, 2),q(0, 2, 1))
+  d(F9{dpi,D32}  ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(0, 2, 1))
+[t+   1.6s] B2b done
+
+==============================================================================
+PART B2c: d(R) closure faces + orientation signs
+==============================================================================
+  d(R0.def  ) = -1*F5{th3=0} + -1*F6{d0,D22} + +1*F7{d0,D31}
+  d(R0.bF6  ) = +1*F2{th1=pi/2} + -1*F4{th2=pi/2} + +1*F6{d0,D22}
+  d(R0.bF7  ) = -1*F1{th1=0} + +1*F3{th2=0} + -1*F7{d0,D31}
+  d(R1.def  ) = -1*F5{th3=0} + -1*F8{dpi,D21} + +1*F9{dpi,D32}
+  d(R1.bF8  ) = -1*F1{th1=0} + -1*F4{th2=pi/2} + +1*F8{dpi,D21}
+  d(R1.bF9  ) = +1*F2{th1=pi/2} + +1*F3{th2=0} + -1*F9{dpi,D32}
+[t+   1.7s] B2c done
+
+d(s+) = sum R(pi-sheet) - sum R(0-sheet);  d(s-) = -d(s+)
+
+==============================================================================
+PART B3: G0 -- base d^2=0 and base homology (expect S^4)
+==============================================================================
+BATTERY G0-a: base d^2 = 0 exactly: PASS
+mod-  101 Betti [1, 0, 0, 0, 1]   chi=+2
+mod- 1009 Betti [1, 0, 0, 0, 1]   chi=+2
+mod-10007 Betti [1, 0, 0, 0, 1]   chi=+2
+BATTERY G0-b: base homology = (Z,0,0,0,Z), chi=+2: PASS
+  => M = double(U3) ~ S^4: (H-top) U3 ~ B^4 certified by the cellulation.
+[t+   3.3s] B3 done
+
+==============================================================================
+PART B4: c-map on base cells + fibre shifts (sixths)
+==============================================================================
+
+c-map on cells (image cell, fibre shift in sixths):
+  V(0, 1, 2)     -> V(1, 2, 0)     (perm)
+  V(0, 2, 1)     -> V(1, 0, 2)     (perm)
+  V(1, 0, 2)     -> V(2, 1, 0)     (perm)
+  V(1, 2, 0)     -> V(2, 0, 1)     (perm)
+  V(2, 0, 1)     -> V(0, 1, 2)     (perm)
+  V(2, 1, 0)     -> V(0, 2, 1)     (perm)
+  E(r(0, 1, 2),q(1, 0, 2)) -> E(r(1, 2, 0),q(1, 0, 2)) (perm)
+  E(r(0, 2, 1),q(1, 0, 2)) -> E(r(0, 1, 2),q(1, 0, 2)) (perm)
+  E(r(1, 2, 0),q(1, 0, 2)) -> E(r(0, 2, 1),q(1, 0, 2)) (perm)
+  E(r(0, 1, 2),q(2, 1, 0)) -> E(r(0, 2, 1),q(2, 1, 0)) (perm)
+  E(r(0, 2, 1),q(2, 1, 0)) -> E(r(1, 0, 2),q(2, 1, 0)) (perm)
+  E(r(1, 0, 2),q(2, 1, 0)) -> E(r(0, 1, 2),q(2, 1, 0)) (perm)
+  E(r(0, 1, 2),q(0, 2, 1)) -> E(r(1, 0, 2),q(0, 2, 1)) (perm)
+  E(r(1, 0, 2),q(0, 2, 1)) -> E(r(2, 0, 1),q(0, 2, 1)) (perm)
+  E(r(2, 0, 1),q(0, 2, 1)) -> E(r(0, 1, 2),q(0, 2, 1)) (perm)
+  F1{th1=0}      -> F5{th3=0}      (zero-pattern rule; kappa deferred)
+  F2{th1=pi/2}   -> F1{th1=0}      (zero-pattern rule; kappa deferred)
+  F3{th2=0}      -> F8{dpi,D21}    (zero-pattern rule; kappa deferred)
+  F4{th2=pi/2}   -> F7{d0,D31}     (zero-pattern rule; kappa deferred)
+  F5{th3=0}      -> F2{th1=pi/2}   (zero-pattern rule; kappa deferred)
+  F6{d0,D22}     -> F3{th2=0}      (zero-pattern rule; kappa deferred)
+  F7{d0,D31}     -> F9{dpi,D32}    (zero-pattern rule; kappa deferred)
+  F8{dpi,D21}    -> F6{d0,D22}     (zero-pattern rule; kappa deferred)
+  F9{dpi,D32}    -> F4{th2=pi/2}   (zero-pattern rule; kappa deferred)
+  R0.def         -> R1.bF9         kappa=(3, 3)
+  R0.bF6         -> R0.bF7         kappa=(3, 0)
+  R0.bF7         -> R1.def         kappa=(3, 3)
+  R1.def         -> R0.bF6         kappa=(0, 3)
+  R1.bF8         -> R0.def         kappa=(0, 3)
+  R1.bF9         -> R1.bF8         kappa=(3, 0)
+  s+             -> s+             kappa DRIFTS: range u[3.17,5.65] v[-0.24,5.48] sixths (flat pt pins t0^2=(4,4) / t0=(2,2))
+  s-             -> s-             kappa DRIFTS: range u[0.78,2.98] v[0.22,2.71] sixths (flat pt pins t0^2=(4,4) / t0=(2,2))
+
+c^3 = id on all 32 cells: OK;  c-fixed base cells: ['s+', 's-'] (the two sheets)
+[t+   3.3s] B4 done
+
+base data pinned -> wave13c_base_data.json
+
+==============================================================================
+WAVE 13C-1 COMPLETE: base cellulation certified (G0)
+==============================================================================
