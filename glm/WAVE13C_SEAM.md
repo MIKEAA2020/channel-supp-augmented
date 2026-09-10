@@ -108,9 +108,16 @@ T = +1 ✓ (G8); H₁ = ℤ/3 = abelianized π₁ ✓.
 
 ## 5. Honest caveats
 
-* The H₃, H₄ slots have exactly one 3-primary summand each (t₃ = 1); their
-  EXPONENTS are not pinned by this run (would need the c4/c5 ℤ/9-smith).
-  They do not affect the qutrit bit.
+* **[13C-8, 2026-09-10 — caveat CLOSED]** The H₃, H₄ exponents are now
+  machine-pinned: the c4/c5/c6 ℤ/9-smith (`wave13c_h34.py`, output
+  `wave13c_h34_output.txt`, full battery re-certified on import) gives
+  |Hₖ(B₃; ℤ/9)| = **(9, 3, 9, 9, 9, 3, 9)** — exactly palindromic — hence
+  e₁ = e₂ = e₃ = e₄ = 1 and e₅ = 0: **H₃ = H₄ = ℤ/3 exactly (no ℤ/9)**,
+  with e₄ read twice independently (|H₅(ℤ/9)| and |H₄(ℤ/9)|) and the
+  Poincaré-duality cross-check (Tor H₃ = Tor H₂, Tor H₄ = Tor H₁) matching
+  at every slot; an extended torsion scan p ∈ {17,…,61} found no p ≠ 3
+  torsion. H₋(B₃) = (ℤ, ℤ/3, ℤ/3, ℤ/3, ℤ/3, 0, ℤ) is pinned in every slot.
+  See `WAVE13C_RECONCILIATION.md` for the cross-line context.
 * The seam sweeps are the per-sheet data that the level-6/12 lines kept
   trying to gauge away; the machine certificates (G2, G5, G3) establish
   that the seam-augmented chain complex is a valid Fl₃-cellulation with a
