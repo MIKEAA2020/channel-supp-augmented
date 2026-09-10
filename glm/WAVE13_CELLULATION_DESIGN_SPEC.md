@@ -234,3 +234,21 @@ comfortably within the exact‑arithmetic machinery already proven in
 **Status.** δ₂(qutrit) = 4/3 remains **open**. This spec is the reviewed‑before‑execution
 blueprint for the build that closes it; the design is coherent and every
 geometric fact it leans on is either verified or explicitly boxed for derivation.
+
+
+---
+
+## §8-bis  Wave 14 outcome (added after the fact)
+
+The four open items of §8 are resolved in `WAVE14H_RESOLUTION.md`, and two claims of this spec
+are **retracted** there:
+
+* the census `dim2:9 (facet loci F_ab)` and the "18 interior corner 2-loci / 6 interior triple
+  points" corner rule — both presupposed several independent walls, but `Q12 = Q13 = Q23`, and
+  in fact `Q < 0` on every facet off its four transposition edges, so there are **no 2-cells**;
+* the fibre-count check of `chi(Fl3) = 6` built on that census — to be recomputed.
+
+Corrected base data: `f-vector(B3) = (6,15,18,9)`; `Q ≡ 0` on the 9 transposition edges,
+`Q_min = -1/16` on the 6 cyclic edges; `chi(U3) = 1` (n = 24,32,40), `chi(dU3) = 0`,
+one hole component, wall = 6 open 3-manifolds indexed by the hypotenuse bijection
+`sigma in S3` (2 c-orbits of 3), every vertex in the closure of exactly 2 of them.
