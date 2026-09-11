@@ -1,0 +1,91 @@
+{
+ "census": {
+  "kappa_total": 240,
+  "kappa_kept": 192,
+  "kappa_samek_shared_removed": 48,
+  "kappa_disjoint": 48,
+  "kappa_disjoint_diffk_status": "feasible",
+  "kappa_disjoint_samek_status": "unresolved",
+  "tau_stars": 96,
+  "q_quads": 72,
+  "theorems": [
+   "triangle-obstruction",
+   "same-k-infeasibility",
+   "path-forcing",
+   "star-distinct-k",
+   "balanced-k",
+   "depth-le-4"
+  ],
+  "incidence": {
+   "corner_in_2_stars": 288,
+   "star_3_corners": 288
+  }
+ },
+ "drift_lift": {
+  "flat_gauge": true,
+  "equivariance_cert": true,
+  "spot_checks": {
+   "F(0,0)->z2(00,01)": [
+    0.0,
+    0.0,
+    7.067899292141149e-17
+   ],
+   "F(0,0)->z2(00,10)": [
+    -7.067899292141149e-17,
+    0.0,
+    0.0
+   ],
+   "F(0,0)->z2(00,12)": [
+    -7.067899292141149e-17,
+    -7.067899292141149e-17,
+    -7.067899292141149e-17
+   ],
+   "z2(00,01)->z3(L)": [
+    7.067899292141149e-17,
+    7.067899292141149e-17,
+    7.067899292141149e-17
+   ],
+   "z2(00,11)->z3(diag)": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "homology": {
+  "level": 3,
+  "cells": 181032,
+  "betti": [
+   1,
+   34,
+   81,
+   123,
+   201,
+   230,
+   214,
+   188,
+   141,
+   86,
+   32,
+   4,
+   1
+  ],
+  "t2": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   3,
+   3,
+   1,
+   0,
+   0
+  ],
+  "H9_Z4_bits": 178
+ },
+ "verdict": "RE-OPENED"
+}

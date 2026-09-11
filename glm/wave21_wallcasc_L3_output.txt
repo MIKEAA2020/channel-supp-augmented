@@ -1,0 +1,213 @@
+
+==============================================================================
+PART 0: the base skeleton + the middle lattice (re-derived)
+==============================================================================
+c4 cell-maps rebuilt: c4^4 = id on V/E/F/w [cert]
+[t+    0.0s] part 0 skeleton
+middle lattice re-derived: z2 120/120, z3 240/560, z4 72; C3/C6 PASS (the W19 gates)
+[t+    0.2s] part 0 z-lattice
+P-19 cross-check: the middle_lattice (z2 120/120, z3 240/560, z4 60+12[est]), the gates C3/C6/d23dF, the 15 faces per F: PASS
+
+==============================================================================
+PART A: the wall-cascade exact layer (the T-assignment prover)
+==============================================================================
+A.1 THE CORNER LAYER (276 wall-pairs): {'infeasible-exact': 84, 'compatible': 192, 'forced': 0}
+    THE SAME-K THEOREM [exact]: all 48 same-k shared-row pairs are infeasible-exact (the T-prover: the leaf pair cannot close)
+    => the W17 96-unresolved RESOLVED: 48 infeasible + 48 disjoint (complex)
+    the 144 kept corners: phase-compatible [cert]; the 48 disjoint: phase-free (no chaining) [cert]
+[t+    0.3s] A.1 corners
+A.2 THE TRIPLE LAYER (1280 candidates): {'infeasible-exact': 752, 'compatible': 96, 'forced': 432}
+    by (verdict, degree-structure): {('infeasible-exact', (1, 1, 1, 3)): 160, ('infeasible-exact', (2, 2, 2)): 256, ('infeasible-exact', (1, 1, 2, 2)): 336, ('compatible', (1, 1, 1, 3)): 96, ('forced', (1, 1, 2, 2)): 432}
+    THE PATH-FORCING THEOREM [exact]: 432 path-triples force a 4th wall (the pure path strata EMPTY; the structures live in the C4-quads)
+    THE STAR CELLS: 96 (4 centers x 24 distinct-k triples)
+[t+    0.5s] A.2 triples
+A.3 THE QUAD LAYER (3840 candidates): {'infeasible-exact': 3732, 'compatible': 108, 'forced': 0}; the compatible C4's: 108
+    THE ALTERNATING-QUAD THEOREM [exact]: the 36 alternating C4's are
+    closure-forced (the product-identity argument): the pure 5-dim
+    strata EMPTY; the q-layer = the 72 all-distinct C4's.
+A.4 THE m=5 LAYER: 6144/6144 candidates infeasible-exact (the triangle cap; m=6 same by Turan ex(4,K3)=4)
+THE WALL-CASCADE DEPTH THEOREM [exact]: the cascade below kappa terminates at m=4; NO m>=5 strata exist.
+[t+    1.5s] A.3/A.4
+A.5 THE CENSUS: kappa 192 (+ the 48 same-k REMOVED), tau 96, q 72 (+ the 36 alternating REMOVED: the exact theorem); the c4 maps: c4^4 = id [cert]
+    the incidence: each shared-diffk corner in exactly 2 stars (144 x 2 = 288 = 96 x 3: each star has 3 corner-faces) [cert]
+[t+    1.5s] A.5 census tables
+
+==============================================================================
+PART B: the witness census (the chain route)
+==============================================================================
+B.1 THE DISJOINT CORNERS (the 48 = 36 diff-k + 12 same-k):
+    the diff-k class rep W(0,1|0) x W(2,3|1): CHAIN WITNESS [walls to 1e-12, min entry 1.3e-03, unitarity 2.2e-16]
+    => the 36 disjoint diff-k corners FEASIBLE [cert: the witness + the S4xS4 relabeling orbit]
+    the same-k class rep: NO witness in 300 seeded chain starts -- the degenerate-collapse evidence (the 13C-style suspicion of exact s-level infeasibility, UNPROVEN): UNRESOLVED [kept, honestly labeled]
+B.2 THE STAR-TRIPLES (the 96):
+    the class rep (center 0; leaves 1,2,3; k's 0,1,2): REAL-ORTHOGONAL WITNESS [the walls exact by the orthogonality, min entry 2.6e-04] => the 96 star cells FEASIBLE [cert]
+B.3 THE C4-QUADS (the 72 all-distinct after the alternating theorem):
+    the all-distinct rep (k's 0,1,2,3): REAL-ORTHOGONAL WITNESS [the walls exact, min entry 3.9e-04] => the 72 all-distinct cells FEASIBLE [cert]
+    [the 36 alternating cells REMOVED by the Part-A theorem: the pure strata exactly EMPTY]
+[t+   21.4s] part B witnesses
+
+==============================================================================
+PART C: the drift-monodromy lift (consuming the W19 P-19 data)
+==============================================================================
+C.1 THE MONODROMY-CARRIER CENSUS (the structural layer, exact):
+    * the fibre-degeneration loci of Fl_4 -> M_4: E (dim 1, codim 8) and V (dim 0, codim 9): unlinkable (codim >= 3 removals preserve
+      pi_1: no loop in M_4 can link the E/V strata -- the n=4
+      DIMENSIONAL LUCK vs the qutrit's codim-3 E-strata (the 13C
+      E-edge windings have NO ququart analog) [exact];
+    * the wall strata (w/kappa/tau/q) and the support strata
+      (F/z2/z3/z4) are one-sided in the moduli (D_ik >= 0,
+      s_k >= 0): no loop carries them either [exact];
+    * the only pi_1 carriers in the domain are the
+      non-unistochastic pockets (the W16 interior holes); the
+      loop-monodromy around them is the (c)-scope (honestly
+      labeled: not measured this wave).
+
+C.2 THE LEFT-EQUIVARIANCE CERTIFICATE (the flat-gauge theorem):
+    polar(t0.M) = t0.polar(M) machine-exact (200/200 random tests) [cert]
+    => the rescale-polar lift is LEFT-TORUS-EQUIVARIANT: the
+       transport t.[u] -> t.[u'] holds IDENTICALLY along any
+       moduli path tracked by this lift -- the W20 s.2 flat-gauge
+       claim is REALIZED by a canonical equivariant lift.
+    THE QUTRIT CONTRAST: the 13C transport was NOT equivariant (the
+    phased c_3: the t0^2 fibre offsets -- the qutrit's lift had
+    NONZERO interface drifts, absorbed only by the gauge g); the
+    ququart's c_4-purity (the W17 5.4 certificate: c_4 commutes
+    with the left torus; the fibre map the identity in t) + the
+    equivariant lift: THE STRUCTURAL DIFFERENCE. [cert]
+
+C.3 THE NUMERIC SPOT-CHECKS (the interface classes, the two-frame polar transport):
+    F(0,0)->z2(00,01)           : drift L.t0^-1 (T3) = (+0.00e+00, +0.00e+00, +7.07e-17) minsv 0.10  [FLAT]
+    F(0,0)->z2(00,10)           : drift L.t0^-1 (T3) = (-7.07e-17, +0.00e+00, +0.00e+00) minsv 0.14  [FLAT]
+    F(0,0)->z2(00,12)           : drift L.t0^-1 (T3) = (-7.07e-17, -7.07e-17, -7.07e-17) minsv 0.32  [FLAT]
+    z2(00,01)->z3(L)            : drift L.t0^-1 (T3) = (+7.07e-17, +7.07e-17, +7.07e-17) minsv 0.19  [FLAT]
+    z2(00,11)->z3(diag)         : drift L.t0^-1 (T3) = (+0.00e+00, +0.00e+00, +0.00e+00) minsv 0.21  [FLAT]
+    [the z3->z4 interface is EMPTY (the W19 floating-z4 finding); the support-cascade chain ends at z3]
+C.4 THE FLAT-GAUGE VERDICT: all 5 measured interface classes
+    carry ZERO drift (the equivariant-lift transport; the residuals < 1e-4):
+    the codim-2 corner prism terms P_v(f) = 0 CONFIRMED [cert: the equivariance theorem + the spot-checks].
+    THE W20 HONEST CONDITION (i) DISCHARGED: the flat gauge is machine-verified
+    (the equivariant lift exists -- the ququart's structural difference
+    from the 13C qutrit whose phased c_3 forced the gauge g).
+[t+   21.5s] part C drift lift
+
+==============================================================================
+PART D: the corrected book + the extended seam battery
+==============================================================================
+LEVEL L = 3
+fibre cellulations: d^2 = 0 exact PASS; chi(T3) = chi(S1) = 0
+[t+   21.5s] part D fibres
+base strata: 932 (V24 E72 F16 Z2-120 Z3-240 Z4-72 W24 K192 T96 Q72 C P s4 s8)
+base c4-map: c4^4 = id everywhere [cert]
+cells: 181032; degrees [24, 2160, 6048, 12312, 21384, 24624, 24624, 28944, 30510, 21600, 7884, 864, 54]; chi = +24 (expect 24 = |S_4| = chi(Fl_4))
+BATTERY G1: census + chi = 24: PASS
+   orbit chi = 6 (expect 6 = chi(B_4), the W18 fact)
+BATTERY G1b: the orbit chi = 6: PASS
+[t+   21.6s] part D census
+the filtered seam->kappa incidence: 16 per seam; each kappa in exactly 2 seams [cert]
+sign system: 724 variables
+sign system: 1392 equations
+sign system: CONSISTENT; 83 free sign-gauges (set to 0)
+the extended seam battery (sign layer): SOLVED [design -> pinned]
+[t+   22.0s] sign system
+boundary assembled: 181032 columns, 698976 nonzero entries
+BATTERY G2: d^2 = 0 exact on all 181032 cells: PASS
+[t+   23.4s] d^2 check
+
+==============================================================================
+PART E: the T-map + the orbit SNF at degree 9
+==============================================================================
+TSGN: -1 on the 4 fixed strata + 36 E-strata (the label-flip compensators, the W20 machine-pinned set)
+BATTERY G4: T^4 = id on all cells (index + sign): PASS
+BATTERY G4b: dT = Td exact on all cells: PASS (0 mismatches)
+[t+   24.6s] T-map gates
+cell orbits: 46986; quotient chains per degree: [6, 621, 1755, 3321, 5427, 6210, 6318, 7398, 7722, 5562, 2214, 378, 54]
+BATTERY G6: d_bar^2 = 0 (the sign-correct coinvariants): PASS (0 residuals)
+[t+   25.1s] orbit complex
+G5 (mod-2 layer): rank d9^orb (mod 2) = 3612; H9^orb(F2) >= 1950
+B_4 orbit chain ranks (rational): [0, 5, 582, 1092, 2106, 3120, 2860, 3244, 3966, 3615, 1861, 321, 53]
+B_4 Betti b = [1, 34, 81, 123, 201, 230, 214, 188, 141, 86, 32, 4, 1]
+B_4 mod- 2 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+B_4 mod- 3 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[t+  339.2s] orbit ladder
+
+THE DEGREE-9 EXAMINATION:
+  QK[8] = 7722; rank_rat d8 = 3966; rank d9 = 3615
+  QK[9] = 5562; rank_rat d9 = 3615; rank d10 = 1861
+  QK[10] = 2214; rank_rat d10 = 1861; rank d11 = 321
+  beta_9 = 86 (free rank: the truncation-wrapping pollution, honestly labeled)
+  t_2(H_9) = 3; t_2(H_8) = 3
+  |coker(d9 x Z/4)|: r=3612, 2-adic bits=8218
+  |coker(d10 x Z/4)|: r=1858, 2-adic bits=7406
+  |H_9(B; Z/4)| = 2^178 exactly
+  L - 2*beta_9 = 6  (= sum min(i9,2) + sum min(i8,2))
+
+==============================================================================
+PART F: the decomposition battery + THE VERDICT
+==============================================================================
+  T1 {s}          : 180600 cells; d_bar^2 PASS; t_2(7) = 1; t_2(9) = 3
+  T2 {s,C,P}      : 180168 cells; d_bar^2 PASS; t_2(7) = 1; t_2(9) = 3
+  T3 {F}          : 177576 cells; d_bar^2 PASS; t_2(7) = 1; t_2(9) = 3
+  T4 {s,w}        : 175416 cells; d_bar^2 PASS; t_2(7) = 0; t_2(9) = 0
+  T5 {s,w,K}      : 133944 cells; d_bar^2 PASS; t_2(7) = 0; t_2(9) = 0
+  T6 {s,w,K,T,Q}  : 97656 cells; d_bar^2 PASS; t_2(7) = 0; t_2(9) = 0
+[t+ 1391.1s] decomposition battery
+
+==============================================================================
+THE WAVE-21 VERDICT: P-delta_1 -- harden or re-open
+==============================================================================
+  THE MACHINE FACTS (level 3):
+  * THE WALL-CASCADE CENSUS (Part A, exact): the triangle obstruction;
+    the same-k theorem (the W17 96-unresolved RESOLVED: 48 infeasible + 48
+    disjoint); the path-forcing (the pure paths EMPTY); the balanced-k;
+    THE DEPTH THEOREM: the cascade ends at m=4 (no m>=5 strata);
+    the corrected book: kappa 192 (+tau 96 + q 108).
+  * THE WITNESS CENSUS (Part B): the stars/ the all-distinct quads/
+    the disjoint-diffk classes: chain witnesses [the same-k disjoint:
+    unresolved].
+  * THE DRIFT LIFT (Part C): the flat gauge CONFIRMED (the equivariance
+    theorem + the zero-drift spot-checks) -- the W20 honest condition (i)
+    DISCHARGED.
+  * THE HOMOLOGY (Parts E): b_9 = 86; t_2(H_9) = 3; |H_9(Z/4)| = 2^178;
+
+  THE DECOMPOSITION READS:
+  full complex:  t_2(9) = 3 ; t_2(7) = 1
+  T1 {s}:          t_2(9) = 3 ; t_2(7) = 1
+  T2 {s,C,P}:      t_2(9) = 3 ; t_2(7) = 1
+  T3 {F}:          t_2(9) = 3 ; t_2(7) = 1
+  T4 {s,w}:        t_2(9) = 0 ; t_2(7) = 0
+  T5 {s,w,K}:      t_2(9) = 0 ; t_2(7) = 0
+  T6 {s,w,K,T,Q}:  t_2(9) = 0 ; t_2(7) = 0
+
+  THE CASCADE-READ: full t_2(9) = 3; the T6-read 0: the whole [1,3,3,1] layer is cascade-carried (any-link removal kills it: T4/T5/T6 all 0).
+
+  ADJUDICATION (the W20 s.7 criterion): the completion (a)+(b) was
+  supposed either to DISSOLVE the kappa-wrapping artifacts (-> FALSE
+  hardens) or to re-introduce a genuine Z/2 (-> re-open).  THE OUTCOME:
+  NEITHER -- the [1,3,3,1] pattern SURVIVES the kappa-attachment
+  UNCHANGED (t_2 = [.., 1, 3, 3, 1, ..]; b_9 halves 178 -> 86: the
+  completion killed 92 FREE classes but NOT the torsion): the W20
+  artifact-mechanism (the terminal-kappa wrapping dissolving with
+  the true boundaries) is REFUTED -- the classes persist through
+  the censused cascade.
+
+  -> P-delta_1 RE-OPENS the other way (the W20 conditional FALSE
+     verdict is UN-HARDENED): the degree-9 2-primary classes are
+     now persistent candidates -- per the W18 PD-mirror at most ONE
+     of the three is genuine; the decisive remaining test is the
+     (c)-scope: the support-descent completion below the tau/q
+     cells (the new truncation frontier) + the E/V connections.
+     The flat gauge (i) is DISCHARGED (Part C); the wall-cascade
+     (ii-a) is censused; the honest conditions are now (ii-c) and
+     (iii) the levels.
+
+  THE SCOREBOARD:
+  * delta_1 (ququart): RE-OPENED
+    (the bracket [4/3, 3/2] unaffected; the secondary obstruction route
+    (H^4(B_4;Z)) remains the open path to 3/2 either way.)
+  * delta_2 (qutrit): 4/3, machine-certified -- untouched (H_2(B_3) = Z/3).
+  * Manuscripts untouched.
+
+  Nothing here reopens the qutrit verdict: H_2(B_3) = Z/3, delta_2 = 4/3.
+
+[exported wave21_wallcasc_data.json]
+[t+ 1391.1s] run complete
