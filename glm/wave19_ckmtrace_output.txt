@@ -1,0 +1,119 @@
+
+==============================================================================
+WAVE19-CKMTRACE :: PART 0: the CKM chain + the wall atlas
+==============================================================================
+chain formulas + unitarity: PASS (7 pure entries exact, 400 samples to 1e-12) [cert]
+the wall atlas: 7 pure F-cells (the row-0/col-3 chain entries, the factor-walls listed) + 9 mixed F-cells (the lower-left 3x3 block, the curved closure loci) = 16 = the certified F-census [cert]
+
+==============================================================================
+WAVE19-CKMTRACE :: PART A: the n=3 validation of the trace method against the certified 13C-1 D_FACE
+==============================================================================
+tracing the 9 qutrit F-cells (the 4 containment E's each)...
+qutrit E-fiber counts k_E: {1: 36}
+n=3 VALIDATION: 9/9 F-cells reproduce the certified D_FACE mod 2
+   (the D_FACE keys are the 32-cell ids = 6 + the E-index; the
+    comparison is index-offset-corrected.)
+=> THE METHOD IS VALIDATED: the CKM-chain preimage + the M-class
+   clustering (the rephasing double-coset test) reproduces the
+   13C-1 d(F) exactly (mod 2) -- the E-fiber (sheet) count k_E is
+   the correct coefficient. [cert]
+[PART A          ]     8.4s
+
+==============================================================================
+WAVE19-CKMTRACE :: PART B: the n=4 trace -- the E-fibers, sigma(F), the gates
+==============================================================================
+B1 COVERAGE: the 4x4 CKM chain covers the moduli: 60/60 Haar samples inverted to 1e-8 [cert]
+[B1 coverage     ]    22.2s
+B2: the 72 E-cells built; tracing the E-fibers (the sheet counts k_E over the boundary strata)...
+  the E-fiber (sheet) counts k_E over the 72 E-cells: {1: 72}
+  (the qutrit: k_E = 1 everywhere -- the two sheets merge at the
+   boundary; the ququart's 4-vs-8 book must merge at the E-level
+   in its own pattern -- the table above is the machine answer)
+[B2 E-fibers     ]   198.7s
+B3 THE GATE (d_1 sigma(F) = 0 mod 2, sigma = the k_E-weighted containment):
+  naive containment: 16/16 F-cells FAIL (re-verified: the {5:18, 0:6} structure)
+  k_E-weighted: 0/16 F-cells PASS; 16 FAIL
+  example failure F%s: the odd V-multiplicities persist -- the
+  E-level mod-2 cycle needs MORE than the k_E coefficients.
+[B3 gates        ]   198.7s
+
+==============================================================================
+WAVE19-CKMTRACE :: B4: the parity theorem -- the structural obstruction, exact
+==============================================================================
+  for F(0,1) and each of the 18 V(rho) with rho(0) != 1: the 5 closure E's decompose EXACTLY as 2/18 moving-row transpositions (tau(0) != 0) + 3/18 fixed-row transpositions (tau(0) = 0) = 2 + 3 = 5
+  => THE PARITY THEOREM: the V-multiplicity of the containment is
+     C(n-1,2) + (n-2) = 3 + 2 = 5 (ODD) at n=4 -- the E-level
+     mod-2 cycle with unit coefficients is STRUCTURALLY IMPOSSIBLE
+     (at n=3: 1 + 1 = 2, even -- the qutrit's luck; the wave-17
+     naive d(F) failure is this arithmetic, not a pinning error).
+  the mod-2 fix must therefore come from the coefficients (the
+  sheet counts k_E) or from the MIDDLE LATTICE (below).
+
+==============================================================================
+WAVE19-CKMTRACE :: PART C: the middle support lattice (the z-level complex) + the true d^2 = 0 gate
+==============================================================================
+C1 the z=2 census: 120/120 two-zero patterns FEASIBLE (constructive witnesses); 0 infeasible [cert]
+  the infeasible pairs (first 6): []
+  the feasibility by type {type: [feasible, infeasible]}: {'rook-free': [72, 0], 'same-col': [24, 0], 'same-row': [24, 0]}
+[C1 z2-census    ]   198.9s
+C2 the F -> z=2 faces: per-F feasible face counts = [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15] (of 15 second-zero choices) -- d(F) := sum of these, mod 2
+[C2 faces        ]   198.9s
+C3 the z=3 census: 240/560 three-zero patterns FEASIBLE [cert]
+C3 THE TRUE GATE (the z-level d^2 = 0): PASS (0 broken cancellations over the 16 F-cells)
+  => the z-level complex closes mod 2 through the feasibility
+     table: d(F) = sum(the feasible z=2 faces) is a MOD-2 CYCLE
+     at the z=3 level -- the honest pinned first layer.
+[C3 z3-gate      ]   240.8s
+C4 THEORY: the z-level d^2 = 0 is the 2-subsets cancellation (drop
+  either extra zero); it holds iff the feasibility table is
+  'parity-closed' (the two parents equally feasible). The gate C3
+  measures exactly this. [exact combinatorics]
+C5 the z=2 classes {row-profile: [feas, infeas]}: {((1, 1), (1, 1)): [72, 0], ((1, 1), (2,)): [24, 0], ((2,), (1, 1)): [24, 0]}
+   the z=3 classes: {((1, 1, 1), (1, 1, 1)): [96, 0], ((1, 1, 1), (2, 1)): [0, 144], ((1, 1, 1), (3,)): [0, 16], ((2, 1), (1, 1, 1)): [0, 144], ((2, 1), (2, 1)): [144, 0], ((3,), (1, 1, 1)): [0, 16]}
+   => %d z=3 class(es) with MIXED feasibility (the sampler is
+      class-consistent iff none): CONSISTENT [cert]
+[C5 class-checks ]   240.8s
+C6 the z=4 census: 60/1820 feasible; the classes: {((1, 1, 1, 1), (1, 1, 1, 1)): [0, 24], ((1, 1, 1, 1), (2, 1, 1)): [0, 144], ((1, 1, 1, 1), (2, 2)): [36, 0], ((1, 1, 1, 1), (3, 1)): [0, 48], ((1, 1, 1, 1), (4,)): [0, 4], ((2, 1, 1), (1, 1, 1, 1)): [0, 144], ((2, 1, 1), (2, 1, 1)): [0, 720], ((2, 1, 1), (2, 2)): [0, 144], ((2, 1, 1), (3, 1)): [0, 144], ((2, 2), (1, 1, 1, 1)): [24, 12], ((2, 2), (2, 1, 1)): [0, 144], ((2, 2), (2, 2)): [0, 36], ((3, 1), (1, 1, 1, 1)): [0, 48], ((3, 1), (2, 1, 1)): [0, 144], ((4,), (1, 1, 1, 1)): [0, 4]}
+   THE DEEP GATE (z=3 -> z=4 parity-closure): PASS (0 breaks)
+   => the feasibility table is parity-closed through z=4: the
+      z-level complex is a genuine mod-2 complex [cert].
+[C6 z4-gate      ]   355.6s
+C7 the z-complex mod-2 homology (feasible z=2 -> z=3): rank = 104;  H_z2 = 16, H_z3 = 136  (of 120 x 240)
+   the 16 F-face-vectors span dimension 15 over F_2
+   d_23 o d(F) = 0 mod 2 for all 16 F-cells: PASS [cert]
+
+==============================================================================
+WAVE19-CKMTRACE :: PART D: the verdict + the Stage-4 export
+==============================================================================
+the gate summary: {"G''1 method validation (n=3 vs D_FACE)": True, "G''2 CKM coverage (n=4)": True, "G''3 E-fiber sheet table k_E": True, "G''4 E-level sigma-gate": False, "G''5 parity theorem (exact)": True, "G''6 z-censuses (z=2/3/4)": True, "G''7 z-level d^2=0 gates": True}
+
+VERDICT (Stage 3.5, honestly labeled):
+* THE METHOD (the CKM-chain trace + the M-class clustering): VALIDATED at
+  n=3 against the certified 13C-1 D_FACE (9/9, mod 2) [cert]. The
+  counting rule: the E-fiber (sheet) count k_E -- the qutrit's k_E = 1
+  everywhere (the two sheets merge at the boundary).
+* THE QUQUART E-FIBERS: k_E = {1: 72} over the 72 E-cells -- the 4-vs-8
+  sheet book MERGES to a single boundary sheet [est]. The Stage-4
+  interface data: the E-level incidence of each F-cell is the full
+  containment (45 E's) with k_E = 1.
+* THE PARITY THEOREM [exact]: the E-level mod-2 cycle sigma(F) with the
+  natural coefficients is STRUCTURALLY IMPOSSIBLE at n=4: each relevant
+  V(rho) is an endpoint of exactly 2 moving + 3 fixed-row transposition
+  E-cells = 5 (odd). At n=3 the count is 1 + 1 = 2 (even -- the qutrit's
+  dimensional luck). THE WAVE-17 'naive d(F) fails mod 2' FINDING IS
+  THIS ARITHMETIC, not a pinning gap.
+* THE CORRECTED OBJECT: the true d(F) lives in the MIDDLE SUPPORT
+  LATTICE (the z-level complex, dims 5/3/1...): d(F) = the sum of the
+  feasible z=2 faces (15/15 per F -- all 120 z=2 patterns carry
+  constructive witnesses [cert]); the z-level d^2=0 is the 2-subsets
+  cancellation, gated by the FEASIBILITY PARITY-CLOSURE through z=4:
+  the C3/C6 gates PASS.
+* delta_1 (the ququart bit) REMAINS OPEN (the Stage-4 orbit SNF target
+  H_9(B_4;Z) untouched this wave). Qutrit verdict untouched: H_2(B_3) =
+  Z/3, delta_2 = 4/3. Manuscripts untouched.
+
+the Stage-3.5 data pinned -> wave19_ckmtrace_data.json
+
+==============================================================================
+WAVE19-CKMTRACE :: WAVE 19 COMPLETE: Stage 3.5 -- the d(F) trace, the parity theorem, the middle lattice
+==============================================================================
