@@ -1,0 +1,284 @@
+
+==========================================================================
+SECTION A: cyclic (co)homology engine -- validation on known answers
+==========================================================================
+C_4, trivial module (the classical answers):
+    [ok] H_1(C4;Z) = (0, [4])
+    [ok] H_2(C4;Z) = (0, [])
+    [ok] H_3(C4;Z) = (0, [4])
+    [ok] H_9(C4;Z) = (0, [4])
+    [ok] H^2(C4;Z) = (0, [4])
+    [ok] H^3(C4;Z) = (0, [])
+C_4, sign module Z~ (the orientation character):
+    [ok] H^0(C4;Z~) = (0, [])
+    [ok] H^1(C4;Z~) = (0, [2])
+    [ok] H^2(C4;Z~) = (0, [])
+    [ok] H^3(C4;Z~) = (0, [2])
+    [ok] H_0(C4;Z~) = (0, [2])
+    [ok] H_1(C4;Z~) = (0, [])
+    [ok] H_2(C4;Z~) = (0, [2])
+    [ok] H_9(C4;Z~) = (0, [])
+multi-dimensional validations (exercise the SNF kernel/image engine):
+    [ok] H_0(C4;rho) = (0, [2])
+    [ok] H_1(C4;rho) = (0, [])
+    [ok] H_2(C4;rho) = (0, [2])
+    [ok] H_3(C4;rho) = (0, [])
+    [ok] H^1(C4;rho) = (0, [2])
+    [ok] H^0(C4;rho) = (0, [])
+    [ok] H_0(C3;Z^3 perm) = (1, [])
+    [ok] H_1(C3;Z^3 perm) = (0, [])
+    [ok] H_2(C3;Z^3 perm) = (0, [])
+    [ok] H^1(C3;iota) = (0, [3])
+    [ok] H_2(C3;iota) = (0, [3])
+
+==========================================================================
+SECTION B: the C_2/antipodal test case (RP^2) -- the correction certificate
+==========================================================================
+B1. Integral homology (L = trivial Z):
+    cellular complex with L:  Z --2--> Z --0--> Z   (degrees 2,1,0)
+    [ok] H_0(RP^2;Z) = (1, [])
+    [ok] H_1(RP^2;Z) = (0, [2])
+    [ok] H_2(RP^2;Z) = (0, [])
+B2. Twisted homology (L = Z~, tau = -1): the twisted fundamental class.
+    cellular complex with L:  Z --0--> Z ---2--> Z   (degrees 2,1,0)
+    [ok] H_0(RP^2;Z~) = (0, [2])
+    [ok] H_1(RP^2;Z~) = (0, [])
+    [ok] H_2(RP^2;Z~) = (1, [])
+B3. Twisted cohomology (cochain complex with L = Z~):
+    [ok] H^0(RP^2;Z~) = (0, [])
+    [ok] H^1(RP^2;Z~) = (0, [2])
+    [ok] H^2(RP^2;Z~) = (1, [])
+B4. THE CORRECTION-THEOREM CERTIFICATE (Poincare-duality pairing).
+    n = 2 (closed non-orientable).  Correct law: H^k(M;L) ~ H_{n-k}(M;L x Z~).
+      L = Z~ :  H^k(Z~) ~ H_{2-k}(Z) :  k=0: 0~H_2(Z)=0  k=1: Z/2~H_1(Z)=Z/2  k=2: Z~H_0(Z)=Z      ALL MATCH  [verified B1/B3]
+    W8C law (wave8c line 697): H^k(M;Z~) ~ H_{n-k}(M;Z~):
+      k=2: H^2(RP^2;Z~) = Z   versus   H_0(RP^2;Z~) = Z/2   ==>  MISMATCH
+    [ok] the W8C pairing law is REFUTED on the C_2/antipodal test case (Z =/= Z/2); the correct law verified on all three degrees
+B5. The extension phenomenon (why |H_k| = prod|E_inf| fails with free
+    pieces): the twisted CLSS page E^2_{p,q} = H_p(C_2; H_q(S^2) x Z~).
+    q=0 column (H_0(S^2) x Z~ = sign): H_0=Z/2 H_1=0 H_2=Z/2 H_3=0 H_4=Z/2
+    q=2 column (H_2(S^2) x Z~ = trivial): H_0=Z^1 H_1=Z/2 H_2=0 H_3=Z/2 H_4=0
+    [ok] E^2_{2,0} = (0, [2])
+    [ok] E^2_{0,2} = (1, [])
+    The E^2_{2,0} = Z/2 piece has NO possible outgoing or incoming
+    differential (targets (0,1)=0 and sources (4,-1) empty), yet
+    H_2(RP^2;Z~) = Z (B2): the Z/2 is EXTENSION DATA (the associated
+    graded of H_2 = Z is 2Z (+) Z/2).  Consequence: product formulas for
+    |H_k| are valid ONLY when every E_inf piece at that degree is finite.
+    [ok] extension phenomenon machine-exhibited on the test case
+B6. The mod-2 shadow identity, validated on the test case:
+    the generator of E^2_{0,2} (Z-line, the class of 1 in H_2(S^2)xZ~)
+    has NONZERO mod-2 reduction (H^2(RP^2;F2) = F2 contains it), and the
+    transgression d_3: E^3_{0,2} -> E^3_{3,0} is SURJECTIVE here
+    (H^3(RP^2;Z~) = 0 kills E^{3,0} = Z/2): a nonzero shadow does NOT
+    force the differential -- exactly the u_0 situation on Fl_4.
+    [ok] H^3(RP^2;F2) (page-limit) = (0, [])
+    [ok] test case: d_3 nonzero with nonzero mod-2 shadow -- no forcing
+
+==========================================================================
+SECTION C: H^*(Fl_4) and the C_4 action -- rebuilt from scratch
+==========================================================================
+    [ok] standard monomials per degree = (1, 3, 5, 6, 5, 3, 1)
+    [ok] the ideal (e_1..e_4) is sigma-invariant (the action descends)
+sigma-matrices: order divides 4 in every degree: PASS (7/7)
+    [ok] Lefschetz L(c4^1) on Fl_4 = 0
+    [ok] Lefschetz L(c4^2) on Fl_4 = 0
+    [ok] Lefschetz L(c4^3) on Fl_4 = 0
+    [ok] top degree ACT[6] (sigma on H^12(Fl_4)) = -1
+    ==> c_4 is orientation-REVERSING; B_4 = Fl_4/<c4> is NON-ORIENTABLE;
+        Z~ (chi(c4) = -1) is the orientation local system; only twisted
+        Poincare duality and Z/2-duality are available.  [Wave 15]
+
+    C_4-module types (trivial a, sign b, rotation c) per degree:
+      H^ 0 : rank 1, (a,b,c) = (1, 0, 0)
+      H^ 2 : rank 3, (a,b,c) = (0, 1, 1)
+      H^ 4 : rank 5, (a,b,c) = (1, 2, 1)
+      H^ 6 : rank 6, (a,b,c) = (1, 1, 2)
+      H^ 8 : rank 5, (a,b,c) = (2, 1, 1)
+      H^10 : rank 3, (a,b,c) = (1, 0, 1)
+      H^12 : rank 1, (a,b,c) = (0, 1, 0)
+    PD symmetry (Gorenstein): type(6-m) = type(m) x sign (a<->b):
+    [ok] type(0) x sign = type(6) = (0, 1, 0)
+    [ok] type(1) x sign = type(5) = (1, 0, 1)
+    [ok] type(2) x sign = type(4) = (2, 1, 1)
+    [ok] type(3) x sign = type(3) = (1, 1, 2)
+    [ok] type(4) x sign = type(2) = (1, 2, 1)
+    [ok] type(5) x sign = type(1) = (0, 1, 1)
+    [ok] type(6) x sign = type(0) = (1, 0, 0)
+
+==========================================================================
+SECTION D: the Z~-twisted cohomological page, total degree 3 (the bit)
+==========================================================================
+D1. The three entries (q even only):
+    [ok] E_2^{3,0} = H^3(C4; H^0 x Z~) = H^3(C4;Z~) = (0, [2])
+    [ok] E_2^{1,2} = H^1(C4; H^2(Fl_4) x Z~) = (0, [])
+    [the Wave-7 lattice fact re-derived: ker(1-s+s^2-s^3) = im(s+1)]
+    [ok] rank of E_2^{0,2} = (H^2 x Z~)^{C4} = 1
+    primitive anti-invariant generator u_0 = [1, 0, 1]  (the x-basis: (1,0,1) <-> the 4-tuple (1,0,1,0))
+    [ok] (1,-1,1,-1) - 2*(1,0,1,0) = (-1, -1, -1, -1)
+    ==> the Wave-7 name (1,-1,1,-1) equals 2*u_0 (difference = the
+        diagonal (1,1,1,1)): d_3(2u_0) = 2 d_3(u_0) = 0 TRIVIALLY in
+        Z/2; the bit is d_3(u_0).  The Wave-7 pi*-form ('hits the
+        generator or only its double') is correctly phrased and survives.
+
+D2. The pinned slots re-verified on the page:
+    [ok] rank H^2(Fl_4)^{C4} (a_1) = 0
+    ==> E_2^{0,2}(Z-page) = 0; E_2^{2,0}(Z-page) = H^2(C4;Z) = Z/4;
+    [ok] H^2(B_4;Z) pinned slot = (0, [4])
+    (E_2^{2,0} = Z/4 = Ext(H_1 = Z/4); no differentials touch (2,0):
+     W15's pinned slot H^2(B_4;Z) = Z/4 re-derived.)
+    E_2^{0,0}(Z~) = H^0(C4;Z~) = invariants of the sign = 0:
+    [ok] H^0(B_4;Z~) = (0, [])
+    (consistent with connected + non-orientable).
+
+D3. THE MOD-2 SHADOW OF THE BIT (new equivalent form):
+    [ok] |ker((ACT[1]-I) mod 2) - {0}| (invariants mod 2) = 1
+    u_0 mod 2 = [1, 0, 1] -- NONZERO in H^2(Fl_4;F2)^{C4} = F2*[(1,0,1)]
+    (contrast: v_bar = 2 u_0 has ZERO mod-2 reduction -- the trap that
+     the generator mislabel would have set: a zero shadow would have
+     FORCED d_3 = 0 and falsely closed the bit at the page level.)
+    [ok] H^3(C4;Z~) -> H^3(C4;F2) reduction is an iso = ('Z/2', 'Z/2')
+    ==> by naturality of the CLSS in the coefficient system (Z~ -> F2),
+        d_3^{Z~}(u_0) = d_3^{F2}(u_0 mod 2) under Z/2 = F2:  THE BIT IS
+        FULLY VISIBLE ON THE MOD-2 PAGE as the transgression of the
+        invariant generator u_0-bar.  (Test case B6: such transgressions
+        are NOT forced either way -- the RP^2 one is surjective.)
+    Necessary mod-2 condition:  bit-zero => H^3(B_4;F2) != 0, hence
+    H_9(B_4;F2) != 0 by Z/2-Poincare duality.
+
+==========================================================================
+SECTION E: the homology mirrors at total degree 9
+==========================================================================
+E1. THE CORRECTED MIRROR (untwisted):  E^2_{p,q} = H_p(C4; H_q(Fl_4)).
+    H_{2m}(Fl_4) = -ACT[6-m]  (equivariant PD: the top-degree sign
+    transports the cohomology lattice, with the sign twist).
+    (9,0) = H_9(C4; H_0(Fl_4)) = Z/4
+    (7,2) = H_7(C4; H_2(Fl_4)) = 0
+    (5,4) = H_5(C4; H_4(Fl_4)) = 0
+    (3,6) = H_3(C4; H_6(Fl_4)) = Z/2
+    (1,8) = H_1(C4; H_8(Fl_4)) = Z/4
+    [(0,9) = 0 (odd fiber cohomology)]
+    TWISTED PD (correct law): H^3(B_4;Z~) ~ H_9(B_4;Z):  the bit appears
+    as |H_9(B_4;Z)| = 2 (bit zero) or 1 (bit surjective).  All five
+    E_2 entries at total degree 9 are FINITE, hence every E_inf piece
+    is finite (a subquotient), hence the product formula is valid --
+    the extension phenomenon of B5 cannot occur here.  The unknowns
+    are exactly the incoming d_3-cuts from total degree 10 (entries
+    (10,0)=H_10(C4;Z)=Z/4, (8,2), (6,4), (4,6), (2,8) -- the same
+    open cascade W15 recorded).  The DECISIVE machine target is the
+    Stage-4 orbit SNF of the B_4 cellulation with UNTWISTED Z in
+    degree 9
+
+E2. The W8C twisted page re-verified (with the correct H_q-modules):
+    E^2_{p,q} = H_p(C4; H_q(Fl_4) x Z~):  (H_{2m} x Z~)(sigma) = ACT[6-m].
+    (9,0) = H_9(C4; H_0 x Z~) = 0
+    (7,2) = H_7(C4; H_2 x Z~) = Z/2
+    (5,4) = H_5(C4; H_4 x Z~) = Z/4
+    (3,6) = H_3(C4; H_6 x Z~) = Z/2
+    (1,8) = H_1(C4; H_8 x Z~) = 0
+
+    W8C's own module model (twisted H^{2k} = -ACT[k]) for comparison:
+    (9,0) = H_9(C4; H^0 x Z~) = 0
+    (7,2) = H_7(C4; H^2 x Z~) = Z/2
+    (5,4) = H_5(C4; H^4 x Z~) = Z/4
+    (3,6) = H_3(C4; H^6 x Z~) = Z/2
+    (1,8) = H_1(C4; H^8 x Z~) = 0
+    W8C-model == corrected-model on all five entries: True
+    [if True: W8C's *numbers* stand (the Gorenstein duality makes the
+     mis-modeled lattice isomorphic); the MIRROR FACES THE WRONG GROUP
+     regardless -- E3/B4 below.]
+
+E3. THE UNIVERSAL OBSTRUCTION (Wave-7 facts re-verified):
+    w(xi_univ) = (1+u^2)(1+u) = 1+u+u^2+u^3 in F2[u],  w_3 = u^3 != 0
+    [ok] (1+u^2)(1+u) over F2 = [1, 1, 1, 1]
+    w_3 = u^3 != 0; e mod 2 = w_3 (cited: Milnor-Stasheff); the
+    reduction H^3(C4;Z~) = Z/2 -> H^3(C4;F2) = F2 is injective (D3):
+    ==> e(xi_univ) = the GENERATOR of H^3(BC_4;Z~) = Z/2.  [Wave 7]
+
+E4. The Wave-17 orbit-skeleton mod-2 fact (re-read from the JSON):
+    orbit_B (the C_4-quotient of the U_4-book skeleton): H0=1 H1=13 H7=59 H8=2 H9=1
+    [ok] H_9^orb(F2) (the base-book mod-2 fundamental class) = 1
+    [the BASE-level input: the full-B_4 H_9(B_4;F2) is the
+     fiber-extended quantity -- Stage-4/T^3-fiber SS business; the
+     W17 fact is CONSISTITIVE evidence for the necessary condition.]
+
+==========================================================================
+SECTION F: THE PINNED PREDICATE, THE CORRECTION THEOREM, THE GAPS
+==========================================================================
+
+THE PINNED PREDICATE (P-delta_1).  Let B_4 = Fl_4/<c_4> (the free order-4
+cyclic quotient; closed NON-ORIENTABLE 12-manifold; chi(c4) = -1
+machine-pinned in Section C), Z~ its orientation local system, and
+E = Fl_4 x_{C4} S^2 -> B_4 the S^2-bundle with fiber action
+R~| = diag(R_{pi/2}, -1)|_{S^2} (orientation character = the sign = chi).
+
+    (P-delta_1)   d_3^{0,2} : E_3^{0,2} = Z*u_0 -> E_3^{3,0} = Z/2  is ZERO,
+    where u_0 = the primitive sigma-ANTI-invariant class x_1 + x_3 of
+    H^2(Fl_4;Z) (the 4-tuple (1,0,1,0); the Wave-7 name (1,-1,1,-1) is 2u_0).
+
+EQUIVALENT FORMS (each <=> P-delta_1):
+  (1) pi* : H^2(B_4;Z~) -> H^2(Fl_4;Z) hits u_0 (not only 2*u_0)
+      [CLSS edge; E_2^{0,2}(Z~) = Z u_0, E_2^{2,0}(Z~) = 0: Section D].
+  (2) H^2(B_4;Z~) = Z*u_0  (vs Z*2u_0).
+  (3) H^3(B_4;Z~) = Z/2  (vs 0)  [E_2^{3,0} = Z/2, E_2^{1,2} = 0: Section D].
+  (4) e(E) = kappa*(e(xi_univ)) != 0  [e(xi_univ) = generator: Section E3].
+  (5) H_9(B_4;Z) = Z/2  (vs 0)  [the CORRECTED twisted-PD mirror
+      H^3(B_4;Z~) ~ H_9(B_4;Z): Section B4 + E1] -- the Stage-4 orbit-SNF
+      target with UNTWISTED integral coefficients in degree 9.
+  (6) d_3^{F2}(u_0-bar) = 0 on the mod-2 CLSS page, u_0-bar the generator of
+      H^2(Fl_4;F2)^{C4} = F2  [the mod-2 shadow: Section D3].
+
+CONSEQUENCE CHAIN (one-directional; premises labeled):
+  P-delta_1
+    => e(E) != 0
+    => [T1: obstruction theory, cited] no section of E
+    => [standard, free action] no C_4-equivariant map Fl_4 -> S^2
+    => [the Wave-7 program] the FOUR-FLAG statement (every continuous
+       f : P(C^4) -> R admits an ONB quadruple with all four values equal)
+    => [T2: elementary -- the paper's thm:state-nonflat template at d_B = 4]
+       delta_1(D(C^4)) = 3/2  (>= 3/2 by the quadruple + Tr c = 1;
+       <= 3/2 by the constant decoder).
+
+THE CORRECTION THEOREM.  (i) The Wave-8C predicate
+  "delta_1 = 3/2 <=> H^3(B_4;Z~) = Z/2, |H_9| = |H^3(B_4;Z~)| (twisted PD)"
+rested on the invalid pairing law H^k(B_4;Z~) ~ H_{12-k}(B_4;Z~)
+(wave8c_homology_side.py line 697) -- machine-refuted on the C_2/antipodal
+test case (Section B4); the correct law H^k(B_4;Z~) ~ H_{12-k}(B_4;Z) sends
+the W8C twisted-homology mirror to H^3(B_4;Z), NOT to the bit-group; the
+corrected mirror of the bit is the UNTWISTED page of E1 (whose entries
+differ: (9,0) = Z/4 vs 0).  Under the orientability tacitly assumed at
+Wave 8, Z~ is trivial and both laws coincide -- the slip was invisible
+until Wave 15's non-orientability made it load-bearing.  (ii) The Wave-7
+generator mislabel: the anti-invariant lattice is generated by u_0 =
+(1,0,1,0); (1,-1,1,-1) = 2u_0, and d_3(2u_0) = 0 trivially -- the bit is
+d_3(u_0).  (iii) The MANUSCRIPT needs no correction: it claims only
+delta_1 in [4/3, 3/2] and poses the closure as open problem (v); the
+"paper-line link" is the project's Wave-7 reconstruction of the route,
+which SURVIVES the re-derivation with the corrected bookkeeping.  The
+"<=>" of the Wave-8C scoreboard is retracted (the chain is sufficient,
+not necessary).
+
+THE HONEST GAPS (unchanged in kind, sharpened in address):
+  1. The CONVERSE is not claimed: if d_3(u_0) is surjective, e(E) = 0 and
+     the primary obstruction vanishes; a SECONDARY obstruction lives in
+     H^4(B_4;Z) (pi_3(S^2) = Z with TRIVIAL C_4-action: degree(-1) maps act
+     on pi_3 by (+1)^2), unpinned (the W15 cascade does not close), and
+     delta_1 could still equal 3/2 by other means -- or not; the paper's
+     bracket [4/3, 3/2] is unaffected either way.
+  2. P-delta_1 is not decidable at the page level: the mod-2 shadow (6) is
+     nonzero, and the RP^2 test case (B6) exhibits a nonzero-shadow
+     transgression that is SURJECTIVE -- no forcing either way.  Deciding
+     it is the Stage-3.5/4 business: pin d(F) (the Wave-17 d^2 = 0 mod 2
+     violation {5:18, 0:6}), the level-L fibres, the seam battery, then the
+     orbit SNF in degree 9 with untwisted Z (and the twisted complex in
+     degree 3 as the cross-check).
+  3. The necessary mod-2 condition H_9(B_4;F2) != 0 is consistent with the
+     Wave-17 orbit-skeleton fact H_9^orb(F2) = 1 (the base book), but the
+     transfer to the full B_4 needs the T^3-fiber SS (Stage-4).
+
+SCOREBOARD.  delta_1 (ququart) REMAINS OPEN -- now with a STABLE pinned
+predicate (six equivalent forms, premises labeled) instead of a chain whose
+statement could be invalidated by the next construction stage.  Qutrit
+verdict untouched: H_2(B_3) = Z/3, delta_2(D(C^3)) = 4/3.  Manuscripts
+untouched.
+
