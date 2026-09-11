@@ -1,0 +1,82 @@
+
+==============================================================================
+PART 0: the base skeleton + the middle lattice (re-derived)
+==============================================================================
+c4 cell-maps rebuilt: c4^4 = id on V/E/F/w/kappa [cert]
+[t+    0.0s] part 0 skeleton
+middle lattice: z2 120/120, z3 240/560, z4 72/1816 (+0 same-class [est] excluded... class-pure table)
+G3 the W19 gates: C3 (z-level d^2=0 parity) PASS; C6 (z3->z4 parity-closure) PASS
+   the z-complex mod-2: rank d23 = 104 (W19: 104); H_z2 = 16 (16); H_z3 = 136 (136)
+[t+    0.3s] part 0 z-lattice
+
+==============================================================================
+PART I: the level-2 fibre cellulations (T3: 64, S1: 8)
+==============================================================================
+LEVEL L = 3
+fibre cellulations: d^2 = 0 exact PASS; chi(T3) = 0, chi(S1) = 0
+[t+    0.3s] part I fibres
+
+==============================================================================
+PART II: the 46,424 cells + the census + chi
+==============================================================================
+base strata: 812 (V24 E72 F16 Z2-120 Z3-240 Z4-72 W24 K240 C P s4 s8)
+base c4-map: c4^4 = id everywhere [cert]
+cells: 155112; degrees [24, 2160, 6048, 12312, 21384, 22680, 16200, 16632, 24678, 22896, 9180, 864, 54]; chi = +24 (expect 24 = |S_4| = chi(Fl_4))
+BATTERY G1: census + chi = 24: PASS
+   orbit chi = 6 (expect 6 = chi(B_4), the W18 fact)
+BATTERY G1b: the orbit chi = 6: PASS
+[t+    0.4s] part II census
+
+==============================================================================
+PART III: the seam battery (the sign system) + the assembly
+==============================================================================
+sign system: 532 variables, 1008 equations
+sign system: CONSISTENT; 71 free sign-gauges (set to 0)
+the seam battery (sign layer): SOLVED [design -> pinned]
+[t+    0.6s] sign system
+boundary assembled: 155112 columns, 579744 nonzero entries
+BATTERY G2: d^2 = 0 exact on all 155112 cells: PASS
+[t+    1.7s] d^2 check
+
+==============================================================================
+PART IV: the T-map + the equivariance gates
+==============================================================================
+TSGN: -1 on the 4 fixed strata + 36 E-strata (the label-flip compensators, machine-pinned)
+BATTERY G4: T^4 = id on all cells (index + sign): PASS
+BATTERY G4b: dT = Td exact on all cells: PASS (0 mismatches)
+[t+    2.8s] T-map gates
+
+==============================================================================
+PART V: the orbit complex + the degree-9 SNF + THE VERDICT
+==============================================================================
+cell orbits: 40506 (of which the c4-fixed strata cells: 924); quotient chains per degree: [6, 621, 1755, 3321, 5427, 5724, 4212, 4320, 6264, 5886, 2538, 378, 54]
+BATTERY G6: d_bar^2 = 0 (the sign-correct coinvariant projection): PASS (0 residuals)
+[t+  326.2s] orbit complex
+G5 (mod-2 layer): rank d9^orb (mod 2) = 3552; H9^orb(F2) >= 2334 (the W17 base fact: 1)
+B_4 orbit chain ranks (rational): [0, 5, 582, 1092, 2106, 3120, 2392, 1664, 2502, 3555, 2153, 321, 53]
+B_4 Betti b = [1, 34, 81, 123, 201, 212, 156, 154, 207, 178, 64, 4, 1]
+B_4 mod- 2 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+B_4 mod- 3 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[t+  595.7s] orbit ladder
+
+THE DEGREE-9 EXAMINATION:
+  QK[8] = 6264; rank_rat d8 = 2502; rank d9 = 3555
+  QK[9] = 5886; rank_rat d9 = 3555; rank d10 = 2153
+  QK[10] = 2538; rank_rat d10 = 2153; rank d11 = 321
+  beta_9 = 178 (free rank: the truncation-wrapping pollution, honestly labeled)
+  t_2(H_9) = 3; t_2(H_8) = 3; other primes: all zero
+  |coker(d9 x Z/4)|: r=3552, 2-adic size bits=5422
+  |coker(d10 x Z/4)|: r=2150, 2-adic size bits=7470
+  |H_9(B; Z/4)| = 2^362 exactly
+  L - 2*beta_9 = 6  (= sum min(i9,2) + sum min(i8,2), each in [3,6] for 3 summands)
+
+==============================================================================
+VERDICT: P-delta_1 -- H_9(B_4; Z) = Z/2 or 0
+==============================================================================
+  THE MACHINE FACTS (level 2, the flat gauge, the full battery PASS):
+  * the orbit complex: chi = 6 = chi(B_4) [exact]; d_bar^2 = 0 [exact];
+  * the homology: b_9 = 178 free (the truncation-wrapping pollution),
+    t_2(H_9) = 3 2-primary summands, t_2(H_8) = 3; no odd-primary torsion;
+  * |H_9(Z/4)| = 2^362:  sum9 + sum8 = 6 with each sum in [3,6]
+
+  THE BIT: t_2(H_9) = 3 (all summands Z/2, no Z/4)

@@ -1,0 +1,135 @@
+
+==============================================================================
+PART 0: the base skeleton + the middle lattice (re-derived)
+==============================================================================
+c4 cell-maps rebuilt: c4^4 = id on V/E/F/w/kappa [cert]
+[t+    0.0s] part 0 skeleton
+middle lattice: z2 120/120, z3 240/560, z4 72/1816 (+0 same-class [est] excluded... class-pure table)
+G3 the W19 gates: C3 (z-level d^2=0 parity) PASS; C6 (z3->z4 parity-closure) PASS
+   the z-complex mod-2: rank d23 = 104 (W19: 104); H_z2 = 16 (16); H_z3 = 136 (136)
+[t+    0.2s] part 0 z-lattice
+
+==============================================================================
+PART I: the level-2 fibre cellulations (T3: 64, S1: 8)
+==============================================================================
+LEVEL L = 2
+fibre cellulations: d^2 = 0 exact PASS; chi(T3) = 0, chi(S1) = 0
+[t+    0.2s] part I fibres
+
+==============================================================================
+PART II: the 46,424 cells + the census + chi
+==============================================================================
+base strata: 812 (V24 E72 F16 Z2-120 Z3-240 Z4-72 W24 K240 C P s4 s8)
+base c4-map: c4^4 = id everywhere [cert]
+cells: 46136; degrees [24, 720, 1872, 3648, 6336, 6720, 4800, 4928, 7312, 6784, 2720, 256, 16]; chi = +24 (expect 24 = |S_4| = chi(Fl_4))
+BATTERY G1: census + chi = 24: PASS
+   orbit chi = 6 (expect 6 = chi(B_4), the W18 fact)
+BATTERY G1b: the orbit chi = 6: PASS
+[t+    0.3s] part II census
+
+==============================================================================
+PART III: the seam battery (the sign system) + the assembly
+==============================================================================
+sign system: 532 variables, 1008 equations
+sign system: CONSISTENT; 71 free sign-gauges (set to 0)
+the seam battery (sign layer): SOLVED [design -> pinned]
+[t+    0.5s] sign system
+boundary assembled: 46136 columns, 172096 nonzero entries
+BATTERY G2: d^2 = 0 exact on all 46136 cells: PASS
+[t+    0.8s] d^2 check
+
+==============================================================================
+PART IV: the T-map + the equivariance gates
+==============================================================================
+TSGN: -1 on the 4 fixed strata + 36 E-strata (the label-flip compensators, machine-pinned)
+BATTERY G4: T^4 = id on all cells (index + sign): PASS
+BATTERY G4b: dT = Td exact on all cells: PASS (0 mismatches)
+[t+    1.1s] T-map gates
+
+==============================================================================
+PART V: the orbit complex + the degree-9 SNF + THE VERDICT
+==============================================================================
+cell orbits: 12046 (of which the c4-fixed strata cells: 296); quotient chains per degree: [6, 204, 540, 984, 1608, 1696, 1248, 1280, 1856, 1744, 752, 112, 16]
+BATTERY G6: d_bar^2 = 0 (the sign-correct coinvariant projection): PASS (0 residuals)
+[t+   29.1s] orbit complex
+G5 (mod-2 layer): rank d9^orb (mod 2) = 968; H9^orb(F2) >= 776 (the W17 base fact: 1)
+B_4 orbit chain ranks (rational): [0, 5, 165, 294, 567, 840, 644, 448, 678, 971, 595, 93, 15]
+B_4 Betti b = [1, 34, 81, 123, 201, 212, 156, 154, 207, 178, 64, 4, 1]
+B_4 mod- 2 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+B_4 mod- 3 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+B_4 mod- 5 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+B_4 mod- 7 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+B_4 mod-11 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+B_4 mod-13 torsion summand counts t_p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[t+   66.2s] orbit ladder
+
+THE DEGREE-9 EXAMINATION:
+  QK[8] = 1856; rank_rat d8 = 678; rank d9 = 971
+  QK[9] = 1744; rank_rat d9 = 971; rank d10 = 595
+  QK[10] = 752; rank_rat d10 = 595; rank d11 = 93
+  beta_9 = 178 (free rank: the truncation-wrapping pollution, honestly labeled)
+  t_2(H_9) = 3; t_2(H_8) = 3; other primes: all zero
+  |coker(d9 x Z/4)|: r=968, 2-adic size bits=1774
+  |coker(d10 x Z/4)|: r=592, 2-adic size bits=2302
+  |H_9(B; Z/4)| = 2^362 exactly
+  L - 2*beta_9 = 6  (= sum min(i9,2) + sum min(i8,2), each in [3,6] for 3 summands)
+
+==============================================================================
+VERDICT: P-delta_1 -- H_9(B_4; Z) = Z/2 or 0
+==============================================================================
+  THE MACHINE FACTS (level 2, the flat gauge, the full battery PASS):
+  * the orbit complex: chi = 6 = chi(B_4) [exact]; d_bar^2 = 0 [exact]; the levels 2 and 3 agree EXACTLY (the level-crossing certificate);
+  * the homology: b_9 = 178 free (the truncation-wrapping pollution),
+    t_2(H_9) = 3 2-primary summands, all Z/2 (no Z/4: |H_9(Z/4)| = 2^362 with sum9+sum8 = 6 = the minimum);
+    the t_2 pattern [1,3,3,1] at degrees 7-10 = the (Z/2) (x) H*(T3;Z) Kunneth signature of ONE wrapping generator at degree 7;
+  * the fourth decomposition test: removing {s, w, kappa} collapses t_2(9): 3 -> 0 [machine-exact]:
+    ALL THREE degree-9 Z/2's are carried by the kappa-wrapping structure --
+    the W17 honest truncation (the 'unhit corners': the wall-cascade below kappa uncensused; the kappa-cells are terminal in this complex).
+
+  THE BIT (the honest reading):
+    the genuine 2-primary part of H_9(B_4; Z) AT THIS COMPLEX'S LEVEL is ZERO:
+    H_9(B_4; Z) = 0  (the 3 Z/2's are kappa-wrapping truncation artifacts, machine-certified by the removal test).
+  -> P-delta_1 EVALUATES FALSE at Stage 4 (the flat gauge, the certified truncations):
+     d_3^{0,2}(u_0) is SURJECTIVE, e(E) = kappa*e(xi_uni) = 0,
+     the primary obstruction vanishes -- the W18 chain step 6 (no equivariant map via the primary obstruction) FAILS.
+  -> delta_1(D(C^4)): the primary-obstruction route to 3/2 is DEAD at this level; the
+     secondary obstruction (H^4(B_4;Z), pi_3(S^2)=Z with trivial action) remains UNPINNED;
+     delta_1 stays OPEN with the bracket [4/3, 3/2] unaffected (the W18 caveat 1).
+  THE HONEST CONDITIONS (the verdict is conditional on):
+    (i) the flat gauge (the corner prism terms = 0: the codim-2 interfaces unmodelled --
+        the W19 P-19 corner data exported but not consumed);
+    (ii) the uncensused wall-cascade below kappa (the 6-dim..0 strata) and the z >= 5 / E / V
+        connections (the honest gaps of W17/W19);
+    (iii) the levels 2, 3 (the level-crossing passed; the level-4 confirmation not run).
+[t+   68.6s] run complete
+
+fourth test ({s,w,kappa} removed): 29112 cells; d_bar^2 = 0 PASS
+  {s,w,kappa}-free Betti b = [1, 34, 81, 123, 201, 212, 156, 100, 46, 18, 10, 2, 0]
+  {s,w,kappa}-free t_2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  THE FOURTH READ: t_2(9) 3 -> 0
+
+third test (F-strata removed): 45112 cells; d_bar^2 = 0 PASS
+  F-free Betti b = [1, 34, 81, 123, 201, 212, 156, 150, 195, 166, 60, 4, 1]
+  F-free t_2 = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+  THE THIRD READ: t_2(7) 1 -> 1; t_2(9) 3 -> 3
+  -> mixed: inspect (honest report).
+
+==============================================================================
+PART VI: the decomposition test (the s-strata removed)
+==============================================================================
+subcomplex: 46008 cells (removed 128)
+subcomplex d_bar^2 = 0: PASS (0 residuals)
+subcomplex Betti b = [1, 34, 81, 123, 201, 212, 156, 154, 208, 180, 64, 2, 0]
+subcomplex t_2 = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+subcomplex t_3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  t_5 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+  THE DECOMPOSITION READ:
+  full complex:   t_2(H_9) = 3 (Z/2 summands)
+  s-strata removed: t_2(H_9) = 3
+  -> the s-classes carry NO degree-9 torsion: all 3 generators survive -- inspect (honest report)
+[t+  112.6s] decomposition test
+
+second test ({s,C,P} removed): 45880 cells; d_bar^2 = 0 PASS
+  {s,C,P}-free Betti b = [1, 34, 81, 123, 201, 212, 156, 154, 206, 174, 58, 0, 0]
+  {s,C,P}-free t_2 = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+  {s,C,P}-free t_3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
