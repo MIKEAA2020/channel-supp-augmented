@@ -1,0 +1,113 @@
+==============================================================================
+PART 0: THE CYCLIC COHOMOLOGY ENGINE (C_4)
+==============================================================================
+[P0] the cyclic engine gates: H*(BC_4;Z) = (Z, 0, Z/4, 0, Z/4, ...);
+[P0]     H*(BC_4;Z~) = (0, Z/2, 0, Z/2, ...); H*(BC_4;F2) = F2/degree:
+[P0]     ALL PASS (the W18 facts re-derived: H^3(BC_4;Z~) = Z/2 [the
+[P0]     primary's universal target], H^4(BC_4;Z) = Z/4 [the p_1 slot])
+
+==============================================================================
+PART A: THE REP THEORY OF V = Sigma=0-REP OF THE 4-CYCLE
+==============================================================================
+[PA] the character of V: {0: 3, 1: -1, 2: -1, 3: -1} (e=3; sigma^k = -1 for k=1,2,3)
+[PA] det(sigma|V) = i * (-i) * (-1) = -1: the fiber action is
+[PA]     orientation-REVERSING on V (det -1) => deg = -1 on S^2, and
+[PA]     acts TRIVIALLY on pi_3(S^2) = Z by (-1)^2 = +1  [the W18
+[PA]     premise, re-derived machine-exactly]
+[PA] c(V (x) C) = (1+v)(1-v)(1+2v) = 1 + 2v - v^2 - 2v^3: c_1 = 2v, c_2 = -v^2, c_3 = -2v^3 [machine]
+[PA] p_1(V) = c_1^2 - 2c_2 = 6 v^2 = 2 v^2 (mod 4): the ORDER-2 class
+[PA]     of H^4(BC_4; Z) = Z/4 (v^2 the generator) [machine]
+[PA] w(V) = (1+u_2)(1+s): w_1 = s (the orientation character, NONZERO:
+[PA]     B_4 non-orientable, the W15/W18-certified Z~ class); w_2 = u_2;
+[PA]     w_3 = w_1 w_2 = s u_2 [machine]
+
+==============================================================================
+PART B: THE GROUP H^4(B_4; Z) (from the W21-certified homology)
+==============================================================================
+[PB] the W21-certified Betti (levels 2/3 identical, the level-crossing
+[PB]     certificate): b = [1, 34, 81, 123, 201, 230, 214, 188, 141, 86, 32, 4, 1]
+[PB]     t_2 = [1, 3, 3, 1] (the [1,3,3,1] window at degrees 7-10)
+[PB] the UCT: H^4(B_4; Z) = Hom(H_4, Z) (+) Ext(H_3, Z) = Z^201 (+) 0
+[PB] *** THE GROUP PIN: H^4(B_4; Z) = Z^201 FREE at the certified
+[PB]     levels 2/3 -- the secondary obstruction group has NO torsion
+[PB]     summand: the secondary obstruction at n=4 is NOT a Z/2-valued
+[PB]     class (the structural contrast with the primary Z/2 and with
+[PB]     the n=3 campaign's torsion-carried layers) ***
+[PB] the chi gate: chi(B_4) = 6 = chi(B_4) [the W18 fact]: PASS
+
+==============================================================================
+PART C: THE SECONDARY CLASS'S COMPUTABLE SHADOWS
+==============================================================================
+[PC] (i) THE TORSION-TO-FREE VANISHING: p_1(nu) = kappa* p_1(V) with
+[PC]     p_1(V) = 2v^2 in H^4(BC_4; Z) = Z/4 and H^4(B_4; Z) = Z^201
+[PC]     free: any homomorphism Z/4 -> Z^201 is ZERO => p_1(nu) = 0
+[PC]     EXACTLY [machine-exact group theory] ***
+[PC] (ii) THE BOCKSTEIN SHADOW: beta(w_3(nu)) is 2-torsion (the
+[PC]     Bockstein image); H^4 free => beta(w_3(nu)) = 0 EXACTLY
+[PC] (iii) THE WU SHADOW: Sq^1(w_2) = w_1 w_2 + w_3 = 2 w_3 = 0 mod 2
+[PC]     (w_3 = w_1 w_2, Part A); the model check: Sq^1(u_2) =
+[PC]     rho(beta(u_2)) with beta(u_2) in H^3(BC_4; Z) = 0 (the cyclic
+[PC]     engine gate) => Sq^1(w_2) = 0 [machine]
+[PC] (iv) THE FIBRE-RESTRICTION PREMISE [the W21 certificates]: the
+[PC]     left-equivariant polar lift (polar(t0 M) = t0 polar(M),
+[PC]     200/200) + the flat-gauge discharge + the drift-zero spot
+[PC]     checks: the section data over the fibre directions exists =>
+[PC]     the o_4 fibre-parts vanish; the o_4 support is base-type
+[PC] THE L(4,1) MODEL VALIDATION: kappa_L*(e(xi_univ)) in
+[PC]     H^3(L(4,1); Z~) = Z (free, L orientable) => 0 by the same
+[PC]     torsion-to-free mechanism: the model reproduces the B_4
+[PC]     p_1-vanishing structure [machine-exact group theory]
+
+==============================================================================
+PART D: THE PINNED PREDICATE P-delta_1^sec + THE VERDICT
+==============================================================================
+[PD] THE OBSTRUCTION CHAIN (the W18 chain, the secondary slot pinned):
+[PD]   o_3 = e(E) = kappa* e(xi_univ) in H^3(B_4; Z~)   [the primary:
+[PD]        the P-delta_1 bit -- RE-OPEN after W20 (conditional-FALSE)
+[PD]        un-hardened) / W21 (the [1,3,3,1] survives the cascade)]
+[PD]   o_4 in H^4(B_4; Z) = Z^201 FREE             [the secondary, THIS
+[PD]        ROUND: the group pinned, every computable shadow ZERO]
+
+[PD] *** THE PINNED PREDICATE (P-delta_1^sec), equivalent forms:
+[PD]   (1) o_4 = 0: the section of E extends over the 4-skeleton
+[PD]       (given e(E) = 0);
+[PD]   (2) the characteristic-shadow form: p_1(nu) = 0 AND beta(w_3)
+[PD]       = 0 AND Sq^1(w_2) = 0 (all machine-exact) -- the secondary
+[PD]       CANNOT be detected or killed by characteristic classes;
+[PD]   (3) the structural form: the finite structure group C_4 forces
+[PD]       the universal p_1 (a Z/4-class) to pull back to ZERO in
+[PD]       the free H^4: the secondary's only possible nonzero part
+[PD]       is the FREE Hopf-class residual (the 4-skeleton section-
+[PD]       extension data), invisible to every characteristic class;
+[PD]   (4) the decision scope: P-delta_1^sec is decidable ONLY by the
+[PD]       4-skeleton obstruction-chain construction on the 932-
+[PD]       stratum complex (the S^2-fiber cocycle model over the
+[PD]       certified 4-skeleton) = THE STAGE-5 TARGET. ***
+
+[PD] THE HONEST GAPS (labeled):
+[PD]   (i) the free residual: H^4(B_4; Z) = Z^201 free means the
+[PD]       secondary is NOT forced to vanish; a free class could
+[PD]       still obstruct (a NONZERO o_4 is ANOTHER sufficient route
+[PD]       to delta_1 = 3/2, parallel to the primary);
+[PD]   (ii) the levels: the group is pinned at the certified levels
+[PD]       2/3 (the W21 level-crossing certificate); the level-4
+[PD]       cross-check remains the standing honest condition;
+[PD]   (iii) the chain beyond: even o_4 = 0 does NOT finish the
+[PD]       section problem on the 12-manifold (the higher obstruction
+[PD]       groups pi_4(S^2) = Z/2 at H^5, pi_5(S^2) = Z/2 at H^6,
+[PD]       pi_6(S^2) = Z/12 at H^7, ... -- the Stage-5+ scope).
+
+[PD] *** THE VERDICT: THE SECONDARY OBSTRUCTION IS PINNED to its
+[PD]     free Hopf-class residual: the group is Z^201 free (no torsion
+[PD]     secondary at the certified levels), every characteristic-class
+[PD]     shadow vanishes machine-exactly (the torsion-to-free theorem:
+[PD]     p_1(nu) = 0; beta(w_3) = 0; Sq^1(w_2) = 0), and the W21
+[PD]     equivariant-lift certificates kill the fibre-parts: the
+[PD]     secondary route to delta_1 = 3/2 is ALIVE-BUT-INVISIBLE --
+[PD]     decidable only by the Stage-5 4-skeleton construction, by
+[PD]     which point it would run in parallel with the primary's own
+[PD]     Stage-5 decision.  The bracket [4/3, 3/2] is intact either
+[PD]     way. ***
+
+=== WAVE 22 SECONDARY PIN: ALL GATES PASSED ===
+SECONDARY_OK

@@ -1,0 +1,62 @@
+{
+ "part0": {
+  "H3_BC4_Ztwist": "Z/2",
+  "H4_BC4_Z": "Z/4"
+ },
+ "partA": {
+  "character": {
+   "0": 3,
+   "1": -1,
+   "2": -1,
+   "3": -1
+  },
+  "det_sigma_V": -1,
+  "c1": 2,
+  "c2": -1,
+  "c3": -2,
+  "p1_v_squared": 2,
+  "w": [
+   "s",
+   "u_2",
+   "s*u_2"
+  ]
+ },
+ "partB": {
+  "betti": [
+   1,
+   34,
+   81,
+   123,
+   201,
+   230,
+   214,
+   188,
+   141,
+   86,
+   32,
+   4,
+   1
+  ],
+  "b4": 201,
+  "H4": "Z^201 (free)",
+  "chi": 6
+ },
+ "partC": {
+  "p1_nu": 0,
+  "beta_w3": 0,
+  "sq1_w2": 0,
+  "fibre_restriction": "the W21 certificates",
+  "model": "L(4,1) torsion-to-free validated"
+ },
+ "partD": {
+  "predicate": "P-delta_1^sec",
+  "forms": [
+   "o_4 = 0",
+   "all characteristic shadows zero",
+   "the free Hopf-class residual only",
+   "the Stage-5 4-skeleton construction decides"
+  ],
+  "verdict": "ALIVE-BUT-INVISIBLE (pinned to the free residual)",
+  "bracket": "[4/3, 3/2] intact"
+ }
+}

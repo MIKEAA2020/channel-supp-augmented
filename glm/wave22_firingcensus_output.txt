@@ -1,0 +1,228 @@
+==============================================================================
+PART 0: THE A3 / Gamma_4 CHARACTER THEORY (n=4)
+==============================================================================
+[P0] Gamma_4 = Lambda_4/2Lambda_4: 8 elements (even-sum quads): OK
+[P0] the character group: 8 characters = 4 dot + 4 exotic
+[P0] *** THE RADICAL THEOREM: rad(<,>) = {0, (1,1,1,1)}: the rho-quad
+[P0]     is the radical => psi_{rho-class} = TRIVIAL at n=4 (the n=3
+[P0]     V-character slot collapses; the pairing is degenerate: 8/2=4
+[P0]     distinct dot characters) [machine-exact] ***
+[P0] the 6 roots -> 3 distinct characters: {'a1': 'psi_3', 'a2': 'psi_6', 'a3': 'psi_3', 'a12': 'psi_5', 'a23': 'psi_5', 'a123': 'psi_6'}
+[P0] *** THE RADICAL COLLAPSE: a1~a3, a2~a123, a12~a23 as characters ***
+[P0] *** THE PARTIAL E/V COLLAPSE: of the 3 firing books, TWO are pure
+[P0]     (psi1 = the outer simples a1,a3; psi12 = the middle composites
+[P0]     a12,a23) and ONE is MIXED (psi2 = the middle simple a2 with
+[P0]     the HIGHEST root a123): the A2 E/V split (simple vs highest-root
+[P0]     V) does NOT lift cleanly -- the highest root, the A2 V-slot's
+[P0]     own root, fires in the MIDDLE SIMPLE's book at n=4, and the
+[P0]     rho-character itself collapses to the TRIVIAL book (the radical) ***
+[P0] the 8 characters: dot = {triv, psi1, psi2, psi12}; exotic = ['xi_1', 'xi_2', 'xi_3', 'xi_4']
+[P0] THE CELL-CHARACTER CENSUS (chi_w = psi_{w rho - rho}, all 24):
+[P0]   psi1:  8 cells  (lengths [1, 1, 2, 2, 4, 4, 5, 5])
+[P0]   psi2:  8 cells  (lengths [1, 2, 2, 3, 3, 4, 4, 5])
+[P0]   triv:  8 cells  (lengths [0, 2, 3, 3, 3, 3, 4, 6])
+[P0] *** the cell characters are ALL DOT characters (structural: chi_w
+[P0]     = psi_{w rho - rho} is a lattice dot product) ***
+[P0] *** THE ORPHAN-LAYER CENSUS:
+[P0]     full orphans (never a cell character, never a firing label): ['xi_1', 'xi_2', 'xi_3', 'xi_4']
+[P0]     HALF ORPHANS (a firing label-book with NO cell carrier -- the
+[P0]     n=3 psi_rho phenomenon): ['psi12'] ***
+[P0] *** THE PSI12-ORPHAN THEOREM: the pure MIDDLE-COMPOSITE root book
+[P0]     (labels a12, a23) has ZERO cell carriers: the A2 V-orphan
+[P0]     pattern (a composite-root firing book with no cells) REPRODUCES
+[P0]     at A3 in the psi12 book -- with the twist that the HIGHEST root
+[P0]     a123 escapes into the mixed book psi2 (the radical collapse),
+[P0]     so the n=4 V-analog is the MIDDLE-composite pair, not the top ***
+[t+    0.0s] part 0 character theory
+
+==============================================================================
+PART A: THE FIRING CENSUS (the GKM/weak-order book x the 8 books)
+==============================================================================
+[PA] the weak-order Hasse edges: 36 (the GKM graph of Fl_4)
+[PA] THE DESCENT-IDENTITY GATE: chi_u . chi_w = psi_label on all 36 edges: PASS
+[PA] the book labels (the E/N/V/X split): {'psi1': 'E', 'psi12': 'V', 'psi2': 'E', 'triv': 'N', 'xi_1': 'X', 'xi_2': 'X', 'xi_3': 'X', 'xi_4': 'X'}
+[PA] the label census (36 edges): {'psi1': 12, 'psi2': 12, 'psi12': 12}
+[PA]   book psi1: 12 edges (labels ['a1', 'a1', 'a1', 'a1', 'a1', 'a1', 'a3', 'a3', 'a3', 'a3', 'a3', 'a3'])
+[PA]   book psi2: 12 edges (labels ['a123', 'a123', 'a123', 'a123', 'a123', 'a123', 'a2', 'a2', 'a2', 'a2', 'a2', 'a2'])
+[PA]   book psi12: 12 edges (labels ['a12', 'a12', 'a12', 'a12', 'a12', 'a12', 'a23', 'a23', 'a23', 'a23', 'a23', 'a23'])
+[PA] E/V-ANALOG THEOREM (the n=4 form): the firing books = psi1 (the
+[PA]     outer-simple labels, PURE), psi2 (the MIXED book: the middle
+[PA]     simple a2 with the highest root a123), psi12 (the middle-
+[PA]     composite labels, PURE -- the HALF-ORPHAN book: it fires but
+[PA]     has no cell carriers); the trivial book never fires; the 4
+[PA]     exotic books never fire.  THE n=3 E/V STRUCTURE LIFTS WITH
+[PA]     THE TWIST: the composite labels split between the mixed book
+[PA]     (the highest root) and the orphan book (the middles).
+[PA] d(F)^psi1 = 8*<l=5 cell> + 8*<l=5 cell>
+[PA] d(F)^psi12 = 0
+[PA] d(F)^psi2 = 8*<l=5 cell>
+[PA] d(F)^triv = 0
+[PA] d(F)^xi_1 = 0
+[PA] d(F)^xi_2 = 0
+[PA] d(F)^xi_3 = 0
+[PA] d(F)^xi_4 = 0
+[PA] the w0-covering labels: ['a1', 'a2', 'a3']
+[PA] *** THE MOD-2 VANISHING: every firing coefficient is 8 = 0 mod 2:
+[PA]     d(F) is a mod-2 cycle TRIVIALLY; the primary-obstruction route
+[PA]     (the delta_1 diagonal through the firing pairing) is dead at
+[PA]     n=4 exactly as it was dead in the W19-cScope analog book ***
+[PA] THE E72 LABEL CENSUS (the 932-book's edge strata, from the W17
+[PA]     JSON blocks): {'psi1': 24, 'psi12': 24, 'psi2': 24}
+[t+    0.0s] part A firing census
+
+==============================================================================
+PART B: THE PER-BOOK TWISTED HOMOLOGIES (sigma-coinvariant books)
+==============================================================================
+[PB] the book degrees: [0, 2, 4, 6, 8, 10, 12] (cell counts [1, 3, 5, 6, 5, 3, 1])
+[PB] THE FIRED-2-PATH CENSUS: 12 chained triples over 6 (u,w,sigma)
+[PB]     (at n=3 the W19 had ZERO -- the no-chaining luck; at n=4 the
+[PB]      chains exist: the sign layer is REQUIRED)
+[PB] THE PARITY GATES: every fired 2-path count is EVEN: PASS (no 13C-style obstruction at the book level)
+[PB] the sign system: 36 variables, 6 equations
+[PB] THE BOOK SIGN SYSTEM: CONSISTENT, 30 free sign-gauges (set to 0) -- the W20/W21 seam-battery pattern one level down: CLOSES [cert]
+[PB] THE SIGNED d^2 = 0 GATE on every book (all degrees): PASS
+[PB] book psi1 [E]: H_0 = Z/8; H_2 = Z^1 (+) Z/8; H_4 = Z^2 (+) Z/8 + Z/8; H_6 = Z^2 (+) Z/8 + Z/8; H_8 = Z^2 (+) Z/8; H_10 = Z^1 (+) Z/8
+[PB] book psi12 [V]: H_0 = Z^1; H_2 = Z/8 + Z/8 + Z/8; H_4 = Z^1 (+) Z/8; H_6 = Z^4 (+) Z/8; H_8 = Z^1 (+) Z/8 + Z/8 + Z/8; H_12 = Z^1
+[PB] book psi2 [E]: H_0 = Z/8; H_2 = Z^2; H_4 = Z^2 (+) Z/8 + Z/8 + Z/8; H_6 = Z/8 + Z/8 + Z/8; H_8 = Z^2; H_10 = Z^2 (+) Z/8
+[PB] book triv [N]: H_0 = Z^1; H_2 = Z^3; H_4 = Z^5; H_6 = Z^6; H_8 = Z^5; H_10 = Z^3; H_12 = Z^1
+[PB] book xi_1 [X]: H_0 = Z^1; H_2 = Z^3; H_4 = Z^5; H_6 = Z^6; H_8 = Z^5; H_10 = Z^3; H_12 = Z^1
+[PB] book xi_2 [X]: H_0 = Z^1; H_2 = Z^3; H_4 = Z^5; H_6 = Z^6; H_8 = Z^5; H_10 = Z^3; H_12 = Z^1
+[PB] book xi_3 [X]: H_0 = Z^1; H_2 = Z^3; H_4 = Z^5; H_6 = Z^6; H_8 = Z^5; H_10 = Z^3; H_12 = Z^1
+[PB] book xi_4 [X]: H_0 = Z^1; H_2 = Z^3; H_4 = Z^5; H_6 = Z^6; H_8 = Z^5; H_10 = Z^3; H_12 = Z^1
+[PB] *** THE ORPHAN-BOOK THEOREM (the two-tier form):
+[PB]   (a) the 4 EXOTIC books carry ZERO firing boundary, hence FREE
+[PB]       homology: nothing at all is dropped there;
+[PB]   (b) the PSI12 half-orphan book FIRES (12 edges) and carries
+[PB]       Z/8-torsion at the complex level -- the EXACT n=3 V-book
+[PB]       parallel (the W19 psi_rho-book with its (Z/4)^2 at H_2):
+[PB]       the silently-dropped layer EXISTS WITH TORSION at n=4 ***
+[PB]   the psi12-book torsion: {2: [8, 8, 8], 4: [8], 6: [8], 8: [8, 8, 8]}
+[t+    0.2s] part B per-book homologies
+
+==============================================================================
+PART C: T_4 = THE A3 BOOK x KOSZUL(GAMMA_4) (the analog total complex)
+==============================================================================
+[PC] T_4 basis: 3816 generators (degrees 0..13)
+[PC] D^2 = 0 EXACT on all 3816 generators: PASS
+[PC] THE BLOCK-DECOMPOSITION GATE: D maps each cell-block to itself:
+[PC]     H_n(T_4) = direct sum over w of H_{n-2 l(w)}(Gamma_4; Z_chi_w)
+[PC] the trivial-module block anchors: H_0 = Z, H_1 = (Z/2)^3: PASS
+[PC] THE HONEST HOMOLOGY OF T_4 (the block sum), degrees 0..13:
+[PC]   H_0(T_4): Z^1
+[PC]   H_1(T_4): Z^0  tors: [2, 2, 2]   [Z/2 x 3, Z/4 x 0]
+[PC]   H_2(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2]   [Z/2 x 6, Z/4 x 0]
+[PC]   H_3(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 13, Z/4 x 0]
+[PC]   H_4(T_4): Z^1  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 24, Z/4 x 0]
+[PC]   H_5(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 42, Z/4 x 0]
+[PC]   H_6(T_4): Z^4  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 63, Z/4 x 0]
+[PC]   H_7(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 104, Z/4 x 0]
+[PC]   H_8(T_4): Z^1  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 140, Z/4 x 0]
+[PC]   H_9(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 203, Z/4 x 0]
+[PC]   H_10(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 261, Z/4 x 0]
+[PC]   H_11(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 347, Z/4 x 0]
+[PC]   H_12(T_4): Z^1  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 428, Z/4 x 0]
+[PC]   H_13(T_4): Z^0  tors: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]   [Z/2 x 540, Z/4 x 0]
+[PC] THE SUPPORT-DESCENT NO-CUT TEST: all degree-9 generators lie
+[PC]     strictly below the diagonal (l + m >= 5 > 3): H_9 unrestricted
+[PC]     -- the restriction does NOT cut degree 9 (the (e)-analog)
+[PC] THE DEGREE-9 PROVENANCE DECOMPOSITION (per cell, per book):
+[PC]   l=0 chi=triv    [N]: H_9(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=1 chi=psi1    [E]: H_7(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=1 chi=psi2    [E]: H_7(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=1 chi=psi1    [E]: H_7(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=2 chi=psi2    [E]: H_5(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=2 chi=psi1    [E]: H_5(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=2 chi=triv    [N]: H_5(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=2 chi=psi1    [E]: H_5(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=2 chi=psi2    [E]: H_5(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=triv    [N]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=triv    [N]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=psi2    [E]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=psi2    [E]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=triv    [N]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2]
+[PC]   l=3 chi=triv    [N]: H_3(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2]
+[PC]   l=4 chi=psi2    [E]: H_1(Gamma_4; Z_chi) = Z^0 (+) [2, 2]
+[PC]   l=4 chi=psi1    [E]: H_1(Gamma_4; Z_chi) = Z^0 (+) [2, 2]
+[PC]   l=4 chi=triv    [N]: H_1(Gamma_4; Z_chi) = Z^0 (+) [2, 2, 2]
+[PC]   l=4 chi=psi1    [E]: H_1(Gamma_4; Z_chi) = Z^0 (+) [2, 2]
+[PC]   l=4 chi=psi2    [E]: H_1(Gamma_4; Z_chi) = Z^0 (+) [2, 2]
+[PC] *** THE DEGREE-9 DECISION (the untruncated n=4 analog):
+[PC]     t_2(9)(T_4) = 203 (all plain Z/2, no Z/4) ***
+[PC]     book psi1 [E]: Z/2-count 68 (other torsion 0)
+[PC]     book psi2 [E]: Z/2-count 60 (other torsion 0)
+[PC]     book triv [N]: Z/2-count 75 (other torsion 0)
+[PC] the E/N/X split: E=128  N=75  X=0  (the n=3 analog read E:14 N:9 V:0; at n=4 there is NO V book -- the radical theorem)
+[t+   19.7s] part C total complex
+
+==============================================================================
+PART D: THE 932-STRATUM BOOK (the character census of the strata)
+==============================================================================
+[PD] the 932-stratum book: V24 E72 + the T3-fibred {'F': 16, 'Z2': 120, 'Z3': 240, 'Z4': 72, 'W': 24, 'K': 192, 'T': 96, 'Q': 72, 'C': 1, 'P': 1, 's4': 1, 's8': 1} = 932
+[PD] the kappa-corners re-derived: 144 shared-diffk + 48 disjoint = 192
+[PD]     (the 48 same-k shared removed -- the W21 same-k theorem,
+[PD]     re-verified against the committed W17 corner data: PASS)
+[PD] THE KAPPA-DESCENT CENSUS (the 192 corners' root-sum characters):
+[PD]   ('psi1', 'shared'): 48
+[PD]   ('psi12', 'shared'): 48
+[PD]   ('psi2', 'shared'): 48
+[PD]   ('triv', 'disjoint'): 48
+[PD] *** THE STAR/QUAD TELESCOPING THEOREMS: all 96 tau-strata carry
+[PD]     the descent character TRIVIAL (the 3-wall shared-row sum =
+[PD]     the radical quad); all 72 q-strata carry TRIVIAL (the C4 sum
+[PD]     telescopes to 0 exactly) [machine-exact] ***
+[PD] THE W21 DECOMPOSITION BATTERY (committed, re-read): {'T1_s': 3, 'T2_sCP': 3, 'T3_F': 3, 'T4_sw': 0, 'T5_swK': 0, 'T6_swKTQ': 0}
+[PD] *** THE WRAPPING GENERATOR'S BOOK: the [1,3,3,1] layer is carried
+[PD]     by the cascade chain s->w->kappa->tau whose strata are ALL
+[PD]     TRIVIAL-book (the gauge + the telescoping theorems): the
+[PD]     degree-7 wrapping generator is a TRIVIAL-book class; its
+[PD]     (Z/2) (x) H*(T3) family is the UNTWISTED fibre book -- the
+[PD]     n=3->n=4 PROVENANCE FLIP (the n=3 analog read E:14/N:9/V:0;
+[PD]     the n=4 certified layer reads N(triv)-carried) ***
+[t+   19.7s] part D the 932-book engagement
+
+==============================================================================
+PART E: THE ORPHAN-LAYER ADJUDICATION + THE VERDICT
+==============================================================================
+[PE] THE PSI12-ORPHAN DROPPED BLOCKS (the counterfactual census):
+[PE]   H_9(Gamma_4; Z_psi12) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  [DROPPED: no psi12 cells]
+[PE]   H_7(Gamma_4; Z_psi12) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  [DROPPED: no psi12 cells]
+[PE]   H_5(Gamma_4; Z_psi12) = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  [DROPPED: no psi12 cells]
+[PE]   H_3(Gamma_4; Z_psi12) = Z^0 (+) [2, 2, 2, 2, 2, 2]  [DROPPED: no psi12 cells]
+[PE]   H_1(Gamma_4; Z_psi12) = Z^0 (+) [2, 2]  [DROPPED: no psi12 cells]
+[PE]   the dropped 2-primary content over the degree-9 window: 70 x Z/2
+[PE] the exotic module Z_xi_1: H_0 = (0, [2]); H_1 = (0, [2, 2]); H_2 = (0, [2, 2, 2, 2])
+[PE] the exotic module Z_xi_2: H_0 = (0, [2]); H_1 = (0, [2, 2]); H_2 = (0, [2, 2, 2, 2])
+[PE] the exotic module Z_xi_3: H_0 = (0, [2]); H_1 = (0, [2, 2]); H_2 = (0, [2, 2, 2, 2])
+[PE] the exotic module Z_xi_4: H_0 = (0, [2]); H_1 = (0, [2, 2]); H_2 = (0, [2, 2, 2, 2])
+[PE] the psi12-ORPHAN BOOK complex (the W19 V-book analog): torsion at degrees {2: [8, 8, 8], 4: [8], 6: [8], 8: [8, 8, 8]}
+
+[PE] *** THE ORPHAN-LAYER ADJUDICATION (the decisive answer):
+[PE]   (i) THE QUESTION ANSWERED: the n=4 book DOES possess the
+[PE]       silently-dropped layer -- the psi12 book (the pure
+[PE]       middle-composite root labels a12/a23): it FIRES (the
+[PE]       descent edges exist, in both the GKM-36 and the E72) but
+[PE]       ZERO of the 24 cells carry it (the chi_w image =
+[PE]       {triv, psi1, psi2} exactly -- the machine census): the A2
+[PE]       psi_rho-orphan pattern REPRODUCES at A3;
+[PE]   (ii) the dropped content censused: the psi12 Gamma_4-blocks
+[PE]       carry 70 x Z/2 over the degree-9 window; the psi12 BOOK
+[PE]       complex carries {2: [8, 8, 8], 4: [8], 6: [8], 8: [8, 8, 8]} -- the layer is NOT empty;
+[PE]   (iii) the structural certificate: the drop is CORRECT -- the
+[PE]       cell characters chi_w = psi_{w rho - rho} are structurally
+[PE]       confined to the dot-image, and the chi-image excludes psi12
+[PE]       exactly as the n=3 chi-image excluded psi_rho; no V-layer
+[PE]       removal changes the complex (the V-correction vacuity, the
+[PE]       W19-(d) analog: verified -- no cells to remove);
+[PE]   (iv) THE VERDICT: the re-open reading SURVIVES the orphan test:
+[PE]       the silently-dropped psi12 layer exists (the W19 tension (ii)
+[PE]       was justified!) but its absence from the complex is the
+[PE]       honest structure, machine-certified; the degree-9 count and
+[PE]       the [1,3,3,1] certified layer are unaffected -- the E/N
+[PE]       provenance split of the real cells stands. ***
+[PE] THE V-CORRECTION VACUITY TEST (the W19-(d) analog): 0 cells carry
+[PE]     psi12: the corrected complex EQUALS the as-booked complex: NO
+[PE]     PSI12-ARTIFACT EXISTS AT ANY DEGREE [machine]
+[PE] VERDICT: ORPHAN-LAYER ANSWERED: YES -- the n=4 book possesses the silently-dropped psi12 layer (the middle-composite firing book with zero cell carriers, the A2 psi_rho pattern reproduced); its dropped blocks carry 70 x Z/2 over the degree-9 window; the drop is structurally correct (the chi-image theorem); the re-open verdict survives.
+
+=== WAVE 22 FIRING-CENSUS PORT: ALL GATES PASSED ===
+FIRINGCENSUS_OK
