@@ -1,4 +1,4 @@
-# GLM contributions (waves 1-7)
+# GLM contributions (waves 1-25)
 
 This folder collects this assistant's deliverables for the
 `channel-supp-augmented` project. The original `manuscript uploads/` and
@@ -6,10 +6,13 @@ This folder collects this assistant's deliverables for the
 versions of the manuscripts in `manuscript uploads v3/`; wave 5 applied the
 flat-width attack as new versions (v4) in `manuscript uploads v4/`; wave 6
 completed the attack as new versions (v5) in `manuscript uploads v5/`; wave 7
-closed the bottom index as new versions (v6) in `manuscript uploads v6/`.
+closed the bottom index as new versions (v6) in `manuscript uploads v6/`; wave 25
+integrated the machine-certified core --- the audited `H_2(B_3) = Z/3` ⟹ `delta_2 = 4/3`
+chain of Waves 13C/24 --- as new versions (v7) in `manuscript uploads v7/`.
 
 | Path | What it is |
 |---|---|
+| `WAVE25_MANUSCRIPT_INTEGRATION.md` | **Wave 25.** The certified core integrated into the manuscripts as v7: the lemma `lem:flag-cohomology` (H₃(B) = H₄(B) = ℤ/3 with x² generating H⁴; the CLSS total-3/4 page derived by hand, the d₃ bit not page-decidable, the decision machine-certified) with `rem:machine-certificate` (the 14,910-cell battery, the four external anchors, the lens/ℝP²×S² model-case validation, the honest residuals, the repository pointer); the plane-valued equal-value-basis theorem `thm:equal-basis-plane` (the r=2 telescoping H: Fl → ℝ⁴ with T = T₁⊗I₂, the paper's own conjugate-then-normalize step one level up, the section of L⊕L, e = c₂ = x² ≠ 0); the second-index width theorem `thm:state-d2` (δ₂ ≥ 4/3 for every d_B ≥ 3, exactly 4/3 at the qutrit, [4/3, 2(1−1/d_B)] at d_B ≥ 4) with the decoder-scope remark; the consistency edits at seven further places (intro, roadmap, `cor:flat-fails`, `rem:flat-status` (open range r ≥ 3), `con:coord-flat` corrected a second time (clause r ≥ 3), conclusion, open problems ((v) updated, (vi) new)); the main article's open-problem (1) sync clause. Both v7 papers compiled with tectonic (47/46 pages, no errors). |
 | `WAVE7_FLAT_WIDTH_ATTACK_3.md` | **Wave 7 (this round).** The two residual state-space cases closed in the negative direction via the **equal-value-basis theorem** (`thm:equal-basis`: every continuous `f` on the qutrit's pure states admits an orthonormal basis with all three values equal — flag manifold, `ℤ/3` cycle, telescoping `H`-map, Chern-class obstruction on the flag quotient): `δ₁(D(ℂ³)) = 4/3` **exactly**, `δ₁(D(ℂ⁴)) ≥ 4/3` (bracket `[4/3, 3/2]`, linear encoders provably ≥ `3/2`), so the `con:coord-flat` flat direction **fails at `r = 1` for every `d_B ≥ 3`** and the conjecture is corrected by the clause `(d_B ≤ 2 or r ≥ 2)`. The bottom index `r = 1` is **classified completely** (`cor:bottom-dichotomy`); every surviving `d_B ≥ 3` flatness is gated by the state-space widths through the new concentration gate (`lem:slice-gate`), smallest unknown `δ₂` of the qutrit. Channel open-problem-1 residual closed. Ququart exactness posed with the `d₃` transgression identified as the hinge. |
 | `WAVE6_FLAT_WIDTH_ATTACK_2.md` | **Wave 6.** The flat-width attack completed: switching from slot-counting to **coordinate**-counting (`nd_B` flags) yields the **coordinate dichotomy** — `δ_r = 1` iff `nd_B ≤ 2r+2`, proved for `d_B ∈ {1,2}` (complete classical and qubit dichotomies), with `δ_r ≥ 4/3` proved below the diagonal for every `d_B` (elementary median matching at `r = 1`, topological Tverberg at `r ≥ 2`), `δ₁(Δ₄) = 4/3` and `δ_r(2r+3) = 4/3` exactly, `δ_{n−1} = 2(1−1/d_B)` exactly for prime-power `d_B`, the qubit flat threshold improved to `r ≥ n−1`, the v4 refined conjecture refuted at `r ≥ 2`, the channel-level `n = 1` instance refuted for `d_B ≥ 5`, and the corrected statement posed as `con:coord-flat`. |
 | `WAVE5_FLAT_WIDTH_ATTACK.md` | **Wave 5.** The flat-width conjecture `con:flat-d1` attacked via the simplex sub-case: **refuted** at the bottom index (`δ₁ ≥ 4/3` for `n ≥ 5`, every `d_B`, full elementary proof), flatness **proved** on the upper half of the subcritical range for classical outputs and from latent dimension `n` for qubit outputs, and the refined statement posed as `con:flat-refined`. Also records the 54-claims ledger reconciliation. |
@@ -19,7 +22,13 @@ closed the bottom index as new versions (v6) in `manuscript uploads v6/`.
 | `wave 1 report/` | **Wave 1.** Line-level review of both manuscripts (docx + pdf). Findings are folded into the wave-3 report's consolidated list. |
 | `synthesis paper/` | **Wave 0 (earlier rounds).** Corrected synthesis paper (tex + compiled pdf); the tex is identical to `gpt round two/glm_CORRECTED_SYNTHESIS_PAPER2.tex` already in this repo. |
 
-The current manuscripts live in `../manuscript uploads v6/`
-(`instruments-paper-revised6.txt/.pdf`, `main-article-revised6.txt/.pdf`);
-the previous corrected versions are in `../manuscript uploads v5/`,
-`../manuscript uploads v4/` and `../manuscript uploads v3/`.
+The current manuscripts live in `../manuscript uploads v7/`
+(`instruments-paper-revised7.txt/.pdf`, `main-article-revised7.txt/.pdf`);
+the previous corrected versions are in `../manuscript uploads v6/`,
+`../manuscript uploads v5/`, `../manuscript uploads v4/` and
+`../manuscript uploads v3/`.
+
+Waves 8–24 --- the CLSS verification, the 13B/13C cellulation campaign, the
+theory-wave line, the n=4 program (Waves 17–23), the external merit audit, and
+the Wave-24 bridge audit --- live in this folder as `WAVE*.md` notes with their
+scripts, outputs, and data files; the table above lists the manuscript rounds.
