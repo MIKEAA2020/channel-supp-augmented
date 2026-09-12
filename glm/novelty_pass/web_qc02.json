@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Quantum depolarizing channel",
+    "snippet": "A quantum depolarizing channel is a model for quantum noise in quantum systems. as a completely positive trace-preserving map … channels that can exploit  ...",
+    "host_name": "en.wikipedia.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Geometry of generalized depolarizing channels | Phys. Rev. A",
+    "snippet": "by CK Burrell · 2009 · Cited by 15 — A generalized depolarizing channel acts on an N -dimensional quantum system to compress the “Bloch ball ” in N 2 − 1 directions; it has a corresponding ...",
+    "host_name": "link.aps.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Geometry of Generalized Depolarizing Channels",
+    "snippet": "A generalized depolarizing channel acts on an N N -dimensional quantum system to compress the “Bloch ball ” in N 2 − 1 N^{2}-1 directions; it has a corresponding",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum-journal.org",
+    "name": "On the complementary quantum capacity of",
+    "snippet": "by D Leung · 2017 · Cited by 32 — We show that its complementary channel has positive quantum capacity for all η>0 η > 0 . Thus, we find that there exists a single parameter ...",
+    "host_name": "quantum-journal.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Action of a depolarizing channel on the Bloch ball.",
+    "snippet": "Action of a depolarizing channel on the Bloch ball . The Bloch ball (outer ball of unit radius) is shown in white. The image is plotted in red.",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://ui.adsabs.harvard.edu",
+    "name": "Depolarizing behavior of quantum channels in higher",
+    "snippet": "by E Magesan · 2010 · Cited by 13 — The paper analyzes the behavior of quantum channels , particularly in large dimensions, by proving various properties of the quantum gate fidelity.",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "Depolarizing behavior of quantum channels in higher",
+    "snippet": "The paper analyzes the behavior of quantum channels , particularly in large dimensions, by proving various properties of the quantum gate fidelity, ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.rintonpress.com",
+    "name": "mixing doubly stochastic quantum channels with the",
+    "snippet": "by J WATROUS · 2009 · Cited by 32 — It follows that within the space of doubly stochastic quantum channels , there is a ball with positive radius around the completely depolarizing channel within ... 8 pages",
+    "host_name": "www.rintonpress.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

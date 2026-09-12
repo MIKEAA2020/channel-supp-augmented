@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://link.aps.org",
+    "name": "Quantum counterpart of equipartition theorem - APS Journals",
+    "snippet": "by XH Tong · 2024 — The equipartition theorem states that, in thermal equilibrium, the energy for the each degree of freedom is simply (1) where is the Boltzmann ...",
+    "host_name": "link.aps.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Equipartition theorem",
+    "snippet": "The equipartition theorem makes quantitative predictions . Like the virial theorem, it gives the total average kinetic and potential energies for a system at a ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://vallance.chem.ox.ac.uk",
+    "name": "The Equipartition Theorem",
+    "snippet": "The equipartition theorem states that energy is shared equally amongst all energetically accessible degrees of freedom of a system. Read more 4 pages",
+    "host_name": "vallance.chem.ox.ac.uk",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "On Quantum Equipartition Theorem for General Systems",
+    "snippet": "Apr 4, 2024 — Proposed in the late 19th century, the theorem provides a statistical basis for predicting the average energy associated with each degree of ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "Apr 4, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.intoquantum.pub",
+    "name": "An Introduction To Orthonormal Bases",
+    "snippet": "Jan 8, 2025 — An Orthonormal basis is a set of vectors used to represent the state of a Quantum system in a complex vector space (Hilbert Space).",
+    "host_name": "www.intoquantum.pub",
+    "rank": 4,
+    "date": "Jan 8, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Correspondence between the Energy Equipartition Theorem",
+    "snippet": "by E Marulanda · 2023 · Cited by 2 — The energy equipartition theorem is one of the most important results in the classical theory of statistical mechanics due to its quantitative predictions and ... Read more",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://physics.stackexchange.com",
+    "name": "Why energy eigenstates form orthonormal basis [closed]",
+    "snippet": "Nov 18, 2019 — Closed. This question needs to be more focused. It is not currently accepting answers.             Want to improve this question? Guide the asker to update ...",
+    "host_name": "physics.stackexchange.com",
+    "rank": 6,
+    "date": "Nov 18, 2019",
+    "favicon": ""
+  }
+]

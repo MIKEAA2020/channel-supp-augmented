@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://pure.mpg.de",
+    "name": "Estimates of the Kolmogorov n-width for nonlinear",
+    "snippet": "by A Zuyev · 2024 · Cited by 1 — The Kolmogorov n- width , introduced in [1], plays a remarkable role in approximation theory, serving as a quantifiable measure of the complexity ... Read more",
+    "host_name": "pure.mpg.de",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Decay of the Kolmogorov 𝑁-width for wave problems",
+    "snippet": "The Kolmogorov N N - width is a classical concept of ( nonlinear ) approximation theory as it describes the error arising from a projection onto the best-possible ...",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://par.nsf.gov",
+    "name": "on the entropy numbers and the kolmogorov widths",
+    "snippet": "by G Petrova · 2022 · Cited by 2 — To distinguish them from the introduced later nonlinear Kolmogorov widths , we call them linear Kolmogorov n-widths. They describe the optimal performance ... Read more",
+    "host_name": "par.nsf.gov",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.uni-ulm.de",
+    "name": "The Kolmogorov N-width for linear transport",
+    "snippet": "by F Arbes · Cited by 31 — The Kolmogorov N- width describes the best possible error one can achieve by elements of an N-dimensional linear space . Nonlinear approximation. 28 pages",
+    "host_name": "www.uni-ulm.de",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.tu-chemnitz.de",
+    "name": "N-Widths and ε-dimensions for high-dimensional",
+    "snippet": "by D Dunga · Cited by 50 — Kolmogorov n-widths . If X is a normed space and W a subset in X then the Kolmogorov n-width dn(W, X) is given by dn(W, X) denote certain constants 41 pages",
+    "host_name": "www.tu-chemnitz.de",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://scicomp.stackexchange.com",
+    "name": "Kolmogorov n-width",
+    "snippet": "Nov 8, 2022 — Could someone please point me to an understandable definition of the Kolmogorov n-width? I'm having a hard time figuring out what is the output ...",
+    "host_name": "scicomp.stackexchange.com",
+    "rank": 5,
+    "date": "Nov 8, 2022",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.bohrium.com",
+    "name": "Kolmogorov n-width",
+    "snippet": "The Kolmogorov n-width defines the best possible worst-case error when approximating a complex set of solutions with any n-dimensional linear subspace.",
+    "host_name": "www.bohrium.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "incoherent quantum states and spectral inequalities for the",
+    "snippet": "by N Johnston · 2022 · Cited by 8 — We investigate the set of quantum states that can be shown to be k -incoherent based only on their eigenvalues (equivalently, ... Read more",
+    "host_name": "link.aps.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

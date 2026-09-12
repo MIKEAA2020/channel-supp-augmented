@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Programmability of covariant quantum channels",
+    "snippet": "by M Gschwendtner · 2021 · Cited by 33 — The No - Programming Theorem states that it is not possible to build a device which can implement all unitary channels, or in fact any infinite ... Read more",
+    "host_name": "quantum-journal.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Infinite-Dimensional Programmable Quantum Processors",
+    "snippet": "The main result of Ref. [1] is the No-Programming Theorem, stating that a universal programmable quantum processor , i.e., one capable of the implementation of ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Infinite-Dimensional Programmable Quantum Processors",
+    "snippet": "by M Gschwendtner · 2021 · Cited by 11 — For the exact case, i.e., =0, Nielsen and Chuang proved the no- programming theorem [1] . They consider a processor, which implements the set of ... Read more",
+    "host_name": "link.aps.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "A quantitative no-programming theorem",
+    "snippet": "The no-programing theorem prohibits the existence of a universal programmable quantum processor . This statement has several implications in relation to quantum ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quera.com",
+    "name": "What Is No-Cloning Theorem? Quantum States & Proof",
+    "snippet": "Because of the no cloning theorem quantum computing cannot make exact copies of quantum information. This is in stark contrast to classical computing, which ... Read more",
+    "host_name": "www.quera.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  }
+]

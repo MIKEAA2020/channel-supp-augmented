@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "[1910.11149] On the cohomology rings of real flag manifolds",
+    "snippet": "by ÁK Matszangosz · 2019 · Cited by 15 — Abstract :We give an algorithm to compute the integer cohomology groups of any real partial flag manifold , by computing the incidence ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "The mod-2 cohomology groups of low-dimensional",
+    "snippet": "by L Guerra · 2023 · Cited by 1 — Unordered flag manifolds are the manifolds of unordered $n$-tuple of mutually orthogonal lines in $\\mathbb{R}^n$. In this paper, we develop some basic tools ...",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] The mod-2 cohomology groups of low-dimensional",
+    "snippet": "Unordered flag manifolds are the manifolds of unordered $n$-tuple of mutually orthogonal lines in $\\mathbb{R}^n$. In this paper, we develop some basic tools ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Cohomology of complete unordered flag manifolds",
+    "snippet": "The mod-2 cohomology groups of low-dimensional unordered flag manifolds and Auerbach bases . We consider quotients of complete flag manifolds in Cn and Rn by an ...",
+    "host_name": "www.researchgate.net",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sigma-journal.com",
+    "name": "De Rham 2-Cohomology of Real Flag Manifolds",
+    "snippet": "by V del Barco · 2019 · Cited by 4 — This paper computes the second de Rham cohomology group of FΘ. We prove that it is zero in general, with some rare exceptions. When it is non-zero, we give a ... Read more",
+    "host_name": "sigma-journal.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  }
+]

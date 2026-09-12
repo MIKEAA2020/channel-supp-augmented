@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Two cohomology Cartan-Leray spectral sequences?",
+    "snippet": "Sep 14, 2025 — The cohomological Serre spectral sequence applied to the fibration sequence X′→X→BG takes the form Ep,q2=Hp(G,Hq(X′))⇒Hp+q(X). The universal ... Read more",
+    "host_name": "mathoverflow.net",
+    "rank": 0,
+    "date": "Sep 14, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Is it possible to recover the Cartan-Leray Spectral",
+    "snippet": "Mar 20, 2023 — Let G be a discrete group acting freely and cellularily on a CW-complex X. I am interested in the Cartan-Leray spectral sequence from Eilenberg and ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 1,
+    "date": "Mar 20, 2023",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Leray spectral sequence",
+    "snippet": "In mathematics, the Leray spectral sequence was a pioneering example in homological algebra, introduced in 1946 by Jean Leray . It is usually seen nowadays ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Cartan–Leray spectral sequence for Galois coverings of",
+    "snippet": "by C Cibils · 2003 · Cited by 50 — We provide a Cartan-Leray type spectral sequence for the Hochschild-. Mitchell (co)homology of a Galois covering of linear categories. We infer results relating ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.mit.edu",
+    "name": "Leray in Oflag XVIIA: The origins of sheaf theory,",
+    "snippet": "by H Miller · 2000 · Cited by 35 — Today we would divide his discoveries into three parts: sheaves, sheaf cohomology , and spectral sequences . For the most part these ideas became ... Read more 16 pages",
+    "host_name": "math.mit.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://repository.library.northeastern.edu",
+    "name": "The Cartan-Leray spectral sequence of the braid group",
+    "snippet": "by D Li · 2025 — The Cartan - Leray spectral sequence theorem is the most fundamental theorem used in this paper. Besides, naturality plays a key role for ... Read more 64 pages",
+    "host_name": "repository.library.northeastern.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stacks.math.columbia.edu",
+    "name": "20.13 The Leray spectral sequence",
+    "snippet": "The cohomology groups H^ i(U, \\mathcal{F}) for U \\subset X open of \\mathcal{F} computed as an \\mathcal{O}_ X-module, or computed as an abelian sheaf are ... Read more",
+    "host_name": "stacks.math.columbia.edu",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.livejournal.com",
+    "name": "Two cohomology Cartan-Leray spectral sequences?",
+    "snippet": "Sep 14, 2025 — There ought to be a cohomological variant of the Cartan - Leray spectral sequence as well. In fact, to my surprise, I suggest there are two: The ... Read more",
+    "host_name": "mathoverflow.livejournal.com",
+    "rank": 7,
+    "date": "Sep 14, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://ncatlab.org",
+    "name": "Leray spectral sequence in nLab",
+    "snippet": "May 6, 2015 — Definition. The Leray spectral sequence is the special case of the Grothendieck spectral sequence for the case where the two functors being ... Read more",
+    "host_name": "ncatlab.org",
+    "rank": 8,
+    "date": "May 6, 2015",
+    "favicon": ""
+  }
+]

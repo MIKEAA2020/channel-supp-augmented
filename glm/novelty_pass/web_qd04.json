@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "End-to-End Neural and Quantum Transcoding for",
+    "snippet": "May 7, 2026 — Compressed Latent Representation under Channel Noise. Our approach integrates neural network-based data compression … compression of input ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "May 7, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "On compression rate of quantum autoencoders",
+    "snippet": "by H Ma · 2023 · Cited by 43 — Quantum autoencoders which aim at compressing quantum information in a low- dimensional latent space lie in the heart of automatic data compression in the field ...",
+    "host_name": "www.sciencedirect.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.ibm.com",
+    "name": "What Is Latent Space? | IBM",
+    "snippet": "A latent space in machine learning is a compressed representation of data points that preserves only essential features informing the data's underlying ...",
+    "host_name": "www.ibm.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "End-to-End Neural and Quantum Transcoding for",
+    "snippet": "Apr 15, 2026 — We describe a method for lossless quantum compression if the output of the information source is not known. We compute the best possible ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 3,
+    "date": "Apr 15, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://inspirehep.net",
+    "name": "End-to-End Neural and Quantum Transcoding",
+    "snippet": "by H Cha — Compressed Latent Representation under Channel . Our approach integrates neural network-based data compression with Cholesky … bypasses full ...",
+    "host_name": "inspirehep.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Optimal Representation of Quantum Channels - PMC",
+    "snippet": "by P Lewandowska · 2020 · Cited by 2 — This work shows an approach to reduce the dimensionality of matrix representations of quantum channels . It is achieved by finding a base of the cone of positive ... Read more",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://homes.luddy.indiana.edu",
+    "name": "Representing Latent Dimensions Using Compressed",
+    "snippet": "This approach illustrates how combining deep learning with cognitive models can result in systems that learn to represent latent variables in a brain-like ... Read more",
+    "host_name": "homes.luddy.indiana.edu",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com",
+    "name": "Visualization of the latent representation #84",
+    "snippet": "May 18, 2021 — The latents consist of 192 channels . The spatial resolution of the latent space is reduced by a factor of 16 in each dimension , which is why ...",
+    "host_name": "github.com",
+    "rank": 7,
+    "date": "May 18, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://iopscience.iop.org",
+    "name": "Guided quantum compression for high dimensional data",
+    "snippet": "by V Belis · 2024 · Cited by 23 — For example, the usual approach is to train an auto-encoder on the data, obtain a lower dimensional representation from its latent space, and ... Read more",
+    "host_name": "iopscience.iop.org",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Ham sandwich theorem",
+    "snippet": "ham sandwich theorem states that given n measurable \"objects\" in n-dimensional Euclidean space, it is possible to divide each one of them in half. Thus we ...",
+    "host_name": "en.wikipedia.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Proof of the Ham-Sandwich theorem",
+    "snippet": "May 4, 2013 — I have doubts about the proof of the Ham-Sandwich theorem descibed on planetmath (http://planetmath.org/proofofhamsandwichtheorem) and wikipedia (http://en.wiki ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 1,
+    "date": "May 4, 2013",
+    "favicon": ""
+  },
+  {
+    "url": "https://brilliant.org",
+    "name": "Ham Sandwich Theorem | Brilliant Math & Science Wiki",
+    "snippet": "The ham sandwich theorem states that given n n n objects floating in n n n-dimensional space, there exists a single ( n − 1 ) (n-1) (n−1)-dimensional ... Read more",
+    "host_name": "brilliant.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "arXiv:2404.14320v2 [math.CO] 29 Apr 2024",
+    "snippet": "by A Hubard · 2024 · Cited by 6 — The classic example, known as the ham sandwich theorem , states that given d smooth probability measures on Rd, there exists a hyperplane ...",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com",
+    "name": "The Kakeya conjecture and the Ham Sandwich theorem",
+    "snippet": "Nov 27, 2008 — the polynomial method can be successfully applied to continuous Euclidean problems. Ham Sandwich theorem (or more precisely, a polynomial ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 4,
+    "date": "Nov 27, 2008",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scientificamerican.com",
+    "name": "The Strangely Serious Implications of Math's 'Ham",
+    "snippet": "Feb 17, 2024 — A simple solution to gerrymandering crumbles when confronted with math's “ ham sandwich theorem ”",
+    "host_name": "www.scientificamerican.com",
+    "rank": 5,
+    "date": "Feb 17, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://comap.org",
+    "name": "The Ham Sandwich Theorem: A Slice of Mathematical",
+    "snippet": "Feb 27, 2024 — At its core, the Ham Sandwich Theorem is about finding balance and equality in complex systems . It uses dimensions to measure space. For our ... Read more",
+    "host_name": "comap.org",
+    "rank": 6,
+    "date": "Feb 27, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://planetmath.org",
+    "name": "proof of ham sandwich theorem",
+    "snippet": "Mar 22, 2013 — proof of ham sandwich theorem . This proof uses the Borsuk-Ulam theorem, which states that any continuous function from S ... Read more",
+    "host_name": "planetmath.org",
+    "rank": 7,
+    "date": "Mar 22, 2013",
+    "favicon": ""
+  }
+]

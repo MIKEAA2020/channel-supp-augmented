@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Operational applications of the diamond norm and related",
+    "snippet": "by B Regula · 2021 · Cited by 55 — In Sec. 2 , we introduce the notions of robustness measures and show how they can be applied to non- CPTP linear maps . We establish precise ... Read more",
+    "host_name": "quantum-journal.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantumcomputing.stackexchange.com",
+    "name": "Diamond norm distance bound on Stinespring dilations of",
+    "snippet": "Nov 16, 2020 — The diamond distance between two channels Φ0 and Φ1 is defined in this answer.  ‖Φ0−Φ1‖⋄=supρ‖(Φ0⊗Idk)(ρ)−(Φ1⊗Idk)(ρ)‖1 where ...",
+    "host_name": "quantumcomputing.stackexchange.com",
+    "rank": 1,
+    "date": "Nov 16, 2020",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Optimal learning of quantum channels in diamond distance",
+    "snippet": "Jun 15, 2026 — Quantum process tomography—the task of estimating an unknown quantum channel—is a central problem in quantum information theory. Read more",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "Jun 15, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Power of quantum measurement in simulating unphysical",
+    "snippet": "by X Zhao · 2025 · Cited by 18 — Theorem 2 implies that the gauge of the set of twisted channels is simply the diamond norm , the unit ball in the vector space of Hermitian- ...",
+    "host_name": "link.aps.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Diamond norm",
+    "snippet": "The diamond norm is the trace norm of the output of a trivial extension of a linear map , maximized over all possible inputs with trace norm at most one.",
+    "host_name": "en.wikipedia.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) Operational applications of the diamond norm and",
+    "snippet": "Jan 13, 2026 — We discuss applications of our results to structural physical approximations of positive maps , quantification of non-Markovianity, and bounding ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 5,
+    "date": "Jan 13, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://hal.science",
+    "name": "Computing the distance between quantum channels",
+    "snippet": "by G Benenti · 2010 · Cited by 64 — We numerically compute the distance (induced by the diamond norm ) between two quantum channels E1 and E2 using two Monte-Carlo algorithms. Read more",
+    "host_name": "hal.science",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://inspirehep.net",
+    "name": "Operational applications of the diamond norm and related",
+    "snippet": "by B Regula · 2021 · Cited by 54 — We introduce an operational approach to the quantitative study of the non-physicality of linear maps based on different ways to approximate a ... Read more",
+    "host_name": "inspirehep.net",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com",
+    "name": "Hyper efficient and more accurate diamond norm",
+    "snippet": "May 4, 2024 — The diamond norm [1] is a commonly used metric in quantum information theory for calculating the distance between two quantum channels. It ... Read more",
+    "host_name": "github.com",
+    "rank": 8,
+    "date": "May 4, 2024",
+    "favicon": ""
+  }
+]

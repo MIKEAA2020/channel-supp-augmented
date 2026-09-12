@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Algebraic and geometric structures inside the Birkhoff",
+    "snippet": "Aug 24, 2026 — We also investigate doubly circulant unistochastic matrices (i.e., these unistochastic matrices that arise from circulant unitary dynamics) and ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "Aug 24, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "Generalized unistochastic matrices",
+    "snippet": "by I Nechita · 2025 · Cited by 1 — We study a class of bistochastic matrices generalizing unistochastic matrices . Given a complex bipartite unitary operator, we construct a bistochastic ... Read more",
+    "host_name": "www.sciencedirect.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.academia.edu",
+    "name": "(PDF) Birkhoff's Polytope and Unistochastic Matrices, N = 3",
+    "snippet": "Unistochastic matrices are characterized as a subset of Birkhoff's polytope, especially for N = 3 and N = 4 . The paper explores Birkhoff's polytope's structure ... Read more",
+    "host_name": "www.academia.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pubs.aip.org",
+    "name": "Separation of unistochastic matrices from the double",
+    "snippet": "Aug 17, 2006 — The aim of the paper is to provide a constructive method for recovering a unitary matrix from experimental data .",
+    "host_name": "pubs.aip.org",
+    "rank": 3,
+    "date": "Aug 17, 2006",
+    "favicon": ""
+  },
+  {
+    "url": "https://inspirehep.net",
+    "name": "Volume of the set of unistochastic matrices of order 3 and",
+    "snippet": "We compute the volume of the set U_3 with respect to the flat (Lebesgue) measure and analytically evaluate the mean entropy of an unistochastic matrix of this ... Read more",
+    "host_name": "inspirehep.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) Random unistochastic matrices",
+    "snippet": "Jul 15, 2026 — We study the distribution of complex eigenvalues of bistochastic, unistochastic and orthostochastic matrices in the complex plane. We compute ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 5,
+    "date": "Jul 15, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com",
+    "name": "Unistochastic Matrices",
+    "snippet": "Feb 4, 2026 — A bistochastic matrix B B B is unistochastic if there exists a unitary U ∈ U ( n ) U \\in U( n ) U∈U( n ) such that B i j = ∣ U i j ∣ 2 B_{ij} = ... Read more",
+    "host_name": "www.emergentmind.com",
+    "rank": 6,
+    "date": "Feb 4, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Unistochastic matrix",
+    "snippet": "In mathematics, a unistochastic matrix (also called unitary-stochastic) is a doubly stochastic matrix whose entries are the squares of the absolute values ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "Generalized unistochastic matrices",
+    "snippet": "We study a class of bistochastic matrices generalizing unistochastic matrices . Given a complex bipartite unitary operator, we construct a bistochastic ...",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  }
+]

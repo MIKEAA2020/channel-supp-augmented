@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://cstheory.stackexchange.com",
+    "name": "Is there any connection between the diamond norm and",
+    "snippet": "Feb 12, 2011 — In quantum information theory, the distance between two quantum channels is often measured using the diamond norm. There are also a number of ways to ...",
+    "host_name": "cstheory.stackexchange.com",
+    "rank": 0,
+    "date": "Feb 12, 2011",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Almost all quantum channels are equidistant",
+    "snippet": "Aug 24, 2026 — As a measure of the distance we use the diamond norm . The main goal of this work is study the asymptotic behavior of the diamond norm of the ...",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "Aug 24, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Diamond norm",
+    "snippet": "In quantum information, the diamond norm , also known as completely bounded trace norm, is a norm on the space of quantum operations, or more generally on any ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Operational applications of the diamond norm and related",
+    "snippet": "by B Regula · 2021 · Cited by 55 — The diamond norm finds use as a fundamental measure of distance between quantum chan- nels, mirroring the operational role of the trace distance ... Read more",
+    "host_name": "quantum-journal.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.cs.cmu.edu",
+    "name": "Query-optimal estimation of unitary channels in diamond",
+    "snippet": "by J Haah · 2023 · Cited by 112 — The diamond - norm distance is a natural choice for measuring worst-case error. It has direct operational meaning: if a channel sitting in a ... Read more 43 pages",
+    "host_name": "www.cs.cmu.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.physik.fu-berlin.de",
+    "name": "Chapter 6: Elements of quantum Shannon theory",
+    "snippet": "Diamond norm : For two channels T and S, the diamond norm is defined as kT − Sk = sup n sup kAk1=1 k(T ⊗ idn)(A) − (S ⊗ idn)(A)k1. 9 pages",
+    "host_name": "www.physik.fu-berlin.de",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com",
+    "name": "Hyper efficient and more accurate diamond norm",
+    "snippet": "May 4, 2024 — The diamond norm [1] is a commonly used metric in quantum information theory for calculating the distance between two quantum channels .",
+    "host_name": "github.com",
+    "rank": 6,
+    "date": "May 4, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://hal.science",
+    "name": "Computing the distance between quantum channels",
+    "snippet": "by G Benenti · 2010 · Cited by 64 — The diamond norm measures the distance between two quantum channels . From an operational vewpoint, this norm measures how well we can ...",
+    "host_name": "hal.science",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://inspirehep.net",
+    "name": "Optimal learning of quantum channels in diamond distance",
+    "snippet": "Dec 11, 2025 — Here we establish the query complexity of channel tomography with optimal dependence on the dimension parameters, at any fixed constant accuracy ... Read more",
+    "host_name": "inspirehep.net",
+    "rank": 8,
+    "date": "Dec 11, 2025",
+    "favicon": ""
+  }
+]

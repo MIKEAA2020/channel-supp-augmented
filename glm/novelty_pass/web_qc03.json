@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Chebyshev center",
+    "snippet": "Relaxed Chebyshev center · The RCC is an upper bound for the exact Chebyshev center . · The RCC is unique. · The RCC is feasible. Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://people.lids.mit.edu",
+    "name": "On Chebyshev Radius of a Set in Hamming Space and the",
+    "snippet": "by A Mazumdar · Cited by 16 — Chebyshev radius of a set in a metric space is defined to be the radius of the smallest ball containing the set. These quantities are called covering radius , ... 5 pages",
+    "host_name": "people.lids.mit.edu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Chebyshev centers and radius of the set of permutons",
+    "snippet": "by B Maga · 2026 — We determine the Chebyshev radius to be 1/4 and characterize all Chebyshev centers : a permuton is a center if and only if it is 1/2- periodic ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pennylane.ai",
+    "name": "Quantum Chebyshev Transform | PennyLane Demos",
+    "snippet": "Jul 21, 2025 — The Chebyshev polynomials have a lot of nice properties that make them a good choice for expanding a function into a series on a real interval. Read more",
+    "host_name": "pennylane.ai",
+    "rank": 3,
+    "date": "Jul 21, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com",
+    "name": "Chebyshev Center Problems",
+    "snippet": "Jan 17, 2026 — A Chebyshev center problem finds the point that minimizes the maximum distance to a set, enabling advanced methods in geometry, optimization ...",
+    "host_name": "www.emergentmind.com",
+    "rank": 4,
+    "date": "Jan 17, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Efficient quantum state tomography with Chebyshev polynomials",
+    "snippet": "by H Su · 2026 · Cited by 5 — We introduce the QST with Chebyshev polynomials, an approximate tomography method for pure quantum states encoding complex-valued functions.",
+    "host_name": "link.aps.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) An Algorithm for Finding the Chebyshev Center of a",
+    "snippet": "In the special case of B being a unit ball centered at zero, x 0 and t 0 are known as the Chebyshev center and the Chebyshev radius of A. This paper focuses ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "On Covering Radius and Discrete Chebyshev Polynomials",
+    "snippet": "covering radii of linear codes are derived based on the knowledge of the cardinality on the behavior of Hahn polynomials and discrete Chebyshev polynOMials.",
+    "host_name": "www.semanticscholar.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://physics.stackexchange.com",
+    "name": "Operational meaning of spectral radius of quantum channels",
+    "snippet": "Feb 24, 2025 — It is known from Chap.6 of Wolf's lecture notes that CPTP maps or quantum channels have spectral radius 1. That is the absolute value of the eigenvalues ...",
+    "host_name": "physics.stackexchange.com",
+    "rank": 8,
+    "date": "Feb 24, 2025",
+    "favicon": ""
+  }
+]

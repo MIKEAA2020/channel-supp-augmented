@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Algebraic and geometric structures inside the Birkhoff",
+    "snippet": "Aug 24, 2026 — As a result, we have fully characterised the set of circulant unistochastic matrices for d ≤ 4 d\\leq 4 , noting their geometric properties ( ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "Aug 24, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Birkhoff's polytope for N = 3. | Download Scientific Diagram",
+    "snippet": "Our problem is to characterize the set of unistochastic matrices as a subset of Birkhoff's polytope . For N=3 we present fairly complete results. For N=4 partial ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.academia.edu",
+    "name": "(PDF) Birkhoff's Polytope and Unistochastic Matrices, N = 3",
+    "snippet": "Unistochastic matrices are characterized as a subset of Birkhoff's polytope , especially for N = 3 and N = 4. The paper explores Birkhoff's polytope's structure ... Read more",
+    "host_name": "www.academia.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://chaos.if.uj.edu.pl",
+    "name": "Birkhoff polytope - and its subset of unistochastic matrices",
+    "snippet": "Jun 21, 2012 — For N = 3 the set O3 of orthostochastic matrices forms the boundary of the 4D set U3 of unistochastic matrices. K˙Z (Olsztyn). Birkhoff ... Read more",
+    "host_name": "chaos.if.uj.edu.pl",
+    "rank": 3,
+    "date": "Jun 21, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://alco.centre-mersenne.org",
+    "name": "A property of the Birkhoff polytope - Algebraic Combinatorics",
+    "snippet": "by B Baumeister · 2018 · Cited by 4 — We compute the combinatorial symmetry group of the Birkhoff polytope . A representation polytope is the convex hull of some finite matrix group G ≤ G ... Read more",
+    "host_name": "alco.centre-mersenne.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Birkhoff polytope",
+    "snippet": "The Birkhoff polytope is a special case of the transportation polytope , a polytope of nonnegative rectangular matrices with given row and column sums. · The ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://journals.uwyo.edu",
+    "name": "View of Some subpolytopes of the Birkhoff polytope",
+    "snippet": "by EM de Sá · 2006 · Cited by 3 — Some subpolytopes of the Birkhoff polytope ... Read more",
+    "host_name": "journals.uwyo.edu",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://polytope.miraheze.org",
+    "name": "Birkhoff polytope",
+    "snippet": "The Birkhoff polytope Bn is a convex polytope with two definitions: Its points are the doubly stochastic n × n matrices. A matrix is called doubly ...",
+    "host_name": "polytope.miraheze.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://emis.de",
+    "name": "SOME SUBPOLYTOPES OF THE BIRKHOFF POLYTOPE 1",
+    "snippet": "Abstract. Some special subsets of the set of uniformly tapered doubly stochastic matrices are considered. It is proved that each such subset is a convex ... Read more",
+    "host_name": "emis.de",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  }
+]

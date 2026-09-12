@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://errorcorrectionzoo.org/list/quantum_with_rate",
+    "name": "Quantum codes with a rate - Error Correction Zoo",
+    "snippet": "The EA quantum capacity is the highest rate of quantum information transmission through a quantum channel with arbitrarily small error rate and access to ...",
+    "host_name": "errorcorrectionzoo.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://inspirehep.net/literature/2808283",
+    "name": "Tight Lower Bound on the Error Exponent of Classical-Quantum",
+    "snippet": "Jul 15, 2024 · Achievable error exponents of data compression with quantum side information and communication over symmetric classical-quantum channels.",
+    "host_name": "inspirehep.net",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2207.08899v1",
+    "name": "Achievable error exponents of data compression with quantum side",
+    "snippet": "Nearly matching lower and upper bounds on the error exponent for classical channels were first established by the lower bounds of Fano [1] and Gallager [2] and ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu/abs/arXiv:2305.18748",
+    "name": "Optimal lower bound for lossless quantum block encoding - ADS",
+    "snippet": "we give a simplified non-adaptive compression technique based on constrained special block codes for general quantum stochastic sources.",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.rintonpress.com/xxqic24/qic-24-1314/1110-1144.pdf",
+    "name": "[PDF] Optimal lower bound for lossless quantum block encoding",
+    "snippet": "Nov 12, 2024 · in this paper we extend the notion of uniquely decodable (or completely lossless) quantum codes to be used for quantum block data compression.",
+    "host_name": "www.rintonpress.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org/paper/Lossless-quantum-prefix-compression-for-channels-Mueller-Rogers/096cfef7f9b918a5b68e684f7497a2ad92aea63b",
+    "name": "Lossless quantum prefix compression for communication channels",
+    "snippet": "Aug 14, 2008 · The best possible compression rate is computed, minimizing the expected base length of the output quantum bit string (the base length is the ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/publication/338944731_Proposal_of_Encoder_and_Decoder_for_Quantum_Channel_Compression",
+    "name": "Proposal of Encoder and Decoder for Quantum Channel Compression",
+    "snippet": "We have studied experimentally the widths and positions of edge channels in an inhomogeneous two-dimensional electron gas (2DEG) under quantum Hall conditions.",
+    "host_name": "www.researchgate.net",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org/doi/10.1103/PhysRevA.64.012310",
+    "name": "Encoding a qubit in an oscillator | Phys. Rev. A - APS Journals",
+    "snippet": "Jun 11, 2001 · Continuous-variable codes can be invoked to establish lower bounds on the quantum capacity of Gaussian quantum channels.",
+    "host_name": "link.aps.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aqora.io/discussions/research-papers/AFRvcGljAZvIElkecRK_gopQuXaLOw/optimal-lower-bound-for-quantum-channel-tomography-in-away-from-boundary-regime",
+    "name": "Optimal lower bound for quantum channel tomography in away-from",
+    "snippet": "Jan 16, 2026 · In this paper, we show an optimal query lower bound Ω ( r d 1 d 2 / ε 2 ) \\Omega(rd_1d_2/\\varepsilon^2) Ω(rd1​d2​/ε2) for quantum channel ...",
+    "host_name": "aqora.io",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27104688",
+    "name": "Detecting Lower Bounds to Quantum Channel Capacities - PubMed",
+    "snippet": "We propose a method to detect lower bounds to quantum capacities of a noisy quantum communication channel by means of a few measurements.",
+    "host_name": "pubmed.ncbi.nlm.nih.gov",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

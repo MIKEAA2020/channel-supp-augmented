@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arxiv.org/html/1008.1134v1",
+    "name": "A simple proof of the Borsuk-Ulam theorem for ℤ_𝑝-actions - arXiv",
+    "snippet": "Aug 6, 2010 · The purpose of this note is to give a simple proof of a generalization of this theorem in the setting of group actions.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://topology.nipissingu.ca/tp/reprints/v36/tp36018.pdf",
+    "name": "[PDF] A Simple Proof of the Borsuk-Ulam Theorem for Zp-Actions",
+    "snippet": "May 5, 2010 · In this note, we give a simple proof of the Borsuk- Ulam theorem for Zp-actions. the cyclic group Zp of prime order p",
+    "host_name": "topology.nipissingu.ca",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1348&context=mss_fac",
+    "name": "[PDF] Borsuk–Ulam type theorems for G-spaces with applications to",
+    "snippet": "The classical Borsuk–Ulam theorem [4] states that for any continuous mapping ・ if there is an equivariant map ・ cohomological index. For a cyclic group G =. ...",
+    "host_name": "scholarworks.utrgv.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://scispace.com/pdf/the-borsuk-ulam-property-for-cyclic-groups-49pphsznf9.pdf",
+    "name": "The borsuk-ulam property for cyclic groups - SciSpace",
+    "snippet": "Abstract. An orthogonal representation V of a group G is said to have the. Borsuk–Ulam property if the existence of an equivariant map f : S(W) →.",
+    "host_name": "scispace.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/publication/365422279_A_Borsuk--Ulam_theorem_for_cyclic_p-groups",
+    "name": "A Borsuk--Ulam theorem for cyclic $p$-groups - ResearchGate",
+    "snippet": "We describe a connective K-theory Borsuk--Ulam/Bourgin--Yang theorem for cyclic groups of order a power of a prime p. Consider two finite dimensional ...",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://adsabs.harvard.edu/abs/2022arXiv221108087C",
+    "name": "A Borsuk--Ulam theorem for cyclic $p$-groups - NASA ADS",
+    "snippet": "Abstract. We describe a connective $K$-theory Borsuk--Ulam/Bourgin--Yang theorem for cyclic groups of order a power of a prime $p$.",
+    "host_name": "adsabs.harvard.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://repositorio.usp.br/directbitstream/de0e20be-f6a1-473e-ba67-96b81e8364bd/1596972.pdf",
+    "name": "[PDF] A parametrized Borsuk-Ulam theorem for a product of spheres with",
+    "snippet": "It will be goal in this paper to prove a generalization of [4] for bundles whose fibre has the same cohomology (mod p) of a product of spheres with free Z,- ...",
+    "host_name": "repositorio.usp.br",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://hal.science/hal-03630687/document",
+    "name": "[PDF] Free cyclic actions on surfaces and the Borsuk-Ulam theorem - HAL",
+    "snippet": "Apr 5, 2022 · In this paper, we define a Borsuk-Ulam-type property for homotopy classes of maps from M to N ・ generalises the classical antipodal Borsuk- ...",
+    "host_name": "hal.science",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

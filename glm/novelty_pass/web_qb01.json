@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Cohomology of Flag Varieties - at.algebraic topology",
+    "snippet": "Apr 17, 2010 — For K a compact Lie-group with maximal torus T, I'd like to know the cohomology H∗(K/T) of the flag variety K/T. If I'm not mistaken, this should ...",
+    "host_name": "mathoverflow.net",
+    "rank": 0,
+    "date": "Apr 17, 2010",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "On the integral cohomology of quotients of manifolds by",
+    "snippet": "We propose new tools based on basic lattice theory to calculate the integral cohomology of the quotient of a manifold by an automorphism group of prime order. Read more",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Cohomology of complete unordered flag manifolds",
+    "snippet": "In this paper, we delve into the study of the stable and unstable cohomology of complex unordered flag manifolds . While complete flag manifolds have been ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Generalized flag variety",
+    "snippet": "If G is a compact, connected Lie group , it contains a maximal torus T and the space G/T of left cosets with the quotient topology is a compact real manifold . Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://eudml.org",
+    "name": "Twisted action of the symmetric group on the cohomology",
+    "snippet": "by A Lascoux · 1996 · Cited by 11 — Classes dual to Schubert cycles constitute a basis on the cohomology ring of the flag manifold F, self-adjoint up to indexation with respect to the ...",
+    "host_name": "eudml.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Quotient of cohomology groups with different coefficents",
+    "snippet": "Aug 30, 2023 — Let M be a smooth manifold, (if necessary I'm ok with assuming that M is four dimensional, orientable, and closed). I wish to understand the quotient: ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 5,
+    "date": "Aug 30, 2023",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.sysu.edu.cn",
+    "name": "Classical aspects of quantum cohomology of generalized",
+    "snippet": "by NC LEUNG · Cited by 15 — A generalized flag variety G/P is the quotient of a simply-connected complex simple Lie group G by a parabolic subgroup P of G. The (small) quantum coho ... Read more",
+    "host_name": "math.sysu.edu.cn",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://kskedlaya.org",
+    "name": "3.4 Cohomology of cyclic groups",
+    "snippet": "Theorem 3.4.1. ... Let G be a finite cyclic group and M a G -module. Then there is a functorial isomorphism H T i ( G , M ) → H T i + 2 ( G , M ) for all ; i ∈ ... Read more",
+    "host_name": "kskedlaya.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sumizdat.com",
+    "name": "1. Quantum cohomology of flag manifolds (cont'd)",
+    "snippet": "by A GIVENTAL · 2005 — Flag manifolds associated to loop groups . If G is a Lie group , its loop group is LG = Maps(S1 → G), where by ”maps” one usually means smooth, analytic or. Read more",
+    "host_name": "sumizdat.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] On the cohomology rings of real flag manifolds",
+    "snippet": "We give an algorithm to compute the integer cohomology groups of any real partial flag manifold , by computing the incidence coefficients of the Schubert ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://ui.adsabs.harvard.edu/abs/arXiv:2608.20050",
+    "name": "Radial Convex Geometry of Quantum States and Its Relation to Best",
+    "snippet": "We study bipartite entanglement from the convex geometry of quantum states. Taking the maximally mixed state as a reference point, we define a geometric ...",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://chaos.if.uj.edu.pl/~karol/gqs1.pdf",
+    "name": "[PDF] Geometry of Quantum States",
+    "snippet": "A convex body is homeomorphic to a sphere. Convex bodies and convex cones with compact bases are the only convex sets that we will consider. Convex bodies ...",
+    "host_name": "chaos.if.uj.edu.pl",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=-GfdvWUQLlU",
+    "name": "YouTube",
+    "snippet": "Feb 25, 2020 · Share your videos with friends, family, and the world.",
+    "host_name": "www.youtube.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org/doi/10.1103/PhysRevA.96.032311",
+    "name": "Convex approximations of quantum channels | Phys. Rev. A",
+    "snippet": "Sep 8, 2017 · We address the problem of optimally approximating the action of a desired and unavailable quantum channel Φ having at our disposal a single ...",
+    "host_name": "link.aps.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://faculty.cc.gatech.edu/~vempala/acg/notes.pdf",
+    "name": "[PDF] Algorithmic Convex Geometry",
+    "snippet": "In this lecture, we will prove a fundamental geometric inequality – the. Brunn-Minkowski inequality. This inequality relates the volumes of convex sets in high- ...",
+    "host_name": "faculty.cc.gatech.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/pdf/2608.20050",
+    "name": "[PDF] Radial Convex Geometry of Quantum States and Its Relation to Best",
+    "snippet": "Aug 21, 2026 · Based on the radial geometry of these two convex sets, we introduced the geometric quantity. G(ρ) = 1 − L(ρ). L(ρ). (134) and compared it with ...",
+    "host_name": "arxiv.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ncatlab.org/nlab/show/quantum+channel",
+    "name": "quantum channel in nLab",
+    "snippet": "Nov 9, 2024 · The key point is that such linear maps are to qualify as quantum channels iff they suitably restrict to maps between the convex subsets of ...",
+    "host_name": "ncatlab.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://physics.stackexchange.com/questions/843742/operational-meaning-of-spectral-radius-of-quantum-channels",
+    "name": "Operational meaning of spectral radius of quantum channels",
+    "snippet": "Feb 24, 2025 · It is known from Chap.6 of Wolf's lecture notes that CPTP maps or quantum channels have spectral radius 1. That is the absolute value of the ...",
+    "host_name": "physics.stackexchange.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dl.acm.org/doi/fullHtml/10.1145/3588579",
+    "name": "Quantum Algorithm for Estimating Volumes of Convex Bodies",
+    "snippet": "Estimating the volume of a convex body is a central problem in convex geometry and can be viewed as a continuous version of counting. We present a quantum ...",
+    "host_name": "dl.acm.org",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://bartoszregula.me/pdf/JPhysA.51.045303.pdf",
+    "name": "[PDF] Convex geometry of quantum resource quantification - Bartosz Regula",
+    "snippet": "We introduce a framework unifying the mathematical characterisation of different measures of general quantum resources and allowing for a systematic way to ...",
+    "host_name": "bartoszregula.me",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

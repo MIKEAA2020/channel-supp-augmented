@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/html/2012.00717v2",
+    "name": "Programmability of covariant quantum channels - arXiv",
+    "snippet": "It is well-known that such a device is impossible with a finite-dimensional program register for any set that contains infinitely many unitary quantum channels ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum-journal.org/papers/q-2021-06-29-488",
+    "name": "Programmability of covariant quantum channels",
+    "snippet": "Jun 29, 2021 · It is well-known that such a device is impossible with a finite-dimensional program register for any set that contains infinitely many unitary ...",
+    "host_name": "quantum-journal.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org/doi/10.1103/PRXQuantum.2.030308",
+    "name": "Infinite-Dimensional Programmable Quantum Processors",
+    "snippet": "Jul 13, 2021 · A universal programmable quantum processor uses “program” quantum states to apply an arbitrary quantum channel to an input state.",
+    "host_name": "link.aps.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dspace.mit.edu/bitstreams/687b2aba-20d6-4923-a33b-bddeb8f94095/download",
+    "name": "[PDF] Convex optimization of programmable quantum computers",
+    "snippet": "... finite-dimensional programmable quantum processor can generate or simulate an arbitrary quantum channel. Also there is no literature on how to find the.",
+    "host_name": "dspace.mit.edu",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=An-7ryAmuX4",
+    "name": "Logical Quantum Processor Based on Reconfigurable Atom Arrays",
+    "snippet": "Mar 28, 2024 · ... programmable quantum processing with encoded logical qubits, combining the use of 280 physical qubits, high two-qubit gate fidelities ...",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/publication/346555439_Approximate_Programmable_Quantum_Processors_in_Infinite_Dimensions",
+    "name": "Approximate Programmable Quantum Processors in Infinite",
+    "snippet": "A universal programmable quantum processor uses program quantum states to apply an arbitrary quantum channel to an input state. We generalize the concept of ...",
+    "host_name": "www.researchgate.net",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2012.00736v2",
+    "name": "Infinite-Dimensional Programmable Quantum Processors - arXiv",
+    "snippet": "A universal programmable quantum processor uses “program” quantum states to apply an arbitrary quantum channel to an input state. We generalize the concept of a ...",
+    "host_name": "arxiv.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pos.sissa.it/466/216/pdf",
+    "name": "[PDF] PoS(LATTICE2024)216",
+    "snippet": "Parameterized quantum channels extend unitary computing to NISQ devices by adapting to noise properties through parametric optimization. They generalize ...",
+    "host_name": "pos.sissa.it",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=qIstCsXQaoA",
+    "name": "Obfuscation of Unitary Quantum Programs - YouTube",
+    "snippet": "Jul 8, 2025 · Er-Cheng Tang (University of Washington) https://simons.berkeley.edu/talks/er-cheng-tang-university-washington-2025-06-26 Obfuscation ...",
+    "host_name": "www.youtube.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://evoailabs.medium.com/quantum-technologies-qnns-fpgas-simulations-control-1088e6c2ab5c",
+    "name": "Quantum technologies, QPUs, FPQAs, QNNs // simulations",
+    "snippet": "Mar 10, 2024 · This work explores a novel architecture known as field programmable qubit array (FPQA), which uniquely allows for coherent atom movements during ...",
+    "host_name": "evoailabs.medium.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

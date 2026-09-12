@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Ham sandwich theorem",
+    "snippet": "the ham sandwich theorem states that given n measurable \"objects\" dimensional Euclidean space, it is possible to divide each one of them in half",
+    "host_name": "en.wikipedia.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) Leftovers from the Ham Sandwich Theorem",
+    "snippet": "The famous ham sandwich theorem states that if a_i=1/2 for all i, then such a hyperplane always exists.",
+    "host_name": "www.researchgate.net",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://comap.org",
+    "name": "The Ham Sandwich Theorem: A Slice of Mathematical",
+    "snippet": "Feb 27, 2024 — The Ham Sandwich Theorem isn't about sandwiches, per se. It's actually a principle in geometry that can apply to a whole range of situations. Read more",
+    "host_name": "comap.org",
+    "rank": 2,
+    "date": "Feb 27, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://hsm.stackexchange.com",
+    "name": "On the origin of \"sandwiches\" in quantum mechanics",
+    "snippet": "Jul 29, 2021 — It is even sometimes used formally in mathematics for theorems like the squeeze theorem (AKA sandwich theorem ) and the ham sandwich theorem . Read more",
+    "host_name": "hsm.stackexchange.com",
+    "rank": 3,
+    "date": "Jul 29, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://brilliant.org",
+    "name": "Ham Sandwich Theorem | Brilliant Math & Science Wiki",
+    "snippet": "The ham sandwich theorem states that given n n n objects floating in n n n-dimensional space, there exists a single ( n − 1 ) (n-1) (n−1)-dimensional hyperplane",
+    "host_name": "brilliant.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scientificamerican.com",
+    "name": "The Strangely Serious Implications of Math's 'Ham",
+    "snippet": "Feb 17, 2024 — math's “ham sandwich theorem” promises that for any three (potentially asymmetrical) objects in any orientation, there is always some straight ...",
+    "host_name": "www.scientificamerican.com",
+    "rank": 5,
+    "date": "Feb 17, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mathematicsgroup.com",
+    "name": "Unique factorization theorem for pure quantum states",
+    "snippet": "This is about finding unique factorization of an N-qubit pure quantum state in terms of the tensor product of non-factorable or ``prime'' pure quantum states . Read more",
+    "host_name": "www.mathematicsgroup.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum.cloud.ibm.com",
+    "name": "Introduction | IBM Quantum Learning",
+    "snippet": "A purification of a quantum state, represented by a density matrix ρ \\rho ρ, is a pure state of a larger compound system that leaves us with ρ \\rho ρ when the ... Read more",
+    "host_name": "quantum.cloud.ibm.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

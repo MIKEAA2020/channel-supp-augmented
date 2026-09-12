@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Does the Borsuk-Ulam theorem work for the real projective",
+    "snippet": "Mar 6, 2021 — The Borsuk-Ulam theorem states that if f is a continuous function from the n-dimensional sphere Sn to the n-dimensional euclidean space Rn, then there ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 0,
+    "date": "Mar 6, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Parametrized Borsuk-Ulam problem for projective space",
+    "snippet": "The purpose of this paper is to prove parametrized Borsuk - Ulam theorems coincidence set of a fiber preserving map is also estimated.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Projective Hilbert space",
+    "snippet": "Each such projective ray is a copy of the nonzero complex numbers, which is topologically a two-dimensional plane after one point has been removed. Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://imsarchives.nus.edu.sg",
+    "name": "Parametrized Borsuk-Ulam problem for projective space",
+    "snippet": "Our Aim: To prove parametrized Borsuk - Ulam theorems for bundles whose fibers are mod-2 cohomology real or complex projective spaces with any free involution. Read more",
+    "host_name": "imsarchives.nus.edu.sg",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "The Borsuk-Ulam theorem for planar polygon spaces - ADS",
+    "snippet": "In this paper, we compute these parameters for some moduli spaces of polygons. We also determine for which of these spaces a generalized version of the Borsuk - ... Read more",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathworld.wolfram.com",
+    "name": "Borsuk-Ulam Theorem -- from Wolfram MathWorld",
+    "snippet": "The Borsuk - Ulam theorem states that every continuous map f:S^n->R^n must identify a pair of antipodal points.",
+    "host_name": "mathworld.wolfram.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "A Borsuk–Ulam type theorem for sphere bundles over",
+    "snippet": "Jul 20, 2026 — A Borsuk – Ulam type theorem for sphere bundles over stunted projective spaces . A CW complex B is described as I-trivial if there does not exist ...",
+    "host_name": "www.researchgate.net",
+    "rank": 6,
+    "date": "Jul 20, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.colorado.edu",
+    "name": "from the Borsuk-Ulam theorem to quantum spaces",
+    "snippet": "Our quest to unravel topological mysteries in the Middle Earth of quantum spaces will begin with gentle preparations in the Shire of elementary topology. Then, ... Read more 1 page",
+    "host_name": "math.colorado.edu",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

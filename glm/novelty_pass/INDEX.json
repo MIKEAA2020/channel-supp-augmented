@@ -1,0 +1,52 @@
+{
+  "pass": "WAVE26 full-text novelty pass (arXiv + zbMATH Open + web)",
+  "date": "2026-09-13",
+  "scope_note": "MathSciNet is paywalled with no credentials in this environment; zbMATH Open + arXiv (website search; the API endpoint rate-limited the burst, recorded verbatim in arx_*.xml) + Google-scale web search are the substitute. Author-side MathSciNet pass remains a 1-hour task.",
+  "web_battery": {
+    "queries": 29,
+    "files": ["web_qa01..qa05", "web_qb01..qb04", "web_qc01..qc06", "web_qd01..d04", "web_qe01..e02", "web_qf01..f02", "web_guerra", "web_guerra2", "web_unflag2", "web_prime", "web_zp_bu", "web_auerbach"],
+    "verdict": "no collision on any theorem form"
+  },
+  "arxiv_website_battery": {
+    "null_results": {
+      "a02": "\"equal value\" \"orthonormal basis\"",
+      "a03": "\"Borsuk-Ulam\" flag manifold",
+      "a04": "flag manifold cyclic quotient cohomology",
+      "a05": "quantum channel inradius",
+      "a13": "ham sandwich quantum states",
+      "a15": "\"nonlinear width\" quantum",
+      "a16": "\"Chebyshev radius\" quantum",
+      "a17": "\"covering radius\" \"quantum channel\"",
+      "a21": "Auerbach basis flag manifold",
+      "a22": "unistochastic boundary strata",
+      "a24": "Borsuk-Ulam quantum states basis"
+    },
+    "hits": {
+      "a18": "unordered flag manifold cohomology -> arXiv:2309.00429 (Guerra-Jana TAMS 2025) + arXiv:2304.12990 (Guerra-Jana Topol Appl 2025) — the near-collision line",
+      "a06": "noise (tokenizer artifact)",
+      "a09": "noise (phrase not matched by website search)",
+      "a23": "noise (unrelated engineering)"
+    },
+    "abstracts_fetched": ["abs_2309.html", "abs_2304.html"]
+  },
+  "zbmath_battery": {
+    "files": ["zbm_ham_quantum", "zbm_bu_qstate", "zbm_bu_qutrit", "zbm_flag_cyc", "zbm_unflag", "zbm_uni_boundary", "zbm_ch_inrad", "zbm_ch_geom", "zbm_no_prog", "zbm_inst_geom"],
+    "key_finding": "zbm_unflag: 'The mod-2 cohomology groups of low-dimensional unordered flag manifolds and Auerbach bases' (Guerra, Jana; Topology and its Applications 2025) — found HERE first, then cross-confirmed on arXiv"
+  },
+  "flaw_audit_v7": {
+    "mechanical": "both papers PASS (labels/refs/cites/environments/delimiters); 3 raw flags diagnosed as checker artifacts (\\\\[4pt] line-skips; multi-line inline math; TikZ \\\\$ nodes)",
+    "compile": "tectonic recompile: both sources byte-identical to compile-test copies, NO ERRORS",
+    "line_level": "lem:flag-cohomology E2-page independently re-derived by hand this session: all claims confirmed; thm:equal-basis-plane Euler-class arithmetic confirmed; thm:state-d2 trace-norm inequality confirmed",
+    "machine_consistency": "4970 orbits x3 = 14910 cells; H_*(B) tuple in wave13c_h34_output.txt:222; chi(Fl)=6=3chi(B)",
+    "genuine_findings": [
+      "MAIN: bibitem NechitaEtAl2018 never cited (dead reference entry, trivial)",
+      "BOTH: the Guerra-Jana / Auerbach-school / Z_p-BU line uncited (positioning gap of omission — the blocking item for submission)"
+    ]
+  },
+  "merited_queue_after_this_pass": [
+    "1. v8 citation/positioning integration (REQUIRED, the only blocking item)",
+    "2. independent re-implementation or machine-free derivation of H^{3,4}(B) (open problem vi)",
+    "3. author-side MathSciNet pass (1 hour, institutional access)",
+    "STOPPED (unchanged): wave campaigns on the n=4 complex; delta_2(ququart)/delta_3(qutrit) attacks; the W23 next-frontier list"
+  ]
+}
