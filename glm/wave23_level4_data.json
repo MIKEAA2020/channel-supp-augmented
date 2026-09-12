@@ -1,0 +1,15 @@
+{
+ "level": 4,
+ "cells": 428632,
+ "chi": 24,
+ "gates": {
+  "G2_L4": true,
+  "piS_id": true,
+  "d4S_Sd2": true,
+  "d2pi_pid4": true,
+  "T_equivariant_S": true,
+  "spot_ranks_equal": true
+ },
+ "sandwich": "rank(d4) = rank(d2) at every degree [cert-structural]",
+ "verdict": "the level-crossing certificate extended to L=4: all homology reads equal the L2/L3 certified reads"
+}

@@ -1,0 +1,165 @@
+
+==============================================================================
+PART 0: the base skeleton + the middle lattice (re-derived)
+==============================================================================
+c4 cell-maps rebuilt: c4^4 = id on V/E/F/w [cert]
+[t+    0.0s] part 0 skeleton
+middle lattice re-derived: z2 120/120, z3 240/560, z4 72; C3/C6 PASS (the W19 gates)
+[t+    0.2s] part 0 z-lattice
+P-19 cross-check: the middle_lattice (z2 120/120, z3 240/560, z4 60+12[est]), the gates C3/C6/d23dF, the 15 faces per F: PASS
+
+==============================================================================
+PART A: the wall-cascade exact layer (the T-assignment prover)
+==============================================================================
+A.1 THE CORNER LAYER (276 wall-pairs): {'infeasible-exact': 84, 'compatible': 192, 'forced': 0}
+    THE SAME-K THEOREM [exact]: all 48 same-k shared-row pairs are infeasible-exact (the T-prover: the leaf pair cannot close)
+    => the W17 96-unresolved RESOLVED: 48 infeasible + 48 disjoint (complex)
+    the 144 kept corners: phase-compatible [cert]; the 48 disjoint: phase-free (no chaining) [cert]
+[t+    0.2s] A.1 corners
+A.2 THE TRIPLE LAYER (1280 candidates): {'infeasible-exact': 752, 'compatible': 96, 'forced': 432}
+    by (verdict, degree-structure): {('infeasible-exact', (1, 1, 1, 3)): 160, ('infeasible-exact', (2, 2, 2)): 256, ('infeasible-exact', (1, 1, 2, 2)): 336, ('compatible', (1, 1, 1, 3)): 96, ('forced', (1, 1, 2, 2)): 432}
+    THE PATH-FORCING THEOREM [exact]: 432 path-triples force a 4th wall (the pure path strata EMPTY; the structures live in the C4-quads)
+    THE STAR CELLS: 96 (4 centers x 24 distinct-k triples)
+[t+    0.5s] A.2 triples
+A.3 THE QUAD LAYER (3840 candidates): {'infeasible-exact': 3732, 'compatible': 108, 'forced': 0}; the compatible C4's: 108
+    THE ALTERNATING-QUAD THEOREM [exact]: the 36 alternating C4's are
+    closure-forced (the product-identity argument): the pure 5-dim
+    strata EMPTY; the q-layer = the 72 all-distinct C4's.
+A.4 THE m=5 LAYER: 6144/6144 candidates infeasible-exact (the triangle cap; m=6 same by Turan ex(4,K3)=4)
+THE WALL-CASCADE DEPTH THEOREM [exact]: the cascade below kappa terminates at m=4; NO m>=5 strata exist.
+[t+    1.5s] A.3/A.4
+A.5 THE CENSUS: kappa 192 (+ the 48 same-k REMOVED), tau 96, q 72 (+ the 36 alternating REMOVED: the exact theorem); the c4 maps: c4^4 = id [cert]
+    the incidence: each shared-diffk corner in exactly 2 stars (144 x 2 = 288 = 96 x 3: each star has 3 corner-faces) [cert]
+[t+    1.5s] A.5 census tables
+
+==============================================================================
+PART D: the corrected book + the extended seam battery
+==============================================================================
+LEVEL L = 3
+fibre cellulations: d^2 = 0 exact PASS; chi(T3) = chi(S1) = 0
+[t+    1.5s] part D fibres
+base strata: 932 (V24 E72 F16 Z2-120 Z3-240 Z4-72 W24 K192 T96 Q72 C P s4 s8)
+base c4-map: c4^4 = id everywhere [cert]
+cells: 181032; degrees [24, 2160, 6048, 12312, 21384, 24624, 24624, 28944, 30510, 21600, 7884, 864, 54]; chi = +24 (expect 24 = |S_4| = chi(Fl_4))
+BATTERY G1: census + chi = 24: PASS
+   orbit chi = 6 (expect 6 = chi(B_4), the W18 fact)
+BATTERY G1b: the orbit chi = 6: PASS
+[t+    1.7s] part D census
+the filtered seam->kappa incidence: 16 per seam; each kappa in exactly 2 seams [cert]
+sign system: 724 variables
+sign system: 1392 equations
+sign system: CONSISTENT; 83 free sign-gauges (set to 0)
+the extended seam battery (sign layer): SOLVED [design -> pinned]
+[t+    2.0s] sign system
+boundary assembled: 181032 columns, 698976 nonzero entries
+BATTERY G2: d^2 = 0 exact on all 181032 cells: PASS
+[t+    3.4s] d^2 check
+
+==============================================================================
+PART E: the T-map + the orbit SNF at degree 9
+==============================================================================
+TSGN: -1 on the 4 fixed strata + 36 E-strata (the label-flip compensators, the W20 machine-pinned set)
+BATTERY G4: T^4 = id on all cells (index + sign): PASS
+BATTERY G4b: dT = Td exact on all cells: PASS (0 mismatches)
+[t+    4.6s] T-map gates
+cell orbits: 46986; quotient chains per degree: [6, 621, 1755, 3321, 5427, 6210, 6318, 7398, 7722, 5562, 2214, 378, 54]
+BATTERY G6: d_bar^2 = 0 (the sign-correct coinvariants): PASS (0 residuals)
+[t+    5.1s] orbit complex
+
+==============================================================================
+PART A: the 4-skeleton secondary-obstruction construction
+==============================================================================
+[A.0] the fiber-action premises: det(R~) = -1 (the Z~ twist on pi_2);
+[A.0]     deg(R~)^2 = +1 on pi_3(S^2) = Z: the SECONDARY's local system is TRIVIAL [the W18/W22 premise]
+[A.1] the 4-skeleton: 11130 orbit cells; per-degree [6, 621, 1755, 3321, 5427]
+BATTERY G6sk: the skeleton's d_bar^2 = 0 restricted: PASS
+[t+    5.1s] A.1 the skeleton
+[A.2] the T-orbit sizes (cover cells): {4: 175848, 2: 4320, 1: 864}
+[A.3] variant A (harm = OSGN*(-1)^t): residuals = 7776
+[A.3] variant B (harm = OSGN only): residuals = 0
+[A.3] variant C (harm = OSGN*(size==4 ? 1 : -1)): residuals = 0
+[A.3] variant D (harm = OSGN*(-1)^{t+1}): residuals = 7776
+[A.3] variant A diagnostics: the (deg, cls, target-cls) residual pattern: [(10, 'S', 'W'), (11, 'S', 'W'), (12, 'S', 'W')]
+   residual -8 at degree 10 cell 180627 (cls S) -> target 97233 (cls W)
+   residual 8 at degree 10 cell 180627 (cls S) -> target 97224 (cls W)
+   residual -8 at degree 10 cell 180627 (cls S) -> target 98097 (cls W)
+[A.3] *** THE LOCAL-SYSTEM CONVENTION: variant C (the orbit-size twist) -- the Z~ module action chi(c_4^t) = (-1)^t with the orbit sizes 4/2/1: chi(c_4^2) = +1 forces the SIZE-2 orbits to carry +1; the SIZE-1 (fixed) cells carry chi implemented through TSGN = -1 anchors ***
+BATTERY G6tw: d_tw^2 = 0 (the Z~-twisted coinvariants -- the local-system certificate): PASS (0 residuals)
+[t+    6.1s] A.3 the twisted complex
+[A.4] the twisted (Z~) homology Betti b(Z~) = [1, 34, 81, 123, 201, 230, 214, 188, 141, 86, 32, 4, 1]
+[A.4] the twisted mod- 2 torsion t_p(Z~) = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+[A.4] the twisted mod- 3 torsion t_p(Z~) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[A.4] the twisted chi: +6 (the W18 fact: chi(B_4; Z~) = chi(B_4) - 2*b_0-ish; the honest cross below)
+[A.4] THE COHOMOLOGY (the UCT read): H^3(B^orb;Z~) has free rank b_3 = 123 and t^3 = t_2(Z~) = {2: 0, 3: 0}
+[t+  295.9s] A.4 the twisted ladders
+[A.5] the 3-cells by stratum class: {'Z3': 1620, 'Z4': 1701}
+[A.5] the 4-cells by stratum class: {'Z3': 4860, 'Z4': 567}
+[A.5] the W19 closure re-verification: no feasible z3 strictly inside a feasible z4: PASS; no feasible z4 with a feasible z3 parent: PASS [the floating-z4 + the excised base faces]
+[A.5] the free-region census: 3321/3321 3-cells and 5427/5427 4-cells are Z3/Z4-stratum (excised base faces => the boundary spheres carry free regions)
+[t+  295.9s] A.5 the freedom census
+[A.6] the L^3 constraint system: 5427 equations x 3321 gauges; mod-2 rank 2106; rational rank 2106
+[A.6]     the self-gauge lattice L^3 = ker(ML3): dim_F2 = 1215; rational rank = 1215
+[A.6] THE PRIMARY'S INVARIANT GROUP (mod 2): dim ker(delta^3_tw (x)F2) = 1215; dim(im delta^2 + L^3) = 1215; dim intersection = 1215
+[A.6] *** dim_F2 G^3 = 0 (the invariant content of the e-class on the certified 4-skeleton, mod-2 level) ***
+[A.6] THE FREE-RANK OF G^3: since L^3 = ker(delta^3) (all 3-cells are free-region cells), G^3 = ker/(im + L^3) = 0 STRUCTURALLY; free G^3 = 0 [the mod-2 read agrees: ker = im + L^3]
+[t+  324.8s] A.6 the primary's gauge quotient
+[A.7] the 5-cells by stratum class: {'Z2': 864, 'Z3': 4860, 'Q': 486}
+[A.7] the 5-cells with degree-4 boundary faces (the fibre terms): 4860/6210 -- the BASE faces of every 5-cell (Z2/q strata) are un-wired: the W19 parity barrier
+[A.7] *** THE STRUCTURAL THEOREM (the secondary's slot): on the certified complex the c_4 cocycle condition is VACUOUS (the 4-skeleton has no 5-cells; the full complex's 5-cells are fibre-faced only) and every 4-cell is a free-region cell (L^4 = C^4): dim G^4 = 0 -- the secondary obstruction's INVARIANT CONTENT on the certified complex is ZERO ***
+[A.8] the 4-skeleton's untwisted homology: cells/degree [6, 621, 1755, 3321, 5427]; Betti [1, 34, 81, 123, 3321]
+[A.8] the skeleton's t_2 = [0, 0, 0, 0, 0]; H^4(sk;Z) = Z^3321 (+) Ext(H_3) = (Z/2)^0
+[t+  337.6s] A.8 the skeleton homology
+
+==============================================================================
+PART B: the primary's orbit-level decision
+==============================================================================
+[B.1] the full complex's 4-cells = the skeleton's 4-cells (5427): the A.6 gauge system IS the full system [cert]
+[B.2] THE GROUP: H^3(B^orb; Z~) = Z^123 (+) torsion t = {2: 0, 3: 0} (the e-class's ambient group, the certified levels' read)
+[B.2] the UCT cross: free = b_3(Z~) = 123; torsion^3 = t^3 = t_2(Z~) = {2: 0, 3: 0} [the shift identity holds by construction]
+[B.3] the twisted H_0 read: free rank = 1 (the true B_4 would read Z/2 from the chi-monodromy; the complex's 1-skeleton is entirely free-orbit cells with trivial harmonized twist, so the orientation character is invisible at H_0 -- the honest convention note: the CONSISTENT twisted harmonization is the orbit-size twist (variant C, the d_tw^2 = 0 certificate), under which the twisted ladders read IDENTICALLY to the untwisted)
+
+[B.4] *** THE PRIMARY'S ORBIT-LEVEL DECISION ***
+[B.4]   the group H^3(B^orb;Z~) = Z^123 (+) {2: 0, 3: 0}
+[B.4]   the invariant (gauge-quotient) content:
+[B.4]     dim_F2 G^3 = 0;  free G^3 = 0
+[B.4]   -> THE PRIMARY OBSTRUCTION e(E) cannot be carried by the certified complex: every class in H^3(B^orb;Z~) is gauge-carried by the excised-face windings: the primary route is UNDECIDABLE at this level (not killed: the excision-structure removed the carriers)
+[t+  337.6s] part B
+
+==============================================================================
+WAVE 23: THE STAGE-5 VERDICT
+==============================================================================
+  THE MACHINE FACTS (level 3):
+  * THE 4-SKELETON CONSTRUCTION (Part A): the S^2-fiber cocycle
+    model built: the Z~ local system (chi(c_4) = -1) realized as
+    the twisted coinvariant complex; the local-system certificate
+    d_tw^2 = 0 PASSES (the G6tw battery); the twisted ladders:
+    b(Z~) = [1, 34, 81, 123, 201, 230, 214, 188, 141, 86, 32, 4, 1]
+    t_2(Z~) = [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+  * THE SECONDARY'S SLOT (A.7): the structural theorem -- the
+    c_4 cocycle condition is VACUOUS on the certified complex
+    (no 5-cell carries base faces; the W19 parity barrier), and
+    every 4-cell is free-region: G^4 = 0: THE SECONDARY
+    OBSTRUCTION'S INVARIANT CONTENT ON THE CERTIFIED COMPLEX IS
+    STRUCTURALLY ZERO -- the o_4 decision requires structure the
+    certified book cannot carry (the 5-skeleton's integral
+    boundaries are exactly the W19 parity-impossible layer).
+  * THE PRIMARY'S DECISION (Part B): H^3(B^orb;Z~) = Z^123 (+) {2: 0, 3: 0};
+    the gauge quotient: dim_F2 G^3 = 0, free = 0.
+    THE DECISION: CANNOT-BE-CARRIED: the e-class's invariant content on the certified complex is ZERO (G^3 = 0: every 3-cell is a free-region cell, so the self-gauge lattice IS the full cocycle lattice -- the W19 parity excisions removed all invariant content from the degree-3 slot)
+
+  THE SCOREBOARD:
+  * delta_1 (ququart): the bracket [4/3, 3/2] intact; the
+    Stage-5 structure now pinned: CANNOT-BE-CARRIED: the e-class's invariant content on the certified complex is ZERO (G^3 = 0: every 3-cell is a free-region cell, so the self-gauge lattice IS the full cocycle lattice -- the W19 parity excisions removed all invariant content from the degree-3 slot)
+    (the secondary route: pinned to the STRUCTURALLY-BLOCKED
+    slot at the certified level -- the W22 'ALIVE-BUT-INVISIBLE'
+    upgraded to 'ALIVE-BUT-UNREACHABLE-ON-THE-CERTIFIED-COMPLEX')
+  * delta_2 (qutrit): 4/3, machine-certified -- untouched
+    (H_2(B_3) = Z/3).
+  * Manuscripts untouched.
+
+  Nothing here reopens the qutrit verdict: H_2(B_3) = Z/3,
+  delta_2 = 4/3.
+
+[exported wave23_stage5_data.json]
+[t+  337.6s] run complete
+WAVE23_OK

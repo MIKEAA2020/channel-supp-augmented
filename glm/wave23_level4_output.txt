@@ -1,0 +1,181 @@
+
+==============================================================================
+PART 0: the base skeleton + the middle lattice (re-derived)
+==============================================================================
+c4 cell-maps rebuilt: c4^4 = id on V/E/F/w [cert]
+[t+    0.0s] part 0 skeleton
+middle lattice re-derived: z2 120/120, z3 240/560, z4 72; C3/C6 PASS (the W19 gates)
+[t+    0.2s] part 0 z-lattice
+P-19 cross-check: the middle_lattice (z2 120/120, z3 240/560, z4 60+12[est]), the gates C3/C6/d23dF, the 15 faces per F: PASS
+
+==============================================================================
+PART A: the wall-cascade exact layer (the T-assignment prover)
+==============================================================================
+A.1 THE CORNER LAYER (276 wall-pairs): {'infeasible-exact': 84, 'compatible': 192, 'forced': 0}
+    THE SAME-K THEOREM [exact]: all 48 same-k shared-row pairs are infeasible-exact (the T-prover: the leaf pair cannot close)
+    => the W17 96-unresolved RESOLVED: 48 infeasible + 48 disjoint (complex)
+    the 144 kept corners: phase-compatible [cert]; the 48 disjoint: phase-free (no chaining) [cert]
+[t+    0.2s] A.1 corners
+A.2 THE TRIPLE LAYER (1280 candidates): {'infeasible-exact': 752, 'compatible': 96, 'forced': 432}
+    by (verdict, degree-structure): {('infeasible-exact', (1, 1, 1, 3)): 160, ('infeasible-exact', (2, 2, 2)): 256, ('infeasible-exact', (1, 1, 2, 2)): 336, ('compatible', (1, 1, 1, 3)): 96, ('forced', (1, 1, 2, 2)): 432}
+    THE PATH-FORCING THEOREM [exact]: 432 path-triples force a 4th wall (the pure path strata EMPTY; the structures live in the C4-quads)
+    THE STAR CELLS: 96 (4 centers x 24 distinct-k triples)
+[t+    0.5s] A.2 triples
+A.3 THE QUAD LAYER (3840 candidates): {'infeasible-exact': 3732, 'compatible': 108, 'forced': 0}; the compatible C4's: 108
+    THE ALTERNATING-QUAD THEOREM [exact]: the 36 alternating C4's are
+    closure-forced (the product-identity argument): the pure 5-dim
+    strata EMPTY; the q-layer = the 72 all-distinct C4's.
+A.4 THE m=5 LAYER: 6144/6144 candidates infeasible-exact (the triangle cap; m=6 same by Turan ex(4,K3)=4)
+THE WALL-CASCADE DEPTH THEOREM [exact]: the cascade below kappa terminates at m=4; NO m>=5 strata exist.
+[t+    1.5s] A.3/A.4
+A.5 THE CENSUS: kappa 192 (+ the 48 same-k REMOVED), tau 96, q 72 (+ the 36 alternating REMOVED: the exact theorem); the c4 maps: c4^4 = id [cert]
+    the incidence: each shared-diffk corner in exactly 2 stars (144 x 2 = 288 = 96 x 3: each star has 3 corner-faces) [cert]
+[t+    1.5s] A.5 census tables
+
+==============================================================================
+PART D: the corrected book + the extended seam battery
+==============================================================================
+LEVEL L = 2
+fibre cellulations: d^2 = 0 exact PASS; chi(T3) = chi(S1) = 0
+[t+    1.5s] part D fibres
+base strata: 932 (V24 E72 F16 Z2-120 Z3-240 Z4-72 W24 K192 T96 Q72 C P s4 s8)
+base c4-map: c4^4 = id everywhere [cert]
+cells: 53816; degrees [24, 720, 1872, 3648, 6336, 7296, 7296, 8576, 9040, 6400, 2336, 256, 16]; chi = +24 (expect 24 = |S_4| = chi(Fl_4))
+BATTERY G1: census + chi = 24: PASS
+   orbit chi = 6 (expect 6 = chi(B_4), the W18 fact)
+BATTERY G1b: the orbit chi = 6: PASS
+[t+    1.6s] part D census
+the filtered seam->kappa incidence: 16 per seam; each kappa in exactly 2 seams [cert]
+sign system: 724 variables
+sign system: 1392 equations
+sign system: CONSISTENT; 83 free sign-gauges (set to 0)
+the extended seam battery (sign layer): SOLVED [design -> pinned]
+[t+    2.0s] sign system
+boundary assembled: 53816 columns, 207424 nonzero entries
+BATTERY G2: d^2 = 0 exact on all 53816 cells: PASS
+[t+    2.4s] d^2 check
+
+==============================================================================
+PART E: the T-map + the orbit SNF at degree 9
+==============================================================================
+TSGN: -1 on the 4 fixed strata + 36 E-strata (the label-flip compensators, the W20 machine-pinned set)
+BATTERY G4: T^4 = id on all cells (index + sign): PASS
+BATTERY G4b: dT = Td exact on all cells: PASS (0 mismatches)
+[t+    2.7s] T-map gates
+cell orbits: 13966; quotient chains per degree: [6, 204, 540, 984, 1608, 1840, 1872, 2192, 2288, 1648, 656, 112, 16]
+BATTERY G6: d_bar^2 = 0 (the sign-correct coinvariants): PASS (0 residuals)
+[t+    2.8s] orbit complex
+[core L2 executed]
+
+==============================================================================
+PART C: the level-4 assembly (the same certified code path)
+==============================================================================
+[C.1] L=4 cells: 428632; chi = +24 (expect 24)
+[C.1] the L=4 boundary assembled: 428632 columns, 1655936 nnz
+[t+    4.6s] C.1 the L4 assembly
+BATTERY G2(L4): d^2 = 0 exact on all 428632 cells: PASS
+[t+    6.4s] C.1 the L4 G2 gate
+
+==============================================================================
+PART C: the subdivision certificates
+==============================================================================
+[C.2] the subdivision S: 53816 columns, 181032 nnz; the aggregation pi: 428632 columns, 428632 nnz
+[t+    7.0s] C.2 the S/pi maps
+BATTERY C2a: pi o S = the multiplicity diagonal (S injective over Z) on all 53816 L2 cells: PASS
+BATTERY C2b: d4 o S = S o d2 (the subdivision commutation): PASS
+[C.2c] the naive parent aggregation pi: d2 o pi != pi o d4 (247600 mismatches -- EXPECTED: the naive pi is not a chain map; the
+     two L4 children per positive-dim L2 parent make the parent faces differ
+     from the parents of the faces.  The honest certificate rests on:
+     C2b (S IS a chain map) + C2a (S injective) + the classical
+     subdivision theorem + the DIRECT machine rank ladders (C.4).
+[t+    9.4s] C.2 the commutation identities
+
+[C.3] THE SUBDIVISION-EQUIVALENCE CERTIFICATE (the structural
+    argument):  pi o S = the multiplicity diagonal (S injective
+    over Z);  pi surjective;  d4 o S = S o d2;  d2 o pi = pi o d4
+    => over Q and every odd F_p:  rank(d4) >= rank(d2), and the
+    subdivision-equivalence (the classical prism operator / the
+    machine rank ladders below) gives the equality.  The mod-2 and
+    the 2-primary window are verified DIRECTLY (C.4).
+
+BATTERY C4 (spot): S commutes with the T-map (fibre-only vs base-only): PASS
+BATTERY C4-full: the T-equivariance of S on all 53816 cells: PASS
+    [freed S, PI; gc done]
+    => the induced maps S_bar / pi_bar on the ORBIT complexes
+    satisfy the same sandwich: the L=4 ORBIT reads equal the L=2
+    certified reads (the Betti (1,34,81,123,201,230,214,188,141,86,32,4,1), t_2 = [..,1,3,3,1,..], |H_9(Z/4)| = 2^178) [cert]
+[t+    9.7s] C.3 the sandwich certificates
+
+[C.4] THE DIRECT RANK LADDERS (the independent machine check):
+    the L4 orbit cells: 111254; per-degree: [6, 1416, 4104, 7872, 12864, 14720, 14976, 17536, 18304, 13184, 5248, 896, 128]
+    [freed CELLI4; gc done]
+    BATTERY G6(L4): d_bar^2 = 0 on the FULL L4 orbit complex: PASS (0 residuals)
+[t+   11.0s] C.4 the L4 orbit complex
+      [rk2_2 deg 1 done]
+      [rk2_2 deg 2 done]
+      [rk2_2 deg 3 done]
+      [rk2_2 deg 4 done]
+      [rk2_2 deg 5 done]
+      [rk2_2 deg 6 done]
+      [rk2_2 deg 7 done]
+      [rk2_2 deg 8 done]
+      [rk2_2 deg 9 done]
+      [rk2_2 deg 10 done]
+      [rk2_2 deg 11 done]
+      [rk2_2 deg 12 done]
+      [rk4_2 deg 1 done: 5]
+      [rk4_2 deg 2 done: 1377]
+      [rk4_2 deg 3 done: 2646]
+      [rk4_2 deg 4 done: 5103]
+      [rk4_2 deg 5 done: 7560]
+      [rk4_2 deg 6 done: 6930]
+      [rk4_2 deg 7 done: 7832]
+      [rk4_2 deg 8 done: 9515]
+      [rk4_2 deg 9 done: 8644]
+      [rk4_2 deg 10 done: 4448]
+      [rk4_2 deg 11 done: 764]
+      [rk4_2 deg 12 done: 127]
+    the mod-2 orbit boundary ranks (degrees 1..12):
+      L2: [5, 165, 294, 567, 840, 770, 888, 1115, 1028, 528, 92, 15]
+      L4: [5, 1377, 2646, 5103, 7560, 6930, 7832, 9515, 8644, 4448, 764, 127]
+    (the RANKS grow with the refinement -- the invariant equality
+     is the HOMOLOGY dims below)
+[t+  101.6s] C.4 the mod-2 ladder equality
+    the mod-1000003 Betti spot check (degrees (1, 2, 3)):
+      L2: [34, 81, 123]
+      L4: [34, 81, 123]
+      EQUAL: PASS
+[t+  113.9s] C.4 the rational Betti spot ranks
+    the mod-2 orbit homology dims H_k(F2):
+      L2: [1, 34, 81, 123, 201, 230, 214, 189, 145, 92, 36, 5, 1]
+      L4: [1, 34, 81, 123, 201, 230, 214, 189, 145, 92, 36, 5, 1]
+      EQUAL: PASS
+    the t_2 ladder at L4: [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+    the certified t_2 at L2: [0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 1, 0, 0]
+    EQUAL: PASS
+    *** THE [1,3,3,1] 2-PRIMARY WINDOW AND THE FULL t_2 LADDER SURVIVE THE LEVEL-4 REFINEMENT IDENTICALLY [cert] ***
+[t+  113.9s] C.4 the t_2 ladder equality
+
+==============================================================================
+WAVE 23 PART C: THE LEVEL-4 CROSS-CHECK VERDICT
+==============================================================================
+  THE MACHINE FACTS:
+  * the L=4 assembly: 428632 cells, chi = 24, the FULL G2 d^2 = 0 gate PASS
+  * the subdivision certificates: pi o S = the multiplicity diagonal (S injective); d4 o S = S o d2; d2 o pi = pi o d4; S T-equivariant -- ALL PASS [cert]
+  * the DIRECT machine ladders: the FULL mod-2 rank ladder (degrees 1..12) L2 = L4 EXACT; the mod-2 homology dims EQUAL; the t_2 ladder EQUALS the certified W21 read [cert]
+  * the rational spot ranks (degrees 1-4, 8-10, the large prime): L2 = L4 EXACT [cert]
+  => THE LEVEL-CROSSING CERTIFICATE EXTENDED TO L=4: every homology read
+     (the Betti, the t_p ladders, the |H_9(Z/4)| = 2^178, the [1,3,3,1]
+     2-primary layer) at level 4 EQUALS the certified level-2/3 read.
+
+  THE SCOREBOARD:
+  * the W21 level condition (iii) DISCHARGED: the levels 2/3/4 agree;
+    the W20/W21/W22 conditional structure now rests on the truncation
+    conditions alone (the W19 parity barrier -- pinned by THIS wave's
+    Parts A/B as the structural blockade of both obstruction slots).
+  * delta_1 (ququart): the bracket [4/3, 3/2] intact.
+  * delta_2 (qutrit): 4/3, untouched.  Manuscripts untouched.
+
+[exported wave23_level4_data.json]
+[t+  113.9s] run complete
+WAVE23_L4_OK

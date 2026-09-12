@@ -1,0 +1,96 @@
+{
+ "partA": {
+  "skeleton_cells": 11130,
+  "skeleton_degrees": [
+   6,
+   621,
+   1755,
+   3321,
+   5427
+  ],
+  "twisted_betti": [
+   1,
+   34,
+   81,
+   123,
+   201,
+   230,
+   214,
+   188,
+   141,
+   86,
+   32,
+   4,
+   1
+  ],
+  "twisted_tors": {
+   "2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    3,
+    3,
+    1,
+    0,
+    0
+   ],
+   "3": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "orbit_sizes": {
+   "4": 175848,
+   "2": 4320,
+   "1": 864
+  },
+  "G3_mod2": 0,
+  "G3_free": 0,
+  "G3_structural": "L^3 = ker(delta^3) (every 3-cell is a free-region cell) => G^3 = 0",
+  "G4_mod2": 0,
+  "theorem": "the secondary's invariant content is structurally zero on the certified complex",
+  "sk_betti": [
+   1,
+   34,
+   81,
+   123,
+   3321
+  ],
+  "sk_t2": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "H4_sk": "Z^3321 + (Z/2)^0"
+ },
+ "partB": {
+  "H3_Ztw": "Z^123 + {2: 0, 3: 0}",
+  "G3_mod2": 0,
+  "G3_free": 0,
+  "decision": "CANNOT-BE-CARRIED: the e-class's invariant content on the certified complex is ZERO (G^3 = 0: every 3-cell is a free-region cell, so the self-gauge lattice IS the full cocycle lattice -- the W19 parity excisions removed all invariant content from the degree-3 slot)"
+ },
+ "verdict": {
+  "primary": "CANNOT-BE-CARRIED: the e-class's invariant content on the certified complex is ZERO (G^3 = 0: every 3-cell is a free-region cell, so the self-gauge lattice IS the full cocycle lattice -- the W19 parity excisions removed all invariant content from the degree-3 slot)",
+  "secondary": "STRUCTURALLY-ZERO invariant content on the certified complex (G^4 = 0; the 5-cell relations are the W19 parity barrier)",
+  "bracket": "[4/3, 3/2] intact",
+  "level": 3
+ }
+}
