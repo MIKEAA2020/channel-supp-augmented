@@ -1,0 +1,317 @@
+{
+  "crossref": {
+    "cr_guerra_tams": {
+      "status": 200,
+      "items": [
+        {
+          "title": "Cohomology of complete unordered flag manifolds",
+          "authors": [
+            "Lorenzo Guerra",
+            "Santanil Jana"
+          ],
+          "container": "Transactions of the American Mathematical Society",
+          "volume": "378",
+          "page": "3507-3550",
+          "year": 2025,
+          "DOI": "10.1090/tran/9358",
+          "type": "journal-article"
+        },
+        {
+          "title": "The mod-2 cohomology groups of low-dimensional unordered flag manifolds and Auerbach bases",
+          "authors": [
+            "Lorenzo Guerra",
+            "Santanil Jana",
+            "Arun Maiti"
+          ],
+          "container": "Topology and its Applications",
+          "volume": "365",
+          "page": "109279",
+          "year": 2025,
+          "DOI": "10.1016/j.topol.2025.109279",
+          "type": "journal-article"
+        },
+        {
+          "title": "Cohomology of maximal flag manifolds",
+          "authors": [
+            "Daniel Cavalcante Oliveira"
+          ],
+          "container": "",
+          "volume": null,
+          "page": null,
+          "year": null,
+          "DOI": "10.47749/t/unicamp.2022.1259602",
+          "type": "dissertation"
+        }
+      ]
+    },
+    "cr_korbas": {
+      "status": 200,
+      "items": [
+        {
+          "title": "On the Z2-cohomology cup-length of some real flag manifolds",
+          "authors": [
+            "Marko Radovanovic"
+          ],
+          "container": "Filomat",
+          "volume": "30",
+          "page": "1577-1590",
+          "year": 2016,
+          "DOI": "10.2298/fil1606577r",
+          "type": "journal-article"
+        },
+        {
+          "title": "The Z<sub>2</sub>-cohomology cup-length of real flag manifolds",
+          "authors": [
+            "J\u00falius Korba\u0161",
+            "Juraj L\u00f6rinc"
+          ],
+          "container": "Fundamenta Mathematicae",
+          "volume": "178",
+          "page": "143-158",
+          "year": 2003,
+          "DOI": "10.4064/fm178-2-4",
+          "type": "journal-article"
+        },
+        {
+          "title": "On real flag manifolds with cup-length equal to its dimension",
+          "authors": [
+            "Marko Radovanovi\u0107"
+          ],
+          "container": "Czechoslovak Mathematical Journal",
+          "volume": "70",
+          "page": "299-310",
+          "year": 2019,
+          "DOI": "10.21136/cmj.2019.0283-18",
+          "type": "journal-article"
+        }
+      ]
+    },
+    "cr_weber": {
+      "status": 200,
+      "items": [
+        {
+          "title": "On the Pe\u0142czy\u0144ski conjecture on Auerbach bases",
+          "authors": [
+            "Andrzej Weber",
+            "Micha\u0142 Wojciechowski"
+          ],
+          "container": "Communications in Contemporary Mathematics",
+          "volume": "19",
+          "page": "1750016",
+          "year": 2017,
+          "DOI": "10.1142/s021919971750016x",
+          "type": "journal-article"
+        },
+        {
+          "title": "On the relations between Auerbach or almost Auerbach Markushevich systems and Schauder bases",
+          "authors": [
+            "Beata Randrianantoanina",
+            "Micha\u0142 Wojciechowski",
+            "Pavel Zatitskii"
+          ],
+          "container": "Journal of Functional Analysis",
+          "volume": "287",
+          "page": "110590",
+          "year": 2024,
+          "DOI": "10.1016/j.jfa.2024.110590",
+          "type": "journal-article"
+        },
+        {
+          "title": "Pelczynski, Piotr",
+          "authors": [],
+          "container": "Benezit Dictionary of Artists",
+          "volume": null,
+          "page": null,
+          "year": 2011,
+          "DOI": "10.1093/benz/9780199773787.article.b00137917",
+          "type": "reference-entry"
+        }
+      ]
+    },
+    "cr_matszangosz": {
+      "status": 200,
+      "items": [
+        {
+          "title": "On the cohomology rings of real flag manifolds: Schubert cycles",
+          "authors": [
+            "\u00c1kos K. Matszangosz"
+          ],
+          "container": "Mathematische Annalen",
+          "volume": "381",
+          "page": "1537-1588",
+          "year": 2021,
+          "DOI": "10.1007/s00208-021-02237-z",
+          "type": "journal-article"
+        },
+        {
+          "title": "Cohomology rings of the real and oriented partial flag manifolds",
+          "authors": [
+            "Chen He"
+          ],
+          "container": "Topology and its Applications",
+          "volume": "279",
+          "page": "107239",
+          "year": 2020,
+          "DOI": "10.1016/j.topol.2020.107239",
+          "type": "journal-article"
+        },
+        {
+          "title": "On the Z2-cohomology cup-length of some real flag manifolds",
+          "authors": [
+            "Marko Radovanovic"
+          ],
+          "container": "Filomat",
+          "volume": "30",
+          "page": "1577-1590",
+          "year": 2016,
+          "DOI": "10.2298/fil1606577r",
+          "type": "journal-article"
+        }
+      ]
+    },
+    "cr_crabb": {
+      "status": 200,
+      "items": [
+        {
+          "title": "The Borsuk\u2013Ulam Theorem",
+          "authors": [],
+          "container": "Using the Borsuk\u2013Ulam Theorem",
+          "volume": null,
+          "page": "21-46",
+          "year": 2008,
+          "DOI": "10.1007/978-3-540-76649-0_2",
+          "type": "book-chapter"
+        },
+        {
+          "title": "Borsuk-Ulam theorems for elementary abelian 2-groups",
+          "authors": [
+            "Michael C. Crabb"
+          ],
+          "container": "Topological Methods in Nonlinear Analysis",
+          "volume": null,
+          "page": "1-14",
+          "year": 2023,
+          "DOI": "10.12775/tmna.2022.042",
+          "type": "journal-article"
+        },
+        {
+          "title": "Direct Applications of Borsuk\u2013Ulam",
+          "authors": [],
+          "container": "Using the Borsuk\u2013Ulam Theorem",
+          "volume": null,
+          "page": "47-67",
+          "year": 2008,
+          "DOI": "10.1007/978-3-540-76649-0_3",
+          "type": "book-chapter"
+        }
+      ]
+    }
+  },
+  "zbmath": {
+    "zbm_v8_guerra_tams2": [
+      {
+        "authors": [
+          "Guerra, Lorenzo",
+          "Jana, Santanil"
+        ],
+        "title": "Cohomology of complete unordered flag manifolds",
+        "source": "Trans. Am. Math. Soc. 378, No. 5, 3507-3550 (2025).",
+        "volume": "378",
+        "year": "2025",
+        "pages": "3507-3550",
+        "dois": [
+          "10.1090/tran/9358"
+        ],
+        "arxiv": [
+          "2309.00429"
+        ]
+      },
+      {
+        "authors": [
+          "Guerra, Lorenzo",
+          "Jana, Santanil",
+          "Maiti, Arun"
+        ],
+        "title": "The mod-2 cohomology groups of low-dimensional unordered flag manifolds and Auerbach bases",
+        "source": "Topology Appl. 365, Article ID 109279, 31 p. (2025).",
+        "volume": "365",
+        "year": "2025",
+        "pages": "Article ID 109279, 31 p.",
+        "dois": [
+          "10.1016/j.topol.2025.109279"
+        ],
+        "arxiv": [
+          "2304.12990"
+        ]
+      }
+    ],
+    "zbm_v8_korbas2": [
+      {
+        "authors": [
+          "Korba\u0161, J\u00falius",
+          "L\u00f6rinc, Juraj"
+        ],
+        "title": "The \\({\\mathbb Z}_2\\)-cohomology cup-length of real flag manifolds",
+        "source": "Fundam. Math. 178, No. 2, 143-158 (2003).",
+        "volume": "178",
+        "year": "2003",
+        "pages": "143-158",
+        "dois": [
+          "10.4064/fm178-2-4"
+        ],
+        "arxiv": []
+      },
+      {
+        "authors": [
+          "Gonz\u00e1lez, Jes\u00fas",
+          "Guti\u00e9rrez, B\u00e1rbara",
+          "Guti\u00e9rrez, Darwin",
+          "Lara, Adriana"
+        ],
+        "title": "Motion planning in real flag manifolds",
+        "source": "Homology Homotopy Appl. 18, No. 2, 359-375 (2016).",
+        "volume": "18",
+        "year": "2016",
+        "pages": "359-375",
+        "dois": [
+          "10.4310/HHA.2016.v18.n2.a20"
+        ],
+        "arxiv": [
+          "1509.02898"
+        ]
+      },
+      {
+        "authors": [
+          "Radovanovi\u0107, Marko"
+        ],
+        "title": "On the topological complexity and zero-divisor cup-length of real Grassmannians",
+        "source": "Proc. R. Soc. Edinb., Sect. A, Math. 153, No. 2, 702-717 (2023).",
+        "volume": "153",
+        "year": "2023",
+        "pages": "702-717",
+        "dois": [
+          "10.1017/prm.2022.15"
+        ],
+        "arxiv": []
+      },
+      {
+        "authors": [
+          "Petrovi\u0107, Z. Z.",
+          "Prvulovi\u0107, B. I.",
+          "Radovanovi\u0107, M."
+        ],
+        "title": "On maximality of the cup-length of flag manifolds",
+        "source": "Acta Math. Hung. 149, No. 2, 448-461 (2016).",
+        "volume": "149",
+        "year": "2016",
+        "pages": "448-461",
+        "dois": [
+          "10.1007/s10474-016-0625-y"
+        ],
+        "arxiv": []
+      }
+    ]
+  },
+  "matszangosz_full_title": "Title:On the cohomology rings of real flag manifolds: Schubert cycles",
+  "tams_doi": "10.1090/tran/9358"
+}

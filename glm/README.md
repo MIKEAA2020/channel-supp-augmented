@@ -1,4 +1,4 @@
-# GLM contributions (waves 1-26)
+# GLM contributions (waves 1-27)
 
 This folder collects this assistant's deliverables for the
 `channel-supp-augmented` project. The original `manuscript uploads/` and
@@ -8,10 +8,14 @@ flat-width attack as new versions (v4) in `manuscript uploads v4/`; wave 6
 completed the attack as new versions (v5) in `manuscript uploads v5/`; wave 7
 closed the bottom index as new versions (v6) in `manuscript uploads v6/`; wave 25
 integrated the machine-certified core --- the audited `H_2(B_3) = Z/3` ⟹ `delta_2 = 4/3`
-chain of Waves 13C/24 --- as new versions (v7) in `manuscript uploads v7/`.
+chain of Waves 13C/24 --- as new versions (v7) in `manuscript uploads v7/`; wave 27
+integrated the W26 near-collision citations and positioning (the Guerra-Jana line,
+the Auerbach school, the Z_p-BU background) as new versions (v8) in
+`manuscript uploads v8/`.
 
 | Path | What it is |
 |---|---|
+| `WAVE27_V8_CITATIONS.md` | **Wave 27.** The v8 citation-integration pass (the W26 verdict's only blocking item, now closed): the positioning remark `rem:flag-literature` in the instruments paper (Guerra-Jana TAMS 378 (2025) 3507-3550; Guerra-Jana-Maiti Topology Appl. 365 (2025) 109279; Weber-Wojciechowski CCM 19 (2017) 1750016; Korbas-Lorinc Fundam. Math. 178 (2003) 143-158; Matszangosz Math. Ann. 381 (2021) 1537-1588; the Z_p-BU pair Singh Topology Proc. 36 (2010) / Crabb arXiv:2211.08087) with the precise differentiation (cyclic intermediate quotient vs symmetric-group; integral 3-torsion with exponents pinned vs field coefficients; equal-value/width chain vs Auerbach counting), the intro cross-ref, the open-problem (vi) candidate-route clause, seven bibitems; the main article sync-clause differentiation + two bibitems. Every field live-verified (Crossref/zbMATH Open/arXiv/DOI probes, logs in `novelty_pass/v8_*`). TWO HONEST CORRECTIONS to the W26 record: the 'uncited NechitaEtAl2018' finding is RETRACTED (the citation exists as \cite[Corollary~2]{...}, the v7 checker regex missed the optional-argument form; check_v8.py fixed, zero uncited bibitems now), and the cup-length paper is Korbas AND Lorinc (two authors). tectonic clean (48/46 pages, no errors; all box warnings pre-existing); check_v8 all PASS. Also: the task-2 merit verdict (machine-free derivation = the high-merit research objective, the independent re-implementation = the bounded next-session item; nothing rushed into this session by design) and the task-3 MathSciNet access report (account-level LibLynx wall --- all review pages unreachable, MR reviews carry no DOIs; every v8-relevant paper reachable via its open route; the DOI table in the note). |
 | `WAVE25_MANUSCRIPT_INTEGRATION.md` | **Wave 25.** The certified core integrated into the manuscripts as v7: the lemma `lem:flag-cohomology` (H₃(B) = H₄(B) = ℤ/3 with x² generating H⁴; the CLSS total-3/4 page derived by hand, the d₃ bit not page-decidable, the decision machine-certified) with `rem:machine-certificate` (the 14,910-cell battery, the four external anchors, the lens/ℝP²×S² model-case validation, the honest residuals, the repository pointer); the plane-valued equal-value-basis theorem `thm:equal-basis-plane` (the r=2 telescoping H: Fl → ℝ⁴ with T = T₁⊗I₂, the paper's own conjugate-then-normalize step one level up, the section of L⊕L, e = c₂ = x² ≠ 0); the second-index width theorem `thm:state-d2` (δ₂ ≥ 4/3 for every d_B ≥ 3, exactly 4/3 at the qutrit, [4/3, 2(1−1/d_B)] at d_B ≥ 4) with the decoder-scope remark; the consistency edits at seven further places (intro, roadmap, `cor:flat-fails`, `rem:flat-status` (open range r ≥ 3), `con:coord-flat` corrected a second time (clause r ≥ 3), conclusion, open problems ((v) updated, (vi) new)); the main article's open-problem (1) sync clause. Both v7 papers compiled with tectonic (47/46 pages, no errors). |
 | `WAVE26_NOVELTY_PASS.md` | **Wave 26.** The full-text novelty pass (merited-queue item 4) + the v7 flaw audit: the search battery (23 web + arXiv website + zbMATH Open, all logs in `novelty_pass/`): **no collision on any theorem form** (the exact widths, the equal-value-basis theorems, the instrument-body exact geometry, the query-uniform framework); the one near-collision line: Guerra-Jana 2023-2025 (unordered flag quotients + Auerbach bases, arXiv:2309.00429 TAMS / arXiv:2304.12990 Topol. Appl.) — same seam, disjoint spaces (Sigma_n vs the cyclic C_3), coefficients, and applications; **the v7 citation gap is the one blocking item for submission**; the flaw audit: mechanical/compile/line-level all PASS (the E2 page of `lem:flag-cohomology` independently re-derived by hand), the two genuine minor findings (the uncited `NechitaEtAl2018` bibitem in MAIN; the missing citations above); nothing fabricated. |
 | `WAVE7_FLAT_WIDTH_ATTACK_3.md` | **Wave 7 (this round).** The two residual state-space cases closed in the negative direction via the **equal-value-basis theorem** (`thm:equal-basis`: every continuous `f` on the qutrit's pure states admits an orthonormal basis with all three values equal — flag manifold, `ℤ/3` cycle, telescoping `H`-map, Chern-class obstruction on the flag quotient): `δ₁(D(ℂ³)) = 4/3` **exactly**, `δ₁(D(ℂ⁴)) ≥ 4/3` (bracket `[4/3, 3/2]`, linear encoders provably ≥ `3/2`), so the `con:coord-flat` flat direction **fails at `r = 1` for every `d_B ≥ 3`** and the conjecture is corrected by the clause `(d_B ≤ 2 or r ≥ 2)`. The bottom index `r = 1` is **classified completely** (`cor:bottom-dichotomy`); every surviving `d_B ≥ 3` flatness is gated by the state-space widths through the new concentration gate (`lem:slice-gate`), smallest unknown `δ₂` of the qutrit. Channel open-problem-1 residual closed. Ququart exactness posed with the `d₃` transgression identified as the hinge. |
@@ -23,9 +27,10 @@ chain of Waves 13C/24 --- as new versions (v7) in `manuscript uploads v7/`.
 | `wave 1 report/` | **Wave 1.** Line-level review of both manuscripts (docx + pdf). Findings are folded into the wave-3 report's consolidated list. |
 | `synthesis paper/` | **Wave 0 (earlier rounds).** Corrected synthesis paper (tex + compiled pdf); the tex is identical to `gpt round two/glm_CORRECTED_SYNTHESIS_PAPER2.tex` already in this repo. |
 
-The current manuscripts live in `../manuscript uploads v7/`
-(`instruments-paper-revised7.txt/.pdf`, `main-article-revised7.txt/.pdf`);
-the previous corrected versions are in `../manuscript uploads v6/`,
+The current manuscripts live in `../manuscript uploads v8/`
+(`instruments-paper-revised8.txt/.pdf`, `main-article-revised8.txt/.pdf`);
+the previous corrected versions are in `../manuscript uploads v7/`,
+`../manuscript uploads v6/`,
 `../manuscript uploads v5/`, `../manuscript uploads v4/` and
 `../manuscript uploads v3/`.
 

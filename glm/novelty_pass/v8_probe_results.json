@@ -1,0 +1,186 @@
+{
+  "arxiv_api_status": {
+    "api_url": "https://export.arxiv.org/api/query?id_list=2309.00429%2C2304.12990%2C1910.11149%2C1008.1134%2C2211.08087&max_results=50",
+    "status": null,
+    "body_head": ""
+  },
+  "arxiv_abs": [
+    {
+      "arxiv_id": "2309.00429",
+      "source_of_record": "local (saved in W26)",
+      "citation_title": [
+        "Cohomology of complete unordered flag manifolds"
+      ],
+      "citation_author": [
+        "Guerra, Lorenzo",
+        "Jana, Santanil"
+      ],
+      "citation_date": [
+        "2023/09/01"
+      ],
+      "citation_arxiv_id": [
+        "2309.00429"
+      ],
+      "journal_ref": "",
+      "doi": ""
+    },
+    {
+      "arxiv_id": "2304.12990",
+      "source_of_record": "local (saved in W26)",
+      "citation_title": [
+        "The mod-2 cohomology groups of low-dimensional unordered flag manifolds and Auerbach bases"
+      ],
+      "citation_author": [
+        "Guerra, Lorenzo",
+        "Jana, Santanil",
+        "Maiti, Arun"
+      ],
+      "citation_date": [
+        "2023/04/25"
+      ],
+      "citation_arxiv_id": [
+        "2304.12990"
+      ],
+      "journal_ref": "",
+      "doi": ""
+    },
+    {
+      "arxiv_id": "1910.11149",
+      "source_of_record": "live fetch status=200",
+      "citation_title": [
+        "On the cohomology rings of real flag manifolds: Schubert cycles"
+      ],
+      "citation_author": [
+        "Matszangosz, \u00c1kos K."
+      ],
+      "citation_date": [
+        "2019/10/24"
+      ],
+      "citation_arxiv_id": [
+        "1910.11149"
+      ],
+      "journal_ref": "",
+      "doi": ""
+    },
+    {
+      "arxiv_id": "1008.1134",
+      "source_of_record": "live fetch status=200",
+      "citation_title": [
+        "A simple proof of the Borsuk-Ulam theorem for Z_p-actions"
+      ],
+      "citation_author": [
+        "Singh, Mahender"
+      ],
+      "citation_date": [
+        "2010/08/06"
+      ],
+      "citation_arxiv_id": [
+        "1008.1134"
+      ],
+      "journal_ref": "Topology Proceedings, 36 (2010), 249-253",
+      "doi": ""
+    },
+    {
+      "arxiv_id": "2211.08087",
+      "source_of_record": "live fetch status=200",
+      "citation_title": [
+        "A Borsuk--Ulam theorem for cyclic $p$-groups"
+      ],
+      "citation_author": [
+        "Crabb, M. C."
+      ],
+      "citation_date": [
+        "2022/11/15"
+      ],
+      "citation_arxiv_id": [
+        "2211.08087"
+      ],
+      "journal_ref": "",
+      "doi": ""
+    }
+  ],
+  "zbmath": {
+    "zbm_v8_guerra_tams": [
+      {
+        "parse_error": "TypeError(\"'NoneType' object is not subscriptable\")"
+      }
+    ],
+    "zbm_v8_korbas": [
+      {
+        "parse_error": "TypeError(\"'NoneType' object is not subscriptable\")"
+      }
+    ]
+  },
+  "probes": {
+    "mathscinet_home": {
+      "url": "https://mathscinet.ams.org/mathscinet/",
+      "status": 200,
+      "final_url": "https://mathscinet.ams.org/mathscinet/publications-search",
+      "error": null,
+      "gate_markers_found": [],
+      "title_hint": "MathSciNet"
+    },
+    "mathscinet_search": {
+      "url": "https://mathscinet.ams.org/mathscinet/search/publications.html?pg4=AULL&s4=unordered+flag+manifold",
+      "status": 200,
+      "final_url": "https://connect.liblynx.com/wayf/6aa5d97089aa998b7c89db39b780c253",
+      "error": null,
+      "gate_markers_found": [
+        "log in",
+        "login",
+        "credentials",
+        "institutional access"
+      ],
+      "title_hint": "Where Are You From"
+    },
+    "mathscinet_mrlookup": {
+      "url": "https://mathscinet.ams.org/mrlookup",
+      "status": 200,
+      "final_url": "https://mathscinet.ams.org/mrlookup",
+      "error": null,
+      "gate_markers_found": [],
+      "title_hint": "MR lookup"
+    },
+    "ams_public": {
+      "url": "https://www.ams.org/home/page",
+      "status": 200,
+      "final_url": "https://www.ams.org/home/page",
+      "error": null,
+      "gate_markers_found": [
+        "login",
+        "subscribe",
+        "subscription",
+        "purchase"
+      ],
+      "title_hint": " American Mathematical Society :: Homepage"
+    },
+    "arxiv_abs_2309": {
+      "url": "https://arxiv.org/abs/2309.00429",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2309.00429",
+      "error": null,
+      "gate_markers_found": [
+        "log in",
+        "login",
+        "subscribe"
+      ],
+      "title_hint": "[2309.00429] Cohomology of complete unordered flag manifolds"
+    },
+    "zbmath_open_record": {
+      "url": "https://zbmath.org/7996963",
+      "status": 403,
+      "final_url": "https://zbmath.org/7996963",
+      "error": "Forbidden",
+      "gate_markers_found": [],
+      "title_hint": "Just a moment..."
+    },
+    "doi_topol_guerra_jana_maiti": {
+      "url": "https://doi.org/10.1016/j.topol.2025.109279",
+      "status": 200,
+      "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S016686412500077X",
+      "error": null,
+      "gate_markers_found": [],
+      "title_hint": "Redirecting"
+    }
+  }
+}
