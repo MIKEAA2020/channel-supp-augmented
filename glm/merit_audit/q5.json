@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Are all Equivariant Bundles of a Total Flag Manifold",
+    "snippet": "Apr 30, 2013 — As we all know, for any homogeneous space G/H we have that the equivariant vector bundles over G/H are characterized by the representations of H. Thus, ...",
+    "host_name": "mathoverflow.net",
+    "rank": 0,
+    "date": "Apr 30, 2013",
+    "favicon": ""
+  },
+  {
+    "url": "https://ncatlab.org",
+    "name": "equivariant bundle in nLab",
+    "snippet": "Feb 8, 2026 — We discuss equivariant groups in/as topological spaces, for definiteness and due to their relevance as models in equivariant homotopy theory . Read more",
+    "host_name": "ncatlab.org",
+    "rank": 1,
+    "date": "Feb 8, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://kumar.math.unc.edu",
+    "name": "equivariant k-theory of flag varieties 1",
+    "snippet": "by S Kumar — We present some results on the K- theory of flag varieties of the flag varieties carry a transitive G-action. The G- equivariant K- theory is relatively easy to ... 12 pages",
+    "host_name": "kumar.math.unc.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "Obstruction Theory - an overview",
+    "snippet": "Obstruction theory refers to a framework developed to analyze the existence of certain mathematical structures by studying obstruction groups,",
+    "host_name": "www.sciencedirect.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sas.rochester.edu",
+    "name": "Equivariant obstruction theory",
+    "snippet": "Then for any G-set T , the assignment to an equivariant homotopy class [[f]] (of a map f: SqT + § Y) of the induced morphism f#: F T ~ ~q(SqT +) § ~q(Y) in. G is ... Read more",
+    "host_name": "www.sas.rochester.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Obstructions for constructing equivariant fibrations",
+    "snippet": "This is a standard strategy in obstruction theory . In this section , we give the basic definitions of the equivariant fibration theory . we introduce an  ...",
+    "host_name": "arxiv.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "Equivariant principal bundles over spheres and",
+    "snippet": "Abstract. We classify SO( n )- equivariant principal bundles over $S^ n $ in terms of their isotropy representations over the north and south poles. Read more",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://scispace.com",
+    "name": "equivariant-principal-bundles-over-spheres-and-",
+    "snippet": "We classify SO( n )- equivariant principal bundles over Sn in terms of their isotropy representations over the north and south poles.",
+    "host_name": "scispace.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://academic.oup.com",
+    "name": "The structure of maps on the space of all quantum pure states",
+    "snippet": "by GP Gehér · 2022 · Cited by 4 — Wigner's theorem states that every bijection ϕ : P ( H ) → P ( H ) that preserves the quantum angle between pure states is automatically induced by either a ... Read more",
+    "host_name": "academic.oup.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Epistemic Restrictions in Hilbert Space Quantum Mechanics",
+    "snippet": "This analysis provides a quantum mechanical understanding of some recent work that shows that certain kinds of quantum behavior are exhibited by a fully ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://physics.stackexchange.com",
+    "name": "Dimensions of quantum state's vector space",
+    "snippet": "Aug 2, 2023 — I'm trying to learn basic quantum mechanics by myself. As I understand now, any quantum system can be described by an abstract state vector ... Read more",
+    "host_name": "physics.stackexchange.com",
+    "rank": 2,
+    "date": "Aug 2, 2023",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Effective Number Theory: Counting the Identities of a Quantum",
+    "snippet": "by I Horváth · 2020 · Cited by 17 — Quantum physics frequently involves a need to count the states , subspaces, measurement outcomes, and other elements of quantum dynamics.",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathforquantum.quantumtinkerer.tudelft.nl",
+    "name": "4. Vector spaces in quantum mechanics",
+    "snippet": "The minimum number of vectors needed to form a complete set of basis states is known as the dimensionality of the state space . In quantum mechanics you will ... Read more",
+    "host_name": "mathforquantum.quantumtinkerer.tudelft.nl",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://preposterousuniverse.com",
+    "name": "Space Emerging from Quantum Mechanics – Sean Carroll",
+    "snippet": "Jul 18, 2016 — Use quantum information — in particular, the amount of entanglement between different parts of the state , as measured by the mutual information ... Read more",
+    "host_name": "preposterousuniverse.com",
+    "rank": 5,
+    "date": "Jul 18, 2016",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.springer.com",
+    "name": "Shapes of Quantum States and Their Applications",
+    "snippet": "In this chapter a geometric perspective on the structure of quantum information is presented, helping with understanding of many unintuitive properties of ...",
+    "host_name": "link.springer.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

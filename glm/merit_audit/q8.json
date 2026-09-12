@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://link.aps.org",
+    "name": "Characterizing Quantum Instruments: From Nondemolition",
+    "snippet": "by R Stricker · 2022 · Cited by 18 — Here we present a general recipe for characterizing quantum instruments and demonstrate its experimental implementation and analysis. Thereby ... Read more",
+    "host_name": "link.aps.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Characterizing quantum instruments:from non-demolition",
+    "snippet": "Quantum instruments are commonly used to describe scenarios where one needs to keep track of a classical input or output of a quantum operation, occurring ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Device-independent characterization of quantum instruments",
+    "snippet": "by S Wagner · 2020 · Cited by 47 — In this manuscript, we provide a recipe to certify quantum instruments that are neither projective measurements nor rank-one POVMs,. i.e. we ... Read more",
+    "host_name": "quantum-journal.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com",
+    "name": "Quantum Instruments Framework",
+    "snippet": "Sep 17, 2025 — Quantum instruments constitute the most general mathematical and operational framework for the description of quantum measurement processes. Read more",
+    "host_name": "www.emergentmind.com",
+    "rank": 3,
+    "date": "Sep 17, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Quantum instruments: I. Extreme instruments",
+    "snippet": "The structure of completely positive quantum instruments is analyzed thoroughly. We characterize the extreme points of the convex set of instruments. Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mdpi.com",
+    "name": "Application of Theory of Quantum Instruments to Psychology",
+    "snippet": "by M Ozawa · 2019 · Cited by 80 — In this paper , we show that, nevertheless, the combination of the QOE and RRE can be modeled within quantum formalism, in the framework of theory of non -atomic ... Read more",
+    "host_name": "www.mdpi.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantumcomputing.stackexchange.com",
+    "name": "Trace distance under quantum gates and measurements",
+    "snippet": "Mar 18, 2025 — I was thinking about the trace distance and what it means for the evolution of two density matrices that are close together in the trace distance. Specifically, ...",
+    "host_name": "quantumcomputing.stackexchange.com",
+    "rank": 6,
+    "date": "Mar 18, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://theorytrace.com",
+    "name": "Version - Table of contents - TheoryTrace",
+    "snippet": "Aug 17, 2026 — A first-principles path from quantum operations and dilation theorems to no - programming results and research-level programmable measurements . Read more",
+    "host_name": "theorytrace.com",
+    "rank": 7,
+    "date": "Aug 17, 2026",
+    "favicon": ""
+  }
+]

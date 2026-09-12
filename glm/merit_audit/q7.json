@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Does the Borsuk-Ulam theorem work for the real projective",
+    "snippet": "Mar 6, 2021 — The Borsuk-Ulam theorem states that if f is a continuous function from the n-dimensional sphere Sn to the n-dimensional euclidean space Rn, then there ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 0,
+    "date": "Mar 6, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Borsuk–Ulam theorem",
+    "snippet": "the Borsuk–Ulam theorem states that every continuous function from an n- Antipodal points are opposite points on the sphere Matching antipodal points of a ...",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://hal.science",
+    "name": "Discrete and Continuous Curved Surface Antipodal Paths.",
+    "snippet": "Jun 22, 2022 — This paper introduces discrete and continuous paths. Borsuk - Ulam Theorem is on a continuous map from the surface of a sphere Sn to real values ...",
+    "host_name": "hal.science",
+    "rank": 2,
+    "date": "Jun 22, 2022",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "A Perturbative Multiplicity Theorem for the Borsuk–Ulam",
+    "snippet": "Jul 14, 2025 — Abstract. We prove a generalization of the classical Borsuk – Ulam Theorem under small perturbations (shaking) of the sphere. Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "Jul 14, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://vixra.org",
+    "name": "1 THE BORSUK-ULAM THEOREM",
+    "snippet": "The Borsuk - Ulam Theorem (BUT) states that a single point, if embedded in one spatial dimension higher, gives rise to two antipodal points with matching ... Read more 8 pages",
+    "host_name": "vixra.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathworld.wolfram.com",
+    "name": "Borsuk-Ulam Theorem -- from Wolfram MathWorld",
+    "snippet": "The Borsuk - Ulam theorem states that every continuous map f:S^ n ->R^ n must identify a pair of antipodal points.",
+    "host_name": "mathworld.wolfram.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://par.nsf.gov",
+    "name": "arXiv:2106.14677v3 [math.GT] 28 Aug 2022",
+    "snippet": "by H Adams · 2023 · Cited by 12 — The fundamental result about zeros of odd maps is the classical Borsuk – Ulam theorem: Any continuous odd map Sd → Rd has a zero, or equivalently, any continuous ... Read more",
+    "host_name": "par.nsf.gov",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

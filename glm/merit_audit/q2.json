@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Equipartition theorem",
+    "snippet": "In classical statistical mechanics, the equipartition theorem relates the temperature of a system to its average energies . The equipartition theorem is also ... Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://vallance.chem.ox.ac.uk",
+    "name": "The Equipartition Theorem",
+    "snippet": "The equipartition theorem states that energy is shared equally amongst all energetically accessible degrees of freedom of a system. Read more 4 pages",
+    "host_name": "vallance.chem.ox.ac.uk",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://brilliant.org",
+    "name": "Ham Sandwich Theorem | Brilliant Math & Science Wiki",
+    "snippet": "The ham sandwich theorem states that given n n n objects floating in n n n-dimensional space, there exists a single ( n − 1 ) (n-1) (n−1)-dimensional ... Read more",
+    "host_name": "brilliant.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "On Quantum Equipartition Theorem for General Systems",
+    "snippet": "Apr 4, 2024 — Does the quantum equipartition theorem truly exist for any given system? If so, what is the concrete form of such a theorem ? The extension of ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "Apr 4, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://hsm.stackexchange.com",
+    "name": "On the origin of \"sandwiches\" in quantum mechanics",
+    "snippet": "Jul 29, 2021 — It is even sometimes used formally in mathematics for theorems like the squeeze theorem (AKA sandwich theorem ) and the ham sandwich theorem . Read more",
+    "host_name": "hsm.stackexchange.com",
+    "rank": 4,
+    "date": "Jul 29, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://comap.org",
+    "name": "The Ham Sandwich Theorem: A Slice of Mathematical",
+    "snippet": "Feb 27, 2024 — The theorem tells us that for any number of dimensions (not just three, but four, five, or even more), there exists a way to make that equitable ... Read more",
+    "host_name": "comap.org",
+    "rank": 5,
+    "date": "Feb 27, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Correspondence between the Energy Equipartition Theorem",
+    "snippet": "by E Marulanda · 2023 · Cited by 2 — We propose a correspondence between what is known as the classical energy equipartition theorem and its counterpart in the phase-space formulation in quantum ... Read more",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

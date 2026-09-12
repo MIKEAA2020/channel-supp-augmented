@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://quantumcomputing.stackexchange.com",
+    "name": "Do any two distinct pure states form a basis?",
+    "snippet": "Apr 23, 2020 — In Nielsen and Chuang's Quantum Computation and Quantum Information the authors make the following statement:  [G]iven any basis states |a⟩ and |b⟩ ...",
+    "host_name": "quantumcomputing.stackexchange.com",
+    "rank": 0,
+    "date": "Apr 23, 2020",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "How many orthonormal bases are needed to distinguish all",
+    "snippet": "Up to now we have seen that already in dimension 3, we can never find three orthonormal bases which would yield unique determination of all pure states . Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.springer.com",
+    "name": "How many orthonormal bases are needed to distinguish all",
+    "snippet": "by C Carmeli · 2015 · Cited by 39 — only, so one may wonder if two orthonormal bases can suffice to determine any pure qubit state . This is not true, in fact, in any dimension ... Read more",
+    "host_name": "link.springer.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Quantum state",
+    "snippet": "Quantum states are either pure or mixed , and have several possible representations. Pure quantum states are commonly represented as a vector in a Hilbert space. Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.preskill.caltech.edu",
+    "name": "Chapter 2 Foundations I: States and Ensembles",
+    "snippet": "A qubit is a state in a two-dimensional Hilbert space that can take any value of the form eq. (2.11). We can perform a measurement that projects the qubit onto ... Read more 40 pages",
+    "host_name": "www.preskill.caltech.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://kawaihome.link",
+    "name": "4.1. Pure states — A First Step to Quantum Computation with",
+    "snippet": "This orthonormal complete basis set { | 0 ⟩ , | 1 ⟩ } is known as computational basis which is the default basis in quantum computing. However, this basis set ... Read more",
+    "host_name": "kawaihome.link",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Speed of evolution in qutrit systems - PMC - NIH",
+    "snippet": "by J Espino-González · 2025 — The speed of evolution between perfectly distinguishable states is thoroughly analyzed in a closed three- level ( qutrit ) quantum system.",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]
