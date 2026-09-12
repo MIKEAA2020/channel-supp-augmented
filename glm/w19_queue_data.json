@@ -1,0 +1,121 @@
+{
+ "wall_cascade": {
+  "2": {
+   "n": 84,
+   "minus": 0,
+   "E_pure": 56,
+   "E_pure_minus": 0
+  },
+  "3": {
+   "n": 144,
+   "minus": 144,
+   "E_pure": 0,
+   "E_pure_minus": 0
+  },
+  "4": {
+   "n": 960,
+   "minus": 0,
+   "E_pure": 384,
+   "E_pure_minus": 0
+  },
+  "5": {
+   "n": 3360,
+   "minus": 3360,
+   "E_pure": 0,
+   "E_pure_minus": 0
+  },
+  "6": {
+   "n": 16860,
+   "minus": 0,
+   "E_pure": 3296,
+   "E_pure_minus": 0
+  }
+ },
+ "kappa": 3,
+ "drift_monodromy": {
+  "alpha1": {
+   "loops": 9,
+   "monodromy_gaugeA": 1,
+   "monodromy_gaugeB": 1.0
+  },
+  "alpha2": {
+   "loops": 9,
+   "monodromy_gaugeA": 1,
+   "monodromy_gaugeB": 1.0
+  },
+  "rho": {
+   "loops": 9,
+   "monodromy_gaugeA": 1,
+   "monodromy_gaugeB": 1.0
+  }
+ },
+ "level_fibres": {
+  "2": {
+   "sectors": 4,
+   "e_connected": true,
+   "v_extra_edges": 2
+  },
+  "3": {
+   "sectors": 9,
+   "e_connected": true,
+   "v_extra_edges": 9
+  }
+ },
+ "seam_battery": {
+  "Q_defects": 0,
+  "conn_mismatches": 0,
+  "relation_sign": 1
+ },
+ "CKM_chains": {
+  "triv": [
+   "w0"
+  ],
+  "psi_a1": [
+   "w0",
+   "s2s1",
+   "e"
+  ],
+  "psi_a2": [
+   "w0",
+   "s1s2",
+   "e"
+  ],
+  "psi_rho": [
+   "w0"
+  ]
+ },
+ "dF_pinned": {
+  "triv": [],
+  "psi_a1": [
+   [
+    "s2s1",
+    4
+   ]
+  ],
+  "psi_a2": [
+   [
+    "s1s2",
+    4
+   ]
+  ],
+  "psi_rho": []
+ },
+ "13C_2a2b": {
+  "t2_pattern": [
+   17,
+   19,
+   23,
+   25
+  ],
+  "all_z2": true
+ },
+ "adjudication": {
+  "wall_cascade_census": "RE-OPEN-support: the curvature (-1) is V-carried; the E-cascades are flat; the census shows no E-side artifact below kappa",
+  "drift_monodromy_lift": "RE-OPEN-support: the drift-monodromy is flat (no monodromy obstruction; the P-19 corner data consumed)",
+  "level_fibres": "NEUTRAL-support: the fibres are E-connected at both levels; no fibre-side artifact",
+  "seam_battery": "NEUTRAL-support: the seam battery closes exactly (no sign obstruction)",
+  "stage35_dF": "SPLIT: d(F) pinned per-book with 4-coefficients (E-firings only); the mod-2 primary pairing = 0 (dead route), but the torsion itself persists (the (c)-scope): the primary-obstruction route is dead, the classes remain",
+  "13C_2a2b": "RE-OPEN-support: the degree-9 2-primary layer is all-Z/2, persistent, E-carried",
+  "c_scope_decisive": "RE-OPEN (E-carried): H_9 = (Z/2)^23, E:14/N:9/V:0; the V-layer never enters"
+ }
+}

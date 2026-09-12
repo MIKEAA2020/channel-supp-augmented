@@ -1,0 +1,96 @@
+[core] 19 P-19 corners: OK (|v_i|<=2, sum=0)
+[core] sector counts (7,4,4,4): OK  classes=[(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)]
+[core] Q well-defined on Lambda/2Lam + polarization identity (16 pairs): OK
+[core] character table: OK (psi_a1, psi_a2 = E-characters; psi_rho = V-character)
+[core]   psi_a1: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): -1, (1, 1, 0): 1}  (kernel: alpha1-class)
+[core]   psi_a2: {(0, 0, 0): 1, (0, 1, 1): 1, (1, 0, 1): -1, (1, 1, 0): -1}  (kernel: alpha2-class)
+[core]   psi_rho: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): 1, (1, 1, 0): -1}  (kernel: rho-class)
+[core] E/V root split (structural): alpha1,alpha2 = E; rho = V; oblique-Q parities 0,0,1: OK
+[core] P-19 graph: 19 vertices, 42 root-edges: OK
+[core] unit-triangle triangulation: 24 triangles: OK
+[core] curvature = -1 on ALL 24 unit triangles: OK  (connection convention pinned)
+[core] triangle Q-parity census: odd=6, even=18
+[core] cell characters chi_w = psi_(w rho - rho): {e,w0}: triv, {s1,s2s1}: psi_a1, {s2,s1s2}: psi_a2 : OK
+[core]   full census: {'triv': [(0, 1, 2), (2, 1, 0)], 'psi_a2': [(0, 2, 1), (2, 0, 1)], 'psi_a1': [(1, 0, 2), (1, 2, 0)]}
+[core] *** THE V-CHARACTER psi_rho NEVER APPEARS AS A CELL CHARACTER ***
+[core] Inv sets + telescoping sum(Inv(w)) = rho - w*rho: OK (all 6 cells)
+[core] GKM hexagon (strong Bruhat coverings): 6 edges = 4 E + 2 V: OK
+[core]   edge (0, 1, 2) -> (0, 2, 1)  label beta=a2  [E]  chi(target)=triv
+[core]   edge (0, 1, 2) -> (1, 0, 2)  label beta=a1  [E]  chi(target)=triv
+[core]   edge (0, 2, 1) -> (1, 2, 0)  label beta=rho  [V]  chi(target)=psi_a2
+[core]   edge (1, 0, 2) -> (2, 0, 1)  label beta=rho  [V]  chi(target)=psi_a1
+[core]   edge (1, 2, 0) -> (2, 1, 0)  label beta=a1  [E]  chi(target)=psi_a1
+[core]   edge (2, 0, 1) -> (2, 1, 0)  label beta=a2  [E]  chi(target)=psi_a2
+[core] descent-character identity psi_(u rho - w rho) = chi_u . chi_w : OK (all 6 edges)
+[core] booked module structure H_q(Fl3): {0: ['triv'], 2: ['psi_a1', 'psi_a2'], 4: ['psi_a2', 'psi_a1'], 6: ['triv']}  (s1,s2s1->psi_a1; s2,s1s2->psi_a2; e,w0->triv)
+
+=== (a) THE FIRING CENSUS: the 6 hexagon coverings x the 4 character-books ===
+    entry = 4*[psi_beta = sigma]; d(F)^sigma = the top cell's twisted boundary
+edge                        label   E/V  triv      psi_a1    psi_a2    psi_rho   
+e -> s2                     alpha2  E    0         0         4         0         
+e -> s1                     alpha1  E    0         4         0         0         
+s2 -> s2s1                  rho     V    0         0         0         4         
+s1 -> s1s2                  rho     V    0         0         0         4         
+s2s1 -> w0                  alpha1  E    0         4         0         0         
+s1s2 -> w0                  alpha2  E    0         0         4         0         
+[c-scope] d(F)^triv = 0
+[c-scope] d(F)^psi_a1 = 4*s2s1
+[c-scope] d(F)^psi_a2 = 4*s1s2
+[c-scope] d(F)^psi_rho = 0
+[c-scope] E/V THEOREM VERIFIED: V-edges fire only in the psi_rho book; E-edges only in E-books; nothing in the trivial book
+
+=== (b) PER-BOOK TWISTED HOMOLOGIES (the sigma-coinvariant cell complexes) ===
+[c-scope] book triv [N]: H = H_0=Z^1  H_2=Z^2  H_4=Z^2  H_6=Z^1
+[c-scope] book psi_a1 [E]: H = H_0=Z/4  H_2=Z^1  H_4=Z^1(+)Z/4  H_6=0
+[c-scope] book psi_a2 [E]: H = H_0=Z/4  H_2=Z^1  H_4=Z^1(+)Z/4  H_6=0
+[c-scope] book psi_rho [V]: H = H_0=Z^1  H_2=Z/4,Z/4  H_4=0  H_6=Z^1
+[c-scope] E/V torsion contrast: E-books put Z/4's at the BOTTOM (H_0) and the 4-layer (H_4);
+[c-scope]                  the V-book puts (Z/4)^2 at the MIDDLE (H_2) -- the layer 2 levels below the tau/q cells
+
+=== (c) THE FULL TOTAL COMPLEX T = cells x Koszul(Gamma) ===
+[c-scope] D^2 = 0 EXACT on the full total complex (all degrees 2..11): PASS
+
+[c-scope] THE HONEST HOMOLOGY OF T (ker/im, the Borel answer), degrees 0..10:
+   H_0(T): free Z^1  (no torsion)
+   H_1(T): free Z^0  torsion: [2, 2]  -> Z/2 x 2, Z/4 x 0
+   H_2(T): free Z^0  torsion: [2, 2, 2]  -> Z/2 x 3, Z/4 x 0
+   H_3(T): free Z^0  torsion: [2, 2, 2, 2, 2]  -> Z/2 x 5, Z/4 x 0
+   H_4(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 8, Z/4 x 0
+   H_5(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 10, Z/4 x 0
+   H_6(T): free Z^1  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 13, Z/4 x 0
+   H_7(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 17, Z/4 x 0
+   H_8(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 19, Z/4 x 0
+   H_9(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 23, Z/4 x 0
+   H_10(T): free Z^0  torsion: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  -> Z/2 x 25, Z/4 x 0
+   H_11(T): free Z^29  (no torsion)
+
+=== (d) THE (c)-CORRECTED COMPARISON (remove the V-layer) ===
+[c-scope] THE V-LAYER REMOVAL IS VACUOUS: zero cells carry the V-character psi_rho;
+[c-scope] the corrected complex EQUALS the as-booked complex: NO V-ARTIFACT EXISTS AT ANY DEGREE.
+
+=== (e) THE SUPPORT-DESCENT RESTRICTION (below the tau/q diagonal) ===
+[c-scope] tau/q-table: 29 above-diagonal generators, 252 below
+[c-scope] T^above is a SUBCOMPLEX: PASS
+[c-scope] ALL degree-9 generators lie BELOW the tau/q diagonal: H_9(Q) = H_9(T) -- the restriction does NOT cut degree 9
+
+=== THE DEGREE-9 EXAMINATION (the decision rule H_9(B_4; Z)) ===
+[c-scope] per-cell degree-9 blocks (the provenance decomposition):
+   cell e      chi=triv     [N] : H_9(Gamma; Z_chi) = Z^0 (+) [2, 2, 2, 2, 2, 2]
+   cell s1     chi=psi_a1   [E] : H_7(Gamma; Z_chi) = Z^0 (+) [2, 2, 2, 2]
+   cell s2     chi=psi_a2   [E] : H_7(Gamma; Z_chi) = Z^0 (+) [2, 2, 2, 2]
+   cell s1s2   chi=psi_a2   [E] : H_5(Gamma; Z_chi) = Z^0 (+) [2, 2, 2]
+   cell s2s1   chi=psi_a1   [E] : H_5(Gamma; Z_chi) = Z^0 (+) [2, 2, 2]
+   cell w0     chi=triv     [N] : H_3(Gamma; Z_chi) = Z^0 (+) [2, 2, 2]
+
+[c-scope] *** THE DECISION: H_9(B_4; Z) at this complex = Z^0 (+) [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] ***
+[c-scope] the 2-primary summands: 23 x Z/2, 0 x Z/4
+[c-scope] E-provenance summands: 14 ; N(triv)-provenance: 9 ; V-provenance: 0
+
+=== (f) THE (c)-SCOPE VERDICT ===
+[c-scope] VERDICT: RE-OPEN (E-carried)
+[c-scope]   The degree-9 2-primary classes carry ZERO V-provenance: the V-layer
+[c-scope]   (psi_rho) never enters the complex (no cells, no firings in the full
+[c-scope]   A-linear book). The E/V-artifact mechanism CANNOT kill the degree-9
+[c-scope]   torsion: the standing FALSE verdict CANNOT be hardened via (c).
+
+CSCOPE_OK RE-OPEN (E-carried)

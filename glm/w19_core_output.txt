@@ -1,0 +1,28 @@
+[core] 19 P-19 corners: OK (|v_i|<=2, sum=0)
+[core] sector counts (7,4,4,4): OK  classes=[(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)]
+[core] Q well-defined on Lambda/2Lam + polarization identity (16 pairs): OK
+[core] character table: OK (psi_a1, psi_a2 = E-characters; psi_rho = V-character)
+[core]   psi_a1: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): -1, (1, 1, 0): 1}  (kernel: alpha1-class)
+[core]   psi_a2: {(0, 0, 0): 1, (0, 1, 1): 1, (1, 0, 1): -1, (1, 1, 0): -1}  (kernel: alpha2-class)
+[core]   psi_rho: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): 1, (1, 1, 0): -1}  (kernel: rho-class)
+[core] E/V root split (structural): alpha1,alpha2 = E; rho = V; oblique-Q parities 0,0,1: OK
+[core] P-19 graph: 19 vertices, 42 root-edges: OK
+[core] unit-triangle triangulation: 24 triangles: OK
+[core] curvature = -1 on ALL 24 unit triangles: OK  (connection convention pinned)
+[core] triangle Q-parity census: odd=6, even=18
+[core] cell characters chi_w = psi_(w rho - rho): {e,w0}: triv, {s1,s2s1}: psi_a1, {s2,s1s2}: psi_a2 : OK
+[core]   full census: {'triv': [(0, 1, 2), (2, 1, 0)], 'psi_a2': [(0, 2, 1), (2, 0, 1)], 'psi_a1': [(1, 0, 2), (1, 2, 0)]}
+[core] *** THE V-CHARACTER psi_rho NEVER APPEARS AS A CELL CHARACTER ***
+[core] Inv sets + telescoping sum(Inv(w)) = rho - w*rho: OK (all 6 cells)
+[core] GKM hexagon (strong Bruhat coverings): 6 edges = 4 E + 2 V: OK
+[core]   edge (0, 1, 2) -> (0, 2, 1)  label beta=a2  [E]  chi(target)=triv
+[core]   edge (0, 1, 2) -> (1, 0, 2)  label beta=a1  [E]  chi(target)=triv
+[core]   edge (0, 2, 1) -> (1, 2, 0)  label beta=rho  [V]  chi(target)=psi_a2
+[core]   edge (1, 0, 2) -> (2, 0, 1)  label beta=rho  [V]  chi(target)=psi_a1
+[core]   edge (1, 2, 0) -> (2, 1, 0)  label beta=a1  [E]  chi(target)=psi_a1
+[core]   edge (2, 0, 1) -> (2, 1, 0)  label beta=a2  [E]  chi(target)=psi_a2
+[core] descent-character identity psi_(u rho - w rho) = chi_u . chi_w : OK (all 6 edges)
+[core] booked module structure H_q(Fl3): {0: ['triv'], 2: ['psi_a1', 'psi_a2'], 4: ['psi_a2', 'psi_a1'], 6: ['triv']}  (s1,s2s1->psi_a1; s2,s1s2->psi_a2; e,w0->triv)
+
+=== w19_core: ALL VERIFICATION GATES PASSED ===
+CORE_OK

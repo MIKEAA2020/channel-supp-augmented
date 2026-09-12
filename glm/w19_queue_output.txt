@@ -1,0 +1,87 @@
+[core] 19 P-19 corners: OK (|v_i|<=2, sum=0)
+[core] sector counts (7,4,4,4): OK  classes=[(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)]
+[core] Q well-defined on Lambda/2Lam + polarization identity (16 pairs): OK
+[core] character table: OK (psi_a1, psi_a2 = E-characters; psi_rho = V-character)
+[core]   psi_a1: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): -1, (1, 1, 0): 1}  (kernel: alpha1-class)
+[core]   psi_a2: {(0, 0, 0): 1, (0, 1, 1): 1, (1, 0, 1): -1, (1, 1, 0): -1}  (kernel: alpha2-class)
+[core]   psi_rho: {(0, 0, 0): 1, (0, 1, 1): -1, (1, 0, 1): 1, (1, 1, 0): -1}  (kernel: rho-class)
+[core] E/V root split (structural): alpha1,alpha2 = E; rho = V; oblique-Q parities 0,0,1: OK
+[core] P-19 graph: 19 vertices, 42 root-edges: OK
+[core] unit-triangle triangulation: 24 triangles: OK
+[core] curvature = -1 on ALL 24 unit triangles: OK  (connection convention pinned)
+[core] triangle Q-parity census: odd=6, even=18
+[core] cell characters chi_w = psi_(w rho - rho): {e,w0}: triv, {s1,s2s1}: psi_a1, {s2,s1s2}: psi_a2 : OK
+[core]   full census: {'triv': [(0, 1, 2), (2, 1, 0)], 'psi_a2': [(0, 2, 1), (2, 0, 1)], 'psi_a1': [(1, 0, 2), (1, 2, 0)]}
+[core] *** THE V-CHARACTER psi_rho NEVER APPEARS AS A CELL CHARACTER ***
+[core] Inv sets + telescoping sum(Inv(w)) = rho - w*rho: OK (all 6 cells)
+[core] GKM hexagon (strong Bruhat coverings): 6 edges = 4 E + 2 V: OK
+[core]   edge (0, 1, 2) -> (0, 2, 1)  label beta=a2  [E]  chi(target)=triv
+[core]   edge (0, 1, 2) -> (1, 0, 2)  label beta=a1  [E]  chi(target)=triv
+[core]   edge (0, 2, 1) -> (1, 2, 0)  label beta=rho  [V]  chi(target)=psi_a2
+[core]   edge (1, 0, 2) -> (2, 0, 1)  label beta=rho  [V]  chi(target)=psi_a1
+[core]   edge (1, 2, 0) -> (2, 1, 0)  label beta=a1  [E]  chi(target)=psi_a1
+[core]   edge (2, 0, 1) -> (2, 1, 0)  label beta=a2  [E]  chi(target)=psi_a2
+[core] descent-character identity psi_(u rho - w rho) = chi_u . chi_w : OK (all 6 edges)
+[core] booked module structure H_q(Fl3): {0: ['triv'], 2: ['psi_a1', 'psi_a2'], 4: ['psi_a2', 'psi_a1'], 6: ['triv']}  (s1,s2s1->psi_a1; s2,s1s2->psi_a2; e,w0->triv)
+
+=== QUEUE 2: THE WALL-CASCADE CENSUS BELOW KAPPA (closed root-walks) ===
+[queue2] kappa (minimal closed-walk length with monodromy -1) = 3
+[queue2]   m=2: closed walks 84, monodromy -1: 0, E-pure: 56 (E-pure with -1: 0)
+[queue2]   m=3: closed walks 144, monodromy -1: 144, E-pure: 0 (E-pure with -1: 0)
+[queue2]   m=4: closed walks 960, monodromy -1: 0, E-pure: 384 (E-pure with -1: 0)
+[queue2]   m=5: closed walks 3360, monodromy -1: 3360, E-pure: 0 (E-pure with -1: 0)
+[queue2]   m=6: closed walks 16860, monodromy -1: 0, E-pure: 3296 (E-pure with -1: 0)
+[queue2] THEOREM (E-flatness): NO E-pure closed walk (alpha1/alpha2 steps only) has monodromy -1 --
+[queue2]   all -1 monodromies require rho-steps (the V-directions): the curvature is V-carried. PASS
+[queue2] monodromy = (-1)^(2A) (A = the normalized enclosed area): verified on 1020 closed walks (m=3,4): PASS
+
+=== QUEUE 3: THE DRIFT-MONODROMY LIFT (consuming P-19) ===
+[queue3] drift-lambda = alpha1: 9 two-step loops; monodromy gaugeA = 1, gaugeB = 1.0
+[queue3] drift-lambda = alpha2: 9 two-step loops; monodromy gaugeA = 1, gaugeB = 1.0
+[queue3] drift-lambda = rho: 9 two-step loops; monodromy gaugeA = 1, gaugeB = 1.0
+[queue3] THE FLAT CERTIFICATE: every sector-drift's monodromy = +1 in BOTH gauges: PASS
+[queue3]   (the norm^2 = 2 = 0 mod 2 and 2*Q = 0: the level-2 lifts commute with the drift) --
+[queue3]   the W21 left-equivariance certificate's A2-analog: the flat gauge holds exactly
+
+=== QUEUE 4: THE LEVEL-L FIBRES (L=2, 3) ===
+[queue4] L=2: 4 sectors; the E-subgraph connected: True; V-diagonal edges (not already E): 2
+[queue4] L=3: 9 sectors; the E-subgraph connected: True; V-diagonal edges (not already E): 9
+[queue4] THE FIBRE THEOREM: the E-edges alone connect the sector-fibres at BOTH levels;
+[queue4]   the V-edges are diagonals of the E-squares (L=2) / long chords (L=3): redundant for connectivity --
+[queue4]   the fibres carry NO 2-torsion obstruction of their own (the torsion is Gamma-homology, the base side)
+
+=== QUEUE 5: THE SEAM BATTERY (the Weyl reflections) ===
+[queue5] Q-defects of the reflections on all corners: 0 (ZERO: Q is swap-symmetric)
+[queue5] connection-equivariance mismatches: 0 (ZERO: the dot form is swap-invariant)
+[queue5] the (s1 s2)^3 = id relation lifts with sign 1: PASS
+[queue5] THE SEAM BATTERY CLOSES: the reflections lift cleanly (no sign obstruction) -- the A2-analog of the
+[queue5]   W20/W21 seam-battery consistency: PASS
+
+=== QUEUE 6: STAGE 3.5 -- PIN d(F) VIA THE CKM-CHAIN TRACE ===
+[queue6] CKM-chain in book triv: w0
+[queue6] CKM-chain in book psi_a1: w0 -> s2s1 -> e
+[queue6] CKM-chain in book psi_a2: w0 -> s1s2 -> e
+[queue6] CKM-chain in book psi_rho: w0
+[queue6] PINNED d(F): d(F)^psi_a1 = 4*s2s1 ; d(F)^psi_a2 = 4*s1s2 ; d(F)^triv = 0 ; d(F)^psi_rho = 0
+[queue6]   (the prior session's asymmetric '4*s1s2 + 0*s2s1' was a book-conflation artifact: each E-book
+[queue6]    fires exactly ONE top facet; the two E-books are mirror images)
+[queue6] THE MOD-2 PAIRING: the d(F) coefficients are 4 = 0 (mod 2): the mod-2 diagonal delta_1(d(F)) = 0:
+[queue6]   the primary-obstruction pairing vanishes identically (the honest A2-analog of the W19 C3-gate:
+[queue6]   d(F) is a mod-2 cycle TRIVIALLY, and its pairing with the degree-9 2-torsion is ZERO)
+
+=== QUEUE 7: 13C STAGE 2a/2b (the degree-9 2-primary examination) ===
+[queue7] 2a (localization): H_7 = [0, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]], H_8 = [0, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]], H_9 = [0, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]], H_10 = [0, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+[queue7]   the 2-primary counts at degrees 7..10: [17, 19, 23, 25]
+[queue7] 2b (2-torsion structure): ALL 2-primary summands at every degree are Z/2 (no Z/4, no Z/8):
+[queue7]   verified over degrees 1..10 (125 summands): every entry = 2: ALL Z/2
+
+=== QUEUE 8: THE ADJUDICATION AGGREGATE ===
+[queue8] wall_cascade_census: RE-OPEN-support: the curvature (-1) is V-carried; the E-cascades are flat; the census shows no E-side artifact below kappa
+[queue8] drift_monodromy_lift: RE-OPEN-support: the drift-monodromy is flat (no monodromy obstruction; the P-19 corner data consumed)
+[queue8] level_fibres: NEUTRAL-support: the fibres are E-connected at both levels; no fibre-side artifact
+[queue8] seam_battery: NEUTRAL-support: the seam battery closes exactly (no sign obstruction)
+[queue8] stage35_dF: SPLIT: d(F) pinned per-book with 4-coefficients (E-firings only); the mod-2 primary pairing = 0 (dead route), but the torsion itself persists (the (c)-scope): the primary-obstruction route is dead, the classes remain
+[queue8] 13C_2a2b: RE-OPEN-support: the degree-9 2-primary layer is all-Z/2, persistent, E-carried
+[queue8] c_scope_decisive: RE-OPEN (E-carried): H_9 = (Z/2)^23, E:14/N:9/V:0; the V-layer never enters
+
+QUEUE_OK

@@ -1,0 +1,398 @@
+{
+ "firing_census": {
+  "e->s2|alpha2": {
+   "triv": 0,
+   "psi_a1": 0,
+   "psi_a2": 4,
+   "psi_rho": 0
+  },
+  "e->s1|alpha1": {
+   "triv": 0,
+   "psi_a1": 4,
+   "psi_a2": 0,
+   "psi_rho": 0
+  },
+  "s2->s2s1|rho": {
+   "triv": 0,
+   "psi_a1": 0,
+   "psi_a2": 0,
+   "psi_rho": 4
+  },
+  "s1->s1s2|rho": {
+   "triv": 0,
+   "psi_a1": 0,
+   "psi_a2": 0,
+   "psi_rho": 4
+  },
+  "s2s1->w0|alpha1": {
+   "triv": 0,
+   "psi_a1": 4,
+   "psi_a2": 0,
+   "psi_rho": 0
+  },
+  "s1s2->w0|alpha2": {
+   "triv": 0,
+   "psi_a1": 0,
+   "psi_a2": 4,
+   "psi_rho": 0
+  }
+ },
+ "dF_per_book": {
+  "triv": "0",
+  "psi_a1": "4*s2s1",
+  "psi_a2": "4*s1s2",
+  "psi_rho": "0"
+ },
+ "book_homologies": {
+  "triv": {
+   "0": [
+    1,
+    []
+   ],
+   "2": [
+    2,
+    []
+   ],
+   "4": [
+    2,
+    []
+   ],
+   "6": [
+    1,
+    []
+   ]
+  },
+  "psi_a1": {
+   "0": [
+    0,
+    [
+     4
+    ]
+   ],
+   "2": [
+    1,
+    []
+   ],
+   "4": [
+    1,
+    [
+     4
+    ]
+   ],
+   "6": [
+    0,
+    []
+   ]
+  },
+  "psi_a2": {
+   "0": [
+    0,
+    [
+     4
+    ]
+   ],
+   "2": [
+    1,
+    []
+   ],
+   "4": [
+    1,
+    [
+     4
+    ]
+   ],
+   "6": [
+    0,
+    []
+   ]
+  },
+  "psi_rho": {
+   "0": [
+    1,
+    []
+   ],
+   "2": [
+    0,
+    [
+     4,
+     4
+    ]
+   ],
+   "4": [
+    0,
+    []
+   ],
+   "6": [
+    1,
+    []
+   ]
+  }
+ },
+ "T_homology": {
+  "0": [
+   1,
+   []
+  ],
+  "1": [
+   0,
+   [
+    2,
+    2
+   ]
+  ],
+  "2": [
+   0,
+   [
+    2,
+    2,
+    2
+   ]
+  ],
+  "3": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "4": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "5": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "6": [
+   1,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "7": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "8": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "9": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "10": [
+   0,
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  ],
+  "11": [
+   29,
+   []
+  ]
+ },
+ "V_correction_vacuous": true,
+ "descent_restriction_no_cut_at_9": true,
+ "degree9_provenance": {
+  "e": {
+   "char": "triv",
+   "ev": "N",
+   "block_deg": 9,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  "s1": {
+   "char": "psi_a1",
+   "ev": "E",
+   "block_deg": 7,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  "s2": {
+   "char": "psi_a2",
+   "ev": "E",
+   "block_deg": 7,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  "s1s2": {
+   "char": "psi_a2",
+   "ev": "E",
+   "block_deg": 5,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2
+   ]
+  },
+  "s2s1": {
+   "char": "psi_a1",
+   "ev": "E",
+   "block_deg": 5,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2
+   ]
+  },
+  "w0": {
+   "char": "triv",
+   "ev": "N",
+   "block_deg": 3,
+   "free": 0,
+   "torsion": [
+    2,
+    2,
+    2
+   ]
+  }
+ },
+ "verdict": "RE-OPEN (E-carried)",
+ "verdict_detail": [
+  "The degree-9 2-primary classes carry ZERO V-provenance: the V-layer",
+  "(psi_rho) never enters the complex (no cells, no firings in the full",
+  "A-linear book). The E/V-artifact mechanism CANNOT kill the degree-9",
+  "torsion: the standing FALSE verdict CANNOT be hardened via (c)."
+ ]
+}
