@@ -1,0 +1,100 @@
+PASS P: guide opening
+PASS P: guide step0
+PASS P: guide step1
+PASS P: guide steps234
+PASS P: guide crux
+PASS P: guide step7
+PASS P: reading opening
+PASS P: reading floor
+PASS P: reading mechanism
+PASS P: reading 5/6
+PASS P: fibration figure
+PASS P: fibration caption pullback
+PASS P: fibration caption tower
+PASS P: fibration caption fibre
+PASS P: fibration caption rho
+PASS P: phases figure
+PASS P: phases caption boundary
+PASS P: phases caption a
+PASS P: phases caption c
+PASS P: phases caption ququart
+PASS P: phases label conjectured
+PASS P: phases label certified
+PASS P-hold: prop statement tuple
+PASS P-hold: prop statement H6
+PASS P-hold: proof framing
+PASS P-hold: Step0 title
+PASS P-hold: Step1 display
+PASS P-hold: Step2 witness
+PASS P-hold: Step4 pins display
+PASS P-hold: Step5 crux
+PASS P-hold: Step6 edge
+PASS P-hold: Step7 Delta
+PASS P-hold: thm state d2
+PASS P-hold: classical dichotomy
+PASS P-hold: qubit dichotomy
+PASS P-hold: bottom dichotomy
+PASS P-hold: conjecture
+PASS P-hold: exact d1
+PASS P: .txt == .tex
+PASS P: main article v11 byte-unchanged (tex)
+PASS P: no duplicate labels
+PASS P: label fig:flag-fibration defined once
+PASS P: fig:flag-fibration referenced
+PASS P: label fig:flat-regimes defined once
+PASS P: fig:flat-regimes referenced
+PASS P: no dangling \ref
+PASS P-abs: we believe
+PASS P-abs: in this version
+PASS P-abs: previous version
+PASS P-abs: earlier version
+PASS P-abs: as noted above
+PASS P-abs: roughly speaking
+PASS P-abs: intuitively,
+PASS P-abs: of course,
+PASS P-abs: hand-derived, machine-certified
+PASS P-abs: the earlier audit
+PASS P: v13 fully contained in v14 (edit is pure insertion)
+
+P layer: 57 checks, 0 failures
+PASS R: guide rendered
+PASS R: guide step0 rendered
+PASS R: guide step1 rendered
+PASS R: guide crux rendered
+PASS R: guide edge rendered
+PASS R: reading rendered
+PASS R: reading floor rendered
+PASS R: reading mechanism rendered
+PASS R: reading 5/6 rendered
+PASS R: fibration caption rendered
+PASS R: fibration pullback rendered
+PASS R: fibration classifying rendered
+PASS R: fibration fibre rendered
+PASS R: fibration rho rendered
+PASS R: phases caption rendered
+PASS R: phases boundary rendered
+PASS R: phases exact line rendered
+PASS R: phases pinching rendered
+PASS R: phases ququart rendered
+PASS R: rotated label 'certified flat' present (raw mode)
+PASS R: cover label 'regular 3-fold' present (raw mode)
+PASS R: rotated fibre labels present (raw mode: two bare 'fibre' lines)
+PASS M-a: classical lattice partition = drawn regions (r in 1..15, n in 2..20)
+PASS M-b: qubit lattice partition = drawn regions (n in 1..10, r in 1..40)
+PASS M-b: collapse row y=2: flat r<=2, zero r>=3 (Theorem thm:collapse case (ii))
+PASS M-a: collapse row y=2: zero at r=1 (case (i) at d_A=1)
+PASS M-c: Q_2(3) = 5 = balanced two-sector sum (Theorem thm:pinching)
+PASS M-c: drawn pinching line y = 3(r+1)/5 passes through (5n-1, 3n)
+PASS M-c: drawn zero-error line y = (r+1)/3 passes through (9n-1, 3n)
+PASS M-c: diagonal y = 2r+2
+PASS M-a: (1,5) is n=5, delta_1 = 4/3 exact (Corollary cor:exact-d1)
+PASS M-c: qutrit points (1,3),(2,3) are n=1, d_B=3, deltas exactly 4/3
+PASS M-c: (1,6) is n=2, d_B=3 with 2(1-1/3) = 4/3 (Theorem thm:mass-exact)
+PASS M-c: ququart (1,4) is n=1, d_B=4, bracket [4/3, 3/2]
+PASS M: 5/6 = 1/2 + (1/4)(4/3) (Remark rem:operational at error 4/3)
+PASS M: missing mass 2/3 = 1 - 1/3; trace norm bound 2*(2/3) = 4/3
+PASS M-fib: all 19 diagram labels/annotations traced to the proof text
+PASS M-fig: every phase-diagram label box inside its region
+PASS M-fig: exact-4/3 marks on the dashed line y=2x+3 (panel a)
+
+TOTAL: 96 checks, 0 failures
