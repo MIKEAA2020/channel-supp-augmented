@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Quantum Physics",
+    "snippet": "Quantum Physics (quant-ph) Distributed quantum computing offers a scalable route to quantum information processing by entangling spatially separated processors ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://iopscience.iop.org",
+    "name": "Quantum Science and Technology - IOPscience",
+    "snippet": "In this perspective article , we discuss the current state-of-the-art of quantum tokens in the field of quantum information , as well as their future perspectives ... Read more",
+    "host_name": "iopscience.iop.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Quantum Computing for High-Energy Physics: State of the Art",
+    "snippet": "by A Di Meglio · 2024 · Cited by 443 — Quantum algorithms and quantum machine learning could assist high-energy physics , ranging from studying neutrino oscillations to ...",
+    "host_name": "link.aps.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.pjip.org",
+    "name": "International Journal of Quantum Information (Physics)",
+    "snippet": "The International Journal of Quantum Information (IJQI) provides a forum for the interdisciplinary field of Quantum Information Science . Read more",
+    "host_name": "www.pjip.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov",
+    "name": "Progress in quantum information - PMC - NIH",
+    "snippet": "by GL Long · 2025 · Cited by 7 — Wang and Long provide a concise overview of recent advancements in quantum secure direct communication (QSDC), a technology that directly transmits information ... Read more",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ctp.itp.ac.cn",
+    "name": "Quantum Physics and Quantum Information",
+    "snippet": "Topic. Quantum Physics and Quantum Information . Journal . Communications in Theoretical Physics (153). Read more",
+    "host_name": "ctp.itp.ac.cn",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

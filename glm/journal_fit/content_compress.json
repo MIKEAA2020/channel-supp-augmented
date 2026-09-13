@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Theory of Compression Channels for Postselected",
+    "snippet": "by J Yang · 2023 · Cited by 21 — In this work, we put forward a general theory on the compression channels in postselected quantum metrology. We define the basic notions ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Circuits of space and time quantum channels",
+    "snippet": "by P Kos · 2023 · Cited by 38 — We provide exact solutions for the spatio-temporal correlation functions, spatial correlations after a quantum quench, and the structure of ... Read more",
+    "host_name": "quantum-journal.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://iopscience.iop.org",
+    "name": "Computable lower bounds on the entanglement cost of",
+    "snippet": "by L Lami · 2023 · Cited by 11 — Published 2 February 2023 . Here we extend their definitions to point-to-point quantum channels , establishing a lower bound for the asymptotic entanglement cost ...",
+    "host_name": "iopscience.iop.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://link.aps.org",
+    "name": "Exact quantum capacity of decohering channels in arbitrary",
+    "snippet": "by S Roofeh · 2025 · Cited by 1 — What we will show in this paper is proof that the decohering channels , and are all degradable for all values of in every dimension and we use this property to ... Read more",
+    "host_name": "link.aps.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) Quantum Detection Over Quantum Channels With",
+    "snippet": "Apr 29, 2026 — In this paper, we consider the design of measurement schemes and probe states for quantum detection over an uncertain quantum channel .",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "Apr 29, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "Quantum Gaussian Channels with Weak Measurements",
+    "snippet": "by B Tamir · 2015 — In this paper we perform a novel analysis of quantum Gaussian channels in the context of weak measurements . Suppose Alice sends classical information to Bob ...",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

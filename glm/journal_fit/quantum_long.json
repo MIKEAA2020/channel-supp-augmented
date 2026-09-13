@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Guidelines for Authors",
+    "snippet": "Quantum is a highly selective journal, publishing original research and reviews (theoretical, experimental, and numerical), for quantum science.",
+    "host_name": "quantum-journal.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://iopscience.iop.org",
+    "name": "Quantum Science and Technology - IOPscience",
+    "snippet": "In this perspective article , we discuss the current state-of-the-art of quantum tokens in the field of quantum information , as well as their future perspectives ... Read more",
+    "host_name": "iopscience.iop.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://journals.aps.org",
+    "name": "PRX Quantum - APS Journals - American Physical Society",
+    "snippet": "PRX Quantum is a highly selective journal in quantum science and technology. As an open access venue with high visibility, it publishes influential research ... Read more",
+    "host_name": "journals.aps.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "quantum information theory",
+    "snippet": "Quantum 'Jamming' Explores the Truly Fundamental Principles of Nature ・ quantum information theory ・ their foundational work in quantum information science.",
+    "host_name": "www.quantamagazine.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantumai.google",
+    "name": "Research Publications | Google Quantum",
+    "snippet": "This paper improves and demonstrates the usefulness of the first quantized plane-wave algorithms for the quantum simulation of electronic structure. We ...",
+    "host_name": "quantumai.google",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://quantumcomputing.stackexchange.com",
+    "name": "What is a list of research journals publishing quantum",
+    "snippet": "Sep 11, 2018 — Can anyone give me a list of different research journals that has quantum computing articles that I can use.",
+    "host_name": "quantumcomputing.stackexchange.com",
+    "rank": 5,
+    "date": "Sep 11, 2018",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://quantum-journal.org",
+    "name": "Instructions – Quantum",
+    "snippet": "Quantum is an open-access peer-reviewed journal for quantum science and related fields. Quantum is non-profit and community-run: an effort by researchers and ...",
+    "host_name": "quantum-journal.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com",
+    "name": "LaTeX template class for Quantum - the open journal",
+    "snippet": "This is version 6.1 of quantumarticle , the document class for typesetting articles in Quantum - the open journal for quantum science.",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://journals.aps.org",
+    "name": "PRX Quantum - Information for Authors - APS Journals",
+    "snippet": "Research Articles ( no length limit ). Research Articles consist of original research that meets PRX Quantum's editorial criteria and scope . Perspectives ( length ...",
+    "host_name": "journals.aps.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  }
+]
