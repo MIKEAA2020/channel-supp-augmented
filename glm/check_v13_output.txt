@@ -1,0 +1,161 @@
+PASS P: F1 killed+marker
+PASS P: F2 lift-independence clause
+PASS P: C1 abstract
+PASS P: C2 intro
+PASS P: C3 median bound
+PASS P: C4 ebp
+PASS P: C5 expected complete
+PASS P: C6 comment
+PASS P: C7 title
+PASS P: C8 worlds
+PASS P: C9 proof-end
+PASS P: C10 remark title
+PASS P: C10 analytic
+PASS P: C10 certification consists
+PASS P: C10 model cases
+PASS P: C10 three qualifications
+PASS P: C10 twice independently
+PASS P: C10 three routes
+PASS P: C10 repo
+PASS P: C11 derivation
+PASS P: C12 computational verification
+PASS P: C13 pinching only
+PASS P: C14 non-flat state spaces
+PASS P: C15 fails
+PASS P: C16 plain conjecture
+PASS P: C17 therefore
+PASS P: C18 conclusion
+PASS P: C19 coordinate conj
+PASS P: C20v
+PASS P: C20v-now
+PASS P: C21 open (vi)
+PASS P-main: M1 abstract
+PASS P-main: M2 extension bounds
+PASS P-main: M2 that extension
+PASS P-hold: prop statement tuple
+PASS P-hold: prop statement H6
+PASS P-hold: Step1 display
+PASS P-hold: Step2 index sentence
+PASS P-hold: Step2 witness
+PASS P-hold: Step3 display
+PASS P-hold: Step3 relations
+PASS P-hold: Step4 pins display
+PASS P-hold: Step4 b-pin
+PASS P-hold: Step5 crux
+PASS P-hold: Step6 edge
+PASS P-hold: Step7 quotient display
+PASS P-hold: Step7 identities
+PASS P-hold: Step7 Delta
+PASS P-hold: lem statement
+PASS P-hold: thm state d2
+PASS P-hold: R7 marking intact
+PASS P-hold: proof framing
+PASS P-hold: Step0 title
+PASS P-absent(inst): hand-derived, machine-certified
+PASS P-absent(main): hand-derived, machine-certified
+PASS P-absent(inst): equivariant battery
+PASS P-absent(main): equivariant battery
+PASS P-absent(inst): the earlier audit
+PASS P-absent(main): the earlier audit
+PASS P-absent(inst): now doubly implemented
+PASS P-absent(main): now doubly implemented
+PASS P-absent(inst): has since been
+PASS P-absent(main): has since been
+PASS P-absent(inst): previous version
+PASS P-absent(main): previous version
+PASS P-absent(inst): earlier version
+PASS P-absent(main): earlier version
+PASS P-absent(inst): corrected twice
+PASS P-absent(main): corrected twice
+PASS P-absent(inst): [closed in this version]
+PASS P-absent(main): [closed in this version]
+PASS P-absent(inst): in its corrected form
+PASS P-absent(main): in its corrected form
+PASS P-absent(inst): the corrected statement
+PASS P-absent(main): the corrected statement
+PASS P-absent(inst): the corrected coordinate
+PASS P-absent(main): the corrected coordinate
+PASS P-absent(inst): stress-tested
+PASS P-absent(main): stress-tested
+PASS P-absent(inst): Residuals, stated plainly
+PASS P-absent(main): Residuals, stated plainly
+PASS P-absent(inst): a hand derivation
+PASS P-absent(main): a hand derivation
+PASS P-absent(inst): Wave 7
+PASS P-absent(main): Wave 7
+PASS P-absent(inst): wave 3
+PASS P-absent(main): wave 3
+PASS P-absent(inst): trace-mass threshold
+PASS P-absent(main): trace-mass threshold
+PASS P-absent(inst): five-outcome counterexample
+PASS P-absent(main): five-outcome counterexample
+PASS P-absent(inst): the machine certificate
+PASS P-absent(main): the machine certificate
+PASS P-absent(inst): supplied by hand
+PASS P-absent(main): supplied by hand
+PASS P-absent(inst): certification battery
+PASS P-absent(main): certification battery
+PASS P-absent(inst): machine-certified
+PASS P-absent(main): machine-certified
+PASS P-absent(inst): referee
+PASS P-absent(main): referee
+PASS P-absent(inst): strawman
+PASS P-absent(main): strawman
+PASS P-absent(inst): TODO
+PASS P-absent(main): TODO
+PASS P-absent(inst): FIXME
+PASS P-absent(main): FIXME
+PASS P-absent(inst): XXX
+PASS P-absent(main): XXX
+PASS P-absent(inst): upgraded from the earlier
+PASS P-absent(main): upgraded from the earlier
+PASS P-absent(inst): left bracketed in the previous
+PASS P-absent(main): left bracketed in the previous
+PASS P-absent(inst): derived by hand
+PASS P-absent(main): derived by hand
+PASS P-absent(inst): the hand derivation
+PASS P-absent(main): the hand derivation
+PASS P-absent(inst): reader can check line by line
+PASS P-absent(main): reader can check line by line
+PASS P: .txt == .tex (instruments)
+PASS P: .txt == .tex (main)
+PASS P-main: flag-quotient sync present
+PASS P-main: companion sync present
+PASS P-main: no proof internal <orbit-sum>
+PASS P-main: no proof internal <lattice-index>
+PASS P-main: no proof internal <$S_1$>
+PASS P-main: no proof internal <$\tau^3$>
+PASS P-main: no proof internal <prop:cupsquare>
+PASS P-main: no proof internal <rem:machine-certificate>
+PASS P-main: no proof internal <lem:flag-cohomology>
+PASS P-main: no proof internal <sigma_1>
+PASS P-main: no proof internal <b\,\tau>
+PASS P: informal sweep (inst)
+PASS P: informal sweep (main)
+PASS M: quotient SNF diag = (1,1,1,1) -> Z, no torsion
+PASS M: sigma1^3 in lattice (relation)
+PASS M: t = tau^3 in lattice (2 inv mod 3: 3t-2t=t)
+PASS M: [A1] = 0
+PASS M: [S2] = -[S1]
+PASS M: [sigma3] = 0
+PASS M: [sigma1 sigma2] = 0
+PASS M: F2 [Delta + 0*tau^3] = 2[S1]
+PASS M: F2 [Delta + 1*tau^3] = 2[S1]
+PASS M: F2 [Delta + 2*tau^3] = 2[S1]
+PASS M: F2 [Delta + 5*tau^3] = 2[S1]
+PASS M: F2 [S1 + 1*tau^3] = [S1]
+PASS M: F2 [S1 + 2*tau^3] = [S1]
+PASS M: 2[S1] != 0 in the free quotient (2S1 not a relation)
+PASS M: [S1] != 0 (S1 not a relation)
+PASS M: [Delta] != 0
+PASS M: Step-2 index table [L:M] = 1,1,1,2,2,4,8
+PASS M: witness S1 NOT in the symmetric module
+PASS M: witness 2*S1 IS in the module
+PASS M: identity 2 S1 = sigma1 sigma2 - 3 sigma3 + Delta
+PASS M: sigma1 sigma2 = 0*A1+1*S1+1*S2+3*chi1chi2chi3
+PASS M: sigma1^3 = 1*A1+3*S1+3*S2+6*chi1chi2chi3
+PASS M: Delta = S1 - S2 (coords (0,1,-1,0))
+
+============================================================
+TOTAL: 157 checks, 157 PASS, 0 FAIL
+ALL PASS
