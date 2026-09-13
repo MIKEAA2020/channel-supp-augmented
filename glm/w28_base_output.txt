@@ -1,0 +1,88 @@
+
+==============================================================================
+PART 0: geometry sanity (fresh) -- F-parameterisations verified
+==============================================================================
+V3 unitary; FPMAP zero-patterns exact (9/9); wall equations re-derived: OK
+[t+   0.0s] part 0 done
+
+==============================================================================
+PART 1: d(E) (fresh endpoint algebra)
+==============================================================================
+d(E_i) = +V(rho.q) - V(rho): all 9 pinned (algebra)
+[t+   0.0s] part 1 done
+
+==============================================================================
+PART 2: d(F) (fresh dense-sampling boundary tracer)
+==============================================================================
+  d(F1{th1=0}    ) = +1*E(r(0, 2, 1),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(0, 1, 2),q(0, 2, 1)) + +1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F2{th1=pi/2} ) = +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(1, 0, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(0, 2, 1)) + -1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F3{th2=0}    ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + +1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F4{th2=pi/2} ) = -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(1, 2, 0),q(1, 0, 2)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + -1*E(r(2, 0, 1),q(0, 2, 1))
+  d(F5{th3=0}    ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 2, 1),q(2, 1, 0)) + -1*E(r(0, 1, 2),q(0, 2, 1)) + +1*E(r(1, 0, 2),q(0, 2, 1))
+  F5 corner (1.57, 0.0) BLOWS UP onto E(r(1, 0, 2),q(0, 2, 1)) (th2 1.57 -> 0.00, coeff -1)
+  d(F6{d0,D22}   ) = -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + -1*E(r(1, 0, 2),q(0, 2, 1))
+  F6 corner (0.0, 0.0) BLOWS UP onto E(r(0, 1, 2),q(0, 2, 1)) (th2 1.57 -> 0.00, coeff -1)
+  d(F7{d0,D31}   ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + -1*E(r(0, 2, 1),q(1, 0, 2)) + +1*E(r(1, 0, 2),q(2, 1, 0)) + -1*E(r(0, 1, 2),q(0, 2, 1))
+  F7 corner (0.0, 0.0) BLOWS UP onto E(r(0, 1, 2),q(0, 2, 1)) (th2 0.00 -> 1.57, coeff +1)
+  d(F8{dpi,D21}  ) = +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(0, 2, 1),q(2, 1, 0)) + +1*E(r(0, 1, 2),q(0, 2, 1))
+  F8 corner (1.57, 0.0) BLOWS UP onto E(r(1, 0, 2),q(0, 2, 1)) (th2 0.00 -> 1.57, coeff +1)
+  d(F9{dpi,D32}  ) = +1*E(r(0, 1, 2),q(1, 0, 2)) + +1*E(r(1, 2, 0),q(1, 0, 2)) + -1*E(r(0, 1, 2),q(2, 1, 0)) + +1*E(r(1, 0, 2),q(0, 2, 1))
+[t+   0.0s] part 2 done
+
+==============================================================================
+PART 3: d(R) (fresh exact region-boundary analysis + outward normals)
+==============================================================================
+  d(R0.def  ) = -1*F5{th3=0} + -1*F6{d0,D22} + +1*F7{d0,D31}
+  d(R0.bF6  ) = +1*F2{th1=pi/2} + -1*F4{th2=pi/2} + +1*F6{d0,D22}
+  d(R0.bF7  ) = -1*F1{th1=0} + +1*F3{th2=0} + -1*F7{d0,D31}
+  d(R1.def  ) = -1*F5{th3=0} + -1*F8{dpi,D21} + +1*F9{dpi,D32}
+  d(R1.bF8  ) = -1*F1{th1=0} + -1*F4{th2=pi/2} + +1*F8{dpi,D21}
+  d(R1.bF9  ) = +1*F2{th1=pi/2} + +1*F3{th2=0} + -1*F9{dpi,D32}
+[t+   0.0s] part 3 done
+
+==============================================================================
+PART 4: d(s) (fresh delta-interval rule)
+==============================================================================
+d(s+) = +[R1.def+R1.bF8+R1.bF9] - [R0.def+R0.bF6+R0.bF7]
+d(s-) = +[R0.*] - [R1.*]   (delta-interval boundary rule, fresh)
+[t+   0.0s] part 4 done
+
+==============================================================================
+PART 5: CMAP (fresh: V/E/F by algebra; R/s by sampling + normaliser)
+==============================================================================
+  R0.def     -> R1.bF9     (sampled, fresh normaliser)
+  R0.bF6     -> R0.bF7     (sampled, fresh normaliser)
+  R0.bF7     -> R1.def     (sampled, fresh normaliser)
+  R1.def     -> R0.bF6     (sampled, fresh normaliser)
+  R1.bF8     -> R0.def     (sampled, fresh normaliser)
+  R1.bF9     -> R1.bF8     (sampled, fresh normaliser)
+  s+         -> s+         (sampled, fresh normaliser)
+  s-         -> s-         (sampled, fresh normaliser)
+c^3 = id on all 32 cells; fixed base cells: ['s+', 's-']
+[t+   0.0s] part 5 done
+
+==============================================================================
+PART 6: G0 -- base d^2=0 + base homology via EXACT INTEGER SNF (sympy)
+==============================================================================
+G0-a: base d^2 = 0 exactly: PASS
+base Betti (EXACT integer SNF): [1, 0, 0, 0, 1]   chi=+2
+G0-b: base homology = (Z,0,0,0,Z) torsion-free (sympy SNF): PASS
+[t+   0.1s] part 6 done
+
+==============================================================================
+PART 7: comparison against the committed wave13c_base_data.json
+==============================================================================
+  EDGE_KEYS: MATCH (all 9 entries)
+  D_EDGE  : MATCH (all 9 entries)
+  D_FACE  : MATCH (all 9 entries)
+  D_REG   : MATCH (all 6 entries)
+  D_SHEET : MATCH (all 2 entries)
+  CMAP    : MATCH (all 32 entries)
+
+FIELD-BY-FIELD BASE COMPARISON: ALL MATCH -- the two independent derivations agree
+fresh base data -> w28_base_data.json
+
+==============================================================================
+WAVE 28 MODULE 1 COMPLETE (base re-implementation)
+==============================================================================
+[t+   0.1s] module 1 complete

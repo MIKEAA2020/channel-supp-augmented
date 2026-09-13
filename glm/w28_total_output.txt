@@ -1,0 +1,178 @@
+
+==============================================================================
+PART I: level-12 fibre cellulations (T2: 864, S1: 24)
+==============================================================================
+T2: d^2=0 OK; chi=0; translations permute + commute with d; q-cocycle (3 rows x 864 cells) OK
+  (t0 = (4,4) twelfths: order 3, free: 3*(4,4)=(12,12)=0 mod 12)
+[t+   0.0s] Part I done
+
+==============================================================================
+PART II: the 14910 cells + free-cell layer + G1
+==============================================================================
+pins doubled; kappa - t all EVEN (mod-2 obstruction dissolved); orbit sums 0 mod 12: OK
+cells: 14910  degrees [6, 108, 1404, 4752, 5472, 2592, 576]  chi=+6
+BATTERY G1: cell counts + chi: PASS  (level-12 fibres)
+[t+   0.0s] cells built
+free-cell layer: d^2 = 0 exactly on all 13182 columns: PASS
+[t+   0.2s] free layer built
+
+==============================================================================
+PART III: the per-sheet seam system, solved over Z/12 (unit pivots)
+==============================================================================
+theta walls (F, Rlo, Rhi): [(0, 2, 4), (1, 1, 5), (2, 2, 5), (3, 1, 4)]
+mixed seams (F, Ra, Rb):   [(4, 0, 3), (5, 0, 1), (6, 0, 2), (7, 3, 4), (8, 3, 5)]
+v5 seam system: 76 equations, 58 variables
+seam system SOLVED over Z/12 by unit-pivot elimination; verified on all 76 equations: PASS
+  tau-tilde (s+): {'R0.def': (2, 2), 'R0.bF6': (2, 0), 'R0.bF7': (0, 4), 'R1.def': (10, 2), 'R1.bF8': (10, 4), 'R1.bF9': (0, 0)}
+  sigma (s+): {0: (0, 4), 1: (2, 0), 2: (0, 4), 3: (2, 0)}  Delta (s): {0: 4, 1: 4, 2: 2, 3: 2}
+  alphas (s+): {4: 4, 5: 2, 6: 2, 7: 10, 8: 10}
+  tau-tilde (s-): {'R0.def': (10, 10), 'R0.bF6': (10, 0), 'R0.bF7': (0, 8), 'R1.def': (2, 10), 'R1.bF8': (2, 8), 'R1.bF9': (0, 0)}
+  sigma (s-): {0: (0, 8), 1: (10, 0), 2: (0, 8), 3: (10, 0)}  Delta (+): {0: 8, 1: 8, 2: 10, 3: 10}
+  alphas (s-): {4: 8, 5: 10, 6: 10, 7: 2, 8: 2}
+[t+   0.2s] Part III done
+
+==============================================================================
+PART IV: the sheet layer + assembly + G2 (d^2 = 0)
+==============================================================================
+homotopy identity d(h s)+h(d s)=tau(s)-s: EXACT on all cell types: OK
+sheet layer (seam assembly, signs as derived): d^2 = 0 EXACTLY: PASS
+BATTERY G2: d^2 = 0 exactly on all 14910 cells: PASS (0 residuals)
+[t+   0.4s] Part IV done
+
+==============================================================================
+PART V: the T-map, G4, G6, G5
+==============================================================================
+BATTERY G4: T^3 = id on all cells (permutation + sign products): PASS
+BATTERY G6: freeness: no fixed cells: PASS
+BATTERY G5: dT = Td exactly on all cells (incl. prism/seam terms): PASS
+[t+   0.5s] Part V done
+cell orbits: 4970 (all size 3)
+quotient chains per degree: [2, 36, 468, 1584, 1824, 864, 192]  total 4970
+
+==============================================================================
+FALSIFICATION: flipped conventions must break the certificates
+==============================================================================
+  flip seam start F5 (0-based 4)               -> d^2=0 True, dT=Td True; beta2(Fl3)=2 (want 2), beta2(B3)=-36 (want 0), t3(H2(B3))=38 (want 1)
+  flip seam start F6 (0-based 5)               -> d^2=0 True, dT=Td True; beta2(Fl3)=2 (want 2), beta2(B3)=-36 (want 0), t3(H2(B3))=38 (want 1)
+  flip seam start F7 (0-based 6)               -> d^2=0 True, dT=Td False  (certificate broken)
+  flip seam start F8 (0-based 7)               -> d^2=0 True, dT=Td True; beta2(Fl3)=2 (want 2), beta2(B3)=-36 (want 0), t3(H2(B3))=38 (want 1)
+  flip seam start F9 (0-based 8)               -> d^2=0 True, dT=Td False  (certificate broken)
+  flip ALL seam starts                         -> d^2=0 True, dT=Td False  (certificate broken)
+  swap sheet translations t_{s+} <-> t_{s-}    -> d^2=0 True, dT=Td False  (certificate broken)
+  (the WDIR/SEAM_DIR direction parameterization of the constraint system
+   is NOT forced -- the assembled complex is independent of it; the
+   seam start conventions and the sheet translations ARE forced.)
+
+certified assembly restored and re-verified (d^2=0 on all cells): OK
+[t+   8.2s] falsification done
+
+==============================================================================
+PART VI: G3 -- H(total complex), Betti + torsion (fresh primes)
+==============================================================================
+[t+   8.2s]   rank d1 mod 1000037 = 5
+[t+   8.2s]   rank d2 mod 1000037 = 103
+[t+   9.3s]   rank d3 mod 1000037 = 1299
+[t+  27.0s]   rank d4 mod 1000037 = 3453
+[t+  44.5s]   rank d5 mod 1000037 = 2017
+[t+  44.6s]   rank d6 mod 1000037 = 575
+[t+  44.6s]   rank d1 mod 1000081 = 5
+[t+  44.6s]   rank d2 mod 1000081 = 103
+[t+  45.7s]   rank d3 mod 1000081 = 1299
+[t+  63.7s]   rank d4 mod 1000081 = 3453
+[t+  81.2s]   rank d5 mod 1000081 = 2017
+[t+  81.4s]   rank d6 mod 1000081 = 575
+[t+  81.4s]   rank d1 mod 3 = 5
+[t+  81.4s]   rank d2 mod 3 = 103
+[t+  82.5s]   rank d3 mod 3 = 1299
+[t+  99.7s]   rank d4 mod 3 = 3453
+[t+ 113.2s]   rank d5 mod 3 = 2017
+[t+ 113.3s]   rank d6 mod 3 = 575
+[t+ 113.3s]   rank d1 mod 17 = 5
+[t+ 113.3s]   rank d2 mod 17 = 103
+[t+ 114.4s]   rank d3 mod 17 = 1299
+[t+ 132.1s]   rank d4 mod 17 = 3453
+[t+ 149.2s]   rank d5 mod 17 = 2017
+[t+ 149.3s]   rank d6 mod 17 = 575
+[t+ 149.3s]   rank d1 mod 19 = 5
+[t+ 149.3s]   rank d2 mod 19 = 103
+[t+ 150.4s]   rank d3 mod 19 = 1299
+[t+ 168.1s]   rank d4 mod 19 = 3453
+[t+ 185.3s]   rank d5 mod 19 = 2017
+[t+ 185.4s]   rank d6 mod 19 = 575
+[t+ 185.4s]   rank d1 mod 23 = 5
+[t+ 185.4s]   rank d2 mod 23 = 103
+[t+ 186.5s]   rank d3 mod 23 = 1299
+[t+ 204.4s]   rank d4 mod 23 = 3453
+[t+ 222.4s]   rank d5 mod 23 = 2017
+[t+ 222.5s]   rank d6 mod 23 = 575
+[t+ 222.5s]   rank d1 mod 29 = 5
+[t+ 222.5s]   rank d2 mod 29 = 103
+[t+ 223.6s]   rank d3 mod 29 = 1299
+[t+ 241.9s]   rank d4 mod 29 = 3453
+[t+ 259.5s]   rank d5 mod 29 = 2017
+[t+ 259.6s]   rank d6 mod 29 = 575
+[t+ 259.6s]   rank d1 mod 31 = 5
+[t+ 259.7s]   rank d2 mod 31 = 103
+[t+ 260.7s]   rank d3 mod 31 = 1299
+[t+ 279.0s]   rank d4 mod 31 = 3453
+[t+ 296.9s]   rank d5 mod 31 = 2017
+[t+ 297.0s]   rank d6 mod 31 = 575
+Fl_3 chain ranks (rational, two primes agree): [0, 5, 103, 1299, 3453, 2017, 575]
+Fl_3 Betti b = [1, 0, 2, 0, 2, 0, 1]   (spec: [1, 0, 2, 0, 2, 0, 1])
+Fl_3 mod- 3 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod-17 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod-19 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod-23 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod-29 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+Fl_3 mod-31 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+BATTERY G3: H(Fl_3) = (Z,0,Z^2,0,Z^2,0,Z), torsion-free (p in [3, 17, 19, 23, 29, 31]): PASS
+[t+ 297.0s] Part VI done
+
+==============================================================================
+PART VII: G7/G7b/G8 (the T-action on homology, mod 101)
+==============================================================================
+H_2(F_101) cycles: 1301 basis vectors
+BATTERY G7: 1+T+T^2 = 0 on H_2 (mod 101): PASS  (rank 1299 vs 1299)
+BATTERY G7b: T has order exactly 3 on H_2 (mod 101): PASS  (rank 1301 vs 1299)
+H_6(F_101) cycles: 1;  BATTERY G8: T = +1 on H_6: PASS
+[t+ 307.2s] Part VII done
+
+==============================================================================
+PART VIII: orbit complex C(Fl_3) (x)_{Z[C3]} Z -- H_*(B_3)
+==============================================================================
+BATTERY: d_bar^2 = 0 (sign-correct coinvariants): PASS
+B_3 chain ranks (rational): [0, 1, 35, 433, 1151, 673, 191]
+B_3 Betti  b = [1, 0, 0, 0, 0, 0, 1]
+B_3 mod- 3 torsion counts t_p = [0, 1, 1, 1, 1, 0, 0]
+B_3 mod-17 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-19 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-23 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-29 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+B_3 mod-31 torsion counts t_p = [0, 0, 0, 0, 0, 0, 0]
+|H_k(B_3; Z/9)| machine orders (incremental subgroup algorithm):
+  |H_0(B_3; Z/9)| = 9
+  |H_1(B_3; Z/9)| = 3
+  |H_2(B_3; Z/9)| = 9
+  |H_3(B_3; Z/9)| = 9
+  |H_4(B_3; Z/9)| = 9
+  |H_5(B_3; Z/9)| = 3
+  |H_6(B_3; Z/9)| = 9
+
+==============================================================================
+VERDICT: H_*(B_3) -- the fresh computation vs the committed 13C-7/8
+==============================================================================
+3-adic exponents e_k: [0, 1, 1, 1, 1, 0, None] (PD cross-check: e_3=e_2, e_4=e_1, e_5=0: MATCH)
+FRESH RESULT:   H_*(B_3) = (Z, Z/3, Z/3, Z/3, Z/3, 0, Z)
+COMMITTED 13C-7/8: H_*(B_3) = (Z, Z/3, Z/3, Z/3, Z/3, 0, Z)
+TUPLE COMPARISON: MATCH -- the independent re-implementation reproduces the certified computation
+
+THE BIT: H_2(B_3) = Z/3 (independently re-derived)
+  -> WORLD 1: CLSS d_3 = 0; the Chern obstruction x^2 != 0 survives
+  -> delta_2(D(C^3)) = 4/3 CONFIRMED by the independent computation
+
+battery gate summary: {'G1': True, 'G2': True, 'G3': True, 'G4': True, 'G5': True, 'G6': True, 'G7': True, 'G7b': True, 'G8': True, 'dbar2': True, 'TUPLE_MATCH': True}
+
+==============================================================================
+WAVE 28 MODULE 3 COMPLETE (total complex + battery + verdict)
+==============================================================================
+[t+ 319.8s] module 3 complete

@@ -1,0 +1,185 @@
+
+==============================================================================
+P1: kappa on the 9 F-cells (column-ratio method, sixths)
+==============================================================================
+  kappa(F1{th1=0}     ) -> (3, 3) OK [n=70 spread 0.000]
+  kappa(F2{th1=pi/2}  ) -> (3, 0) OK [n=70 spread 0.000]
+  kappa(F3{th2=0}     ) -> (3, 3) OK [n=70 spread 0.000]
+  kappa(F4{th2=pi/2}  ) -> (3, 0) OK [n=70 spread 0.000]
+  kappa(F5{th3=0}     ) -> (0, 3) OK [n=70 spread 0.000]
+  kappa(F6{d0,D22}    ) -> (3, 0) OK [n=61 spread 0.000]
+  kappa(F7{d0,D31}    ) -> (3, 3) OK [n=60 spread 0.000]
+  kappa(F8{dpi,D21}   ) -> (0, 3) OK [n=66 spread 0.000]
+  kappa(F9{dpi,D32}   ) -> (0, 3) OK [n=61 spread 0.000]
+[t+   0.5s] P1 done
+
+==============================================================================
+P3: kappa on the 6 R-cells (column-ratio, sixths)
+==============================================================================
+  kappa(R0.def   ) -> (3, 3) OK [n=69 spread 0.000]
+  kappa(R0.bF6   ) -> (3, 0) OK [n=68 spread 0.000]
+  kappa(R0.bF7   ) -> (3, 3) OK [n=68 spread 0.000]
+  kappa(R1.def   ) -> (0, 3) OK [n=70 spread 0.000]
+  kappa(R1.bF8   ) -> (0, 3) OK [n=67 spread 0.000]
+  kappa(R1.bF9   ) -> (3, 0) OK [n=70 spread 0.000]
+[t+   0.5s] P3 done
+
+==============================================================================
+P2: kappa on the 9 E-cells (S^1 via the moving-row ratio, sixths)
+==============================================================================
+  kappa(E(r(0, 1, 2),q(1, 0, 2))) -> (0,) OK [n=26 spread 0.000] (row a=2)
+  kappa(E(r(0, 2, 1),q(1, 0, 2))) -> (3,) OK [n=26 spread 0.000] (row a=2)
+  kappa(E(r(1, 2, 0),q(1, 0, 2))) -> (3,) OK [n=26 spread 0.000] (row a=2)
+  kappa(E(r(0, 1, 2),q(2, 1, 0))) -> (0,) OK [n=26 spread 0.000] (row a=1)
+  kappa(E(r(0, 2, 1),q(2, 1, 0))) -> (3,) OK [n=26 spread 0.000] (row a=1)
+  kappa(E(r(1, 0, 2),q(2, 1, 0))) -> (3,) OK [n=26 spread 0.000] (row a=1)
+  kappa(E(r(0, 1, 2),q(0, 2, 1))) -> (3,) OK [n=26 spread 0.000] (row a=0)
+  kappa(E(r(1, 0, 2),q(0, 2, 1))) -> (0,) OK [n=26 spread 0.000] (row a=0)
+  kappa(E(r(2, 0, 1),q(0, 2, 1))) -> (3,) OK [n=26 spread 0.000] (row a=0)
+[t+   1.9s] P2 done
+
+==============================================================================
+P4: w(R->F) interface translations (sixths)
+==============================================================================
+  w(R0.def   -> F5{th3=0}     ) = (0, 0) OK [n=12 spread 0.000]
+  w(R0.def   -> F6{d0,D22}    ) = (0, 0) OK [n=10 spread 0.000]
+  w(R0.def   -> F7{d0,D31}    ) = (0, 0) OK [n=11 spread 0.000]
+  w(R0.bF6   -> F2{th1=pi/2}  ) = (0, 0) OK [n=12 spread 0.000]
+  w(R0.bF6   -> F4{th2=pi/2}  ) = (0, 0) OK [n=12 spread 0.000]
+  w(R0.bF6   -> F6{d0,D22}    ) = (0, 0) OK [n=11 spread 0.000]
+  w(R0.bF7   -> F1{th1=0}     ) = (0, 0) OK [n=12 spread 0.000]
+  w(R0.bF7   -> F3{th2=0}     ) = (0, 0) OK [n=12 spread 0.000]
+  w(R0.bF7   -> F7{d0,D31}    ) = (0, 0) OK [n=12 spread 0.000]
+  w(R1.def   -> F5{th3=0}     ) = (0, 0) OK [n=30 spread 0.000]
+  w(R1.def   -> F8{dpi,D21}   ) = (0, 0) OK [n=11 spread 0.000]
+  w(R1.def   -> F9{dpi,D32}   ) = (0, 0) OK [n=10 spread 0.000]
+  w(R1.bF8   -> F1{th1=0}     ) = (3, 0) OK [n=30 spread 0.000]
+  w(R1.bF8   -> F4{th2=pi/2}  ) = (3, 3) OK [n=30 spread 0.000]
+  w(R1.bF8   -> F8{dpi,D21}   ) = (0, 0) OK [n=11 spread 0.000]
+  w(R1.bF9   -> F2{th1=pi/2}  ) = (3, 0) OK [n=30 spread 0.000]
+  w(R1.bF9   -> F3{th2=0}     ) = (0, 3) OK [n=30 spread 0.000]
+  w(R1.bF9   -> F9{dpi,D32}   ) = (0, 0) OK [n=11 spread 0.000]
+[t+   1.9s] P4 done
+
+==============================================================================
+P5: tau(s->R) natural gauge (near-limit conversions, sixths)
+==============================================================================
+  tau(s+ -> R0.def  ) = (0, 0) [n=39 spread 0.001]
+  tau(s+ -> R0.bF6  ) = (0, 0) [n=40 spread 0.001]
+  tau(s+ -> R0.bF7  ) = (0, 0) [n=40 spread 0.001]
+  tau(s+ -> R1.def  ) = (0, 0) [n=39 spread 0.001]
+  tau(s+ -> R1.bF8  ) = (0, 0) [n=40 spread 0.001]
+  tau(s+ -> R1.bF9  ) = (0, 0) [n=38 spread 0.001]
+  tau(s- -> R0.def  ) = (0, 0) [n=39 spread 0.001]
+  tau(s- -> R0.bF6  ) = (0, 0) [n=37 spread 0.001]
+  tau(s- -> R0.bF7  ) = (0, 0) [n=39 spread 0.001]
+  tau(s- -> R1.def  ) = (0, 0) [n=40 spread 0.001]
+  tau(s- -> R1.bF8  ) = (0, 0) [n=40 spread 0.001]
+  tau(s- -> R1.bF9  ) = (0, 0) [n=39 spread 0.001]
+[t+   1.9s] P5 done
+
+==============================================================================
+P7: F->E interface S^1-shifts (sixths)
+==============================================================================
+  shift(F1{th1=0}      -> E(r(0, 2, 1),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F1{th1=0}      -> E(r(0, 1, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F1{th1=0}      -> E(r(0, 1, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F1{th1=0}      -> E(r(2, 0, 1),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F2{th1=pi/2}   -> E(r(1, 2, 0),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F2{th1=pi/2}   -> E(r(1, 0, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F2{th1=pi/2}   -> E(r(1, 0, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F2{th1=pi/2}   -> E(r(2, 0, 1),q(0, 2, 1))) = (3,) OK [n=36 spread 0.000]
+  shift(F3{th2=0}      -> E(r(0, 1, 2),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F3{th2=0}      -> E(r(0, 1, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F3{th2=0}      -> E(r(1, 0, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F3{th2=0}      -> E(r(2, 0, 1),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F4{th2=pi/2}   -> E(r(0, 2, 1),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F4{th2=pi/2}   -> E(r(1, 2, 0),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F4{th2=pi/2}   -> E(r(0, 2, 1),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F4{th2=pi/2}   -> E(r(2, 0, 1),q(0, 2, 1))) = (3,) OK [n=36 spread 0.000]
+  shift(F5{th3=0}      -> E(r(0, 1, 2),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F5{th3=0}      -> E(r(0, 2, 1),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F5{th3=0}      -> E(r(0, 1, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F5{th3=0}      -> E(r(1, 0, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F6{d0,D22}     -> E(r(0, 2, 1),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F6{d0,D22}     -> E(r(0, 2, 1),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F6{d0,D22}     -> E(r(1, 0, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F6{d0,D22}     -> E(r(1, 0, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F7{d0,D31}     -> E(r(0, 1, 2),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F7{d0,D31}     -> E(r(0, 2, 1),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F7{d0,D31}     -> E(r(1, 0, 2),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F7{d0,D31}     -> E(r(0, 1, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F8{dpi,D21}    -> E(r(1, 2, 0),q(1, 0, 2))) = (3,) OK [n=36 spread 0.000]
+  shift(F8{dpi,D21}    -> E(r(0, 1, 2),q(2, 1, 0))) = (3,) OK [n=36 spread 0.000]
+  shift(F8{dpi,D21}    -> E(r(0, 2, 1),q(2, 1, 0))) = (0,) OK [n=36 spread 0.000]
+  shift(F8{dpi,D21}    -> E(r(0, 1, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+  shift(F9{dpi,D32}    -> E(r(0, 1, 2),q(1, 0, 2))) = (0,) OK [n=36 spread 0.000]
+  shift(F9{dpi,D32}    -> E(r(1, 2, 0),q(1, 0, 2))) = (3,) OK [n=36 spread 0.000]
+  shift(F9{dpi,D32}    -> E(r(0, 1, 2),q(2, 1, 0))) = (3,) OK [n=36 spread 0.000]
+  shift(F9{dpi,D32}    -> E(r(1, 0, 2),q(0, 2, 1))) = (0,) OK [n=36 spread 0.000]
+[t+  10.4s] P7 done
+
+==============================================================================
+P8: base orientation signs s_b (fresh: CONSTRAINT PROPAGATION from dT=Td)
+==============================================================================
+  s(E(r(0, 1, 2),q(1, 0, 2))) = +1 (from dT=Td on the endpoints)
+  s(E(r(0, 2, 1),q(1, 0, 2))) = -1 (from dT=Td on the endpoints)
+  s(E(r(1, 2, 0),q(1, 0, 2))) = -1 (from dT=Td on the endpoints)
+  s(E(r(0, 1, 2),q(2, 1, 0))) = -1 (from dT=Td on the endpoints)
+  s(E(r(0, 2, 1),q(2, 1, 0))) = +1 (from dT=Td on the endpoints)
+  s(E(r(1, 0, 2),q(2, 1, 0))) = -1 (from dT=Td on the endpoints)
+  s(E(r(0, 1, 2),q(0, 2, 1))) = -1 (from dT=Td on the endpoints)
+  s(E(r(1, 0, 2),q(0, 2, 1))) = -1 (from dT=Td on the endpoints)
+  s(E(r(2, 0, 1),q(0, 2, 1))) = +1 (from dT=Td on the endpoints)
+  s(F1{th1=0}       ) = -1 (from dT=Td through the E-cells)
+  s(F2{th1=pi/2}    ) = -1 (from dT=Td through the E-cells)
+  s(F3{th2=0}       ) = +1 (from dT=Td through the E-cells)
+  s(F4{th2=pi/2}    ) = +1 (from dT=Td through the E-cells)
+  s(F5{th3=0}       ) = +1 (from dT=Td through the E-cells)
+  s(F6{d0,D22}      ) = +1 (from dT=Td through the E-cells)
+  s(F7{d0,D31}      ) = +1 (from dT=Td through the E-cells)
+  s(F8{dpi,D21}     ) = +1 (from dT=Td through the E-cells)
+  s(F9{dpi,D32}     ) = +1 (from dT=Td through the E-cells)
+  s(R0.def          ) = -1 (from dT=Td through the F-cells)
+  s(R0.bF6          ) = +1 (from dT=Td through the F-cells)
+  s(R0.bF7          ) = -1 (from dT=Td through the F-cells)
+  s(R1.def          ) = -1 (from dT=Td through the F-cells)
+  s(R1.bF8          ) = -1 (from dT=Td through the F-cells)
+  s(R1.bF9          ) = +1 (from dT=Td through the F-cells)
+  s(s+              ) = +1 (verified: T^3=I + dT=Td agree)
+  s(s-              ) = +1 (verified: T^3=I + dT=Td agree)
+  T^3 = I sign products on all 32 cells: OK (constraint-derived)
+[t+  10.4s] P8 done
+
+==============================================================================
+P9: consistency relations
+==============================================================================
+(i) w-equivariance: w(cR->cF) = w(R->F) + kappa_F - kappa_R
+   (all 18 pairs checked, 0 failures so far)
+(ii) kappa orbit sums (R and F): expect (0,0) mod 6
+   all orbit sums checked
+(iii) sign products s_b s_cb s_c2b = +1
+   sign products: done
+(iv) BASE dT = Td with signs
+   BASE dT = Td (with signs) on all 32 base cells: OK
+[t+  10.4s] P9 done
+
+==============================================================================
+COMPARISON against the committed wave13c_pin_data.json
+==============================================================================
+  KAPPA_F   : MATCH (all 9)
+  KAPPA_R   : MATCH (all 6)
+  KAPPA_E   : MATCH (all 9)
+  W_RF      : MATCH (all 18)
+  SHIFT_FE  : MATCH (all 36)
+  TAU_S     : MATCH
+  SB        : MATCH (all 32)
+
+PIN COMPARISON: ALL FIELDS MATCH
+
+fresh pin data -> w28_pin_data.json  (consistency failures: 0)
+
+==============================================================================
+WAVE 28 MODULE 2 COMPLETE (pins re-implementation)
+==============================================================================
+[t+  10.4s] module 2 complete

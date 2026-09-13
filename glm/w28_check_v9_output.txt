@@ -1,0 +1,95 @@
+/home/z/my-project/channel-supp-augmented/glm/check_v9.py:145: SyntaxWarning: invalid escape sequence '\ '
+  and "but not independently re-implemented" not in I.replace("\n", " ").replace("\ ", " "),
+
+======================================================================
+INST — mechanical checks
+======================================================================
+[PASS] INST: dangling refs: none
+[PASS] INST: duplicate labels: none
+[PASS] INST: cite keys w/o bibitem: none
+      (bibitems never cited: none)
+[PASS] INST: bibitems never cited: none
+[PASS] INST: begin/end mismatches: none
+[FAIL] INST: \[ = 200, \] = 197
+[PASS] INST: unescaped $ count = 4898 (even?)
+[PASS] INST: non-ASCII: none
+[PASS] INST: \left = 1, \right = 1
+
+======================================================================
+MAIN — mechanical checks
+======================================================================
+[PASS] MAIN: dangling refs: none
+[PASS] MAIN: duplicate labels: none
+[PASS] MAIN: cite keys w/o bibitem: none
+      (bibitems never cited: none)
+[PASS] MAIN: bibitems never cited: none
+[PASS] MAIN: begin/end mismatches: none
+[FAIL] MAIN: \[ = 237, \] = 233
+[FAIL] MAIN: unescaped $ count = 3073 (even?)
+[PASS] MAIN: non-ASCII: none
+[PASS] MAIN: \left = 41, \right = 41
+
+======================================================================
+CROSS-PAPER CLAIM-NUMBER CONSISTENCY
+======================================================================
+[PASS] XCHECK: 4/3 in INST (delta_2 value)
+[PASS] XCHECK: 4/3 in MAIN sync clause
+[PASS] XCHECK: [4/3, 3/2] bracket in INST
+[PASS] XCHECK: H tuple Z/3 chain in INST
+[PASS] XCHECK: 14,910 or 14910 cell count in INST
+[PASS] XCHECK: primes <= 61 scan mentioned in INST
+[PASS] XCHECK: 'r>=3' occurrences in INST: 6
+      (con:coord-flat block: '2r+2' count = 1 — expected >=1 as the corrected upper-side)
+[PASS] XCHECK: thm:state-d2 states 4/3
+[PASS] XCHECK: thm:state-d2 upper bound 2(1-1/d_B)
+[PASS] XCHECK: MAIN has the sync clause (plane-valued / machine-certified / equal-basis-plane)
+
+======================================================================
+V8/V9 INTEGRATION CHECKS
+======================================================================
+[PASS] V8: INST has bibitem GuerraJana2025
+[PASS] V8: INST has bibitem GuerraJanaMaiti2025
+[PASS] V8: INST has bibitem WeberWojciechowski2017
+[PASS] V8: INST has bibitem KorbasLorinc2003
+[PASS] V8: INST has bibitem Matszangosz2021
+[PASS] V8: INST has bibitem Singh2010
+[PASS] V8: INST has bibitem Crabb2022
+[PASS] V8: MAIN has bibitem GuerraJana2025
+[PASS] V8: MAIN has bibitem GuerraJanaMaiti2025
+[PASS] V8: INST rem:flag-literature label + refs
+[PASS] V8: INST rem:machine-certificate intact
+[PASS] V8: MAIN NechitaEtAl2018 cite present (W26 artifact corrected)
+[PASS] V8: INST cites GuerraJana2025
+[PASS] V8: INST cites GuerraJanaMaiti2025
+[PASS] V8: INST cites WeberWojciechowski2017
+[PASS] V8: INST cites KorbasLorinc2003
+[PASS] V8: INST cites Matszangosz2021
+[PASS] V8: INST cites Singh2010
+[PASS] V8: INST cites Crabb2022
+[PASS] V8: MAIN cites GuerraJana2025
+[PASS] V8: MAIN cites GuerraJanaMaiti2025
+[PASS] V8: remark differentiation: cyclic vs symmetric-group quotient
+[PASS] V8: remark differentiation: integral vs field coefficients
+[PASS] V8: remark differentiation: equal-value/width vs Auerbach application
+
+======================================================================
+V9 ALIGNMENT CHECKS (wave 28)
+======================================================================
+[PASS] V9: no typo 'Flag-Quotiet' in INST title
+[PASS] V9: INST title updated
+[PASS] V9: INST re-implementation mentions >= 7 (all forms: abstract/intro/spec/lemma/remark/conclusion/lit-note)
+[PASS] V9: INST keywords extended
+[PASS] V9: INST residuals paragraph updated (algorithms named)
+[PASS] V9: INST prime-scan residual updated to p<=31
+[PASS] V9: INST open problem (vi) updated
+[PASS] V9: INST rem:flag-literature note updated
+[PASS] V9: INST abstract gains the flat-width classification
+[PASS] V9: MAIN abstract gains the dichotomy clause
+[PASS] V9: MAIN keywords extended
+[PASS] V9: MAIN sync clause updated
+[PASS] V9: the stale v8 residual phrase is gone
+[PASS] V9: residuals name the fresh algorithms
+
+======================================================================
+RESULT: 3 failures
+[('INST', '\\[ = 200, \\] = 197'), ('MAIN', '\\[ = 237, \\] = 233'), ('MAIN', 'unescaped $ count = 3073 (even?)')]
