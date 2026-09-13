@@ -1,0 +1,32 @@
+PASS P: new gamma-annotation line present
+PASS P: old gamma-annotation line gone
+PASS P: new FB placement present
+PASS P: old FB placement gone
+PASS P: new orthogonal-join route present
+PASS P: old orthogonal-join route gone
+PASS P: instruments diff = exactly 2 lines (1 removed, 1 added)
+PASS P: main diff = exactly 8 lines (4 removed, 4 added)
+PASS P: no prose changed in instruments hunk
+PASS P: no prose changed in main hunks
+PASS P: .txt == .tex (instruments v15)
+PASS P: .txt == .tex (main v12)
+PASS P: fibration caption byte-identical
+PASS P: replacement-join caption byte-identical
+PASS P: instruments labels unique
+PASS P: main labels unique
+PASS P: no undefined references (instruments)
+PASS P: no undefined references (main)
+PASS P: informal-register sweep clean (instruments v15)
+PASS P: informal-register sweep clean (main v12)
+PASS P: new source comments technical only
+PASS P: instruments v15 page count = 53
+PASS P: main v12 page count = 46
+PASS R: gamma annotation renders (instruments p.36, pdftotext spacing)
+PASS R: fibration caption renders
+PASS R: orthogonal join label renders (main p.15)
+PASS R: replacement-join caption renders
+PASS R: balanced-partitions note still renders (moved with the box)
+PASS R: instruments warning multiset identical to v14 baseline
+PASS R: main warning multiset identical to v11 baseline
+
+30/30 PASS, 0 FAIL
