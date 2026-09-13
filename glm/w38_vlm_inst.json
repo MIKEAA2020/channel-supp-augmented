@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "(1) Yes, the author lines (name, affiliation, ORCID, and email) and the date 'September 14, 2026' are all present, centered, and rendered cleanly.\n(2) No, there is no overlap or collision between the title, author block, date, or the abstract text; they are well-spaced.\n(3) No, there are no cut-off characters, misalignment, or other rendering defects in the title block.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1789342166,
+  "id": "202609140729196cfa5c44f24946e0",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202609140729196cfa5c44f24946e0",
+  "usage": {
+    "completion_tokens": 97,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 6042,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 6139
+  }
+}

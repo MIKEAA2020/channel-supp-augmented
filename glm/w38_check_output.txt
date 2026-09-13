@@ -1,0 +1,45 @@
+=== Wave 38 checker: 42 checks ===
+[PASS]  1. instruments: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS]  2. instruments: placeholder sweep (no xx fields remain in source)
+[PASS]  3. instruments: the filled-in author block present (byte-exact)
+[PASS]  4. instruments: version date unchanged under title
+[PASS]  5. instruments: declarations section present (byte-exact, brief)
+[PASS]  6. instruments: reconstruction gate (new == source + 3 hunks, byte-identical)
+[PASS]  7. instruments: .txt byte-mirror of .tex
+[PASS]  8. instruments: label multiset unchanged
+[PASS]  9. instruments: ref/cite multiset = source + the expected declarations ref only  (delta = 1 (expected 1))
+[PASS] 10. instruments: captions byte-identical
+[PASS] 11. instruments: section ledger (only Declarations added)
+[PASS] 12. instruments: bibitem keys unchanged
+[PASS] 13. instruments: bib bodies identical except the companion entry
+[PASS] 14. instruments: companion entry de-anonymized to A.~Abaee
+[PASS] 15. instruments: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 16. main: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS] 17. main: placeholder sweep (no xx fields remain in source)
+[PASS] 18. main: the filled-in author block present (byte-exact)
+[PASS] 19. main: version date unchanged under title
+[PASS] 20. main: declarations section present (byte-exact, brief)
+[PASS] 21. main: reconstruction gate (new == source + 3 hunks, byte-identical)
+[PASS] 22. main: .txt byte-mirror of .tex
+[PASS] 23. main: label multiset unchanged
+[PASS] 24. main: ref/cite multiset = source + the expected declarations ref only  (delta = 0 (expected 0))
+[PASS] 25. main: captions byte-identical
+[PASS] 26. main: section ledger (only Declarations added)
+[PASS] 27. main: bibitem keys unchanged
+[PASS] 28. main: bib bodies identical except the companion entry
+[PASS] 29. main: companion entry de-anonymized to A.~Abaee
+[PASS] 30. main: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 31. instruments: page count within tolerance of the 53-page baseline  (53 -> 53 pages (unchanged))
+[PASS] 32. instruments: page-1 title-block render needles (name/affiliation/ORCID/email/date)  (all present)
+[PASS] 33. instruments: full-text blind sweep (PDF text)
+[PASS] 34. instruments: full-text placeholder sweep (PDF text, no xx fields)  (none)
+[PASS] 35. instruments: declarations render needles  (all present)
+[PASS] 36. instruments: de-anonymized companion citation renders
+[PASS] 37. main: page count within tolerance of the 46-page baseline  (46 -> 46 pages (unchanged))
+[PASS] 38. main: page-1 title-block render needles (name/affiliation/ORCID/email/date)  (all present)
+[PASS] 39. main: full-text blind sweep (PDF text)
+[PASS] 40. main: full-text placeholder sweep (PDF text, no xx fields)  (none)
+[PASS] 41. main: declarations render needles  (all present)
+[PASS] 42. main: de-anonymized companion citation renders
+
+42/42 PASS, 0 FAILURES

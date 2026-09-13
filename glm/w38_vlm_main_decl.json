@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "(1) Yes, the \"Declarations\" heading and its paragraph are rendered cleanly and fully.\n(2) No, the inserted section does not disrupt the surrounding layout; the spacing is consistent, and there are no overlaps or orphaned headings.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1789342328,
+  "id": "20260914073204e46d543f13584142",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260914073204e46d543f13584142",
+  "usage": {
+    "completion_tokens": 51,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5135,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5186
+  }
+}

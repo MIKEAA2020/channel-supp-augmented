@@ -1,0 +1,32 @@
+=== diff audit ===
+instruments v16 -> v17 (identity + declarations): 13 changed diff lines
+    -\author{xx xx\\
+    -\small xx\\
+    -\small ORCID: xx\\
+    -\small Email: \href{mailto:xx\_xx@xx.xx.xx}{xx\_xx@xx.xx.xx}}
+    +\author{Amin Abaee\\
+    +\small Independent Researcher\\
+    +\small ORCID: 0000-0002-0019-1842\\
+    +\small Email: \href{mailto:amin\_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir}}
+    +\section*{Declarations}
+    +The author declares no funding and no competing interests. The code and computation transcripts of Remark~\ref{rem:machine-certificate} are available
+    +
+    -xx~xx, \emph{Exact diamond balls, antipodal widths, and query-uniform compression bounds for quantum channels}, submitted for publication (2026). (Su
+    +A.~Abaee, \emph{Exact diamond balls, antipodal widths, and query-uniform compression bounds for quantum channels}, submitted for publication (2026). 
+main v13 -> v14 (identity + declarations): 13 changed diff lines
+    -\author{xx xx\\
+    -\small xx\\
+    -\small ORCID: xx\\
+    -\small Email: \href{mailto:xx\_xx@xx.xx.xx}{xx\_xx@xx.xx.xx}}
+    +\author{Amin Abaee\\
+    +\small Independent Researcher\\
+    +\small ORCID: 0000-0002-0019-1842\\
+    +\small Email: \href{mailto:amin\_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir}}
+    +\section*{Declarations}
+    +The author declares no funding and no competing interests. No datasets were generated or analysed.
+    +
+    -xx~xx,
+    +A.~Abaee,
+
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v17/instruments-paper-unblinded17.tex
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v17/main-article-unblinded14.tex

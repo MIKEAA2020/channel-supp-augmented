@@ -1,0 +1,12 @@
+== instruments ==
+   warning lines: new 26 vs baseline 40
+   distinct signatures: 2 new / 2 base, identical=True
+   pass-ratio (new/base multiplicity): [0.6428571428571429, 0.6666666666666666] (pass-count difference only; identical per-pass multiset iff all ratios equal 0.65)
+   VERDICT: distinct number-free signature sets IDENTICAL (zero new typesetting defects)
+== main ==
+   warning lines: new 54 vs baseline 54
+   distinct signatures: 2 new / 2 base, identical=True
+   pass-ratio (new/base multiplicity): [1.0] (pass-count difference only; identical per-pass multiset iff all ratios equal 1.00)
+   VERDICT: distinct number-free signature sets IDENTICAL (zero new typesetting defects)
+
+OVERALL: PASS (no new warning signatures; any multiplicity difference is the TeX pass count only)
