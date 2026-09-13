@@ -1,0 +1,212 @@
+WAVE 33 -- second referee pass over the v12 proof (independent verifier)
+date: 2026-09-13; engine: exact integer arithmetic, no floats
+
+======================================================================
+PART P -- TEXTUAL SEAMS (v12, .tex and .txt)
+======================================================================
+[P1] presence: R1-h1 statement: PASS
+[P1] presence: R1-h2 lattice: PASS
+[P1] presence: R1-h2 equal-coeff: PASS
+[P1] presence: R1-h2 sublattice: PASS
+[P1] presence: R1-h2 safe degrees: PASS
+[P1] presence: R1-h2 witness: PASS
+[P1] presence: R1-h3 display: PASS
+[P1] presence: R1-h3 defs: PASS
+[P1] presence: R1-h3 relations: PASS
+[P1] presence: R1-h3 index-two: PASS
+[P1] presence: R1-h7 quotient: PASS
+[P1] presence: R1-h7 identities: PASS
+[P1] presence: R1-h7 torsion: PASS
+[P1] presence: R1-h7 twice: PASS
+[P1] presence: R1-h7 rational: PASS
+[P1] presence: R1-h5 remark: PASS
+[P1] presence: R2 odd-r: PASS
+[P1] presence: R2 even-r lead: PASS
+[P1] presence: R2 deg9 free: PASS
+[P1] presence: R2 deg9 free clause: PASS
+[P1] presence: R2 deg9 torsion: PASS
+[P1] presence: R2 deg8 boundaries: PASS
+[P1] presence: R2 deg8 d4: PASS
+[P1] presence: R2 divisibility: PASS
+[P1] presence: R2 triangular: PASS
+[P1] presence: R3 (2,2)-clause: PASS
+[P1] presence: R4a display: PASS
+[P1] presence: R4a parenthetical: PASS
+[P1] presence: R4b pin: PASS
+[P1] presence: R4b section: PASS
+[P1] presence: R4b eps: PASS
+[P1] presence: R4 pinned display: PASS
+[P1] presence: R5 two-step: PASS
+[P1] presence: R5 single relation: PASS
+[P1] presence: R6 parenthetical: PASS
+[P1] presence: R7 unconditional: PASS
+[P1] presence: R7 lift-dependent: PASS
+[P1] presence: odd-BK support: PASS
+   (38 of 38 presence phrases verified)
+[P2] absence: v11 R2 premise (false): PASS
+[P2] absence: v11 R5 per-subgroup: PASS
+[P2] absence: v11 R4 uniqueness: PASS
+[P2] absence: v11 R7 flat tauDelta: PASS
+[P2] absence: v10 statement clause: PASS
+[P2] absence: v10 top-class clause: PASS
+[P2] absence: v10 integral module: PASS
+[P4] .tex == .txt (byte-identical): PASS -- sizes 210505 vs 210505
+
+[P3] notation-order scan (Step 1 uses sigma/tau before their definitions):
+   Step 1 spans lines 1898-1941
+   first sigma_1/sigma_2 use inside Step 1: line 1931
+   first tau use inside Step 1:              line 1933
+   sigma_i defined (Step 2):                 line 1969
+   tau defined (Step 2 end):                 line 1983
+   H^odd(BK)=0 stated (Step 3):              line 2024
+   d_4(z_3)=sigma_2+2tau^2 pinned (Step 4):  line 2047
+   => F1 evidence: Step 1 uses sigma/tau 38 lines before the definitions
+   (informational only -- see the wave note, Finding F1)
+
+[P5] main-article sync clauses (main stays at v10):
+[P5] main sync: hand-derived, machine-certified, and independently: PASS
+[P5] main sync: flag-quotient computation: PASS
+[P5] main sync: the cyclic flag quotient underlying that premise: PASS
+[P5] main free of proof-internal 'orbit-sum':: PASS
+[P5] main free of proof-internal 'lattice-index':: PASS
+[P5] main free of proof-internal 'b\,\tau':: PASS
+
+======================================================================
+PART M -- MATHEMATICS (independent exact-integer re-derivation)
+======================================================================
+
+[M1] the orbit-sum lattice vs the symmetric-function module:
+[M1] degree 0: module generators invariant: PASS
+[M1] degree 0: index [M_d : module] = 1: PASS -- det = 1
+[M1] degree 1: module generators invariant: PASS
+[M1] degree 1: index [M_d : module] = 1: PASS -- det = 1
+[M1] degree 2: module generators invariant: PASS
+[M1] degree 2: index [M_d : module] = 1: PASS -- det = 1
+[M1] degree 3: module generators invariant: PASS
+[M1] degree 3: index [M_d : module] = 2: PASS -- det = -2
+[M1] degree 4: module generators invariant: PASS
+[M1] degree 4: index [M_d : module] = 2: PASS -- det = -2
+[M1] degree 5: module generators invariant: PASS
+[M1] degree 5: index [M_d : module] = 4: PASS -- det = -4
+[M1] degree 6: module generators invariant: PASS
+[M1] degree 6: index [M_d : module] = 8: PASS -- det = 8
+[M1] M_3 basis = {A1, S1, S2, sigma3} (4 orbits): PASS
+[M1] identity 2*S1 = sigma1*sigma2 - 3*sigma3 + Delta: PASS
+[M1] identity S1 + S2 = sigma1*sigma2 - 3*sigma3: PASS
+[M1] identity S1 - S2 = Delta: PASS
+[M1] Newton: A1 = sigma1^3 - 3 sigma1 sigma2 + 3 sigma3: PASS
+[M1] witness: S1 NOT in the module lattice (b = e = 1/2): PASS -- rational solution exists (rank match), not integral
+[M1] witness: 2*S1 IS in the module lattice: PASS
+
+[M2] the torsion product rule (norm model H^2(C3; M_d) = M^C3 / N M):
+[M2] degree 0: H^2(C3; M_d) = Z/3 (fixed coord mod 3): PASS
+[M2] degree 1: H^2(C3; M_d) = 0: PASS
+[M2] degree 2: H^2(C3; M_d) = 0: PASS
+[M2] degree 3: H^2(C3; M_d) = Z/3 (fixed coord mod 3): PASS
+[M2] degree 4: H^2(C3; M_d) = 0: PASS
+[M2] degree 5: H^2(C3; M_d) = 0: PASS
+[M2] degree 6: H^2(C3; M_d) = Z/3 (fixed coord mod 3): PASS
+[M2] degree 7: H^2(C3; M_d) = 0: PASS
+[M2] degree 8: H^2(C3; M_d) = 0: PASS
+[M2] tau*sigma1 = 0 (3 does not divide 1): PASS
+[M2] tau*sigma2 = 0 (3 does not divide 2): PASS
+[M2] tau*sigma1^3 = 0 (chi1chi2chi3-coeff 6): PASS
+[M2] tau*sigma3 != 0 (generator of the (2,6)-slot): PASS
+[M2] tau*Delta = 0 at the leading level (no chi1chi2chi3): PASS
+[M2] tau*A1 = 0: PASS
+[M2] tau*S1 = tau*S2 = 0: PASS
+[M2] tau*sigma1*sigma2 = 0 (chi1chi2chi3-coeff 3): PASS
+[M2] degree 0: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 0
+[M2] degree 1: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 2
+[M2] degree 2: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 4
+[M2] degree 3: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 6
+[M2] degree 4: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 10
+[M2] degree 5: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 14
+[M2] degree 6: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 18
+[M2] degree 7: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 24
+[M2] degree 8: ker N  <=  (T-1)M  [H^odd(BK)=0]: PASS -- ker rank 30
+
+[M3] the crux: E_inf^{4,0} = (Z sigma1^2 (+) Z sigma2 (+) Z/3 tau^2) / <sigma1^2, sigma2 + 2 tau^2>:
+[M3] quotient = Z/3 (no free part): PASS
+[M3] [tau^2] has order 3 (nonzero): PASS
+[M3] [sigma2] = -2[tau^2]: PASS
+[M3] two-step: (Z sigma2 (+) Z/3 tau^2)/<sigma2+2tau^2> = Z/3: PASS
+[M3] witness (2,2) in <(2,0)>+<(0,2)> but in neither alone: PASS
+[M3] counterfactual (b unpinned, d_2(tau z1) = tau^2): E_inf^{4,0} = 0 -- the crux dies: PASS
+
+[M4] the degree-6 quotient (orbit-sum lattice, R1's Step-7 repair):
+[M4] sigma1^3 = A1 + 3(S1+S2) + 6 sigma3 (coords (1,3,3,6)): PASS
+[M4] sigma1 sigma2 = (S1+S2) + 3 sigma3 (coords (0,1,1,3)): PASS
+[M4] Delta = S1 - S2 (coords (0,1,-1,0)): PASS
+[M4] quotient = Z (free rank 1, no torsion): PASS
+[M4] [S1] != 0 (infinite order): PASS
+[M4] membership: Delta - 2 S1 IS a relation: PASS
+[M4] membership: Delta - S1 is NOT: PASS
+[M4] membership: S1 is NOT: PASS
+[M4] lift-independence: [Delta + c tau^3] = 2[S1] for c=0,1,2 (the tau^3-tail dies in the quotient): PASS
+[M4] [tau^3] = 0 in the quotient (2 tau^3 and 3 tau^3 force it): PASS
+
+[M5] the R2 mechanism (even r >= 8 sources dead before E_8):
+[M5] fibre degrees of Lambda(z1,z3,z5) = {0,1,3,4,5,6,8,9}: PASS
+[M5] H^2(U(3)) = 0 and H^7(U(3)) = 0 (no degree 2 or 7): PASS
+[M5] degree 1: sigma1.M_0  <=  ker(eval) [automatic]: PASS
+[M5] degree 1: rank(ker) = rank(sigma1.M_0): PASS -- ker rank 1, gens 1
+[M5] degree 1: [ker(eval) : sigma1.M_0] = 1: PASS -- det = 1
+[M5] degree 2: sigma1.M_1  <=  ker(eval) [automatic]: PASS
+[M5] degree 2: rank(ker) = rank(sigma1.M_1): PASS -- ker rank 1, gens 1
+[M5] degree 2: [ker(eval) : sigma1.M_1] = 1: PASS -- det = 1
+[M5] degree 3: sigma1.M_2  <=  ker(eval) [automatic]: PASS
+[M5] degree 3: rank(ker) = rank(sigma1.M_2): PASS -- ker rank 2, gens 2
+[M5] degree 3: [ker(eval) : sigma1.M_2] = 1: PASS -- det = -1
+[M5] degree 4: sigma1.M_3  <=  ker(eval) [automatic]: PASS
+[M5] degree 4: rank(ker) = rank(sigma1.M_3): PASS -- ker rank 4, gens 4
+[M5] degree 4: [ker(eval) : sigma1.M_3] = 1: PASS -- det = 1
+[M5] degree 5: sigma1.M_4  <=  ker(eval) [automatic]: PASS
+[M5] degree 5: rank(ker) = rank(sigma1.M_4): PASS -- ker rank 5, gens 5
+[M5] degree 5: [ker(eval) : sigma1.M_4] = 1: PASS -- det = 1
+[M5] degree 6: sigma1.M_5  <=  ker(eval) [automatic]: PASS
+[M5] degree 6: rank(ker) = rank(sigma1.M_5): PASS -- ker rank 7, gens 7
+[M5] degree 6: [ker(eval) : sigma1.M_5] = 1: PASS -- det = 1
+[M5] degree 7: sigma1.M_6  <=  ker(eval) [automatic]: PASS
+[M5] degree 7: rank(ker) = rank(sigma1.M_6): PASS -- ker rank 10, gens 10
+[M5] degree 7: [ker(eval) : sigma1.M_6] = 1: PASS -- det = 1
+[M5] degree 8: sigma1.M_7  <=  ker(eval) [automatic]: PASS
+[M5] degree 8: rank(ker) = rank(sigma1.M_7): PASS -- ker rank 12, gens 12
+[M5] degree 8: [ker(eval) : sigma1.M_7] = 1: PASS -- det = -1
+[M5] sigma2 at the sigma1-root locus = -(x^2+xy+y^2) != 0: PASS -- computed {(1, 1): -1, (2, 0): -1, (0, 2): -1}
+[M5] degree 2: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 1 vs 1
+[M5] degree 3: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 2 vs 2
+[M5] degree 4: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 4 vs 4
+[M5] degree 5: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 5 vs 5
+[M5] degree 6: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 7 vs 7
+[M5] degree 7: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 10 vs 10
+[M5] degree 8: {beta : sigma1 | beta sigma2} = sigma1-multiples [the sigma_1-bookkeeping clause]: PASS -- ker ranks 12 vs 12
+[M5] tau sigma1 = 0 and 2 tau^3 != 0 (tau^3 of order 3): PASS
+
+[M6] the pins (the regular representation, Z[u]/(3u)):
+[M6] (1+u)(1+2u) = 1 + 2u^2 in Z[u]/(3u): PASS -- got {0: 1, 2: 2}
+[M6] c1(regular) = 3u = 0 (the u-coefficient is 0 mod 3): PASS
+[M6] c2(regular) = 2 u^2: PASS
+[M6] c3(regular) = 0: PASS
+[M6] b u = 0 forces b = 0 (u generates H^2(BC3) = Z/3): PASS
+[M6] eps: 2 u^2 = eps u^2 pins eps = 2 (mod 3): PASS
+[M6] eps': 0 = eps' u^3 pins eps' = 0: PASS
+
+[M7] the degree runs and the tuple:
+[M7] H^2(B) = (Z sigma1 (+) Z/3 tau)/<sigma1> = Z/3: PASS
+[M7] H^2(B) generated by the class of tau (order 3): PASS
+[M7] degree 3: d_2(sigma1 z1) = sigma1^2 != 0 (free part dies): PASS
+[M7] degree 3: d_2(tau z1) = tau sigma1 = 0 (b = 0 pinned): PASS
+[M7] degree 5: tau^2 sigma1 = 0 (tau composed with tau sigma1): PASS
+[M7] degree 5: d_4(tau z3) = tau(sigma2 + 2 tau^2) = 2 tau^3: PASS
+[M7] degree 5: z5 dies (sigma3 != 0, infinite order): PASS
+[M7] degree 5: free (4,1)-classes die (sigma1 sigma2, sigma1^3 nonzero): PASS
+[M7] mixed kills: d_2(z1z3) = sigma1 z3, d_2(z1z5) = sigma1 z5 (sigma1 nonzero): PASS
+   tuple assembled from M3/M4/M7: (Z, 0, Z/3, Z/3, Z/3, Z/3, Z)  -- H^1 = 0 (odd BK cohomology, z1 killed by d_2(z1)=sigma1)
+
+[M8] R6 sign invariance and R7 lift-values:
+[M8] R6: (x = +/- gamma*tau) squares away: (+/-1)^2 = 1: PASS
+[M8] R7: tau(Delta + c tau^3) = c tau^4 takes three distinct values {0, tau^4, 2 tau^4}: PASS
+
+======================================================================
+RESULT: ALL GATES PASS

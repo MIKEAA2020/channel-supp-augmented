@@ -1,0 +1,244 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=darkgray,
+    urlcolor=blue,
+    bookmarks=true,
+    bookmarksnumbered=true,
+    unicode=true
+]{hyperref}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\BK}{\mathrm{BK}}
+\newcommand{\BU}{\mathrm{BU}}
+\newcommand{\Fl}{\mathrm{Fl}}
+\newcommand{\tors}{\,\mathrm{tors}}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries The Second Referee Pass over the v12 Proof}\\[4pt]
+{\itshape Proposition 6.16: The cup square on the flag quotient --- a hand derivation}\\[6pt]
+{\small Instruments manuscript v12, source lines 1857--2138, with the integration points:}\\
+{\small Lemma 6.17, Remarks 6.18--6.19, the statement, the open-problem list,}\\
+{\small and the main-article sync clauses}\\[6pt]
+{\small Wave 33 \,\textbullet\, 2026-09-13 \,\textbullet\, channel-supp-augmented}
+\end{center}
+\vspace{4pt}
+
+\noindent\textbf{Charge and method.} The full seven-step proof was re-read
+line by line and re-derived by hand a second time, with the repairs in
+place; this reading was explicitly a \emph{seam} reading --- each repaired
+passage was checked in context, against its neighbours, for dangling
+dependencies, contradictions with unrepaired text, and claims silently
+changed by the patches. Every checkable arithmetic claim was re-computed by
+a fresh exact-integer script (\texttt{w33\_second\_pass\_check.py},
+\textbf{178 checks, all PASS}, exit 0) written from scratch for this pass,
+independently of the manuscript, of the machine data, and of the
+w30/w31/w32 verifier scripts. Four bugs in the checker's own code were
+caught and fixed en route (a shadowed function name, an orbit-basis
+ordering assumption, a wrong kernel-basis convention in the Smith-normal-form
+routine, and a degree mismatch in the $\sigma_2$-bookkeeping evaluation);
+each had produced spurious failures against mathematics that re-derivation
+confirmed was correct.
+
+\section*{1. Verdict, up front}
+
+\textbf{The repairs read cleanly end-to-end.} The v12 proof is now a
+coherent, self-consistent, line-checkable derivation from Step~0 to
+Step~7, and the referee cycle of Waves 30--32 is closed. All eleven repair
+hunks are present (R1's five from Wave~31; R2--R7's six from Wave~32);
+all seven superseded phrasings are gone; every load-bearing claim ---
+including every claim the repairs introduced --- was independently
+re-verified, and the cross-step dependencies that the repairs created or
+relied on all resolve.
+
+\textbf{No mandatory corrections.} Two residual polish items are recorded
+below (Findings F1 and F2): each is a single optional clause, neither
+affects any assertion of the Proposition, and neither rises to the level of
+a repair. In journal terms: \emph{accept; the minor revision has been
+executed and executed well.}
+
+The epistemic chain on the Proposition now runs: hand-derived (W29),
+machine-certified (13C), independently re-implemented (W28),
+referee-verified (W30, findings R1--R7), lattice-gated (W31, R1 applied
+plus the G3L gate), referee-complete (W32, R2--R7 adjudicated and applied),
+and now \textbf{second-pass confirmed} (W33, this wave).
+
+\section*{2. What the second pass confirmed}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+
+\item \textbf{R1, all five hunks, seam-clean.} The statement clause
+($H^6(B;\Z)\cong\Z$, the discriminant twice a generator) is correct and
+\emph{well defined}: the $\tau^3$-tail ambiguity of the $\Delta$-lift in
+$H^6(\BK)$ dies in the quotient, so the image of $\Delta$ in $H^6(B)$ is
+lift-independent --- a dedicated gate (M4, lift-independence for
+$c=0,1,2$). Step~2's lattice layer re-verified: the index table
+$1,1,1,2,2,4,8$ for degrees $0$--$6$ (determinants of the change-of-basis),
+the four polynomial identities, the witness $S_1=\tfrac12(\sigma_1\sigma_2
+-3\sigma_3+\Delta)$ non-integral with $2S_1$ integral. Step~3's display
+$\Z\{A_1,S_1,S_2,\sigma_3\}\oplus\Z/3\cdot\tau^3$ with the index-two note:
+exact. Step~7's quotient, run on the orbit-sum lattice,
+\[
+\bigl(\Z\{A_1,S_1,S_2,\sigma_3\}\oplus\Z/3\cdot\tau^3\bigr)\big/
+\langle\sigma_1^3,\ \sigma_1\sigma_2,\ 2\tau^3,\ \sigma_3\rangle
+\ \cong\ \Z\cdot\langle S_1\rangle,
+\]
+is re-computed by Smith normal form in the paper's coordinates --- free
+rank $1$, no torsion, the membership triple ($\Delta-2S_1$ a relation;
+$\Delta-S_1$ and $S_1$ not) exact, $\Delta=2S_1$. The remark knock-on is
+present and now accurate: the G3L gate certifies exactly what the residuals
+list names.
+
+\item \textbf{R2, the corrected two-step, mechanism complete.} Odd $r$:
+targets in odd $p$-degree, the forward reference marked and \emph{supported}
+by Step~3's closing sentence (line 2024); gate M2 re-proves
+$\ker N\subseteq(T-1)M$ lattice-exactly for $d\le 8$. Even $r\ge 8$:
+source fibre-degrees exactly $\{8,9\}$; the degree-9 classes die under
+$d_2$ (free) or $d_4$ (torsion, $2\tau^{a+2}\ne 0$); the degree-8
+$\sigma_1$-multiples are $d_2$-boundaries; the rest die under
+$d_4(\beta z_3z_5)=\beta(\sigma_2+2\tau^2)z_5\ne 0$ \emph{on the $E_4$
+page} --- the exact point the referee's own original sketch missed. The
+$\sigma_1$-divisibility lattice fact
+$\{\beta\in M_d:\sigma_1\mid\beta\}=\sigma_1 M_{d-1}$ is re-verified for
+degrees $1$--$8$ (rank match plus index $1$, degree by degree), and the
+$\sigma_2$-side bookkeeping for degrees $2$--$8$ ($\sigma_2$ at the locus
+$\chi_3=-\chi_1-\chi_2$ is $-(x^2+xy+y^2)\ne 0$).
+
+\item \textbf{R3, the $(2,2)$-clause.} The Step~5 enumeration is now
+genuinely complete: all five bidegrees of total degree four are accounted
+for, the vanishing $E_2^{2,2}=0$ resting on the exterior algebra having no
+degree-two class (M5).
+
+\item \textbf{R4, both hunks, load-bearing and supplied.} The display
+$\iota^*c_1=\sigma_1+b\,\tau$ with the honest parenthetical, and the pin
+$0=s^*(\iota^*c_1)=s^*(\sigma_1+b\,\tau)=bu$, so $b=0$: the regular
+representation's Chern classes re-computed in $\Z[u]/(3u)$
+($(1+u)(1+2u)=1+3u+2u^2$), the pins $(b,\varepsilon,\varepsilon')
+=(0,2,0)$ forced as printed. The consequence is real: with $b$ pinned,
+$d_2(\tau z_1)=\tau\sigma_1=0$ is line-checkable and Step~5's
+incoming-image completeness rests on an established fact; unpinned, the
+crux dies --- the counterfactual quotient re-computed and confirmed (M3:
+the trivial group).
+
+\item \textbf{R5, the two-step quotient.} Logically valid as scoped: after
+the direct-summand quotient there is exactly one relation, and the
+order-three argument applies to it. The sum-quotient re-verified
+($\Z/3$, $[\tau^2]$ of order three generating, $[\sigma_2]=-2[\tau^2]$),
+the logical-gap witness re-exhibited, the old per-subgroup sentence gone.
+
+\item \textbf{R6, the convention parenthetical.} Present at the
+identification sentence, correct (the sign squares away, $(\pm 1)^2=1$),
+and it does not interfere with the functorial part $\kappa=\pi\circ\gamma$.
+
+\item \textbf{R7, the $\tau\Delta$ marking.} Accurate in both directions:
+the leading-level claim is correct, the three lift-values are distinct,
+and the downstream uses really do avoid it --- the $\sigma_i$-instances are
+correctly marked unconditional via Step~4's pins.
+
+\end{itemize}
+
+\section*{3. Findings (optional; one clause each; no mathematics affected)}
+
+\textbf{F1 (nano, presentational).} Step~1's repaired text uses
+$\sigma_1$, $\sigma_2$, $\tau$ --- and the transgression value
+$\sigma_2+2\tau^2$ that Step~4 pins --- with first occurrences at source
+lines 1931/1933, while $\sigma_i$ is introduced at line 1969, $\tau$ at
+line 1983, and the value pinned at line 2047: thirty-eight lines of forward
+dependency. The odd-$r$ clause carries its marker (``by Step~3 below'');
+the even-$r$ clause carries none. There is no logical circularity (Steps
+2--4 are established by independent means), but a linear reader meets the
+symbols before their definitions; one parenthetical would close it. In the
+same sentence, the lead-in ``the fibre classes there are \emph{boundaries}
+before the $E_8$-page'' conflates two death modes --- the
+$\sigma_1$-multiple degree-8 classes are $d_2$-boundaries, the rest die as
+\emph{non-cycles}; the elaborating sentences are precise about exactly
+this, so only the lead-in word is loose (``killed'' for ``boundaries'').
+
+\textbf{F2 (nano, presentational).} Step~3's display presents the orbit
+sums $S_1,S_2$ as named classes, but they are defined only up to
+$\tau^3$-tails (the display chooses a splitting; only $A_1$ and the pinned
+$\sigma_i$ are canonical). Step~7's quotient computation is nonetheless
+\textbf{lift-independent}~--- the relation $2\tau^3=0$ kills the ambiguity
+in the quotient, verified as a dedicated gate (M4)~--- and this is exactly
+what makes the statement's ``discrimin\-ant class'' well defined in
+$H^6(B;\Z)$ despite the R7-marked ambiguity in $H^6(\BK)$. The paper never
+says so explicitly; half a clause in Step~7 would close it.
+
+Neither finding is a defect in a claim; both are one-clause polish
+opportunities of the same species as R7 was (a marking), strictly weaker:
+nothing downstream depends on them.
+
+\section*{4. The integration points (re-assessed, all clean)}
+
+Lemma~6.17 is unchanged (degrees $\le 4$ only) and its references to the
+proposition and the machine certificate remain accurate. Remark~6.19's
+residuals list names the lattice layer and the twice-a-generator position,
+which G3L genuinely certifies; the phrase ``a self-contained
+invariant-theory step'' now points at a correct, self-contained step.
+Remark~6.18's differentiation clause remains accurate. The statement is
+internally consistent with Step~7, and the ``discriminant class'' is well
+defined in $H^6(B)$ by the lift-independence gate. The main article
+correctly stays at v10: its sync clauses are prose-level and contain no
+proof internals (verified), so nothing in the v12 repairs creates a drift.
+The open-problem (vi) discharge is unaffected.
+
+\section*{5. Referee's summary}
+
+The first pass asked whether the proof was \emph{correct}; this pass asked
+whether the \emph{repaired} proof \emph{reads} as a proof --- whether the
+eleven surgical hunks, each verified in isolation by their own waves,
+compose into a text a reader can walk through without tripping over a
+seam. They do. The forward-dependency structure is sound (and where it
+exists it is either marked or, per F1, one clause short of being marked);
+the load-bearing dependency created by the repairs (Step~5's completeness
+resting on the R4 pin) is supplied rather than silent; the superseded
+statements are gone everywhere; the corrected top-degree story is told
+consistently in the statement, Steps 2/3/7, and the certificate remark;
+and the two independent verification layers (W31's G3L, W32's twelve
+gates) are now joined by this pass's 178 checks, which re-derive the whole
+chain from the orbit decomposition up. The residue --- two optional
+clauses --- is the honest size of what remains.
+
+The mathematics, final state: $x^2\ne 0$ in $H^4(B;\Z)$; $x$ generating
+$H^2$ and $x^2$ generating $H^4$; the additive tuple
+$(\Z,0,\Z/3,\Z/3,\Z/3,\Z/3,\Z)$; and $H^6(B;\Z)\cong\Z$ with the
+discriminant twice a generator --- hand-derived, machine-certified,
+independently re-implemented, referee-verified, lattice-gated,
+referee-complete, and now second-pass confirmed. \texttt{thm:state-d2} and
+$\delta_2(\mathcal D(\C^3))=4/3$ untouched; the ququart bracket
+$[4/3,\,3/2]$ open; the W23 stop stands.
+
+\textbf{Overall recommendation: accept} --- the revision requested by
+Wave~30 has been executed (W31: R1; W32: R2--R7, adjudicated) and survives
+a full second read; the two polish items F1/F2 are optional.
+
+\section*{6. Artifacts}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \texttt{w33\_second\_pass\_check.py} --- the independent exact-integer
+verifier (13 gate families, 178 checks: the seam/textual layer P1--P5 and
+the mathematical layer M1--M8, including the new lift-independence gate M4
+and the $\sigma_1/\sigma_2$-bookkeeping gates M5).
+\item \texttt{w33\_second\_pass\_output.txt} +
+\texttt{w33\_second\_pass\_check.json} --- the transcript and the
+structured record (all PASS, exit 0), with the honest debug trail of the
+four checker-code bugs caught en route.
+\item \texttt{WAVE33\_SECOND\_REFEREE\_PASS.md} --- the wave note; this
+document is its LaTeX rendition.
+\end{itemize}
+
+\end{document}
