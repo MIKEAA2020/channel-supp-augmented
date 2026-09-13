@@ -1,0 +1,97 @@
+==============================================================================
+REF CHECK 1  --  Step 2 module claim: index of Z[s] (+) D Z[s] in M_d^C3
+==============================================================================
+Delta^2 == classical discriminant: True
+degree 0: #orbits(invariants rank) =  1 | module rank =  1 | index [M^C : module] = 1
+degree 1: #orbits(invariants rank) =  1 | module rank =  1 | index [M^C : module] = 1
+degree 2: #orbits(invariants rank) =  2 | module rank =  2 | index [M^C : module] = 1
+degree 3: #orbits(invariants rank) =  4 | module rank =  4 | index [M^C : module] = 2
+degree 4: #orbits(invariants rank) =  5 | module rank =  5 | index [M^C : module] = 2
+degree 5: #orbits(invariants rank) =  7 | module rank =  7 | index [M^C : module] = 4
+degree 6: #orbits(invariants rank) = 10 | module rank = 10 | index [M^C : module] = 8
+degree 7: #orbits(invariants rank) = 12 | module rank = 12 | index [M^C : module] = 16
+degree 8: #orbits(invariants rank) = 15 | module rank = 15 | index [M^C : module] = 32
+
+==============================================================================
+REF CHECK 2  --  the degree-3 witness:  S1 = x1^2 x2 + x2^2 x3 + x3^2 x1
+==============================================================================
+Delta == S1 - S2 : True
+S1 + S2 == s1 s2 - 3 s3 : True
+2*S1 == s1 s2 - 3 s3 + Delta : True
+integer solution of S1 = a s1^3 + b s1 s2 + c s3 + e Delta : [{a: 0, b: 1/2, c: -3/2, e: 1/2}]
+
+==============================================================================
+REF CHECK 3  --  Step 3 tau-rule: H^2(C3; M_d) = M^C / N M_d, detection
+==============================================================================
+(rule: tau.f = [coeff of (x1 x2 x3)^{d/3} in f] mod 3; 0 if 3 does not divide d)
+  tau . sigma_1            (deg 1): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . sigma_2            (deg 2): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . sigma_3            (deg 3): rule says 1/3 ; norm-check in N·M_d = False ; agree = True
+  tau . sigma_1^3          (deg 3): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . Delta              (deg 3): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . sigma_1 sigma_2    (deg 3): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . S1 (orbit sum)     (deg 3): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . sigma_2^2          (deg 4): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . sigma_1 sigma_3    (deg 4): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+  tau . Delta sigma_1      (deg 4): rule says 0/3 ; norm-check in N·M_d = True ; agree = True
+
+  tau-powers: H^{2k}(C3; Z) = Z/3 for all k >= 1  (periodic): -- standard
+
+==============================================================================
+REF CHECK 4  --  Step 4 pin data: Chern classes of the regular rep of C3
+==============================================================================
+c(1 (+) omega (+) omega^2) = 2*u**2 + 3*u + 1
+c1 = 3u  ( = 0 in Z[u]/(3u) ) : True
+c2 = 2u^2                       : True
+c3 = 0                          : True
+
+==============================================================================
+REF CHECK 5  --  Step 5 crux:  (Z s2 (+) Z/3 t2) / <s2 + 2 t2>
+==============================================================================
+SNF of relations [[1,2],[0,3]]: free rank = 0 , invariant factors = [1, 3]
+order of the class of t2 = (0,1): 3  (nonzero and = 3 => tau^2 survives, generates)
+s2 = (1,0) ~ -(2) t2 => its class is 2[t2] (also nonzero): 3
+full E_inf^{4,0} = (Z s1^2 (+) Z s2 (+) Z/3 t2)/<s1^2, s2+2t2>: same Z/3, image of t2 unchanged (s1^2 is a direct-summand quotient).
+
+==============================================================================
+REF CHECK 6  --  Step 7, total degree 6:  H^6(B) = M_3^C / <s1^3, s1 s2, s3>
+==============================================================================
+image lattice inside the invariant lattice (integral): True
+H^6(B) = M_3^C / <s1^3, s1 s2, s3>:  free rank = 1 , torsion invariant factors = [1, 1, 1]   => H^6(B;Z) = Z
+
+  -- express [S1] and [Delta] in the rank-1 quotient --
+  relation matrix rows (images in invariant basis {A1,S1,S2,s3}):
+Matrix([[1, 3, 3, 6], [0, 1, 1, 3], [0, 0, 0, 1]])
+  Delta - 2*S1 lies in the image lattice: True
+  Delta - S1 lies in the image lattice (would give [Delta]=[S1]): False
+  S1 lies in the image lattice (would kill the quotient): False
+  => if Delta-2S1 in lattice, Delta-S1 NOT in lattice, S1 NOT in lattice:
+     H^6(B) = Z.<[S1]>  and  [Delta] = 2[S1]  (discriminant = TWICE a generator)
+
+==============================================================================
+REF CHECK 7  --  Step 5 slot inventory, total degree 4 (H^*(BK) free ranks)
+==============================================================================
+H^0(BK) free rank = 1   (H^0(BK) total deg 0)
+H^2(BK) free rank = 1   (H^2(BK) total deg 2)
+H^4(BK) free rank = 2   (H^4(BK) total deg 4)
+H^6(BK) free rank = 4   (H^6(BK) total deg 6)
+H^4(BK) free part = <sigma_1^2, sigma_2> exactly?  index of module: 1
+H^2(BK) free part = <sigma_1>: index: 1
+H^6(BK) free part: module index: 2   <-- the false lattice statement (index 2)
+
+==============================================================================
+SUMMARY
+==============================================================================
+{
+ "module_index": {
+  "0": 1,
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 2,
+  "5": 4,
+  "6": 8,
+  "7": 16,
+  "8": 32
+ }
+}
