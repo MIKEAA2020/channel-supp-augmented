@@ -1,0 +1,17 @@
+{
+ "gates": {
+  "R2A": true,
+  "R3": true,
+  "R2B": true,
+  "R2C": true,
+  "R2D": true,
+  "R2E": true,
+  "R4A": true,
+  "R4B": true,
+  "R5": true,
+  "R6": true,
+  "R7A": true,
+  "R7B": true
+ },
+ "all_pass": true
+}
