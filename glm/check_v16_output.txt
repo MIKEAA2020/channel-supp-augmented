@@ -1,0 +1,35 @@
+=== Wave 37 checker: 32 checks ===
+[PASS]  1. instruments: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS]  2. instruments: restored author template present
+[PASS]  3. instruments: version date restored under title
+[PASS]  4. instruments: reconstruction gate (new == source + 3 hunks, byte-identical)
+[PASS]  5. instruments: .txt byte-mirror of .tex
+[PASS]  6. instruments: label multiset unchanged
+[PASS]  7. instruments: ref/eqref/cite multiset unchanged
+[PASS]  8. instruments: captions byte-identical
+[PASS]  9. instruments: section ledger (only Acknowledgements removed)
+[PASS] 10. instruments: bibitem keys unchanged
+[PASS] 11. instruments: bib bodies identical except the companion entry
+[PASS] 12. instruments: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 13. main: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS] 14. main: restored author template present
+[PASS] 15. main: version date restored under title
+[PASS] 16. main: reconstruction gate (new == source + 3 hunks, byte-identical)
+[PASS] 17. main: .txt byte-mirror of .tex
+[PASS] 18. main: label multiset unchanged
+[PASS] 19. main: ref/eqref/cite multiset unchanged
+[PASS] 20. main: captions byte-identical
+[PASS] 21. main: section ledger (only Acknowledgements removed)
+[PASS] 22. main: bibitem keys unchanged
+[PASS] 23. main: bib bodies identical except the companion entry
+[PASS] 24. main: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 25. instruments: page count within tolerance of the 53-page baseline  (53 -> 53 pages (unchanged))
+[PASS] 26. instruments: page-1 title-block render needles (xx/ORCID/Email/date)  (all present)
+[PASS] 27. instruments: full-text blind sweep (PDF text)
+[PASS] 28. instruments: de-anonymized companion citation renders
+[PASS] 29. main: page count within tolerance of the 46-page baseline  (46 -> 46 pages (unchanged))
+[PASS] 30. main: page-1 title-block render needles (xx/ORCID/Email/date)  (all present)
+[PASS] 31. main: full-text blind sweep (PDF text)
+[PASS] 32. main: de-anonymized companion citation renders
+
+32/32 PASS, 0 FAILURES

@@ -1,0 +1,30 @@
+=== diff audit ===
+instruments v15 -> v16 (unblinded): 12 changed diff lines
+    -\author{[Author names withheld for review]}
+    -\date{}
+    +\author{xx xx\\
+    +\small xx\\
+    +\small ORCID: xx\\
+    +\small Email: \href{mailto:xx\_xx@xx.xx.xx}{xx\_xx@xx.xx.xx}}
+    +\date{September 14, 2026}
+    -\section*{Acknowledgements}
+    -Funding and acknowledgements are withheld for double-blind review.
+    -
+    -[Authors anonymized for review], \emph{Exact diamond balls, antipodal widths, and query-uniform compression bounds for quantum channels}, submitted f
+    +xx~xx, \emph{Exact diamond balls, antipodal widths, and query-uniform compression bounds for quantum channels}, submitted for publication (2026). (Su
+main v12 -> v13 (unblinded): 12 changed diff lines
+    -\author{[Author names withheld for review]}
+    -\date{}
+    +\author{xx xx\\
+    +\small xx\\
+    +\small ORCID: xx\\
+    +\small Email: \href{mailto:xx\_xx@xx.xx.xx}{xx\_xx@xx.xx.xx}}
+    +\date{September 14, 2026}
+    -\section*{Acknowledgements}
+    -Funding and acknowledgements are withheld for double-blind review.
+    -
+    -[Authors anonymized for review],
+    +xx~xx,
+
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v16/instruments-paper-unblinded16.tex
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v16/main-article-unblinded13.tex
