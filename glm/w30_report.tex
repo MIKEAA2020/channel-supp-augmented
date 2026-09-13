@@ -1,0 +1,416 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=darkgray,
+    urlcolor=blue,
+    bookmarks=true,
+    bookmarksnumbered=true,
+    unicode=true
+]{hyperref}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\BK}{\mathrm{BK}}
+\newcommand{\BU}{\mathrm{BU}}
+\newcommand{\Fl}{\mathrm{Fl}}
+\newcommand{\BKg}{B\kappa}
+\newcommand{\tors}{\,\mathrm{tors}}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries A Referee-Style Read of Proposition 6.16}\\[4pt]
+{\itshape The cup square on the flag quotient: a hand derivation}\\[6pt]
+{\small Instruments manuscript v10, source lines 1857--2084,}\\
+{\small with the integration points: Lemma 6.17, Remarks 6.18--6.19, the open-problem list,}\\
+{\small and the abstract/intro/conclusion provenance phrases}\\[6pt]
+{\small Wave 30 \,\textbullet\, 2026-09-13 \,\textbullet\, channel-supp-augmented}
+\end{center}
+\vspace{4pt}
+
+\noindent\textbf{Charge and method.} Every step of the seven-step proof was
+re-derived by hand, independently of the manuscript and of the wave-13C/28
+machine data, and every checkable arithmetic claim was re-computed by an
+exact-integer script (\texttt{w30\_referee\_check.py}) written from scratch
+for this read. The machine tuple was consulted only at the end, as a
+comparison, never as an input --- the same discipline the wave itself claims,
+and the claim survives this referee's audit of it.
+
+\section*{1. Verdict, up front}
+
+\textbf{The Proposition is correct in its principal assertions and the proof
+route is sound.} The assertion $x^2\ne 0$ in $H^4(B;\Z)$ --- the decision bit
+that discharges the machine premise of Lemma~6.17 --- is proved by a valid
+chain (the homogeneous-space model, the pullback of the universal fibration,
+Borel's transgression with the $\varepsilon=2$ pin, the collapsed
+$BT^3$-page, the torsion-survival crux, and the edge identification); the
+additive tuple
+$(\Z,0,\Z/3,\Z/3,\Z/3,\Z/3,\Z)$ is correct; and the claims that $x$ generates
+$H^2$ and $x^2$ generates $H^4$ are correct.
+
+\textbf{One substantive correction is required (Finding~R1):} the final
+clause of the statement --- ``and a discriminant class generating $H^6$'' ---
+is false as stated. In $H^6(B;\Z)\cong\Z$ the discriminant class is
+\emph{twice} a generator. The error originates in Step~2's integral module
+statement, which is true rationally but false integrally (an index-2
+sublattice, with the index growing in higher degrees). The correction is
+local: the groups, the crux, the lemma, and the downstream theorem chain
+(Theorem~6.13's plane-valued extension, \texttt{thm:state-d2}, and
+$\delta_2(\mathcal D(\C^3))=4/3$) are all unaffected.
+
+\textbf{Recommendation: accept with a minor revision} --- R1's local
+correction plus the six one-line repairs R2--R7 below. In journal terms:
+\emph{correct and resubmit; no new mathematics needed.}
+
+\section*{2. What was independently re-verified (all confirmed)}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+
+\item \textbf{Step 0 (the homogeneous-space model).}
+$\Fl=U(3)/T^3$ with the flag lines the column spans; the deck transformation
+$c$ is right multiplication by the permutation matrix $\sigma$ (column
+shift), which normalises $T^3$; the $\langle c\rangle$-orbits are exactly the
+right cosets of $K=T^3\rtimes\langle\sigma\rangle$, so $B=U(3)/K$. Verified,
+including the harmless convention ambiguity ($\sigma$ versus $\sigma^{-1}$
+generates the same $K$).
+
+\item \textbf{Step 1 (the fibration and its transgressions).} The Borel
+construction $EU(3)\times_K U(3)\to\BK$ is the associated bundle with fibre
+the left $K$-space $U(3)$; the total space is weakly equivalent to
+$K\backslash U(3)\cong B$; the map $[e,g]\mapsto eg$ exhibits it as the
+pullback of the universal $U(3)$-bundle along $B\iota$, with the identity on
+fibres --- so the Serre-SS differentials are the pulled-back universal ones by
+naturality, and the local system is trivial because left translations by
+elements of the connected $U(3)$ are homotopic to the identity. The
+transgression $d_{2i}(z_{2i-1})=c_i$ is classical (Borel), as cited.
+
+\item \textbf{Step 2 (the cohomology of $\BK$) --- the groups.} The collapse
+argument of the $BT^3\to\BK\to BC_3$ page is airtight: with the
+permutation-orbit decomposition of each $\operatorname{Sym}^d$, an even-$r$
+differential targets an odd fibre degree (where $H^{\mathrm{odd}}(BT^3)=0$)
+and an odd-$r$ differential targets an odd, positive group degree (permutation
+modules are acyclic; the trivial summands have $H^{\mathrm{odd}}(C_3;\Z)=0$).
+The free ranks equal the Burnside orbit counts (re-computed for $d\le8$:
+$1,1,2,4,5,7,10,12,15$), and the torsion sits in bidegrees $(2k,6a)$, $k\ge1$,
+one $\Z/3$ each. Confirmed.
+
+\item \textbf{Step 3 (the torsion product rule) --- the arithmetic.} All the
+$\tau$-products used in the proof were re-computed from the norm model
+$H^2(C_3;M_d)=M_d^{C_3}/NM_d$: $\tau\sigma_1=\tau\sigma_2=\tau\Delta=
+\tau\sigma_1^3=\tau\sigma_1\sigma_2=0$ (the $(\chi_1\chi_2\chi_3)$-coefficients
+$0,0,0,6,3$ respectively) and $\tau\sigma_3\ne0$ (coefficient $1$),
+generating the $(2,6)$-slot; $\tau^k\ne0$ for all $k$. The display
+$H^4(\BK)\cong\Z\sigma_1^2\oplus\Z\sigma_2\oplus\Z/3\cdot\tau^2$ is correct
+\emph{as a lattice}: the degree-2 orbit sums
+$\chi_1^2+\chi_2^2+\chi_3^2=\sigma_1^2-2\sigma_2$ and
+$\chi_1\chi_2+\chi_2\chi_3+\chi_3\chi_1=\sigma_2$ generate exactly
+$\langle\sigma_1^2,\sigma_2\rangle$ (index~1, verified). This matters: the
+degrees the crux needs are exactly the safe ones.
+
+\item \textbf{Step 4 (the transgression values).} The Chern-root restriction
+$c_i(\chi)=\sigma_i(\chi)$ on the fibre; the splitting $s\colon BC_3\to\BK$
+through $\sigma\mapsto(1;\sigma)$; the composite classifies the regular
+representation $1\oplus\omega\oplus\omega^2$, whose Chern classes in
+$\Z[u]/(3u)$ are $c_1=3u=0$, $c_2=2u^2$, $c_3=0$ (re-computed:
+$(1+0u)(1+1u)(1+2u)=1+3u+2u^2$). The section kills positive fibre degree, so
+$2u^2=\varepsilon u^2$ pins \textbf{$\varepsilon=2$} and $0=\varepsilon'u^3$
+pins \textbf{$\varepsilon'=0$}; $s^*(\tau^2)=u^2$ is the ring-map image. All
+confirmed.
+
+\item \textbf{Step 5 (the crux) --- the heart of the proof.} The incoming
+images into the $(4,0)$-slot are $\langle\sigma_1^2\rangle$ (from
+$d_2(\beta z_1)=\beta\sigma_1$; note $\tau\sigma_1=0$ kills the torsion part
+of the image) and $\langle\sigma_2+2\tau^2\rangle$ (from $d_4(z_3)$); nothing
+leaves $(4,0)$; the $(0,4)$-term dies under $d_2(z_1z_3)=\sigma_1z_3\ne0$
+(injective, free target); the $(2,2)$- and odd slots vanish. Hence
+\[
+E_\infty^{4,0}=\bigl(\Z\sigma_2\oplus\Z/3\cdot\tau^2\bigr)
+\big/\langle\sigma_2+2\tau^2\rangle\cong\Z/3,
+\]
+the Smith normal form of
+$\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)$
+giving $[\tau^2]$ of order $3$, nonzero, generating
+(with $[\sigma_2]=-2[\tau^2]$). \textbf{The crux is correct.} (See~R5 on the
+phrasing.)
+
+\item \textbf{Step 6 (the edge).} The edge of the fibration's spectral
+sequence is the projection pullback; the cover $\Fl\to B$ is the
+$T^3$-quotient of the principal $K$-bundle $U(3)\to B$, hence classified by
+$\pi\circ\gamma$ with $\gamma$ the classifying map --- functoriality of the
+associated-bundle construction, rigorous. So $\kappa=\pi\circ\gamma$ and
+$x=\kappa^*(u)=\gamma^*(\tau)$ (see~R6 for a convention remark), and
+$x^2=\gamma^*(\tau^2)=[\tau^2]\ne0$. Confirmed --- \textbf{the main assertion
+holds.}
+
+\item \textbf{Step 7 (the remaining degrees).} Degree~2:
+$H^2(B)=\Z/3$, generated by the edge image of $\tau$ (that is, $x$).
+Degree~3: $d_2(\sigma_1z_1)=\sigma_1^2\ne0$ kills the free part of $(2,1)$
+while $d_2(\tau z_1)=\tau\sigma_1=0$ leaves $\Z/3\cdot\tau z_1$; $z_3$ dies
+under $d_4$ --- and the image $\sigma_2+2\tau^2$ has \emph{infinite order},
+so $d_4$ is injective on $\Z z_3$; this is exactly the point where the
+derivation correctly diverges from the lens model (there the transgression
+image is torsion and $3z_3$ survives). Degree~5: the free $(4,1)$-classes die
+under $d_2$ ($\tau^2\sigma_1=\tau(\tau\sigma_1)=0$ survives); $\tau z_3$ dies
+under $d_4(\tau z_3)=\tau(\sigma_2+2\tau^2)=2\tau^3\ne0$; $z_5$ dies under
+$d_6(z_5)=\sigma_3\ne0$; so $H^5=\Z/3\cdot\tau^2z_1$. Degree~6: the group is
+$\Z$ (see R1 for the generator). The mixed terms die transversally as
+claimed. The degree runs are all correct.
+
+\item \textbf{The tuple.} $(\Z,0,\Z/3,\Z/3,\Z/3,\Z/3,\Z)$, independently,
+and the UCT inversion matches the wave-13C/28 machine homology tuple
+$(\Z,\Z/3,\Z/3,\Z/3,\Z/3,0,\Z)$ --- read only as a comparison, as the wave
+states. Euler characteristic $2=6/3$, consistent.
+
+\item \textbf{The Lemma 6.17 decision logic.} $x^2=\kappa^*(u^2)$ is the
+edge image of $u^2$ through $E_\infty^{4,0}=\operatorname{coker}
+d_3^{1,2}$; a nonzero image forces the cokernel nonzero; a
+$\Z/3\to\Z/3$ map with nonzero cokernel is zero; so $d_3^{1,2}=0$ and
+$H^3=H^4=\Z/3$ with $x^2$ generating. Sound; the page-level computations
+($E_2^{1,2}=\Z/3$ via the norm/invariants on $H^2(\Fl)$, the vanishing
+fixed-vector argument on $H^4(\Fl)$) re-verified.
+
+\item \textbf{The lens-model validation (G7).} Re-derived by hand:
+$SU(2)\to ESU(2)\times_{C_3}SU(2)\to BC_3$ with $d_4(z_3)=2u^2$ (the pin for
+the two-dimensional representation $\omega\oplus\omega^2$) reproduces
+$H^*(L(3;1))=(\Z,0,\Z/3,\Z)$ with the surviving $3z_3$ --- the mechanism,
+and the contrast with the flag case, are exactly as the wave reports. The
+$\R\mathrm{P}^2\times S^2$ companion case pins the other world ($x^2=0$,
+$d_3$ an isomorphism), as recorded in Wave~24.
+\end{itemize}
+
+\section*{3. Finding R1 (substantive) --- the integral module statement and
+the $H^6$-generator clause}
+
+\textbf{What is claimed.} Step~2: ``the free part is
+$\Z[\sigma_1,\sigma_2,\sigma_3]\oplus\Delta\cdot\Z[\sigma_1,\sigma_2,
+\sigma_3]$'', justified by rank reproduction (the orbit count equals the
+monomial count of the module). Step~3 displays
+$H^6(\BK)\cong\Z\{\sigma_1^3,\sigma_1\sigma_2,\sigma_3,\Delta\}\oplus
+\Z/3\cdot\tau^3$. Step~7 concludes $H^6(B)\cong\Z\cdot\langle\Delta\rangle$,
+``the top class being the discriminant'', and the \emph{statement} asserts
+``a discriminant class generating $H^6$''.
+
+\textbf{What is wrong.} The rank-reproduction argument proves only that the
+displayed module is a \emph{finite-index} sublattice of the invariant
+(orbit-sum) lattice $M_d^{C_3}=H^{2d}(\BK)/\tors$ (the edge
+$H^{2d}(\BK)\to E_\infty^{0,2d}=H^0(C_3;\operatorname{Sym}^d)$ is surjective
+with torsion kernel). Integral equality fails from degree~3 on. The index,
+computed exactly:
+\[
+\bigl[M_d^{C_3}:\text{module}\bigr]_{d=0,\dots,8}
+=\bigl(1,\;1,\;1,\;2,\;2,\;4,\;8,\;16,\;32\bigr).
+\]
+The degree-3 witness: the orbit sum
+$S_1=\chi_1^2\chi_2+\chi_2^2\chi_3+\chi_3^2\chi_1$ is invariant, and
+\[
+S_1+S_2=\sigma_1\sigma_2-3\sigma_3,\qquad
+S_1-S_2=\Delta\qquad\Longrightarrow\qquad
+2S_1=\sigma_1\sigma_2-3\sigma_3+\Delta,
+\]
+so the linear system $S_1=a\sigma_1^3+b\sigma_1\sigma_2+c\sigma_3+e\Delta$
+forces $b=e=\tfrac12$ --- no integer solution. Over $\Q$ the module statement
+is of course true (2 invertible), which is why the rational cohomology
+remark in Step~7 survives.
+
+\textbf{How it propagates.} Two paths, both confined to degree~6. First, the
+Step~3 display is correct as an abstract group ($\Z^4\oplus\Z/3$) but false
+as an identification via the named classes: they span an index-2 sublattice
+of the free part; the true free part is the orbit-sum lattice
+$\langle A_1,S_1,S_2,\sigma_3\rangle$ with
+$A_1=\chi_1^3+\chi_2^3+\chi_3^3$. Second, Step~7's degree-6 quotient, run on
+the true lattice $M_3^{C_3}/\langle\sigma_1^3,\sigma_1\sigma_2,\sigma_3
+\rangle$, is $\cong\Z$ (free rank~1, no torsion --- verified), but the
+generator is the class of the \textbf{orbit sum} $S_1$: the relations give
+$[S_2]=-[S_1]$, $[A_1]=0$, $[\sigma_3]=0$, hence
+\[
+[\Delta]=[S_1-S_2]=2\,[S_1],
+\]
+\textbf{the discriminant class is twice a generator}. Verified exactly:
+$\Delta-2S_1$ lies in the image lattice, while $\Delta-S_1$ and $S_1$ do not.
+So both ``$\cong\Z\cdot\langle\Delta\rangle$'' (Step~7) and ``a discriminant
+class generating $H^6$'' (the statement) are incorrect as stated; the group
+$\Z$ is correct.
+
+\textbf{What is not affected.} The crux and everything downstream of it: the
+crux lives in fibre-degrees $\le2$, where the module statement is exact
+(index~1, verified); the $\tau$-rule is a monomial computation, independent
+of the module presentation; the classes $\sigma_1,\sigma_2,\sigma_3$ are
+pinned as canonical classes (Chern-class pullbacks) in Step~4, not via the
+module statement; and Lemma~6.17, the plane-valued theorem,
+\texttt{thm:state-d2}, and $\delta_2(\mathcal D(\C^3))=4/3$ use only
+$H^2/H^3/H^4$ and the decision bit. The additive tuple --- the object the
+three independent routes agree on --- is untouched. The rational statement
+$H^*(B;\Q)=\Q\oplus\Q\cdot\bar\Delta$ remains correct (and is the right
+framing for the discriminant).
+
+\textbf{Why the wave's gates did not catch it.} Gate~G3 of
+\texttt{w29\_derivation\_check.py} compares the \emph{ranks} (orbit count
+versus $\mathrm{nmons}(d)+\mathrm{nmons}(d-3)$) --- an index-2 sublattice is
+invisible to a rank check. (G10 compares groups; $\Z$ matches $\Z$.) This is
+a gate-design gap, not an execution failure: the gates certified exactly what
+they tested, and the manuscript then asserted slightly more than the gates
+certified.
+
+\textbf{The repair (mechanical, about six lines of source).}
+(i)~Step~2: replace the module equality by the orbit-sum lattice statement
+(state the module over $\Q$ with the integral free ranks given separately;
+optionally note the index). (ii)~Step~3: replace the $H^6(\BK)$ generating
+set by the orbit sums $\{A_1,S_1,S_2,\sigma_3\}$, or display the group
+abstractly. (iii)~Step~7: conclude $H^6(B;\Z)\cong\Z$ generated by the
+class of the orbit sum $S_1$, with the discriminant twice a generator.
+(iv)~The statement: replace ``a discriminant class generating $H^6$'' by
+``$H^6(B;\Z)\cong\Z$, in which the discriminant class is twice a generator''
+(or drop the clause --- the tuple is the operative content).
+(v)~Add a lattice-index gate to the verifier (membership of $S_1$ in the
+module lattice, or the index table above) so the correction is certified.
+(vi)~The wave-29 note and the commit message record ``$H^6=\Z\cdot\Delta$'';
+the correction wave should note the supersession.
+
+\section*{4. Findings R2--R7 (minor; one-line repairs each)}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{R2 (Step 1).} The parenthetical justifying $d_r=0$ for
+$r\notin\{2,4,6\}$ reads ``$r$ even forces an odd $q$-degree in the target,
+where $H^{\mathrm{odd}}(U(3))=0$'' --- but $H^{\mathrm{odd}}(U(3))\ne0$
+($z_1,z_3,z_5$ are odd-degree classes). The claim is true; the correct
+justification is two-step: (i)~$r$ odd forces an odd, positive $p$-degree in
+the target, where $H^{\mathrm{odd}}(\BK)=0$; (ii)~$r$ even, $r\ge8$ forces
+the only possible source fibre-degrees to be $8$ and $9$ ($z_3z_5$,
+$z_1z_3z_5$), and those classes are already killed by $d_2/d_4$ (e.g.\
+$d_4(\beta z_3z_5)=\beta(\sigma_2+2\tau^2)z_5\ne0$ for every $\beta$, free or
+torsion). Reword the parenthetical.
+
+\item \textbf{R3 (Step 5).} The enumeration of the total-degree-4 terms
+silently omits $(2,2)$. It vanishes because $H^2(U(3);\Z)=0$ --- one clause.
+
+\item \textbf{R4 (Step 4).} The parenthetical ``the free generator is the
+unique class restricting to $\sigma_1(\chi)$, since the torsion restricts to
+zero'' does not establish uniqueness: the classes restricting to
+$\sigma_1(\chi)$ are the coset $\sigma_1+b\tau$, $b\in\{0,1,2\}$. The
+constant $b$ \emph{is} pinned --- by the same splitting the paragraph then
+uses for $\varepsilon,\varepsilon'$: $s^*\iota^*c_1=c_1(\mathrm{reg})=3u=0$
+and $s^*(\sigma_1+b\tau)=bu$ force $b=0$. Add the $c_1$ case to the pinning
+sentence.
+
+\item \textbf{R5 (Step 5).} ``A finite-order element never lies in a subgroup
+generated by an infinite-order element'' rules out membership in each image
+subgroup \emph{separately}, but the quotient is by their \emph{sum}. The gap
+is closed by the displayed two-step quotient (first split off the
+$\Z\sigma_1^2$ direct summand --- the image of $\tau^2$ is unchanged by a
+direct-summand quotient --- and only then mod out by the single remaining
+relation); the conclusion is correct (SNF-verified). One sentence would make
+it airtight.
+
+\item \textbf{R6 (Step 6).} The identification of the transported projection
+with the classifying map $\gamma$ --- hence the exact equality
+$x=\gamma^*(\tau)$ --- is correct in substance but depends on the alignment
+of the deck-action convention with the $C_3$-structure on the associated
+bundle. The robustness note: the only possible discrepancy is a sign in
+$\Z/3$ ($x=\pm\gamma^*(\tau)$), and the conclusion $x^2=\gamma^*(\tau^2)$ is
+invariant under it ($2^2=4\equiv1\bmod3$). A one-line remark removes the
+dependence on the reader's convention bookkeeping.
+
+\item \textbf{R7 (Step 3).} The claim $\tau\Delta=0$ is sensitive to the
+choice of the $\Delta$-lift's torsion component (the $\tau$-rule controls
+the leading graded component; a torsion tail of the lift could contribute a
+deeper $\tau\cdot(\text{tail})$ term), and no pin is given for that tail. The
+claim is never used downstream (the crux and the degree runs use only
+$\tau\sigma_1=\tau\sigma_2=\tau^2\sigma_1=0$ and $\tau\sigma_3,\tau^3\ne0$,
+all sound because the $\sigma_i$ are pinned pure by Step~4's splitting), so
+nothing fails --- but either pin the tail, or mark the claim as
+lift-dependent. (Also $\tau\sigma_1\sigma_2=0$ holds --- coefficient $3$ ---
+if wanted for symmetry of the display.)
+\end{itemize}
+
+\section*{5. The integration points (assessed)}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Lemma 6.17.} The rewritten proof --- the page-level computation,
+the two-worlds statement, and the hand decision via Proposition~6.16 with the
+machine retained as the cross-check --- is sound and correctly scoped. No
+changes needed beyond R1's knock-on (none reaches the lemma: it uses degrees
+$\le4$ only).
+\item \textbf{Remark 6.19 (the machine certificate).} The
+three-independent-routes framing (hand derivation, cellulation,
+re-implementation) is fair and survives this read. Two phrases deserve
+adjustment after R1: ``a self-contained invariant-theory step'' is where the
+false module statement lives, and ``the invariant lattice \dots\ verified by
+an exact-integer script'' overstates what G3 tested (ranks). Suggested
+rewording: the invariant-theory input is the orbit decomposition and the
+$\tau$-rule (monomial arithmetic, script-verified); the module presentation
+is corrected per R1.
+\item \textbf{Remark 6.18 (the flag-quotient literature).} The
+differentiation from the Guerra--Jana programme (symmetric-group quotients
+with field coefficients, in the service of Auerbach counting, versus the
+cyclic intermediate quotient with integral coefficients and torsion
+exponents pinned, in the service of the width chain) is accurate, and the
+characterisation of the hand derivation as ``the integral lift of the
+transgression route'' is now referee-confirmed in substance: the fibration
+comparison, the Chern-class transgressions, and the invariant-theoretic
+replacement of the field-coefficient module algebra are all present and
+correct; the torsion-survival argument (Step~5) is exactly the layer the
+field algorithms do not address. No changes needed.
+\item \textbf{Open problem (vi).} The discharge is substantively valid: what
+the open problem asked for (the hand derivation of the cohomology deciding
+the lemma) is delivered. The R1 correction does not reopen it; the remaining
+neighbourhood direction stated there (the unstable integral cohomology of
+the symmetric-group quotients) is correctly identified.
+\item \textbf{Abstract/intro/conclusion provenance phrases}
+(``hand-derived, machine-certified, and independently re-implemented''):
+accurate for what they assert (the additive cohomology of $B$ and the
+cup-square decision); the main article's sync clauses are likewise fine. No
+changes required by this read beyond R1's local fixes in the instruments
+paper.
+\end{itemize}
+
+\section*{6. The referee's summary of the mathematical content}
+
+The route is a genuine integral lift of the Guerra--Jana transgression
+mechanism, not a notational variant of it: the pullback identification of the
+Borel fibration (Step~1) is what makes the transgressions \emph{known}
+rather than re-computed; the collapse of the $BT^3$-page (Step~2) is the
+replacement for the field-coefficient module algebra; the $\varepsilon=2$ pin
+(Step~4) is a clean use of the splitting section and the regular
+representation; and the torsion-survival crux (Step~5) --- three lines of
+order arithmetic that decide an element's survival against infinite-order
+relations --- is the integral layer the cited programme does not touch. The
+proof is checkable line by line, which was the point of the wave, and this
+referee's independent re-computation confirms it in every load-bearing
+place. The single defect found (R1) sits in the decorative layer --- the
+ring/module presentation and the top-degree generator --- which is also
+where a machine cross-check is least able to help: torsion-free rank-one
+groups do not expose generator ambiguities. That is a fitting place for the
+residual human error, and a fitting note on which to recommend revision
+rather than rejection.
+
+\section*{7. Artifacts of this wave}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \texttt{w30\_referee\_check.py} --- the independent exact-integer
+verifier (seven check families: the module indices per degree; the degree-3
+witness; the $\tau$-rule versus the norm computations; the
+regular-representation Chern classes; the crux SNF and the order of
+$[\tau^2]$; the degree-6 quotient with the $[\Delta]=2[S_1]$ membership
+tests; the free-rank inventory).
+\item \texttt{w30\_referee\_check\_output.txt} --- the transcript (all checks
+pass in the directions asserted; the two \emph{disconfirming} results are the
+module index table and the $[\Delta]=2[S_1]$ triple membership test, i.e.\
+exactly the R1 evidence).
+\item The full note \texttt{WAVE30\_REFEREE\_READ.md} in the \texttt{glm/}
+folder of the companion repository, mirrored with the script and transcript;
+committed and pushed with the session token (handled via a transient
+\texttt{GIT\_ASKPASS} helper, never echoed, never committed).
+\end{itemize}
+
+\end{document}
