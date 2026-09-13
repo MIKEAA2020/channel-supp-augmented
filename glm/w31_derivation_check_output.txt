@@ -1,0 +1,187 @@
+== G1: orbit decomposition of Sym^d under the cyclic shift ==
+  d=0: 1 orbits, fixed monomials [(0, 0, 0)]  OK
+  d=1: 1 orbits, fixed monomials []  OK
+  d=2: 2 orbits, fixed monomials []  OK
+  d=3: 4 orbits, fixed monomials [(1, 1, 1)]  OK
+  d=4: 5 orbits, fixed monomials []  OK
+  d=5: 7 orbits, fixed monomials []  OK
+  d=6: 10 orbits, fixed monomials [(2, 2, 2)]  OK
+  d=7: 12 orbits, fixed monomials []  OK
+  d=8: 15 orbits, fixed monomials []  OK
+[PASS] G1: fixed monomials of Sym^d are exactly (chi1 chi2 chi3)^a
+
+== G2: H^p(C_3; Sym^d) via the standard resolution ==
+  d=0: invariant rank 1 vs orbit count 1 OK
+  d=1: invariant rank 1 vs orbit count 1 OK
+  d=2: invariant rank 2 vs orbit count 2 OK
+  d=3: invariant rank 4 vs orbit count 4 OK
+  d=4: invariant rank 5 vs orbit count 5 OK
+  d=5: invariant rank 7 vs orbit count 7 OK
+  d=6: invariant rank 10 vs orbit count 10 OK
+  d=0: rank(N) = 1 (expected 1) OK
+  d=1: rank(N) = 1 (expected 1) OK
+  d=2: rank(N) = 2 (expected 2) OK
+  d=3: rank(N) = 4 (expected 4) OK
+[PASS] G2: cyclic cohomology of the Sym^d modules matches the orbit model
+
+== G3: invariant ring Z[chi]^{C_3} = Z[sigma_1,sigma_2,sigma_3] + Delta.Z[sigma_1,sigma_2,sigma_3] ==
+  sigma_1, sigma_2, sigma_3, Delta are C_3-invariant  OK
+  Delta^2 = discriminant: OK
+  degree 0: #orbits 1 vs module rank 1 OK
+  degree 1: #orbits 1 vs module rank 1 OK
+  degree 2: #orbits 2 vs module rank 2 OK
+  degree 3: #orbits 4 vs module rank 4 OK
+  degree 4: #orbits 5 vs module rank 5 OK
+  degree 5: #orbits 7 vs module rank 7 OK
+  degree 6: #orbits 10 vs module rank 10 OK
+  degree 7: #orbits 12 vs module rank 12 OK
+  degree 8: #orbits 15 vs module rank 15 OK
+[PASS] G3: invariant ring identification + Delta^2 = discriminant
+
+== G3L (wave 31): lattice-index layer -- the orbit-sum lattice vs the module ==
+  (root cause of referee finding R1: G3 compares RANKS only; an
+   index-2 sublattice is invisible to a rank check.  Here the integral
+   fine structure is computed exactly: M_d = the orbit-sum invariant
+   lattice, L_d = the module Z[sigma]_d + Delta.Z[sigma]_{d-3}.)
+  degree 0: [M_d : module] = 1 (expected 1) OK
+  degree 1: [M_d : module] = 1 (expected 1) OK
+  degree 2: [M_d : module] = 1 (expected 1) OK
+  degree 3: [M_d : module] = 2 (expected 2) OK
+  degree 4: [M_d : module] = 2 (expected 2) OK
+  degree 5: [M_d : module] = 4 (expected 4) OK
+  degree 6: [M_d : module] = 8 (expected 8) OK
+  degree 7: [M_d : module] = 16 (expected 16) OK
+  degree 8: [M_d : module] = 32 (expected 32) OK
+  -> the module is CONTAINED in the orbit-sum lattice (integral), the
+     two coincide rationally (finite index), and the index is ONE in
+     degrees 0,1,2 -- exactly the degrees of the Step-5 crux, so the
+     H^2/H^4 displays Z sigma_1 and Z sigma_1^2 (+) Z sigma_2 are exact
+     lattice statements (the referee's 'safe degrees').
+  S1 + S2 + 3 sigma_3 = sigma_1 sigma_2 : OK
+  S1 - S2 = Delta : OK
+  2 S1 = sigma_1 sigma_2 - 3 sigma_3 + Delta : OK
+  sigma_1^3 = A1 + 3(S1 + S2) + 6 sigma_3 : OK
+  the degree-3 witness: S1 = a sigma_1^3 + b sigma_1 sigma_2 + c sigma_3 + e Delta has the UNIQUE rational solution
+    {'a': '0', 'b': '1/2', 'c': '-3/2', 'e': '1/2'}  -> b = e = 1/2, NOT integral: S1 NOT in the module lattice OK
+  2 S1 IS in the module lattice : OK
+  relations in the invariant basis {A1, S1, S2, sigma_3}: [[1, 3, 3, 6], [0, 1, 1, 3], [0, 0, 0, 1]]
+  M_3/<sigma_1^3, sigma_1 sigma_2, sigma_3>: free rank 1, invariant factors [1, 1, 1] -> Z, no torsion : OK
+  the torsion relation 2 tau^3 = 0 kills the order-3 class tau^3 (gcd(2,3) = 1) : OK
+  Delta - 2 S1 lies in the relation lattice : OK
+  Delta - S1 NOT in the relation lattice (so [Delta] != [S1]) : OK
+  S1 NOT in the relation lattice (so [S1] != 0, the quotient lives) : OK
+[PASS] G3L: lattice-index layer: orbit-sum lattice, module indices (1,1,1,2,2,4,8,16,32), the S1 witness, H^6(B) = Z.<[S1]> with [Delta] = 2[S1]
+
+== G4: collapse of the BT^3 -> BK -> BC_3 spectral sequence ==
+  every d_r (r=2..15) from a nonzero term lands in a zero term  OK
+[PASS] G4: the BT^3-SS collapses: no differential connects nonzero terms
+
+== G5: tau . f = [fixed-monomial coefficient of f mod 3] ==
+  tau.sigma_1 = 0 (expected 0) OK
+  tau.sigma_2 = 0 (expected 0) OK
+  tau.Delta = 0 (expected 0) OK
+  tau.sigma_3 = 1 (expected 1) OK
+  tau.sigma_1^2 = 0 (expected 0) OK
+  tau.sigma_1.sigma_2 = 0 (expected 0) OK
+  tau.sigma_1^3 = 0 (expected 0) OK
+  tau.sigma_1.sigma_3 = 0 (expected 0) OK
+  tau.sigma_3^2 = 1 (expected 1) OK
+  tau.Delta.sigma_1 = 0 (expected 0) OK
+  tau.Delta.sigma_3 = 0 (expected 0) OK
+[PASS] G5: tau-detection arithmetic (tau.sigma_1 = tau.sigma_2 = tau.Delta = 0, tau.sigma_3 = 1)
+
+== G6: Chern classes of the regular representation of C_3 ==
+  c_1 = 0, c_2 = 2 (2u^2), c_3 = 0  OK
+[PASS] G6: epsilon-pin data: c_2(regular) = 2u^2, c_1 = c_3 = 0
+
+== G7: MODEL CASE - SU(2) -> L^3(3;1) -> BC_3 ==
+  H^4(L^3(3;1)) from d_4(z_3)=2u^2: (0, []) (expect 0) OK
+  H^3(L^3(3;1)) = ker(d_4) = 3Z ~ Z (transfer edge)  OK
+  H^2(L^3(3;1)) = Z/3: (0, [3]) OK
+[PASS] G7: lens model case: H^*(L^3(3;1)) = (Z,0,Z/3,Z) reproduced
+
+== G8: the main Serre SS run (U(3) -> B -> BK), integral ==
+  R: a.t = [] (expected []) OK
+  R: b.t = [] (expected []) OK
+  R: d.t = [] (expected []) OK
+  R: c.t = [('t.y', 1)] (expected [('t.y', 1)]) OK
+  R: t.t = [('t^2', 1)] (expected [('t^2', 1)]) OK
+  R: t^2.t = [('t^3', 1)] (expected [('t^3', 1)]) OK
+  R: a.t^2 = [] (expected []) OK
+  R: b.t^2 = [] (expected []) OK
+  R: c.t^2 = [('t^2.y', 1)] (expected [('t^2.y', 1)]) OK
+  R: d.c = [('c.d', 1)] (expected [('c.d', 1)]) OK
+  H^0(BK) = Z.1
+  H^2(BK) = Z.a + Z/3.t
+  H^4(BK) = Z.b + Z.a^2 + Z/3.t^2
+  H^6(BK) = Z.c + Z.a.b + Z.a^3 + Z.d + Z/3.t^3
+  H^8(BK) = Z.b^2 + Z.a.c + Z.a^2.b + Z.a^4 + Z.a.d + Z/3.t.y + Z/3.t^4
+
+  total complex blocks (total <= 8):
+    C^0: [((0, 0), '1', 'Z')]
+    C^1: [((0, 1), '1', 'Z')]
+    C^2: [((2, 0), 'a', 'Z'), ((2, 0), 't', 'Z/3')]
+    C^3: [((0, 3), '1', 'Z'), ((2, 1), 'a', 'Z'), ((2, 1), 't', 'Z/3')]
+    C^4: [((0, 4), '1', 'Z'), ((4, 0), 'b', 'Z'), ((4, 0), 'a^2', 'Z'), ((4, 0), 't^2', 'Z/3')]
+    C^5: [((0, 5), '1', 'Z'), ((2, 3), 'a', 'Z'), ((2, 3), 't', 'Z/3'), ((4, 1), 'b', 'Z'), ((4, 1), 'a^2', 'Z'), ((4, 1), 't^2', 'Z/3')]
+    C^6: [((0, 6), '1', 'Z'), ((2, 4), 'a', 'Z'), ((2, 4), 't', 'Z/3'), ((6, 0), 'c', 'Z'), ((6, 0), 'a.b', 'Z'), ((6, 0), 'a^3', 'Z'), ((6, 0), 'd', 'Z'), ((6, 0), 't^3', 'Z/3')]
+    C^7: [((2, 5), 'a', 'Z'), ((2, 5), 't', 'Z/3'), ((4, 3), 'b', 'Z'), ((4, 3), 'a^2', 'Z'), ((4, 3), 't^2', 'Z/3'), ((6, 1), 'c', 'Z'), ((6, 1), 'a.b', 'Z'), ((6, 1), 'a^3', 'Z'), ((6, 1), 'd', 'Z'), ((6, 1), 't^3', 'Z/3')]
+    C^8: [((0, 8), '1', 'Z'), ((2, 6), 'a', 'Z'), ((2, 6), 't', 'Z/3'), ((4, 4), 'b', 'Z'), ((4, 4), 'a^2', 'Z'), ((4, 4), 't^2', 'Z/3'), ((8, 0), 'b^2', 'Z'), ((8, 0), 'a.c', 'Z'), ((8, 0), 'a^2.b', 'Z'), ((8, 0), 'a^4', 'Z'), ((8, 0), 'a.d', 'Z'), ((8, 0), 't.y', 'Z/3'), ((8, 0), 't^4', 'Z/3')]
+[PASS] G8a: D^2 = 0 on the total complex (Leibniz-sign coherence)
+
+  H^n (total complex cohomology):
+    H^0: struct (1, [])  classes [((0, 0), '1', 0)]
+    H^1: struct (0, [])  classes []
+    H^2: struct (0, [3])  classes [((2, 0), 't', 3)]
+    H^3: struct (0, [3])  classes [((2, 1), 't', 3)]
+    H^4: struct (0, [3])  classes [((4, 0), 'b', 3), ((4, 0), 't^2', 3)]
+    H^5: struct (0, [3])  classes [((4, 1), 't^2', 3)]
+    H^6: struct (1, [])  classes [((6, 0), 'd', 0)]
+
+  total-degree checks:
+    H^0: (1, []) expected (1, []) OK
+    H^1: (0, []) expected (0, []) OK
+    H^2: (0, [3]) expected (0, [3]) OK
+    H^3: (0, [3]) expected (0, [3]) OK
+    H^4: (0, [3]) expected (0, [3]) OK
+    H^5: (0, [3]) expected (0, [3]) OK
+    H^6: (1, []) expected (1, []) OK
+    H^2: t at (2, 0): tau generates H^2 = Z/3 OK
+    H^3: t at (2, 1): tau z1 generates H^3 = Z/3 OK
+    H^4: t^2 at (4, 0): tau^2 survives in H^4 (x^2 != 0) OK
+    H^5: t^2 at (4, 1): tau^2 z1 generates H^5 = Z/3 OK
+    H^6: d at (6, 0): Delta generates H^6 = Z OK
+    boundary relation: d_4(z_3) = sigma_2 + 2 tau^2 exactly: OK
+    H^3: 1 at (0, 3) dies: z3 is not a total-3 cocycle (d_4(z3) != 0) OK
+    H^4: a^2 at (4, 0) dies: sigma_1^2 vanishes in H^4 (d_2 image) OK
+    H^2: a at (2, 0) dies: sigma_1 vanishes in H^2 (d_2 image) OK
+    H^6: c at (6, 0) dies: sigma_3 vanishes in H^6 (d_6 image) OK
+    H^6: t^3 at (6, 0) dies: tau^3 vanishes in H^6 (d_4 image 2 tau^3) OK
+    H^5: t at (2, 3) dies: tau z3 is not a total-5 cocycle (d_4 != 0) OK
+[PASS] G8: the total-complex run reproduces H^*(B) = (Z,0,Z/3,Z/3,Z/3,Z/3,Z) with the expected generators
+
+== G9: the crux - tau^2 survives; x^2 = gamma^*(tau^2) != 0 ==
+  orders in H^4(BK): t^2->3 (3), a^2(sigma_1^2)->0 (Z), b(sigma_2)->0 (Z)
+  H^4-classes at the (4,0)-block = [((4, 0), 'b', 3), ((4, 0), 't^2', 3)]  (tau^2 survives: the transgression images <sigma_1^2> and <sigma_2 + 2 tau^2> are generated by infinite-order classes; the order-3 class tau^2 never lies in such subgroups)
+[PASS] G9: x^2 = gamma^*(tau^2) != 0 in H^4(B;Z) = Z/3
+
+== G10: corroboration against the machine tuple (double-check only)==
+  machine tuple: ['Z', 'Z/3', 'Z/3', 'Z/3', 'Z/3', '0', 'Z']
+  derived homology (UCT inversion): ['Z', 'Z/3', 'Z/3', 'Z/3', 'Z/3', '0', 'Z']
+[PASS] G10: derived tuple == machine tuple (corroboration only)
+
+================ SUMMARY ================
+  G1: PASS
+  G2: PASS
+  G3: PASS
+  G3L: PASS
+  G4: PASS
+  G5: PASS
+  G6: PASS
+  G7: PASS
+  G8a: PASS
+  G8: PASS
+  G9: PASS
+  G10: PASS
+
+ALL GATES: PASS

@@ -1,0 +1,36 @@
+{
+ "gates": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G3L": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true,
+  "G8a": true,
+  "G8": true,
+  "G9": true,
+  "G10": true
+ },
+ "all": true,
+ "derived_cohomology": [
+  "Z",
+  "0",
+  "Z/3",
+  "Z/3",
+  "Z/3",
+  "Z/3",
+  "Z"
+ ],
+ "derived_homology": [
+  "Z",
+  "Z/3",
+  "Z/3",
+  "Z/3",
+  "Z/3",
+  "0",
+  "Z"
+ ],
+ "x_squared_nonzero": true
+}
