@@ -1,0 +1,10 @@
+=== diff audit ===
+instruments v17 -> v18 (keyword line to six): 2 changed diff lines
+    -\noindent\textbf{Keywords:} quantum instruments; diamond norm; compression width; antipodal profile; Chebyshev radius; quantum measurements; flag man
+    +\noindent\textbf{Keywords:} quantum instruments; diamond norm; compression width; Chebyshev radius; equivariant cohomology; Borsuk--Ulam theorem.
+main v14 -> v15 (keyword line to six): 2 changed diff lines
+    -\noindent\textbf{Keywords:} quantum channel compression; diamond norm; antipodal width; exact in-radius; Borsuk--Ulam theorem; quantum combs; nonline
+    +\noindent\textbf{Keywords:} quantum channel compression; diamond norm; antipodal width; exact in-radius; nonlinear approximation; Borsuk--Ulam theore
+
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v18/instruments-paper-unblinded18.tex
+Wrote: /home/z/my-project/channel-supp-augmented/manuscript uploads v18/main-article-unblinded15.tex

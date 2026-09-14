@@ -1,0 +1,10 @@
+== instruments ==
+   warning lines: new 24 vs baseline 26
+   per-signature multiplicity ratios (new/base): [0.75, 1.0]
+   raw warning lines identical modulo basename + the documented keywords-line overfull removal: YES
+== main ==
+   warning lines: new 54 vs baseline 54
+   per-signature multiplicity ratios (new/base): [1.0]
+   raw warning lines identical modulo basename + the documented keywords-line overfull removal: YES
+
+VERDICT: PASS -- zero new typesetting defects; signature sets identical to the fresh v17/v14 baselines; the only raw delta is the documented removal of the v17 keywords-line 0.19pt overfull (the trimmed v18 line fits)

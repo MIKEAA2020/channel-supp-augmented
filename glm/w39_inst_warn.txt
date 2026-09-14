@@ -1,0 +1,25 @@
+warning: instruments-paper-unblinded18.tex:752: Overfull \hbox (2.99362pt too wide) in paragraph at lines 751--752
+warning: instruments-paper-unblinded18.tex:1302: Underfull \hbox (badness 10000) in paragraph at lines 1302--1302
+warning: instruments-paper-unblinded18.tex:1304: Underfull \hbox (badness 4108) in paragraph at lines 1304--1304
+warning: instruments-paper-unblinded18.tex:1305: Underfull \hbox (badness 1107) in paragraph at lines 1304--1305
+warning: instruments-paper-unblinded18.tex:1306: Underfull \hbox (badness 10000) in paragraph at lines 1306--1306
+warning: instruments-paper-unblinded18.tex:2386: Overfull \hbox (3.33519pt too wide) in paragraph at lines 2353--2386
+warning: instruments-paper-unblinded18.tex:2830: Underfull \hbox (badness 1067) in paragraph at lines 2829--2830
+warning: instruments-paper-unblinded18.tex:2833: Underfull \hbox (badness 1226) in paragraph at lines 2832--2833
+warning: instruments-paper-unblinded18.tex:2834: Underfull \hbox (badness 10000) in paragraph at lines 2833--2834
+warning: instruments-paper-unblinded18.tex:2834: Underfull \hbox (badness 10000) in paragraph at lines 2833--2834
+warning: instruments-paper-unblinded18.tex:2941: Overfull \hbox (0.14252pt too wide) in paragraph at lines 2940--2941
+warning: instruments-paper-unblinded18.tex:752: Overfull \hbox (2.99362pt too wide) in paragraph at lines 751--752
+warning: instruments-paper-unblinded18.tex:1302: Underfull \hbox (badness 10000) in paragraph at lines 1302--1302
+warning: instruments-paper-unblinded18.tex:1304: Underfull \hbox (badness 4108) in paragraph at lines 1304--1304
+warning: instruments-paper-unblinded18.tex:1305: Underfull \hbox (badness 1107) in paragraph at lines 1304--1305
+warning: instruments-paper-unblinded18.tex:1305: Underfull \hbox (badness 3323) in paragraph at lines 1304--1305
+warning: instruments-paper-unblinded18.tex:1305: Underfull \hbox (badness 3138) in paragraph at lines 1304--1305
+warning: instruments-paper-unblinded18.tex:1306: Underfull \hbox (badness 10000) in paragraph at lines 1306--1306
+warning: instruments-paper-unblinded18.tex:2386: Overfull \hbox (11.59149pt too wide) in paragraph at lines 2353--2386
+warning: instruments-paper-unblinded18.tex:2830: Underfull \hbox (badness 1067) in paragraph at lines 2829--2830
+warning: instruments-paper-unblinded18.tex:2833: Underfull \hbox (badness 1226) in paragraph at lines 2832--2833
+warning: instruments-paper-unblinded18.tex:2834: Underfull \hbox (badness 10000) in paragraph at lines 2833--2834
+warning: instruments-paper-unblinded18.tex:2834: Underfull \hbox (badness 10000) in paragraph at lines 2833--2834
+warning: instruments-paper-unblinded18.tex:2941: Overfull \hbox (0.14252pt too wide) in paragraph at lines 2940--2941
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

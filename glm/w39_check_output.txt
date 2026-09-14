@@ -1,0 +1,57 @@
+=== Wave 39 checker: 54 checks ===
+[PASS]  1. instruments: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS]  2. instruments: placeholder sweep (no xx fields remain in source)
+[PASS]  3. instruments: the wave-38 identity author block retained (byte-exact)
+[PASS]  4. instruments: version date unchanged under title
+[PASS]  5. instruments: declarations section retained (byte-exact, brief)
+[PASS]  6. instruments: the new six-keyword line present (byte-exact)
+[PASS]  7. instruments: keyword line carries exactly 6 entries  (found 6: ['quantum instruments', 'diamond norm', 'compression width', 'Chebyshev radius', 'equivariant cohomology', 'Borsuk--Ulam theorem'])
+[PASS]  8. instruments: keyword entries = the six kept ones (order kept)  (got ['quantum instruments', 'diamond norm', 'compression width', 'Chebyshev radius', 'equivariant cohomology', 'Borsuk--Ulam theorem'])
+[PASS]  9. instruments: dropped entries absent from the keyword line  (present: [])
+[PASS] 10. instruments: reconstruction gate (new == source + 1 hunk, byte-identical)
+[PASS] 11. instruments: .txt byte-mirror of .tex
+[PASS] 12. instruments: label multiset unchanged
+[PASS] 13. instruments: ref/cite multiset unchanged (no deltas this wave)  (delta = 0 (expected 0))
+[PASS] 14. instruments: captions byte-identical
+[PASS] 15. instruments: section ledger unchanged
+[PASS] 16. instruments: bibitem keys unchanged
+[PASS] 17. instruments: bibitem bodies all identical
+[PASS] 18. instruments: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 19. instruments: source line count unchanged (warning line numbers preserved)
+[PASS] 20. main: blind-marker sweep (withheld/anonymiz/blind, ci)
+[PASS] 21. main: placeholder sweep (no xx fields remain in source)
+[PASS] 22. main: the wave-38 identity author block retained (byte-exact)
+[PASS] 23. main: version date unchanged under title
+[PASS] 24. main: declarations section retained (byte-exact, brief)
+[PASS] 25. main: the new six-keyword line present (byte-exact)
+[PASS] 26. main: keyword line carries exactly 6 entries  (found 6: ['quantum channel compression', 'diamond norm', 'antipodal width', 'exact in-radius', 'nonlinear approximation', 'Borsuk--Ulam theorem'])
+[PASS] 27. main: keyword entries = the six kept ones (order kept)  (got ['quantum channel compression', 'diamond norm', 'antipodal width', 'exact in-radius', 'nonlinear approximation', 'Borsuk--Ulam theorem'])
+[PASS] 28. main: dropped entries absent from the keyword line  (present: [])
+[PASS] 29. main: reconstruction gate (new == source + 1 hunk, byte-identical)
+[PASS] 30. main: .txt byte-mirror of .tex
+[PASS] 31. main: label multiset unchanged
+[PASS] 32. main: ref/cite multiset unchanged (no deltas this wave)  (delta = 0 (expected 0))
+[PASS] 33. main: captions byte-identical
+[PASS] 34. main: section ledger unchanged
+[PASS] 35. main: bibitem keys unchanged
+[PASS] 36. main: bibitem bodies all identical
+[PASS] 37. main: math-delimiter parity ($ count unchanged, no math touched)
+[PASS] 38. main: source line count unchanged (warning line numbers preserved)
+[PASS] 39. instruments: page count = the 53-page baseline  (53 -> 53 pages (unchanged))
+[PASS] 40. instruments: page-1 title-block render needles (name/affiliation/ORCID/email/date)  (all present)
+[PASS] 41. instruments: page-1 rendered Keywords line: 6 kept entries present  (all present)
+[PASS] 42. instruments: page-1 rendered Keywords line: dropped entries absent  (none)
+[PASS] 43. instruments: full-text blind sweep (PDF text)
+[PASS] 44. instruments: full-text placeholder sweep (PDF text, no xx fields)  (none)
+[PASS] 45. instruments: declarations render needles  (all present)
+[PASS] 46. instruments: de-anonymized companion citation renders
+[PASS] 47. main: page count = the 46-page baseline  (46 -> 46 pages (unchanged))
+[PASS] 48. main: page-1 title-block render needles (name/affiliation/ORCID/email/date)  (all present)
+[PASS] 49. main: page-1 rendered Keywords line: 6 kept entries present  (all present)
+[PASS] 50. main: page-1 rendered Keywords line: dropped entries absent  (none)
+[PASS] 51. main: full-text blind sweep (PDF text)
+[PASS] 52. main: full-text placeholder sweep (PDF text, no xx fields)  (none)
+[PASS] 53. main: declarations render needles  (all present)
+[PASS] 54. main: de-anonymized companion citation renders
+
+54/54 PASS, 0 FAILURES
