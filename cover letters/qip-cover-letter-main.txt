@@ -1,0 +1,58 @@
+Amin Abaee                                                                                 September 14, 2026
+Independent Researcher
+Email: amin_abaee@ut.ac.ir
+ORCID: 0000-0002-0019-1842
+
+The Editors
+Quantum Information Processing
+Springer Nature
+
+Re: Submission of the research article Exact Diamond Balls, Antipodal Widths, and Query-Uniform Com-
+pression Bounds for Quantum Channels
+
+Dear Editors,
+I am pleased to submit the manuscript cited above — a 46-page, single-author research article — for consid-
+eration in Quantum Information Processing.
+The manuscript develops an exact, dimension-by-dimension theory of compression for quantum channels: for
+channels acting between ﬁxed ﬁnite-dimensional systems, how many continuous latent parameters suﬃce to
+encode an arbitrary channel and reconstruct it with uniformly small diamond-norm error, when the encoder
+is continuous and the decoder unrestricted? This is a continuous analogue of nonlinear approximation the-
+ory, distinct from tomography, which counts channel uses, and from programmable processors, which ﬁx a
+decoding device. The optimal error is characterized as the minimal worst-case radius of the encoder’s ﬁbers.
+Lower bounds follow from antipodal pairs and latent-collision topology via Borsuk–Ulam arguments and the
+deleted-product coindex — even input-independent output preparation forces error one below the output-state
+dimension — while the largest diamond-norm ball inside the channel body is determined exactly: centered at
+the completely depolarizing channel, it is at once the optimal center and the optimal constant decoder, with
+exact covering radius, so the two envelopes meet at the exact width at zero latent dimension. Constructive
+upper bounds from convex projection and balanced pinching bracket the intermediate regime and close the
+gap in the collapse case and from the aﬃne dimension on, where exact reconstruction is possible. Every
+ﬁnite-query adaptive network induces a continuous ﬁnal code, so the same bottlenecks hold uniformly in the
+number of queries, with a one-query informationally complete measurement attaining the injective threshold
+and an O(N −1/2 ) repetition rate.
+The question is a basic resource-theoretic one for quantum information: the memory cost of representing, simu-
+lating, and communicating noisy dynamics with guaranteed worst-case accuracy. The neighbouring literature
+is largely asymptotic or architecture-speciﬁc, whereas the manuscript identiﬁes exact thresholds and certiﬁed
+two-sided bounds that hold for every continuous encoder of the stated latent type, with accuracy measured
+in the diamond norm, the standard single-shot distinguishability distance for channels. Such architecture-
+agnostic bounds delimit what any compression scheme can achieve.
+A companion paper, Exact Aﬃne Geometry, Optimal Centres, Certiﬁed Compression Bounds, and Flag-
+Quotient Width Obstructions for Finite-Outcome Quantum Instruments, is being submitted separately to the
+journal. It treats ﬁnite-outcome instruments and proves the ﬂag-quotient ﬂatness dichotomy invoked in the
+input-independent case of the present manuscript; the two papers are self-contained, cite each other explicitly,
+and can be reviewed independently.
+The submission lies squarely within the journal’s scope. Quantum Information Processing publishes exper-
+imental and theoretical research across the entire spectrum of quantum information science, and this is a
+pure quantum-information-theory contribution written in the ﬁeld’s standard formalism. The minimal latent
+dimension for faithful channel representation, and the topological obstructions to attaining it, are of direct
+interest to the journal’s readership in channel simulation, quantum communication, and resource-eﬃcient
+information processing.
+I conﬁrm that the manuscript is original, unpublished, and not under consideration elsewhere; I am its sole
+author, with no funding and no competing interests to declare, and the purely theoretical work generated no
+datasets.
+Thank you for your consideration. I look forward to the outcome of the review.
+
+Yours sincerely,
+
+Amin Abaee
+Independent Researcher
+Email: amin_abaee@ut.ac.ir

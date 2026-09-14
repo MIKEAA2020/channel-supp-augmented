@@ -1,0 +1,104 @@
+=== check-tex: qip-cover-letter-main.tex ===
+{
+  "pass": true,
+  "source": "channel-supp-augmented/cover letters/qip-cover-letter-main.tex",
+  "check_type": "tex",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "TABULAR_NO_FLOAT",
+      "message": "Line 72: \\begin{tabular} not inside a table/table* float environment. Table will be inline (no caption, no \\label, no float positioning).",
+      "severity": "warning"
+    },
+    {
+      "code": "TABULARX_NOT_LOADED",
+      "message": "Document has 1 tabular environment(s) but tabularx package is not loaded. Add \\usepackage{tabularx} to preamble for auto-width column support.",
+      "severity": "warning"
+    }
+  ],
+  "info": [
+    {
+      "code": "TABLE_SUMMARY",
+      "message": "Tables: 1 tabular, 0 tabularx, 0 tabular*. Two-column: no.",
+      "severity": "info"
+    }
+  ]
+}
+=== check-tex: qip-cover-letter-instruments.tex ===
+{
+  "pass": true,
+  "source": "channel-supp-augmented/cover letters/qip-cover-letter-instruments.tex",
+  "check_type": "tex",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "TABULAR_NO_FLOAT",
+      "message": "Line 72: \\begin{tabular} not inside a table/table* float environment. Table will be inline (no caption, no \\label, no float positioning).",
+      "severity": "warning"
+    },
+    {
+      "code": "TABULARX_NOT_LOADED",
+      "message": "Document has 1 tabular environment(s) but tabularx package is not loaded. Add \\usepackage{tabularx} to preamble for auto-width column support.",
+      "severity": "warning"
+    }
+  ],
+  "info": [
+    {
+      "code": "TABLE_SUMMARY",
+      "message": "Tables: 1 tabular, 0 tabularx, 0 tabular*. Two-column: no.",
+      "severity": "info"
+    }
+  ]
+}
+=== pdf_qa: main ===
+========================================================
+  PDF Quality Assurance Report
+========================================================
+
+ℹ️  Info:
+   File: qip-cover-letter-main.pdf
+   Size: 21.6 KB
+   Total text colors: 0 (chromatic: 0)
+   Fonts used: AKHCZK+LMMathSymbols7-Regular, BZIVMZ+LMRoman10-Italic, CAFSZL+LMMathItalic7-Regular, IHAIZV+LMRoman10-Regular, IXFAWU+LMRoman10-Bold, TQTHRL+LMMathItalic10-Regular, VDVGTR+LMRoman7-Regular, YEUUOC+LMRoman10-Regular
+
+✅ Passed (10):
+   Title metadata present ✓
+   Author metadata present ✓
+   Creator metadata present ✓
+   Single-page document, size consistent ✓
+   No blank pages ✓
+   Punctuation placement check passed ✓
+   All fonts are embedded ✓
+   No content overflow ✓
+   Single-page document, skipping content fill ratio check ✓
+   Left/right margins appear symmetric ✓
+
+--------------------------------------------------------
+🎉 PASS — All checks passed!
+--------------------------------------------------------
+=== pdf_qa: instruments ===
+========================================================
+  PDF Quality Assurance Report
+========================================================
+
+ℹ️  Info:
+   File: qip-cover-letter-instruments.pdf
+   Size: 23.9 KB
+   Total text colors: 0 (chromatic: 0)
+   Fonts used: AKHCZK+LMRoman7-Regular, BZIVMZ+LMRoman10-Italic, CAFSZL+LMMathSymbols10-Regular, IHAIZV+LMRoman10-Regular, IXFAWU+LMRoman10-Bold, TQTHRL+LMMathItalic10-Regular, VDVGTR+LMRoman10-Regular, YEUUOC+LMMathItalic7-Regular
+
+✅ Passed (10):
+   Title metadata present ✓
+   Author metadata present ✓
+   Creator metadata present ✓
+   Single-page document, size consistent ✓
+   No blank pages ✓
+   Punctuation placement check passed ✓
+   All fonts are embedded ✓
+   No content overflow ✓
+   Single-page document, skipping content fill ratio check ✓
+   Left/right margins appear symmetric ✓
+
+--------------------------------------------------------
+🎉 PASS — All checks passed!
+--------------------------------------------------------

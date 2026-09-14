@@ -1,0 +1,4 @@
+[main] rendered word count: 557
+[instruments] rendered word count: 570
+
+RESULT: 154 PASS, 0 FAIL

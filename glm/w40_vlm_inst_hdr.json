@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Yes. The exact reading is **Amin Abaee**.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1789348340,
+  "id": "2026091409121972a82217a4cc4b1d",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026091409121972a82217a4cc4b1d",
+  "usage": {
+    "completion_tokens": 15,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1016
+  }
+}
